@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this architecture or code, please cite it as below."
+title: "PlastFormer: Self-Governed Idiographic Memory for Frozen-Core Transformers"
+authors:
+  - family-names: Voronin
+    given-names: Alexey
+    affiliation: Aurum Estate LLC
+version: "0.3"
+date-released: "2026-09-04"
+license: Apache-2.0
+repository-code: "https://github.com/alexenti-code/plastformer"
+keywords:
+  - long-term memory
+  - LLM agents
+  - parametric memory
+  - memory governance
+  - bi-temporal
+  - forgetting
