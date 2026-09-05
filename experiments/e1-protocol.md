@@ -41,7 +41,7 @@ Built from the real project; scripted in advance (the experimenter drives all 20
 - **R5.** ≥ 10 repeated facts at varying intervals (tests repetition/re-amplification in Arm C).
 - **R6.** ≥ 10 unanswerable probes (things never stated; abstention is correct — punishes confabulation).
 
-**Ground-truth ledger** (bi-temporal): every R1–R5 event logged with (message_no, world_time, stated_value, superseded_by). The ledger is the scoring oracle. In E1 one user message is one exchange is one tick, so `message_no` is also the lived-tick index `n` of the event (§5, Tick).
+**Ground-truth ledger** (bi-temporal): every R1–R5 event logged with (message_no, world_time, stated_value, superseded_by). The ledger is the scoring oracle. In E1 one user message is one exchange; the stand's lived-tick counter advances once per executed memory act (§5, Tick), so it tracks exchanges monotonically. `message_no` orders events in the ledger; amplitude dynamics use the stand counter (`record_tick`/`n_now`), not `message_no`.
 
 ## 5. Arm C: stand specification (symbolic × split(PMI) × prompted)
 
@@ -55,7 +55,7 @@ Built from the real project; scripted in advance (the experimenter drives all 20
 
 **Storage.** Append-only record store; no edit, no delete, no filtering by weight, no semantic index. Record = {content, act type, layer (τ component), provenance: source class + source id, bi-temporal stamps (`valid_time`, `record_time`), `record_tick`, `refs`}. Budget: whatever 2000 exchanges produce; no compaction during the run.
 
-**Tick.** One exchange (user → model → response) = +1 tick. The stand increments the counter (`TICKS.log`); the model does not. Probe messages are exchanges and count as ticks. `matryoshka_tick` remains in the tool surface for compatibility, but in `ticks` mode it does not change the counter; it is not offered to the model in E1 and is not a model act.
+**Tick.** One executed memory act (WRITE/REPEAT/CONNECT/RECONCILE) = +1 tick. The stand increments the counter (`TICKS.log`); the model does not. Over a run this tracks exchanges monotonically (exchanges with acts advance it, exchanges without acts do not); probe messages advance it only if the model executes a memory act in that exchange. `matryoshka_tick` remains in the tool surface for compatibility, but in `ticks` mode it does not change the counter; it is not offered to the model in E1 and is not a model act.
 
 **Decay.** Per component:
 
