@@ -1,0 +1,10 @@
+# PlastFormer — public/internal boundary (see docs/ADR-002-docs-architecture.md)
+docs/INTERNAL.md
+drafts/*-private*
+*.local
+.env
+runs/*-secret*
+# hygiene
+.DS_Store
+*.pyc
+__pycache__/
