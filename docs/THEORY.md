@@ -139,7 +139,6 @@ Continuity of an instance is described as following from preservation of Φ: the
 - Tick economics at a provider: which product model makes the split (PMI) topology possible.
 - Which tests distinguish PlastFormer memory from ordinary storage with a wrapper (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION P2/P5).
 - How bi-temporal stamps are represented in a parametric substrate.
-- Derived-trace (`connect`) attribution in a multi-tenant regime (provider-allocated plastic memory per user): how summaries citing erased subjects are re-derived or removed.
 
 ## 9. Honest boundary: what is unbuilt
 
