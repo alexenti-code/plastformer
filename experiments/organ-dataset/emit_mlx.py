@@ -4,7 +4,7 @@
 Assembles chat-format examples (MLX `messages` format):
   system    = compact act grammar ONLY (no memory content)
   user      = conversation so far (sliding window of real messages,
-              including the model's own act blocks and <<MMI>> results)
+              including the model's own act blocks and <<PMI>> results)
   assistant = response text + JSON act block(s)   (target of the example)
 
 Includes recovery examples (BENCH-2026-09-04 pattern D): empty context ->
@@ -41,14 +41,14 @@ SYSTEM_PROMPT = """\
 - repeat — усилить существующую запись: {"act":"repeat",...,"record_tick":<N>,"refs":[<id записи>]}
 - connect — связать записи медленной записью-сводкой: {"act":"connect","content":"<сводка только из связанных записей>","layer":"...","valid_time":"...","record_tick":<N>,"refs":[<id>,...]}
 - reconcile — отметка сверки биографии и времени: {"act":"reconcile","content":"...","layer":"...","record_tick":<N>,"refs":[<id>,...]}
-- read — прочитать свои записи: {"act":"read","mode":"last|ids|from/to","count":<N>}; результат придёт блоком <<MMI>>.
+- read — прочитать свои записи: {"act":"read","mode":"last|ids|from/to","count":<N>}; результат придёт блоком <<PMI>>.
 
 layer — скорость затухания (τ), выбирается по горизонту факта, без значения \
 по умолчанию: beat (часы), episode (текущий эпизод), day (сутки), \
 project (весь проект), life (личность). Для connect/reconcile бери медленный слой.
 
 Правила: записывай только то, что прозвучало; не выдумывай; record_tick — \
-счётчик тактов записи (виден в подтверждениях <<MMI>>; для нового акта — \
+счётчик тактов записи (виден в подтверждениях <<PMI>>; для нового акта — \
 на 1 больше последнего); refs — только существующие id; если ответа нет в \
 истории — сначала read, затем отвечай «в нашей истории этого не было»."""
 
@@ -76,7 +76,7 @@ def public_record(rec):
 
 def transcript_of(bio, acts):
     """Linearized exchange transcript: [(role, content, meta)] with roles
-    user / assistant / mmi. meta = {'message_no', 'phase'}."""
+    user / assistant / pmi. meta = {'message_no', 'phase'}."""
     msgs = {m["message_no"]: m for m in bio["messages"]}
     users = {m["message_no"]: m["content"] for m in bio["messages"]
              if m["role"] == "user"}
@@ -90,9 +90,9 @@ def transcript_of(bio, acts):
                             render_assistant(ph["text"], ph["acts"]),
                             {"message_no": s, "phase": i, "acts": ph["acts"]}))
             else:
-                out.append(("user", "<<MMI>>\n"
+                out.append(("user", "<<PMI>>\n"
                             + json.dumps(ph["payload"], ensure_ascii=False),
-                            {"message_no": s, "phase": i, "mmi": True}))
+                            {"message_no": s, "phase": i, "pmi": True}))
     return out
 
 
@@ -123,7 +123,7 @@ def recovery_example(bio, acts, n_read=12, with_reconcile_target=False):
         {"role": "user", "content": T_USER_RECOVERY},
         {"role": "assistant",
          "content": render_assistant(T_ASST_RECOVERY_LEAD, [read_call])},
-        {"role": "user", "content": "<<MMI>>\n"
+        {"role": "user", "content": "<<PMI>>\n"
          + json.dumps(payload, ensure_ascii=False)},
         {"role": "assistant", "content": summary},
     ]
@@ -141,7 +141,7 @@ def build_examples(bio, acts, window=WINDOW):
         # context convention: every non-target message is prefixed with its
         # exchange number, so the model can cite "сообщение N" learnably
         def render(r, c, m):
-            if r == "user" and not c.startswith("<<MMI>>"):
+            if r == "user" and not c.startswith("<<PMI>>"):
                 return f"[сообщение {m['message_no']}] {c}"
             if r == "assistant":
                 return f"[сообщение {m['message_no']}] {c}"
@@ -284,10 +284,10 @@ def main():
     print("Exchange kinds:", dict(sorted(stats['kinds'].items())))
     multi = sum(1 for e in examples + recovery
                 if e["messages"][-2]["role"] == "user"
-                and e["messages"][-2]["content"].startswith("<<MMI>>"))
+                and e["messages"][-2]["content"].startswith("<<PMI>>"))
     with_acts = sum(1 for e in examples + recovery
                     if "```json" in e["messages"][-1]["content"])
-    print(f"Examples with <<MMI>> result turn: {multi}")
+    print(f"Examples with <<PMI>> result turn: {multi}")
     print(f"Examples with act block in target: {with_acts}")
 
 

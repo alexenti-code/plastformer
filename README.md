@@ -3,7 +3,7 @@
 **Self-governed idiographic memory for frozen-core transformers.**
 
 - **Paper (draft v0.5):** [`preprint.md`](preprint.md)
-- **Pre-registered experiment E1 (v1.1):** [`experiments/e1-protocol.md`](experiments/e1-protocol.md)
+- **Pre-registered experiment E1 (v1.2):** [`experiments/e1-protocol.md`](experiments/e1-protocol.md)
 - **Architecture decision record (transition from the working name "Matryoshka"):** [`docs/ADR-001-plastformer-transition.md`](docs/ADR-001-plastformer-transition.md)
 - **Author:** Alexey Voronin, Aurum Estate LLC
 - **License:** Apache 2.0 (code), CC BY 4.0 (text)

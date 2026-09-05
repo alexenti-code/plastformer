@@ -2,7 +2,7 @@
 """PlastFormer organ-dataset -- act-stream generator (ground-truth demonstrations).
 
 For each biography (gen_biography.py output) produces the target act stream
-the model should emit: JSON act calls per the Matryoshka MMI record format.
+the model should emit: JSON act calls per the PMI record format (formerly MMI).
 
 Act vocabulary: name | repeat | connect | reconcile | read.
 Act call fields: {act, content, source, layer, valid_time, record_tick, refs};

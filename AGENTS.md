@@ -39,7 +39,7 @@ Text and code patterns that violate CONSTITUTION in the main run. Each belongs i
 
 ## 4. How to reproduce E1
 
-1. Read `experiments/e1-protocol.md` v1.1 fully (§5 stand TZ, §7–8 scoring/isolation).
+1. Read `experiments/e1-protocol.md` v1.2 fully (§5 stand TZ, §7–8 scoring/isolation).
 2. Freeze the P4 dial set in a run manifest before the run (clock mode `ticks`, τ set, N-cap, provenance caps, friction schedule); record axis coordinates `symbolic × split(PMI) × prompted`.
 3. Run the main configuration with all ablations OFF (`RAG-style read` off, `unconscious-surrogate` off, `decay-in-wall-clock` off, `loudest-N-auto` off, `verbatim-extractor` off, `friction-veto` off). Main-run code path must contain no `embedding`/`similarity` symbol.
 4. Report per P10: coordinates, frozen dials, ablations on/off, act log (counts/types of acts), and what is NOT claimed (parametric substrate, trained acts, hash chain, $a_0$ weighting) until built.

@@ -177,7 +177,7 @@ Registered predictions (fixed before the unified model exists):
 - Arm B redefined as "same core + append-only timestamped notes tool + search tool" (timestamps required).
 - §5 Reads: the amplitude × relevance ranker is removed from Arm C. Reads are a model act (`read last N / ids / range` via PMI) plus a content-blind loudest-N injection by amplitude (`MMI_INJECT_TOP=N`). A relevance ranker is declared an external decision-maker (axiom 2 violation) and survives only as the control ablation `RAG-style read`.
 - §5 Unconscious register: the embedding-distance surprise surrogate is labeled an external classifier, switched off in the main run, kept as ablation `unconscious-surrogate on`.
-- §5 Decay: Δn in lived ticks (1 tick = 1 exchange, counted by the stand), τ ∈ {50, 200, 1000} ticks via `MMI_TAU_TICKS`; wall-clock only in bi-temporal stamps; `decay in wall-clock` added as a control ablation.
+- §5 Decay: Δn in lived ticks (1 tick = one executed storing act, counted by the stand), τ ∈ {50, 200, 1000} ticks via `MMI_TAU_TICKS`; wall-clock only in bi-temporal stamps; `decay in wall-clock` added as a control ablation.
 - §5 Acts: `reconcile` added (available, not tested; invocations recorded). The stand's tick counter is not a model act; `matryoshka_tick` is not offered to the model.
 - §7 Scoring: act-log metric added (acts per type, `repeat` share on R5 facts, `read` share before probes, `reconcile` count).
 - §9 honest labeling replaced per ADR-001 §4.8; §10 step 4 replaced per ADR-001 §4.9; ablation step added.

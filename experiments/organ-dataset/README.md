@@ -7,11 +7,11 @@ trained** (per ADR-001 axes). There is NO external tool server: acts are
 emitted as a JSON block in the assistant's own output; execution is the
 environment's job, selection is always the model's.
 
-**Status:** generated 2026-09-05. Not committed, not pushed (per task).
+**Status:** generated 2026-09-05; committed to `plastformer` (ec62a56). Regenerated 2026-09-05: `<<MMI>>` → `<<PMI>>` markers unified with executor v0.6.
 **Constitution:** `plastformer/docs/CONSTITUTION.md` v1.0 (P1–P10, binding).
 **Corpus requirements:** `experiments/e1-protocol.md` §4 (R1–R6).
-**Record format / act semantics:** `matryoshka-mmi/SPEC.md` §3–4.
-**Live act patterns:** `matryoshka-mmi/BENCH-2026-09-04.md` (incl. pattern D,
+**Record format / act semantics:** PMI executor SPEC v0.6.0 (`matryoshka-mmi` repo — transitional name; canonical docs: `plastformer/docs/`).
+**Live act patterns:** PMI executor bench 2026-09-04 (`matryoshka-mmi` repo, transitional name) (incl. pattern D,
 amnesia recovery).
 
 ---
@@ -81,7 +81,7 @@ is a run dial, not baked into the data).
   {"role": "system",    "content": "<compact act grammar ONLY>"},
   {"role": "user",      "content": "[сообщение 12] Зафиксируй: ..."},
   {"role": "assistant", "content": "[сообщение 12] Запомнил: ...\n\n```json\n[{"act": "name", ...}]\n```"},
-  {"role": "user",      "content": "<<MMI>>\n{\"ok\": true, ...}"},
+  {"role": "user",      "content": "<<PMI>>\n{\"ok\": true, ...}"},
   {"role": "assistant", "content": "<next turn>"}
 ]}
 ```
@@ -93,7 +93,7 @@ Conventions:
   "acts are prompted, nothing else is added").
 * **user** = conversation so far, sliding window of 14 transcript messages.
   Every context message is prefixed `[сообщение N]` (exchange number), so
-  citations in demonstrations are learnable. `<<MMI>>` user-messages carry
+  citations in demonstrations are learnable. `<<PMI>>` user-messages carry
   write acknowledgements (`{"ok":true,"written":[{"id":N,...}],"tick":T}`)
   and read results (`{"records":[...],"tick":T}`) — the model learns its
   record ids and the stand counter from these, exactly as on the stand.
@@ -102,7 +102,7 @@ Conventions:
   valid_time, record_tick, refs`; `read` carries `mode` (`last|ids`) and
   `count`/`ids` and deposits no record (hence no layer).
 * Two-phase turns: when the model reads before answering, the example
-  contains assistant(read) → user(`<<MMI>>` result) → assistant(answer).
+  contains assistant(read) → user(`<<PMI>>` result) → assistant(answer).
   137 examples contain such a result turn.
 * **Recovery examples** (5, one per biography; BENCH-2026-09-04 pattern D):
   empty context → `read last 12` → biography restore summary built only
@@ -112,7 +112,7 @@ Conventions:
 
 * **P1/P2 (model is the only semantic subject).** All acts in the data are
   demonstrations of the model's own decisions; no external ranker, gate or
-  trigger appears anywhere in the format. `<<MMI>>` blocks are responses to
+  trigger appears anywhere in the format. `<<PMI>>` blocks are responses to
   model-requested acts or executor physics acknowledgements — never
   unrequested injection.
 * **P3 (layers are speeds).** `layer` is always set explicitly per act
@@ -122,7 +122,7 @@ Conventions:
   corresponds to an explicit act call `name/repeat/connect/reconcile`
   (plus `read`); silence never writes.
 * **P6 (ticks owned by the stand).** `record_tick` in demonstrations is
-  the model's copy of the counter it sees in `<<MMI>>` acks (next = last
+  the model's copy of the counter it sees in `<<PMI>>` acks (next = last
   +1); the system prompt states exactly that. The generator advances the
   counter +1 per executed write act, reads never advance it (validated:
   tick monotonicity).
@@ -169,7 +169,7 @@ Conventions:
    "available, not tested"; scenarios are clock-biography checks derived
    from the record store, not lived divergence episodes.
 4. **Recovery-example weights are placeholders** (`weight: 1.0` in the
-   `<<MMI>>` payload); real amplitude reading is not demonstrated there.
+   `<<PMI>>` payload); real amplitude reading is not demonstrated there.
 5. **Scripted assistant style.** Responses are templated; conversational
    variety of a live model is not represented. Paraphrase augmentation is
    future work.
