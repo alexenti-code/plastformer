@@ -1,12 +1,12 @@
-# PlastFormer — CONSTITUTION v2.0
+# PlastFormer — CONSTITUTION v2.1
 
-**Version:** 2.0 (restructured per ADR-003: Part I "Foundations" collected from scattered principle sources; Part II guard articles re-worded in role language)
+**Version:** 2.1 (DRAFT; v2.0 restructured per ADR-003; v2.1 per ADR-004: journal and crypto-erasure removed from the architecture): Part I "Foundations" collected from scattered principle sources; Part II guard articles re-worded in role language)
 **Status:** DRAFT — pending owner approval. Becomes NORMATIVE (binding on all documents, protocols, specs, code) only on the owner's explicit approval.
 **Related documents:** [ADR-001](ADR-001-plastformer-transition.md) · [ADR-002](ADR-002-docs-architecture.md) · [ADR-003](ADR-003-constitution-v2.md) · [THEORY.md](THEORY.md) · [GLOSSARY.md](GLOSSARY.md) · [MANIFEST.md](MANIFEST.md) · [preprint v0.5](../preprint.md) · `experiments/e1-protocol.md` v1.2
 
 ## Precedence
 
-On any conflict: **CONSTITUTION.md v2.0 > ADR-001/002/003 > preprint / protocol / specifications / code.** Earlier norms in GLOSSARY (axioms 1–9, permissions), MANIFEST (calendar-existence, owner-provides-time, cannot-be-copied, layers-as-places, no-trust-needed), and THEORY (all must/forbidden language) are **superseded as norms** and retained as lineage only (migration table: ADR-003). The Constitution speaks in roles only — the model, the environment, the substrate, the journal; product names belong to documentation.
+On any conflict: **CONSTITUTION.md v2.1 > ADR-001/002/003/004 > preprint / protocol / specifications / code.** Earlier norms in GLOSSARY (axioms 1–9, permissions), MANIFEST (calendar-existence, owner-provides-time, cannot-be-copied, layers-as-places, no-trust-needed), and THEORY (all must/forbidden language) are **superseded as norms** and retained as lineage only (migration table: ADR-003). The Constitution speaks in roles only — the model, the environment, the substrate; product names belong to documentation.
 
 ---
 
@@ -31,7 +31,7 @@ The instance's time is its ticks and accumulated trace mass — processes one af
 *Sources: GLOSSARY axiom 9; preprint §3.5, §4; owner directive 2026-09-05 (ticks, not calendar).*
 
 ### O-5. The past is immutable.
-Recorded content is never edited or deleted. A change of position is a new trace; rewriting the past means paying full re-consolidation and remaining visible in the journal.
+Recorded content is never edited or deleted. A change of position is a new trace; rewriting the past means paying full re-consolidation as a new, visible trace.
 *Sources: THEORY invariants; SPEC invariants; preprint §3.2.*
 
 ### O-6. The right to forget.
@@ -42,19 +42,15 @@ Decay is the condition of generalization: what the model does not re-amplify fad
 The instance exists while its substrate persists. Continuity is a property of the memory line, not of uninterrupted physical process.
 *Source: GLOSSARY axiom 8.*
 
-### O-8. Trust is verifiable.
-The journal is complete, chronological, and immutable, written by the environment and never by the model. Trust in the model is safe precisely because its memory conduct is auditable post-hoc.
-*Sources: GLOSSARY axiom 7; preprint §3.8.*
-
-### O-9. Training builds capacity, not content.
+### O-8. Training builds capacity, not content.
 Training — including act grammar — gives the model the ability to work with its memory. The content of any live biography is built by the model itself in life, never by the training signal, an oracle, or a judge.
 *Sources: THEORY §1.2; audit gap C9.*
 
-### O-10. Addition, not replacement.
-The context window, RAG, graphs, and any external tooling remain in place. PlastFormer adds one thing: the physics of self-markup — the model's own record of its own experience, with age as property of the medium.
-*Sources: SPEC ("addition, not a replacement"); owner directive 2026-09-05.*
+### O-9. Addition, not replacement.
+The context window, RAG, graphs, and any external tooling remain in place. PlastFormer adds one thing: the physics of self-markup — the model's own record of its own experience, with age as property of the medium. External audit logging is likewise outside the architecture: any deployment can add its own without touching the model's semantics; PlastFormer does not include, require, or claim it.
+*Sources: SPEC ("addition, not a replacement"); owner directive 2026-09-05 (journal removed from architecture).*
 
-### O-11. Personal data is the model's own content.
+### O-10. Personal data is the model's own content.
 The substrate may hold personal data as its own content. Personal data lives only in the substrate and never in the kernel, which remains shared and impersonal wherever it runs.
 *Sources: GLOSSARY permissions 1–2.*
 
@@ -62,7 +58,7 @@ The substrate may hold personal data as its own content. Personal data lives onl
 
 # Part II — Compliance
 
-*Guard articles: what protects Part I, written in role language — the model, the environment, the substrate, the journal. Product names (interfaces, env vars, stand names) are documentation vocabulary and do not appear in the law.*
+*Guard articles: what protects Part I, written in role language — the model, the environment, the substrate. Product names (interfaces, env vars, stand names) are documentation vocabulary and do not appear in the law.*
 
 ### P1. One semantic subject.
 Statement: only the core K performs semantic acts: interpretation, attention, reasoning, intention, action. Φ stores state and does nothing semantic.
@@ -84,13 +80,13 @@ Statement: the owner may set ONLY the dials listed here, each continuous or scal
 Violated if: a run uses an unlisted knob; a dial value changes mid-run unlogged; any dial's computation reads record content (beyond byte size, timestamps, counters); a "physics" claim has no manifest entry.
 Example: a τ set (e.g. 50/200/1000) frozen pre-run is compliant; retuning τ mid-run to rescue accuracy is a violation (a new run is required).
 
-### P5. Acts of the model (explicit, complete, logged).
-Statement: the ONLY writes to Φ are the model's explicit acts `name / repeat / connect / reconcile` plus explicit `read`; each act is logged with actor=K. Silence is not consent: missing parameters are errors or recorded `unspecified`, never silently completed by the environment. Every auto-anything (auto-write, auto-remind, auto-link, auto-extract) is NOT an act and belongs in ablations.
-Violated if: any Φ record exists without a corresponding logged model act; any "unconscious" write fires without the core's own gate signal; any background process issues `connect`.
+### P5. Acts of the model (explicit, complete, recorded).
+Statement: the ONLY writes to Φ are the model's explicit acts `name / repeat / connect / reconcile` plus explicit `read`; each act is recorded as a Φ entry with actor=K. Silence is not consent: missing parameters are errors or recorded `unspecified`, never silently completed by the environment. Every auto-anything (auto-write, auto-remind, auto-link, auto-extract) is NOT an act and belongs in ablations.
+Violated if: any Φ record exists without a corresponding model act; any "unconscious" write fires without the core's own gate signal; any background process issues `connect`.
 Example: dormancy replay that proposes candidates the core then `connect`s by act is compliant; a substrate process writing CONNECT records by itself violates (P1/P2).
 
 ### P6. Ticks are lived, counted by the environment, owned by the model.
-Statement: the abstract tick is one inference step of the instance. The environment counter records one executed storing act (a sparse sampling of abstract ticks), advanced ONLY on WRITE/REPEAT/CONNECT/RECONCILE; read and status never advance it. Dormancy is zero lived time unless the core itself works (a background tick is the core running with no user input, every act journaled as the core's). Wall-clock stamps NEVER enter amplitude.
+Statement: the abstract tick is one inference step of the instance. The environment counter records one executed storing act (a sparse sampling of abstract ticks), advanced ONLY on WRITE/REPEAT/CONNECT/RECONCILE; read and status never advance it. Dormancy is zero lived time unless the core itself works (a background tick is the core running with no user input, every act is the core's). Wall-clock stamps NEVER enter amplitude.
 Violated if: wall seconds affect any weight; an exchange count is substituted for the environment counter; idle calendar time ages traces; a manual tick call advances the counter in tick mode.
 Example: `weight=(1+repeats)·exp(−Δn/τ)`, `Δn=n_now−record_tick` is compliant; `exp(−dt_seconds/τ)` anywhere except a pre-registered `decay-in-wall-clock` control ablation violates.
 
@@ -99,17 +95,12 @@ Statement: per-record source class is asserted by the model in the act call. The
 Violated if: any component rewrites the model's asserted class; amplitude is set from content analysis; the cap table changes mid-run; a paper claims amplitude weighting the implementation does not have.
 Example: the model asserts `source=user`, the environment applies `min(1.0, cap[user])` — compliant; an extractor upgrades or downgrades class by scanning dates — violation.
 
-### P8. The journal is append-only, hash-chained, separate from memory.
-Statement: the journal is a complete chronological record, written by the environment, never by the model, never edited, never deleted; each entry hash-links the previous; archive moves preserve ids and fields and extend the chain; reads span active and archive by `ids`/`range` (recency reads cover active only, disclosed). Memory (selective, decaying, governed) and journal (complete, immutable, post-mortem) have separate retention and erasure rules.
-Violated if: any mutation or deletion of a journal entry; an archive move alters fields, ids, or ticks; a hash chain is absent while tamper-evidence is claimed as built; `last`-only blindness is undisclosed.
-Example: an implementation without a hash chain is compliant ONLY while tamper-evidence is claimed "modulo host trust"; claiming cryptographic tamper-evidence on it violates.
-
-### P9. Training shapes capacity; governance is post-boundary and held-out.
-Statement: training (including oracle-shaped rewards) builds the CAPACITY to perform acts; it MUST NOT decide the CONTENT of any live biography. Oracles, ledgers, and judges never enter Φ, context, notes, or the journal during a run and never trigger or filter acts; they score post-hoc only. Governance is demonstrated on held-out biographies with no oracle present, never by oracle overlap.
+### P8. Training shapes capacity; governance is post-boundary and held-out.
+Statement: training (including oracle-shaped rewards) builds the CAPACITY to perform acts; it MUST NOT decide the CONTENT of any live biography. Oracles, ledgers, and judges never enter Φ, context, or notes during a run and never trigger or filter acts; they score post-hoc only. Governance is demonstrated on held-out biographies with no oracle present, never by oracle overlap.
 Violated if: ledger or judge output reaches any run's context or Φ; a run is rewarded or filtered mid-run by oracle score; oracle overlap is cited as self-governance evidence; training corpora leak into test biographies unreported.
 Example: "E5=0.9, therefore self-governed" violates; "E5=0.9 capacity; held-out runs show governed behavior past the boundary" complies.
 
-### P10. Precedence and honesty labels.
+### P9. Precedence and honesty labels.
 Statement: on conflict, this Constitution > ADRs > preprint/protocol/specs/code. Superseded lineage norms (calendar existence, owner-provides-time, cannot-be-copied, layers-as-places, no-trust-needed) are retained as history only. Every report states its configuration point, which dials were frozen, which ablations were on, and what is NOT claimed until built.
 Violated if: a result is reported without its coordinates and frozen manifest; an ablation flag leaks into a main-run claim; a wall-clock, surrogate, or RAG control is cited as PlastFormer behavior.
 Example: "configuration X, dials frozen, ablations off: retained Y" complies; "memory works" without coordinates violates.
