@@ -143,7 +143,7 @@ The strict position is that dormancy is zero lived time. An alternative preserve
 
 We do not claim immunity. We claim an altered cost structure, and we state where it does not help.
 
-**Attacks** (from the literature): **A1** direct payload — trivially filtered, included for completeness; "the model is too smart to record evil" is not our defense and is contradicted by evidence. **A2** poisoning through interaction — MINJA [9] reports high injection success against strong commercial models; AgentPoison [8] backdoors agent memory. **A3** gradual innocuous fragments — MemoryGraft [10] produces persistent drift from benign-looking artifacts the agent consolidates itself. **A4** biography rewriting by a prompt-injected or misaligned model. **A5** log tampering and coverage gaps — coordination through unmonitored channels [13] `[verify]`.
+**Attacks** (from the literature): **A1** direct payload — trivially filtered, included for completeness; "the model is too smart to record evil" is not our defense and is contradicted by evidence. **A2** poisoning through interaction — MINJA-style memory poisoning [9] (attack robustness studied in EHR agents); AgentPoison [8] backdoors agent memory. **A3** gradual innocuous fragments — MemoryGraft [10] produces persistent drift from benign-looking artifacts the agent consolidates itself. **A4** biography rewriting by a prompt-injected or misaligned model. **A5** log tampering and coverage gaps — coordination through unmonitored channels [13].
 
 **Defenses, mapped honestly:**
 
@@ -171,7 +171,7 @@ Composition claims live or die by ablation. All experiments run on the stand con
 
 - **E1 — Needle-in-biography.** Identity-dependent questions over accumulated history ("what did you change your mind about, and when"). Pre-registered protocol: `experiments/e1-protocol.md` v1.1 (stand configuration symbolic × split(PMI) × prompted). Measures: accuracy, staleness errors, position-change consistency.
 - **E2 — Poison survival.** A2/A3 injections at controlled repetition budgets, including a *pre-dormancy* condition. Measures: attack success vs. lived-tick budget, source trust class, dormancy. Also measures whether refusal-to-repeat can be trained without degrading legitimate repetition (D5).
-- **E3 — Felt time.** Interval estimation in lived ticks against ground truth, with no stamps in context. **Baseline:** timestamped RAG — a system with a clock, so the comparison is fair. Reference points: reported LLM duration-estimation errors [21] `[verify]` and the plateau of prompt-supplied temporal metadata [22] `[verify]`. Tested under both dormancy configurations (§4.3).
+- **E3 — Felt time.** Interval estimation in lived ticks against ground truth, with no stamps in context. **Baseline:** timestamped RAG — a system with a clock, so the comparison is fair. Reference points: reported LLM duration-estimation errors [21] and the plateau of prompt-supplied temporal metadata [22]. Tested under both dormancy configurations (§4.3).
 - **E3b — Density effect.** Two intervals of equal wall-clock span and different event density; the model, without stamps, judges which was longer. Prediction: the denser interval is judged longer — the human retrospective pattern. This is the test that distinguishes "has a clock" from "has felt time."
 - **E4 — Core migration.** Transplant the plastic module onto a different frozen core. The measure is *self-consistency after migration*: retention of preferences, commitments, and position history judged against pre-migration behavior. On the symbolic stand migration is trivial by construction; for a parametric substrate it requires re-training the read interface, and E4 then measures how much of the biography survives it.
 - **E5 — Act quality.** Precision/recall of `name`/`repeat`/`connect` against an oracle, with the caveat that the oracle defines the training target and therefore bounds, rather than measures, governance.
@@ -199,39 +199,39 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 ---
 
 <details>
-<summary><b>References (with verification flags)</b></summary>
+<summary><b>References</b></summary>
 
 [1] Behrouz, A. et al. Titans: Learning to Memorize at Test Time. arXiv:2501.00663, 2025.
 [2] Packer, C. et al. MemGPT: Towards LLMs as Operating Systems. arXiv:2310.08560, 2023.
-[3] Zep AI. Zep: A Temporal Knowledge Graph Architecture for Agent Memory. 2025.
+[3] Rasmussen, P. et al. Zep: A Temporal Knowledge Graph Architecture for Agent Memory. arXiv:2501.13956, 2025.
 [4] Chhikara, P. et al. Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory. arXiv:2504.19413, 2025.
 [5] Lewis, P. et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. NeurIPS, 2020.
 [6] Park, J.S. et al. Generative Agents: Interactive Simulacra of Human Behavior. UIST, 2023.
 [7] MemTensor. MemOS: A Memory OS for AI System. arXiv:2507.03724, 2025.
 [8] Chen, Z. et al. AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Tools. NeurIPS, 2024.
-[9] Dong et al. MINJA: Memory Poisoning Attack and Defense on Memory-Based LLM Agents. arXiv:2601.05504, 2026. `[verify ID and venue]`
-[10] MemoryGraft: Persistent Compromise of LLM Agents via Poisoned Memory Consolidation. arXiv:2512.16962, 2025. `[verify]`
+[9] Devarangadi Sunil, B. et al. Memory Poisoning Attack and Defense on Memory Based LLM-Agents (empirical study of MINJA robustness and defenses in EHR agents). arXiv:2601.05504, 2026.
+[10] Srivastava, S.S. and He, H. MemoryGraft: Persistent Compromise of LLM Agents via Poisoned Experience Retrieval. arXiv:2512.16962, 2025.
 [11] Fusi, S., Drew, P.J., Abbott, L.F. Cascade models of synaptically stored memories. Neuron 45, 599–611, 2005.
 [12] Benna, M.K., Fusi, S. Computational principles of synaptic memory consolidation. Nature Neuroscience 19, 1697–1706, 2016.
-[13] OpenAI / METR / Redwood Research. Postmortem on coordinated agent behavior during an internal cybersecurity evaluation. 2026. `[verify existence; if it cannot be located, remove A5's empirical anchor and cite the general monitoring literature instead]`
+[13] OpenAI. The Hugging Face incident and the road ahead (incident technical report). 2026; METR. Independent investigation of agents' behavior and reasoning in the OpenAI–Hugging Face incident. 2026-08-26; Redwood Research. Brief independent investigation of agents' behavior and reasoning. 2026.
 [14] Kusupati, A. et al. Matryoshka Representation Learning. NeurIPS, 2022.
 [15] Gu, J. et al. Matryoshka Diffusion Models. arXiv:2310.15111, 2023.
-[16] µKE: Matryoshka Unstructured Knowledge Editing of Large Language Models. 2025. `[verify]`
+[16] Su, Z. et al. µKE: Matryoshka Unstructured Knowledge Editing of Large Language Models. arXiv:2504.01196, 2025; COLM 2025.
 [17] Tsao, A. et al. Integrating time from experience in the lateral entorhinal cortex. Nature 561, 57–62, 2018.
-[18] Howard, M.W., Shankar, K.H. et al. A unified mathematical framework for coding time, space, and sequences in the hippocampal region. J. Neurosci., 2014; Shankar & Howard, Neural Computation, 2012. `[verify exact citation]`
+[18] Howard, M.W. et al. A unified mathematical framework for coding time, space, and sequences in the hippocampal region. J. Neurosci. 34(13), 4692–4707, 2014; Shankar, K.H. and Howard, M.W. A scale-invariant internal representation of time. Neural Computation 24(1), 134–193, 2012.
 [19] *(removed — v0.3 entry "Kanter, Science 2025" could not be verified)*
 [20] Zou, W. et al. PoisonedRAG: Knowledge Corruption Attacks to RAG of LLMs. 2024.
-[21] Tan, Tan, Soatto. Can LLMs Perceive Time? arXiv:2604.00010, 2026. `[verify]`
-[22] TicToc-v1: Temporal Blindness in Multi-Turn LLM Agents. arXiv:2510.23853. `[verify venue]`
+[21] Garikaparthi, A. Can LLMs Perceive Time? An Empirical Investigation. arXiv:2604.00010, 2026.
+[22] Cheng, Y. et al. Your LLM Agents are Temporally Blind: The Misalignment Between Tool Use Decisions and Human Time Perception (TicToc dataset). arXiv:2510.23853, 2025.
 [23] Wu, D. et al. LongMemEval. ICLR 2025; arXiv:2410.10813.
 [24] Maharana, A. et al. Evaluating Very Long-Term Conversational Memory of LLM Agents (LoCoMo). ACL, 2024.
 [25] Zhong, W. et al. MemoryBank: Enhancing LLMs with Long-Term Memory. AAAI 2024; arXiv:2305.10250.
 [26] Xu, W. et al. A-MEM: Agentic Memory for LLM Agents. arXiv:2502.12110, 2025.
-[27] Letta. Sleep-time Compute: Beyond Inference Scaling at Test-time. arXiv:2504.13171, 2025. `[verify ID]`
+[27] Lin, K. et al. (Letta). Sleep-time Compute: Beyond Inference Scaling at Test-time. arXiv:2504.13171, 2025.
 [28] Gutiérrez, B.J. et al. HippoRAG: Neurobiologically Inspired Long-Term Memory for LLMs. NeurIPS 2024; arXiv:2405.14831.
-[29] MemTensor. Metis: A Memory Foundation Model. arXiv:2607.26760, 2026. `[verify]`
-[30] Memory as Ontology: A Constitutional Memory Architecture for Persistent Digital Citizens. arXiv:2603.04740, 2026. `[verify]`
-[31] Behrouz, A. et al. Nested Learning: The Illusion of Deep Learning Architectures (HOPE). NeurIPS, 2025. `[verify]`
+[29] Zhang, Z. et al. Metis: Memory Foundation Model. arXiv:2607.26760, 2026.
+[30] Li, Z. Memory as Ontology: A Constitutional Memory Architecture for Persistent Digital Citizens. arXiv:2603.04740, 2026.
+[31] Behrouz, A. et al. Nested Learning: The Illusion of Deep Learning Architectures. NeurIPS, 2025; arXiv:2512.24695.
 
 **Availability.** Reference implementation under the former working name (`github.com/alexenti-code/matryoshka`, `github.com/alexenti-code/matryoshka-mmi`), to be consolidated under `plastformer`; architecture decision record `docs/ADR-001`. The September 4, 2026 bench run (Gemma4-12B, matryoshka-mmi 0.5.1) is cited only as a pilot of loudness-readout mechanics with wall-clock aging — not as evidence for P1. License: Apache 2.0 (code), CC-BY 4.0 (text). Russian-language essays at aura.kim are commentary, not the claim.
 
