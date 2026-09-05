@@ -5,14 +5,16 @@ authors:
   - family-names: Voronin
     given-names: Alexey
     affiliation: Aurum Estate LLC
-version: "0.3"
-date-released: "2026-09-04"
+version: "0.5"
+date-released: "2026-09-05"
 license: Apache-2.0
 repository-code: "https://github.com/alexenti-code/plastformer"
 keywords:
   - long-term memory
   - LLM agents
-  - parametric memory
+  - idiographic memory
+  - plastic memory interface
   - memory governance
   - bi-temporal
   - forgetting
+  - event time

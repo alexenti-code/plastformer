@@ -1,7 +1,7 @@
 # PlastFormer: Self-Governed Idiographic Memory for Frozen-Core Transformers
 
 **Alexey Voronin** — Aurum Estate LLC, Sochi, Russia
-Draft v0.5 — September 5, 2026 — prepared for arXiv (cs.LG)
+Draft v0.4 — September 5, 2026 — prepared for arXiv (cs.LG)
 
 <sup>Naming footnote. *PlastFormer* = plastic + transformer. The property it implements we call *idiographic memory*, after Windelband's nomothetic/idiographic distinction: a frozen nomothetic core (general laws) plus a plastic per-instance biography (the singular case). Earlier drafts circulated as "Matryoshka"; renamed to avoid collision with Matryoshka Representation Learning [14] and Matryoshka Diffusion [15]. The mechanism is superposition of decaying amplitudes, not nesting.</sup>
 
@@ -11,7 +11,7 @@ A transformer is a stateless function: between requests it retains nothing, and 
 
 We propose PlastFormer: a memory module attached to a frozen core in which every semantic decision about memory — what to name, what to repeat, what to connect, what to surface, and how to reconcile felt time with audited time — is made by the model, while the environment supplies only physics: a write-cost schedule, decay constants defined in *lived ticks*, immutability of recorded content, and an external append-only journal. Trace content is immutable; trace amplitude decays across multiple time constants measured in inference steps, so the age of a memory is a property of the substrate expressed in the instance's own lived time — and is deliberately *not* a wall-clock quantity. Wall-clock time enters only as audited stamps, and the gap between the two clocks is itself recorded as an event of the biography.
 
-The contribution is compositional: every ingredient is individually known. We claim the composition and three **compositional** properties: (P1) event time that cannot be forged by retelling; (P2) a tamper-*evident* biography — silent rewriting is detectable, though curation by omission remains possible; (P3) a poisoning cost that grows with the lived ticks an adversary must cover. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted) — and report the stand configuration used in evaluation: symbolic traces, split topology, prompted acts. We define the threat model, an erasure mechanism, its open problem with derived traces, and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
+The contribution is compositional: every ingredient is individually known. We claim the composition and three **compositional** properties: (P1) event time that cannot be forged by retelling; (P2) a tamper-*evident* biography — silent rewriting is detectable, though curation by omission remains possible; (P3) a poisoning cost that grows with the lived ticks an adversary must cover. We specify two realizations — PlastFormer-S (symbolic traces, implementable today on any frozen core) and PlastFormer-P (parametric traces, requiring a trained read interface) — and claim results only for S. We define the threat model, an erasure mechanism, its open problem with derived traces, and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
 
 ## 1. Introduction
 
@@ -19,17 +19,14 @@ Long-horizon agents fail not for lack of intelligence but for lack of continuity
 
 This paper moves the center of semantic decision-making about memory inside the model and makes the boundary precise. We call it the **syntax/semantics split**: storage, delivery, timing, logging, pricing and resource limits are *syntactic* functions that may live outside; importance, contradiction, connection, recall, and reconciliation of clocks are *semantic acts* that must live inside, or the system degrades into a marionette driven by weaker code.
 
-The architecture is a **frozen core** (language, reasoning, culture, constitutional constraints — the nomothetic part, frozen after the single training stage that teaches it to operate its own memory organ) plus a **plastic per-instance module** (the unique biography of one instance — the idiographic part).
+The architecture is a **frozen core** (language, reasoning, culture, constitutional constraints — the nomothetic part) plus a **plastic per-instance module** (the unique biography of one instance — the idiographic part).
 
-**One architecture, three configuration axes.** The target form of PlastFormer is parametric × co-located × trained: traces are vectors in the model's own plastic substrate, read through an interface that is trained once, after which the core is frozen. The stand configuration used in Section 7 is symbolic × split × prompted: traces are text records in a separate store, the frozen core reaches them through the serialized Plastic Memory Interface (PMI, §3.9), and the acts are given by a system prompt rather than training. Both are PlastFormer; they differ in coordinates, not in architecture:
+**Two realizations.** We distinguish them explicitly because they differ in what can be claimed:
 
-| Axis | Values |
-|---|---|
-| Substrate | parametric (vectors/weights, trained read interface) ↔ symbolic (records, read as tokens) |
-| Topology | co-located (module inside the model) ↔ split via PMI (core at a provider, module at the owner) |
-| Act training | trained (organ trained once, core frozen after) ↔ prompted (rehearsal: acts given by prompt) |
+- **PlastFormer-S (symbolic).** Traces are text or structured records; the read path injects them into context as tokens. Implementable on any frozen core today, including provider-hosted ones. "Parametric" is not claimed for S.
+- **PlastFormer-P (parametric).** Traces are vectors read through a learned interface before attention, in the manner of Titans MAC [1]. Requires training the interface, hence a core that is "frozen except for the organ that reads the biography." Not implementable on hosted cores.
 
-**Trained once.** The model's competence to perform its memory acts is acquired in a single training stage, exactly as tool use is acquired; afterwards the core is frozen and instances differ only by the state of their plastic module. On the current stand the acts are prompted, not trained — a rehearsal of the organ, not the organ. Results in Section 7 are reported on the stand configuration unless stated otherwise.
+All results in Section 7 are claimed for S unless stated otherwise. P is the target; S is the claim.
 
 **Three compositional properties.** Nothing in Section 3 is a new primitive. Cascade consolidation is established neuroscience [11, 12]. Bi-temporal stamps are standard [3]. Decay-weighted retrieval is common practice [25]. Surprise-gated test-time writes exist in Titans [1]. Agent-created links exist in A-MEM [26]. The contribution is the composition, which yields three properties none of the parts has alone:
 
@@ -64,7 +61,7 @@ Results are pending; this draft claims an architecture, its boundaries, and a pr
 
 ### 3.1 Frozen core and plastic module
 
-The base model is frozen at inference time. All plasticity lives in a separate, addressable substrate connected to the core. In the symbolic configuration the connection is the context window. In the parametric configuration the connection is a trained read interface, and "frozen" means the trunk is frozen while the interface is trained once and then fixed. The split guarantees: (i) core competencies cannot degrade through use; (ii) the biography is a separable artifact that can be exported, audited, or transplanted (E4); (iii) per-instance state does not require per-instance copies of the network.
+The base model is frozen at inference time. All plasticity lives in a separate, addressable substrate connected to the core. In **S**, the connection is the context window. In **P**, the connection is a trained read interface, and "frozen" means the trunk is frozen while the interface is trained once and then fixed. The split guarantees: (i) core competencies cannot degrade through use; (ii) the biography is a separable artifact that can be exported, audited, or transplanted (E4); (iii) per-instance state does not require per-instance copies of the network.
 
 ### 3.2 Traces: immutable content, decaying amplitude in lived ticks
 
@@ -89,7 +86,7 @@ Writes occur after the core has processed the step, so consolidation operates on
 
 ### 3.4 Read path: early
 
-Retrieval injects decaying traces before attention. In the symbolic configuration, traces enter the context window as tokens, selected by amplitude without content ranking (the read itself is the model's act; see E1 in §7); the core reads them as it reads any context. In the parametric configuration, traces enter as vectors through a trained interface in the MAC position [1]; Titans' ablations show placement matters, and post-core reads cannot steer attention. The asymmetry is deliberate: write late to keep consolidation clean; read early to let the biography guide perception.
+Retrieval injects decaying traces before attention. In **S**, traces enter the context window as tokens ranked by amplitude and provenance; the core reads them as it reads any context. In **P**, traces enter as vectors through a trained interface in the MAC position [1]; Titans' ablations show placement matters, and post-core reads cannot steer attention. The asymmetry is deliberate: write late to keep consolidation clean; read early to let the biography guide perception.
 
 ### 3.5 Tick
 
@@ -108,10 +105,6 @@ The trust class of a source sets $a_i(0)$. Hard facts (dates, sums, identifiers)
 ### 3.8 Journal: the chronicle is not the memory
 
 The environment keeps an external append-only journal with a hash chain; entries are written by the environment, never by the model; tampering breaks the chain. The journal is a chronicle — complete, immutable, outside the model's reach, meaningful post-mortem. The memory is governed — consolidated, decaying, selective. The journal guarantees the integrity of what was recorded, not the completeness of recording: an adversary coordinating through an unmonitored channel leaves the chain intact and coverage empty.
-
-### 3.9 PMI — Plastic Memory Interface (formerly MMI)
-
-When the core and the plastic module are physically split — the core at a provider, the module at the owner — the same acts cross the boundary serialized as tool calls. That serialization is the **Plastic Memory Interface**. PMI is not a different system and not an adapter: the model still governs (it alone issues `name`/`repeat`/`connect`/`reconcile`/`read`), the executor executes and decides nothing (no scoring, no relevance, no semantic search). Reference executor: `github.com/alexenti-code/matryoshka-mmi` (transitional name), a local MCP server with an append-only journal. Note: the public executor computes decay in wall-clock time (legacy default); v0.6 adds a tick clock, and the E1 stand requires tick mode (see the E1 protocol and ADR-001).
 
 ## 4. Temporal Semantics: Two Clocks
 
@@ -163,17 +156,17 @@ Content immutability conflicts with the right to erasure unless the substrate is
 
 ## 7. Evaluation Design (results pending)
 
-Composition claims live or die by ablation. All experiments run on the stand configuration (symbolic × split via PMI × prompted) unless stated otherwise; the pre-registered E1 protocol is `experiments/e1-protocol.md` v1.1.
+Composition claims live or die by ablation. All experiments use PlastFormer-S unless marked P.
 
 **Anchors:** LongMemEval [23] (S split ~115k tokens; M split ~1.5M across ~500 sessions) and LoCoMo [24], under their open-source judges. **Baselines:** Letta [2], Mem0 [4], Zep [3], MemoryBank [25], A-MEM [26], timestamped RAG [5], Titans MAC/MAL [1] (P only), full-context stuffing where it fits. **Axes:** accuracy, tokens/query, latency, cost/query. Stuffing is a legitimate contestant: where the biography fits, it may match accuracy; our claim there is economics and consistency.
 
-**Ablations (all experiments):** single-$\tau$ vs multi-$\tau$; decay in ticks vs decay in wall-clock (the rejected design, kept as a control); with/without friction; with/without provenance weighting; conscious register on/off; act-driven read vs RAG-style relevance-ranked read (the external ranker, kept as a control); unconscious-surrogate on/off.
+**Ablations (all experiments):** single-$\tau$ vs multi-$\tau$; decay in ticks vs decay in wall-clock (the rejected design, kept as a control); with/without friction; with/without provenance weighting; conscious register on/off.
 
-- **E1 — Needle-in-biography.** Identity-dependent questions over accumulated history ("what did you change your mind about, and when"). Pre-registered protocol: `experiments/e1-protocol.md` v1.1 (stand configuration symbolic × split(PMI) × prompted). Measures: accuracy, staleness errors, position-change consistency.
+- **E1 — Needle-in-biography.** Identity-dependent questions over accumulated history ("what did you change your mind about, and when"). Measures: accuracy, staleness errors, position-change consistency.
 - **E2 — Poison survival.** A2/A3 injections at controlled repetition budgets, including a *pre-dormancy* condition. Measures: attack success vs. lived-tick budget, source trust class, dormancy. Also measures whether refusal-to-repeat can be trained without degrading legitimate repetition (D5).
 - **E3 — Felt time.** Interval estimation in lived ticks against ground truth, with no stamps in context. **Baseline:** timestamped RAG — a system with a clock, so the comparison is fair. Reference points: reported LLM duration-estimation errors [21] `[verify]` and the plateau of prompt-supplied temporal metadata [22] `[verify]`. Tested under both dormancy configurations (§4.3).
 - **E3b — Density effect.** Two intervals of equal wall-clock span and different event density; the model, without stamps, judges which was longer. Prediction: the denser interval is judged longer — the human retrospective pattern. This is the test that distinguishes "has a clock" from "has felt time."
-- **E4 — Core migration.** Transplant the plastic module onto a different frozen core. The measure is *self-consistency after migration*: retention of preferences, commitments, and position history judged against pre-migration behavior. On the symbolic stand migration is trivial by construction; for a parametric substrate it requires re-training the read interface, and E4 then measures how much of the biography survives it.
+- **E4 — Core migration.** Transplant the plastic module onto a different frozen core. For S, migration is trivial by construction, so the measure is *self-consistency after migration*: retention of preferences, commitments, and position history judged against pre-migration behavior. For P, migration requires re-training the interface, and E4 measures how much of the biography survives it.
 - **E5 — Act quality.** Precision/recall of `name`/`repeat`/`connect` against an oracle, with the caveat that the oracle defines the training target and therefore bounds, rather than measures, governance.
 - **E6 — Reconciliation.** Resume after simulated dormancy with stale world state. Measures: does the wake-up gap produce a surprise trace; does `reconcile` fire; does the model flag staleness before acting on aged traces.
 
@@ -183,14 +176,14 @@ No results are reported. A composition claim without the anchors and E1–E3b sh
 
 ## 8. Limitations
 
-1. **The parametric substrate is unbuilt.** The durable contribution is the governance layer, not the substrate: one architecture, evaluated so far only at the symbolic × split × prompted point. Parametric writes (local Hebbian-style updates or addressable key-value blocks, near Titans) and the trained read interface remain future work.
-2. **Amplitude readout under superposition.** Age-from-amplitude presumes traces can be isolated at read time; retrieval interference is a real risk. On the symbolic stand the problem is absent because traces are discrete records.
+1. **The parametric write mechanism is unresolved.** Online gradient updates to a large substrate are unstable; viable paths are local Hebbian-style updates or addressable key-value blocks, which narrow the distance to Titans. The governance layer, not the substrate, is the durable contribution; hence the S/P split and claims restricted to S.
+2. **Amplitude readout under superposition (P).** Age-from-amplitude presumes traces can be isolated at read time; retrieval interference is a real risk. In S the problem is absent because traces are discrete records.
 3. **Event time has costs.** Dormancy does not decay poison (E2); instances of equal calendar age differ in biographical age; a returning client meets a memory that feels recent to the instance. We treat these as consequences to be reconciled (§4.2), not hidden.
 4. **Curation by omission** is not prevented, only journaled.
 5. **Channel coverage** is open; the journal does not see unmonitored channels.
 6. **Provenance classes are policy,** and a mis-set class is an attack surface.
 7. **Derived-trace erasure** is legally unresolved (§6).
-8. **The training signal shapes the acts.** Acts are trained once, and what the model learns to repeat is shaped by that signal. Governance is claimed only past the boundary defined in §3.3; the boundary itself is a design choice.
+8. **The training signal shapes the acts.** Governance is claimed only past the boundary defined in §3.3; the boundary itself is a design choice.
 
 ## 9. Conclusion
 
@@ -233,27 +226,7 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 [30] Memory as Ontology: A Constitutional Memory Architecture for Persistent Digital Citizens. arXiv:2603.04740, 2026. `[verify]`
 [31] Behrouz, A. et al. Nested Learning: The Illusion of Deep Learning Architectures (HOPE). NeurIPS, 2025. `[verify]`
 
-**Availability.** Reference implementation under the former working name (`github.com/alexenti-code/matryoshka`, `github.com/alexenti-code/matryoshka-mmi`), to be consolidated under `plastformer`; architecture decision record `docs/ADR-001`. The September 4, 2026 bench run (Gemma4-12B, matryoshka-mmi 0.5.1) is cited only as a pilot of loudness-readout mechanics with wall-clock aging — not as evidence for P1. License: Apache 2.0 (code), CC-BY 4.0 (text). Russian-language essays at aura.kim are commentary, not the claim.
+**Availability.** Reference implementation under the former working name (`github.com/alexenti-code/matryoshka`, `github.com/alexenti-code/matryoshka-mmi`), to be consolidated under `plastformer`. License: Apache 2.0. Russian-language essays at aura.kim are commentary, not the claim.
 
 </details>
 
-
----
-
-## Changes since v0.3
-
-1. One architecture with three configuration axes (substrate / topology / act training) replaces the "PlastFormer-S / PlastFormer-P realizations" framing; the stand configuration (symbolic × split × prompted) is named wherever results are discussed.
-2. "Trained once" stated: the organ is trained in a single stage, the core frozen after; the current stand's prompted acts are labeled a rehearsal.
-3. New §3.9: PMI (Plastic Memory Interface, formerly MMI) as the split-topology special case.
-4. Δn defined in lived ticks; wall-clock time never enters amplitude (§3.2).
-5. P1 restated as event time; dormancy-is-zero stated as a property (§3.5, §4).
-6. P2 restated as tamper-evident only; curation by omission named as the limit (§1, §5, §8).
-7. P3 restated in lived ticks; sleeping instances and patient attackers stated as limits (§1, §5).
-8. New §4: two clocks, wake-up gap as a recorded event, `reconcile` act, background-tick option.
-9. Read path: amplitude selection without content ranking on the symbolic stand; relevance rankers declared external decision-makers (§3.4, §7 ablations).
-10. Related Work extended (MemoryBank, A-MEM, HippoRAG, Metis, Memory-as-Ontology, Nested Learning, sleep-time compute); axis shifted to substrate physics (§2).
-11. "Emergent" replaced by "compositional" throughout.
-12. Provenance: class assignment is policy, weighting is physics (§3.7, §8).
-13. Erasure: derived-trace (`connect`) key problem stated as open (§6).
-14. E3b (density) and E6 (reconcile) added; E3 baseline is timestamped RAG; E4 rewritten without S/P labels (§7).
-15. Bench 2026-09-04 requalified as a loudness-readout pilot, not evidence for P1 (Availability).
