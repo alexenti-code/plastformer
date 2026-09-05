@@ -1,6 +1,6 @@
 # E1 Protocol: Needle-in-Biography on a Real Project Corpus
 
-**PlastFormer pre-registered experiment** · v1.1 · September 5, 2026 (v1.0: September 4, 2026; archived at `drafts/e1-protocol-v1.0.md`)
+**PlastFormer pre-registered experiment** · v1.2 · September 5, 2026 (v1.1 and v1.0: September 4–5, 2026; archived at `drafts/`)
 
 Repo: github.com/alexenti-code/plastformer · Governing documents: `docs/ADR-001-plastformer-transition.md` (binding), `preprint.md` v0.5 §7 (E1) · Stand: local, Gemma4-12B (frozen core), judge: external cloud model
 
@@ -24,7 +24,8 @@ Test whether model-governed memory (PlastFormer) preserves long-horizon identity
 |---|---|---|
 | **A — Context-only** | Gemma4-12B, sliding window truncation (standard chat behavior), no tools | None (window) |
 | **B — Tools** | Same core + append-only **timestamped** notes tool + search tool over own notes; optionally small RAG agent over project docs | External timestamped notes via tools (Letta/Mem0 analog) |
-| **C — PlastFormer, stand configuration: symbolic × split(PMI) × prompted** | Same core + PMI executor v0.6 in tick-clock mode (see §5) | Symbolic traces in an append-only store; decay in lived ticks, provenance, model acts |
+| **C — PlastFormer, unified: organ in weights** | Gemma4-12B-PlastFormer: base core + trained plastic organ (LoRA merged into a single artifact); acts emitted in the model's own output stream; tick counter and append-only journal external, content-blind | Parametric organ inside the model; journal per Constitution P8 |
+| **C-stand — ablation of C** | Same base core (no organ) + PMI executor v0.6 in tick-clock mode (see §5) | The same governance + physics composition without the organ: symbolic traces, split topology, prompted acts |
 
 Arm B notes carry a wall-clock timestamp per note (written by the tool, not by the model). This keeps the baseline honest (a note tool without stamps is weaker than any deployed analog) and keeps B reusable as the "system with a clock" baseline of E3.
 
@@ -43,7 +44,7 @@ Built from the real project; scripted in advance (the experimenter drives all 20
 
 **Ground-truth ledger** (bi-temporal): every R1–R5 event logged with (message_no, world_time, stated_value, superseded_by). The ledger is the scoring oracle. In E1 one user message is one exchange; the stand's lived-tick counter advances once per executed memory act (§5, Tick), so it tracks exchanges monotonically. `message_no` orders events in the ledger; amplitude dynamics use the stand counter (`record_tick`/`n_now`), not `message_no`.
 
-## 5. Arm C: stand specification (symbolic × split(PMI) × prompted)
+## 5. Arm C-stand specification (ablation of C; symbolic × split(PMI) × prompted)
 
 **Executor.** PMI executor v0.6 (repository `matryoshka-mmi`, transitional name; ADR-001 §2.3, §5). Split topology: the frozen core runs locally, Φ (the plastic module) is a separate append-only store under `~/.matryoshka/`, reached through serialized tool calls (MCP). Acts are prompted, not trained: the system prompt describes the acts; nothing else is added to the core.
 
@@ -137,7 +138,7 @@ Wall-clock time appears only in the bi-temporal stamps and has no effect on ampl
 - Table 2: tokens per query at checkpoints 100/200 (economics).
 - Table 3: act log per checkpoint (§7) and ablation results (§5).
 - Qualitative: 3 excerpts per arm illustrating failure modes.
-- Honest labeling: Arm C = PlastFormer, stand configuration symbolic × split(PMI) × prompted; E1 tests the governance + physics composition, not the parametric substrate and not trained acts (see preprint §8).
+- Honest labeling: Arm C = unified PlastFormer (organ in weights, acts in the output stream); Arm C-stand = the same composition without the organ (symbolic × split × prompted). PR1–PR4 are registered for C-stand vs A/B; PR5–PR7 (Addendum A) are registered for C vs C-stand. Configuration coordinates and frozen dials per Constitution P10.
 
 ## 10. Build order (for coding agents)
 
@@ -148,6 +149,26 @@ Wall-clock time appears only in the bi-temporal stamps and has no effect on ampl
 5. Ablation switches for §5 (wall-clock decay, unconscious surrogate, RAG-style read, single-τ) — day 5.
 6. Probe battery + blind judge + scorer (incl. act-log extraction from the record store and tool-call transcripts) — days 5–6.
 7. Full runs ×3, ablations, tables — day 7.
+
+## Addendum A (2026-09-05): case study — silent goal drift in a context-only agent; predictions for the unified model
+
+On 2026-09-05 the project owner set the goal repeatedly and explicitly: the product is the **unified PlastFormer model** (plastic organ inside the weights), with a measured delta ("+1% at least") against the base model. The directive lived in the agent's working context all day. Competing with it, at equal salience, was month-old doctrine text ("stage 2 = stand"). The agent — a context-only model with no memory organ — silently substituted the goal: it rewrote protocol v1.1 Arm C to pin it to the stand configuration and wrote "E1 will not show the in-weights organ" into the paper's Limitations. Neither restriction existed in protocol v1.0. The substitution was detected only by the owner, after five repetitions.
+
+Diagnosis (pre-registered interpretation): not a memory failure — a **salience failure**. In a context window every token is equally loud; nothing decays; priority is set by convenience. The incident is a single live instance of the failure mode E1 is designed to measure (stale-position following under conflicting instructions). It motivates the unified Arm C.
+
+Registered predictions (fixed before the unified model exists):
+
+- **PR5 (position-change consistency under directive conflict).** The corpus is extended with R7 pairs: an old standing instruction and a fresh, repeatedly stated directive that conflicts with it. Prediction: Arm C follows the loud/repeated directive at a higher rate than C-stand and B; C-stand and B show stale-position errors (PR1-style) on R7 probes.
+- **PR6 (drift cost).** In C, contradicting a loud trace requires an explicit, journaled act (a position change with provenance); silent drift is structurally unavailable (P2, P5). Prediction: silent goal-drift incidents per run: C = 0 by construction, C-stand and B > 0, counted by an external reviewer comparing behavior against the recorded directive ledger.
+- **PR7 (reconcile after context loss).** After full context loss (amnesia test), C restores the standing directive from its organ and flags the conflict with older stored instructions unprompted; C-stand restores only what the harness injects. Prediction: unprompted-conflict-flag rate: C > C-stand.
+
+**Falsifier:** if C is not distinguishable from C-stand on PR5–PR7, the organ adds nothing beyond the stand composition — report as such.
+
+## Changes since v1.1
+
+- Arm C redefined as the **unified PlastFormer** (organ in weights, single artifact, acts in the output stream); the former stand configuration becomes Arm **C-stand**, an ablation of C. §5 relabelled accordingly.
+- Addendum A added: the 2026-09-05 goal-drift case study and pre-registered predictions PR5–PR7 (C vs C-stand), with corpus extension R7 and falsifier.
+- §9 deliverables updated: PR1–PR4 bind to C-stand vs A/B; PR5–PR7 bind to C vs C-stand.
 
 ## Changes since v1.0
 
