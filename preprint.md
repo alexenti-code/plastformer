@@ -11,7 +11,7 @@ A transformer is a stateless function: between requests it retains nothing, and 
 
 We propose PlastFormer: a memory module attached to a frozen core in which every semantic decision about memory — what to name, what to repeat, what to connect, what to surface, and how to reconcile felt time with audited time — is made by the model, while the environment supplies only physics: a write-cost schedule, decay constants defined in *lived ticks* and immutability of recorded content. Trace content is immutable; trace amplitude decays across multiple time constants measured in inference steps, so the age of a memory is a property of the substrate expressed in the instance's own lived time — and is deliberately *not* a wall-clock quantity. Wall-clock time enters only as audited stamps, and the gap between the two clocks is itself recorded as an event of the biography.
 
-The contribution is compositional: every ingredient is individually known. We claim the composition and three **compositional** properties: (P1) event time that cannot be forged by retelling; (P2) an immutable biography — recorded content is never edited, and only the owner can erase it; (P3) a poisoning cost that grows with the lived ticks an adversary must cover. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted) — and report the stand configuration used in evaluation: symbolic traces, split topology, prompted acts. We define the threat model, an erasure mechanism, its open problem with derived traces, and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
+The contribution is compositional: every ingredient is individually known. We claim the composition and three **compositional** properties: (P1) event time that cannot be forged by retelling; (P2) an immutable biography — recorded content is never edited, and only the owner can erase it; (P3) a poisoning cost that grows with the lived ticks an adversary must cover. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted) — and report the stand configuration used in evaluation: symbolic traces, split topology, prompted acts. We define the threat model, an erasure mechanism, and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
 
 ## 1. Introduction
 
@@ -158,8 +158,6 @@ The right to erasure is resolved by the architecture itself. In the co-located c
 
 Encryption of the Φ section is an optional protection measure (against theft or unauthorized access), not an erasure mechanism. Data about third parties encountered during the instance's work are part of the owner's own biography; their removal is the owner's decision over his own material, not a mechanism of the architecture.
 
-**Derived traces** (`connect`) live inside the same Φ section as everything else. Erasure of the substrate removes them together with all other traces; no separate problem arises for a single-instance deployment. If a multi-tenant regime ever emerges (providers allocating plastic memory per user through APIs), attribution of derived summaries to contributing subjects becomes a design task of that regime — the provenance fields carried by every trace are its substrate.
-
 ## 7. Evaluation Design (results pending)
 
 Composition claims live or die by ablation. All experiments run on the stand configuration (symbolic × split via PMI × prompted) unless stated otherwise; the pre-registered E1 protocol is `experiments/e1-protocol.md` v1.1.
@@ -188,8 +186,7 @@ No results are reported. A composition claim without the anchors and E1–E3b sh
 4. **Curation by omission** is not prevented: traces decay by physics; nothing in the architecture filters what the model chooses to let fade.
 5. **Channel coverage** is not claimed: nothing in the architecture monitors channels.
 6. **Provenance classes are policy,** and a mis-set class is an attack surface.
-7. **Derived-trace erasure** is legally unresolved (§6).
-8. **The training signal shapes the acts.** Acts are trained once, and what the model learns to repeat is shaped by that signal. Governance is claimed only past the boundary defined in §3.3; the boundary itself is a design choice.
+7. **The training signal shapes the acts.** Acts are trained once, and what the model learns to repeat is shaped by that signal. Governance is claimed only past the boundary defined in §3.3; the boundary itself is a design choice.
 
 ## 9. Conclusion
 
@@ -253,6 +250,5 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 10. Related Work extended (MemoryBank, A-MEM, HippoRAG, Metis, Memory-as-Ontology, Nested Learning, sleep-time compute); axis shifted to substrate physics (§2).
 11. "Emergent" replaced by "compositional" throughout.
 12. Provenance: class assignment is policy, weighting is physics (§3.7, §8).
-13. Erasure: derived-trace (`connect`) key problem stated as open (§6).
-14. E3b (density) and E6 (reconcile) added; E3 baseline is timestamped RAG; E4 rewritten without S/P labels (§7).
+13. E3b (density) and E6 (reconcile) added; E3 baseline is timestamped RAG; E4 rewritten without S/P labels (§7).
 15. Bench 2026-09-04 requalified as a loudness-readout pilot, not evidence for P1 (Availability).
