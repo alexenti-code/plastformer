@@ -28,8 +28,7 @@ Target form: parametric × co-located × trained. Stand configuration used in E1
 ## Compositional claims (falsifiable)
 
 - **P1 — Event time:** age is read from amplitude profiles, duration from lived ticks; not stored as text, not forgeable by retelling; wall-clock time enters only as audited stamps.
-- **P2 — Immutable past:** content immutable, amplitude decays by physics; a change of position is a new trace. (Security claims — tamper-evidence, poisoning defenses — are outside the current stage.)
-- **P3 — Rising poisoning cost in lived ticks:** poison must survive decay; survival requires repetition — a trainable act.
+- **P2 — Immutable past:** content immutable, amplitude decays by physics; a change of position is a new trace.
 
 ## Evaluation (planned)
 

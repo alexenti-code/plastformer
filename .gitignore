@@ -1,5 +1,6 @@
 # PlastFormer — public/internal boundary (see docs/ADR-002-docs-architecture.md)
 docs/INTERNAL.md
+docs/security-backlog.md
 drafts/*-private*
 *.local
 .env

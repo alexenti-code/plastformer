@@ -147,7 +147,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 - The **parametric substrate is unbuilt** — parametric rank-1 writes on the frozen predecessor stand (research scope) remain future work; evaluation runs at the symbolic × split × prompted point.
 - There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.1 and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
-- P2 restates the immutable past: records are append-only; a position change is a new trace (security claims are outside the current stage); curation by omission (letting a trace decay by not repeating it) remains possible and is only journaled, not prevented.
+- P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible and is only journaled, not prevented.
 
 ## Composition
 
