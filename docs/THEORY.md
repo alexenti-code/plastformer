@@ -102,7 +102,7 @@ Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
 The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) is the experience of this instance at tick t.
 
-**Background tick (mechanism).** Background tick is described as the core running with no user input at a substrate-set low rate: replay of traces and `connect` acts issued by the core, each journaled as the core's act. A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (see CONSTITUTION P5/P9; ADR-002 entry T11).
+**Background tick (mechanism).** Background tick is described as the core running with no user input at a substrate-set low rate: replay of traces and `connect` acts issued by the core, each recorded as a new trace of the core's own act. A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (see CONSTITUTION P5/P9; ADR-002 entry T11).
 
 ## 5. Acts: name / repeat / connect / reconcile (+ write / read)
 
@@ -130,7 +130,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Copying | Copying is described as branching; identity = memory line (§6; test in CONSTITUTION P10) |
 | Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; test in CONSTITUTION P8) |
-| Personal data / deletion | Personal data are described as living in Φ; erasure as key destruction; derived traces are an open problem (preprint §6; tests in CONSTITUTION P7–P8) |
+| Personal data / deletion | Personal data live in Φ as its own content; erasure = deletion of the Φ section (the core survives); derived traces live in the same section and are erased with it |
 
 ## 8. Open questions
 
@@ -139,7 +139,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 - Tick economics at a provider: which product model makes the split (PMI) topology possible.
 - Which tests distinguish PlastFormer memory from ordinary storage with a wrapper (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION P2/P5).
 - How bi-temporal stamps are represented in a parametric substrate.
-- Derived-trace (`connect`) erasure: whose key governs summaries derived from multiple subjects.
+- Derived-trace (`connect`) attribution in a multi-tenant regime (provider-allocated plastic memory per user): how summaries citing erased subjects are re-derived or removed.
 
 ## 9. Honest boundary: what is unbuilt
 
@@ -147,7 +147,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 - The **parametric substrate is unbuilt** — parametric rank-1 writes on the frozen predecessor stand (research scope) remain future work; evaluation runs at the symbolic × split × prompted point.
 - There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.1 and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
-- P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible and is only journaled, not prevented.
+- P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
 
 ## Composition
 

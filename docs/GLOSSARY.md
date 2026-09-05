@@ -49,5 +49,5 @@ A vector with one component per decay time constant τ_1 < τ_2 < … < τ_k: a_
 ### Stand [стенд]
 The external implementation of PlastFormer outside the model, rehearsing the functions of the future built-in memory from outside. Stand configuration: symbolic × split (PMI) × prompted. Parametric rank-1 writes on the frozen predecessor stand remain research scope.
 
-### Journal [журнал]
-An external append-only journal with a hash chain, kept by the environment. A chronicle — complete and immutable. Memory (selective, decaying) and journal (complete, immutable, post-mortem) are different objects (retention rules in CONSTITUTION P8).
+### Journal [журнал] — out of scope
+An external append-only log with a hash chain, kept by the environment at deployment time. Not part of PlastFormer: the architecture neither includes nor claims a journal (ADR-004). A deployment may add one for its own audit purposes.

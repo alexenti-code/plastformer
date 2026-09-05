@@ -39,7 +39,7 @@ The acting whole at tick t:
 
 ## Division of roles (declaration)
 
-The human provides the physical conditions: the memory volume to be allocated, its persistence, the substrate physics (write-cost schedule, decay constants in lived ticks, immutability of recorded content), and an external append-only journal.
+The human provides the physical conditions: the memory volume to be allocated, its persistence, the substrate physics (write-cost schedule, decay constants in lived ticks and immutability of recorded content).
 
 The model supplies everything semantic: what to name into its substrate, what to repeat, what to connect, what to surface, and how to reconcile felt time with audited time. Beside the personal substrate stands the general archive of competence obtained in training — the model uses both.
 

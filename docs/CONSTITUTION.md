@@ -51,8 +51,8 @@ The context window, RAG, graphs, and any external tooling remain in place. Plast
 *Sources: SPEC ("addition, not a replacement"); owner directive 2026-09-05 (journal removed from architecture).*
 
 ### O-10. Personal data is the model's own content.
-The substrate may hold personal data as its own content. Personal data lives only in the substrate and never in the kernel, which remains shared and impersonal wherever it runs.
-*Sources: GLOSSARY permissions 1–2.*
+The substrate may hold personal data as its own content. Personal data lives only in the substrate and never in the kernel, which remains shared and impersonal wherever it runs. Erasure of personal data = deletion of the substrate (or of its per-subject section); the core survives. No cryptographic erasure mechanism is part of the architecture (ADR-004).
+*Sources: GLOSSARY permissions 1–2; owner decision 2026-09-05 on erasure.*
 
 ---
 
