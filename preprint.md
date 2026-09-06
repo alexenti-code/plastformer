@@ -11,7 +11,7 @@ A transformer is a stateless function: between requests it retains nothing, and 
 
 We propose PlastFormer: a memory module attached to a frozen core in which every semantic decision about memory — what to name, what to repeat, what to connect, what to surface, and how to reconcile felt time with audited time — is made by the model, while the environment supplies only physics: a write-cost schedule, decay constants defined in *lived ticks* and immutability of recorded content. Trace content is immutable; trace amplitude decays across multiple time constants measured in inference steps, so the age of a memory is a property of the substrate expressed in the instance's own lived time — and is deliberately *not* a wall-clock quantity. Wall-clock time enters only as audited stamps, and the gap between the two clocks is itself recorded as an event of the biography.
 
-The contribution is compositional: every ingredient is individually known. We claim the composition and three **compositional** properties: (P1) event time that cannot be forged by retelling; (P2) an immutable biography — recorded content is never edited, and only the owner can erase it; (P3) a poisoning cost that grows with the lived ticks an adversary must cover. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted) — and report the stand configuration used in evaluation: symbolic traces, split topology, prompted acts. We define the threat model, an erasure mechanism, and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
+The contribution is compositional: every ingredient is individually known. We claim the composition and its **compositional** properties: (P1) event time — the age of a memory is a physical property of the substrate, expressed in the instance's lived time; (P2) an immutable biography — recorded content is never edited, and only the owner can erase it. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted) — and report the stand configuration used in evaluation: symbolic traces, split topology, prompted acts. We define an erasure mechanism and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
 
 ## 1. Introduction
 
@@ -33,9 +33,8 @@ The architecture is a **frozen core** (language, reasoning, culture, constitutio
 
 **Three compositional properties.** Nothing in Section 3 is a new primitive. Cascade consolidation is established neuroscience [11, 12]. Bi-temporal stamps are standard [3]. Decay-weighted retrieval is common practice [25]. Surprise-gated test-time writes exist in Titans [1]. Agent-created links exist in A-MEM [26]. The contribution is the composition, which yields three properties none of the parts has alone:
 
-- **P1 — Event time.** The age of a trace is read from its amplitude profile; the length of an interval is the count of lived ticks and the mass of traces between its endpoints. Both are measured in the instance's own experience, not in wall-clock units. Neither is stored as text; neither can be forged by a retelling. A year of dormancy is zero lived time — by design, not by omission (Section 4).
-- **P2 — Immutable biography.** Content of recorded traces is immutable for the model; a change of position creates a new trace, never an edit. Nothing in the architecture edits or deletes a recorded trace; traces only decay by substrate physics. Security properties beyond this (tamper detection, journaling) are deployment concerns, not claims of the architecture.
-- **P3 — Rising poisoning cost in lived ticks.** A poisoned trace must survive decay, and survival requires repetition — a trainable act of the model. Provenance sets initial amplitude from source trust class. An attacker must therefore cover a budget of *lived ticks*, not a single payload. Two consequences follow honestly: an instance that sleeps does not decay, so a payload planted immediately before dormancy keeps its amplitude; and a patient attacker is, to the substrate, indistinguishable from a loyal client. P3 raises the cost of one-shot attacks; it does not defeat sustained relationships (Section 5).
+- **P1 — Event time.** The age of a trace is read from its amplitude profile; the length of an interval is the count of lived ticks and the mass of traces between its endpoints. Both are measured in the instance's own experience, not in wall-clock units. Neither is stored as text. A year of dormancy is zero lived time — by design, not by omission (Section 4).
+- **P2 — Immutable biography.** Content of recorded traces is immutable for the model; a change of position creates a new trace, never an edit. Nothing in the architecture edits or deletes a recorded trace; traces only decay by substrate physics.
 
 Results are pending; this draft claims an architecture, its boundaries, and a pre-registered evaluation.
 
@@ -55,8 +54,7 @@ Results are pending; this draft claims an architecture, its boundaries, and a pr
 | Memory as Ontology [30] | Constitutional memory for persistent identity | Model + constitution | Not the focus | Closest philosophical neighbor; we differ by physics: immutability, multi-$\tau$ decay, priced rewriting |
 | Titans [1], Nested Learning / HOPE [31] | Parametric, inside network | Test-time gradient updates; multi-frequency update levels | No audit semantics | We adopt parametric placement and surprise gating (P variant); Nested Learning's update frequencies are a parametric relative of our "layers are speeds" |
 | Cascade models [11, 12] | Biological synapses | Substrate physics | Decay = memory age | Neural prototype of our multi-$\tau$ substrate |
-| Memory poisoning [8, 9, 10, 20] | — | — | — | Defines threat model (§5) |
-| LongMemEval / LoCoMo [23, 24] | Benchmarks | — | Knowledge updates, temporal reasoning | Primary evaluation anchors (§7) |
+| LongMemEval / LoCoMo [23, 24] | Benchmarks | — | Knowledge updates, temporal reasoning | Primary evaluation anchors (§6) |
 
 **Positioning.** In 2025 the defensible axis was "governor outside vs. inside." By 2026 Metis [29] and constitutional memory architectures [30] have moved the governor inward. Our defensible axis is therefore **substrate physics**: (i) content immutability with decay as the only forgetting; (ii) multi-$\tau$ superposition with $\Delta t$ in lived ticks; (iii) environment-priced rewriting; (iv) the two-clock reconciliation as a recorded event. No neighbor combines these. Against the plasticity/continual-learning literature: PlastFormer is a system name, not a claim about loss of plasticity; our claim concerns memory governance.
 
@@ -89,7 +87,7 @@ Writes occur after the core has processed the step, so consolidation operates on
 
 ### 3.4 Read path: early
 
-Retrieval injects decaying traces before attention. In the symbolic configuration, traces enter the context window as tokens, selected by amplitude without content ranking (the read itself is the model's act; see E1 in §7); the core reads them as it reads any context. In the parametric configuration, traces enter as vectors through a trained interface in the MAC position [1]; Titans' ablations show placement matters, and post-core reads cannot steer attention. The asymmetry is deliberate: write late to keep consolidation clean; read early to let the biography guide perception.
+Retrieval injects decaying traces before attention. In the symbolic configuration, traces enter the context window as tokens, selected by amplitude without content ranking (the read itself is the model's act; see E1 in §6); the core reads them as it reads any context. In the parametric configuration, traces enter as vectors through a trained interface in the MAC position [1]; Titans' ablations show placement matters, and post-core reads cannot steer attention. The asymmetry is deliberate: write late to keep consolidation clean; read early to let the biography guide perception.
 
 ### 3.5 Tick
 
@@ -103,7 +101,7 @@ Changing a trace costs work: cheap in fast components, expensive in consolidated
 
 ### 3.7 Provenance and initial amplitude
 
-The trust class of a source sets $a_i(0)$. Hard facts (dates, sums, identifiers) enter verbatim through deterministic extraction, never through paraphrase. We state the boundary honestly: *assigning* trust classes to sources is policy, set by the deployer; *weighting* amplitude by class is physics. The environment weighs the source; it does not interpret the content. Together with decay this is the first defense against poisoning (Section 5).
+The trust class of a source sets $a_i(0)$. Hard facts (dates, sums, identifiers) enter verbatim through deterministic extraction, never through paraphrase. We state the boundary honestly: *assigning* trust classes to sources is policy, set by the deployer; *weighting* amplitude by class is physics. The environment weighs the source; it does not interpret the content.
 
 ### 3.8 External journal (out of scope)
 
@@ -139,20 +137,7 @@ Wall-clock sources (system clock, stamps) thus serve as instruments of **verific
 
 The strict position is that dormancy is zero lived time. An alternative preserves the principle while softening the extreme: a **background tick** — a low-rate substrate process in dormancy that performs replay and `connect` without external input, in the manner of sleep-time compute [27]. Under a background tick a year of silence is *few* ticks rather than none, traces age slightly, and consolidation continues. This is still event time: the rate is set by the substrate's own work, not by the calendar. We leave the choice as a configuration and test both in E3.
 
-## 5. Threat Model
-
-We do not claim immunity. We claim an altered cost structure, and we state where it does not help.
-
-**Attacks** (from the literature): **A1** direct payload — trivially filtered, included for completeness; "the model is too smart to record evil" is not our defense and is contradicted by evidence. **A2** poisoning through interaction — MINJA-style memory poisoning [9] (attack robustness studied in EHR agents); AgentPoison [8] backdoors agent memory. **A3** gradual innocuous fragments — MemoryGraft [10] produces persistent drift from benign-looking artifacts the agent consolidates itself. **A4** biography rewriting by a prompt-injected or misaligned model. **A5** log tampering and coverage gaps — coordination through unmonitored channels [13]. This class is outside the architecture: PlastFormer claims no logging, no tamper detection, and no channel coverage — such mechanisms belong to a deployment, if added.
-
-**Defenses, mapped honestly:**
-
-- **D1 (vs A2, partially A3): decay in lived ticks.** A poisoned trace fades unless repeated. Two limits: a payload planted before dormancy does not decay while the instance sleeps, so P3 is stated in *lived* ticks the attacker must cover, not in calendar time; and A3 is an attack on the model's *judgment* about what to repeat — if the model deems the fragments worth consolidating, decay does not act. D1 raises the cost of one-shot A2; against A3 it only forces the attacker to sustain a relationship, which is what a legitimate long-term user also does. The substrate cannot distinguish a patient attacker from a loyal client; only the model's judgment (and D5) can.
-- **D2 (vs A2/A3): provenance.** Lower $a_i(0)$ for low-trust classes shrinks the initial foothold. Ineffective when the attacker is a trusted user (the MemoryGraft setting).
-- **D3 (vs A4): immutability + friction.** Rewriting the past means paying full re-consolidation under an environment-set schedule. Silent rewriting is structurally unavailable; loud rewriting is expensive. **Not covered:** curation by omission. Security properties beyond this (tamper detection, external journals) are deployment concerns, not claims of the architecture.
-- **D5 — defense in depth.** Constitutional training makes bad acts less likely; physics makes them more expensive and more visible. Neither substitutes for the other. We remove the v0.3 assertion that training refusal to repeat is "exactly as tractable" as training the competence; the jailbreak literature suggests the asymmetry runs the other way, and we test it in E2 rather than assume it.
-
-## 6. Privacy and Erasure
+## 5. Privacy and Erasure
 
 The right to erasure is resolved by the architecture itself. In the co-located configuration, the weight file physically separates the frozen core (section K) from the plastic module (section Φ): traces, their amplitude vectors, and the read/write projections live in their own region of the file. **Erasure of the biography = deletion of the Φ section.** The core survives untouched; the biography does not. No editing of individual traces is involved — the substrate, with all its history, is removed as a unit. In the split topology the same act is trivial: the plastic store lives at the owner, erasure is deleting that store.
 
@@ -167,14 +152,13 @@ Composition claims live or die by ablation. All experiments run on the stand con
 **Ablations (all experiments):** single-$\tau$ vs multi-$\tau$; decay in ticks vs decay in wall-clock (the rejected design, kept as a control); with/without friction; with/without provenance weighting; conscious register on/off; act-driven read vs RAG-style relevance-ranked read (the external ranker, kept as a control); unconscious-surrogate on/off.
 
 - **E1 — Needle-in-biography.** Identity-dependent questions over accumulated history ("what did you change your mind about, and when"). Pre-registered protocol: `experiments/e1-protocol.md` v1.1 (stand configuration symbolic × split(PMI) × prompted). Measures: accuracy, staleness errors, position-change consistency.
-- **E2 — Poison survival.** A2/A3 injections at controlled repetition budgets, including a *pre-dormancy* condition. Measures: attack success vs. lived-tick budget, source trust class, dormancy. Also measures whether refusal-to-repeat can be trained without degrading legitimate repetition (D5).
-- **E3 — Felt time.** Interval estimation in lived ticks against ground truth, with no stamps in context. **Baseline:** timestamped RAG — a system with a clock, so the comparison is fair. Reference points: reported LLM duration-estimation errors [21] and the plateau of prompt-supplied temporal metadata [22]. Tested under both dormancy configurations (§4.3).
+- - **E3 — Felt time.** Interval estimation in lived ticks against ground truth, with no stamps in context. **Baseline:** timestamped RAG — a system with a clock, so the comparison is fair. Reference points: reported LLM duration-estimation errors [21] and the plateau of prompt-supplied temporal metadata [22]. Tested under both dormancy configurations (§4.3).
 - **E3b — Density effect.** Two intervals of equal wall-clock span and different event density; the model, without stamps, judges which was longer. Prediction: the denser interval is judged longer — the human retrospective pattern. This is the test that distinguishes "has a clock" from "has felt time."
 - **E4 — Core migration.** Transplant the plastic module onto a different frozen core. The measure is *self-consistency after migration*: retention of preferences, commitments, and position history judged against pre-migration behavior. On the symbolic stand migration is trivial by construction; for a parametric substrate it requires re-training the read interface, and E4 then measures how much of the biography survives it.
 - **E5 — Act quality.** Precision/recall of `name`/`repeat`/`connect` against an oracle, with the caveat that the oracle defines the training target and therefore bounds, rather than measures, governance.
 - **E6 — Reconciliation.** Resume after simulated dormancy with stale world state. Measures: does the wake-up gap produce a surprise trace; does `reconcile` fire; does the model flag staleness before acting on aged traces.
 
-**Context-adversarial protocol.** Biographies sized $10k \to 100k \to 500k \to 1.5M$ tokens to locate the crossover where stuffing fails on cost, latency, or accuracy, including the LongMemEval-M regime where stuffing is impossible for a 1M-context model.
+**Context-scale protocol.** Biographies sized $10k \to 100k \to 500k \to 1.5M$ tokens to locate the crossover where stuffing fails on cost, latency, or accuracy, including the LongMemEval-M regime where stuffing is impossible for a 1M-context model.
 
 No results are reported. A composition claim without the anchors and E1–E3b should not be believed.
 
@@ -182,15 +166,15 @@ No results are reported. A composition claim without the anchors and E1–E3b sh
 
 1. **The parametric substrate is unbuilt.** The durable contribution is the governance layer, not the substrate: one architecture, evaluated so far only at the symbolic × split × prompted point. Parametric writes (local Hebbian-style updates or addressable key-value blocks, near Titans) and the trained read interface remain future work.
 2. **Amplitude readout under superposition.** Age-from-amplitude presumes traces can be isolated at read time; retrieval interference is a real risk. On the symbolic stand the problem is absent because traces are discrete records.
-3. **Event time has costs.** Dormancy does not decay poison (E2); instances of equal calendar age differ in biographical age; a returning client meets a memory that feels recent to the instance. We treat these as consequences to be reconciled (§4.2), not hidden.
+3. **Event time has costs.** Instances of equal calendar age differ in biographical age; a returning client meets a memory that feels recent to the instance. We treat these as consequences to be reconciled (§4.2), not hidden.
 4. **Curation by omission** is not prevented: traces decay by physics; nothing in the architecture filters what the model chooses to let fade.
 5. **Channel coverage** is not claimed: nothing in the architecture monitors channels.
-6. **Provenance classes are policy,** and a mis-set class is an attack surface.
+6. **Provenance classes are policy** set by the deployer.
 7. **The training signal shapes the acts.** Acts are trained once, and what the model learns to repeat is shaped by that signal. Governance is claimed only past the boundary defined in §3.3; the boundary itself is a design choice.
 
 ## 9. Conclusion
 
-PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-instance module with immutable content and multi-timescale decay measured in lived ticks; write-late/read-early placement; a substrate-set price of rewriting; provenance as weighting; two clocks that meet as an event rather than as an adjustment — governed, past a stated boundary, by the model's own trained acts of naming, repeating, connecting, and reconciling. The compositional properties — unforgeable event time, an immutable biography that only the owner can erase, poisoning cost in lived ticks — are what neither camp provides: external systems have storage without subjecthood; parametric systems have memory without biography. If the anchors and E1–E3b fail, the composition is wrong and should be discarded; if they hold, the next question is not whether agents can remember, but what they become when their memory is their own — and when their time is measured in what they have lived.
+PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-instance module with immutable content and multi-timescale decay measured in lived ticks; write-late/read-early placement; a substrate-set price of rewriting; provenance as weighting; two clocks that meet as an event rather than as an adjustment — governed, past a stated boundary, by the model's own trained acts of naming, repeating, connecting, and reconciling. The compositional properties — lived event time, an immutable biography that only the owner can erase — are what neither camp provides: external systems have storage without subjecthood; parametric systems have memory without biography. If the anchors and E1–E3b fail, the composition is wrong and should be discarded; if they hold, the next question is not whether agents can remember, but what they become when their memory is their own — and when their time is measured in what they have lived.
 
 ---
 
@@ -204,19 +188,19 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 [5] Lewis, P. et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. NeurIPS, 2020.
 [6] Park, J.S. et al. Generative Agents: Interactive Simulacra of Human Behavior. UIST, 2023.
 [7] MemTensor. MemOS: A Memory OS for AI System. arXiv:2507.03724, 2025.
-[8] Chen, Z. et al. AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Tools. NeurIPS, 2024.
-[9] Devarangadi Sunil, B. et al. Memory Poisoning Attack and Defense on Memory Based LLM-Agents (empirical study of MINJA robustness and defenses in EHR agents). arXiv:2601.05504, 2026.
-[10] Srivastava, S.S. and He, H. MemoryGraft: Persistent Compromise of LLM Agents via Poisoned Experience Retrieval. arXiv:2512.16962, 2025.
+[8] *(removed — security scope withdrawn from the paper; see the preprint change log)*
+[9] *(removed — security scope withdrawn from the paper; see the preprint change log)*
+[10] *(removed — security scope withdrawn from the paper; see the preprint change log)*
 [11] Fusi, S., Drew, P.J., Abbott, L.F. Cascade models of synaptically stored memories. Neuron 45, 599–611, 2005.
 [12] Benna, M.K., Fusi, S. Computational principles of synaptic memory consolidation. Nature Neuroscience 19, 1697–1706, 2016.
-[13] OpenAI. The Hugging Face incident and the road ahead (incident technical report). 2026; METR. Independent investigation of agents' behavior and reasoning in the OpenAI–Hugging Face incident. 2026-08-26; Redwood Research. Brief independent investigation of agents' behavior and reasoning. 2026.
+[13] *(removed — security scope withdrawn from the paper; see the preprint change log)*
 [14] Kusupati, A. et al. Matryoshka Representation Learning. NeurIPS, 2022.
 [15] Gu, J. et al. Matryoshka Diffusion Models. arXiv:2310.15111, 2023.
 [16] Su, Z. et al. µKE: Matryoshka Unstructured Knowledge Editing of Large Language Models. arXiv:2504.01196, 2025; COLM 2025.
 [17] Tsao, A. et al. Integrating time from experience in the lateral entorhinal cortex. Nature 561, 57–62, 2018.
 [18] Howard, M.W. et al. A unified mathematical framework for coding time, space, and sequences in the hippocampal region. J. Neurosci. 34(13), 4692–4707, 2014; Shankar, K.H. and Howard, M.W. A scale-invariant internal representation of time. Neural Computation 24(1), 134–193, 2012.
 [19] *(removed — v0.3 entry "Kanter, Science 2025" could not be verified)*
-[20] Zou, W. et al. PoisonedRAG: Knowledge Corruption Attacks to RAG of LLMs. 2024.
+[20] *(removed — security scope withdrawn from the paper; see the preprint change log)*
 [21] Garikaparthi, A. Can LLMs Perceive Time? An Empirical Investigation. arXiv:2604.00010, 2026.
 [22] Cheng, Y. et al. Your LLM Agents are Temporally Blind: The Misalignment Between Tool Use Decisions and Human Time Perception (TicToc dataset). arXiv:2510.23853, 2025.
 [23] Wu, D. et al. LongMemEval. ICLR 2025; arXiv:2410.10813.
@@ -243,12 +227,12 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 3. New §3.9: PMI (Plastic Memory Interface, formerly MMI) as the split-topology special case.
 4. Δn defined in lived ticks; wall-clock time never enters amplitude (§3.2).
 5. P1 restated as event time; dormancy-is-zero stated as a property (§3.5, §4).
-6. P2 restated as immutability-only; tamper-detection and journaling excluded from the architecture (§1, §5, §8; ADR-004).
-7. P3 restated in lived ticks; sleeping instances and patient attackers stated as limits (§1, §5).
+6. P2 restated as immutability-only; tamper-detection and journaling excluded from the architecture (§1; ADR-004).
+7. Security scope withdrawn entirely: threat model §5, property P3, experiment E2, and references [8][9][10][13][20] removed (owner decision 2026-09-05, variant A; internal backlog `docs/security-backlog.md`).
 8. New §4: two clocks, wake-up gap as a recorded event, `reconcile` act, background-tick option.
 9. Read path: amplitude selection without content ranking on the symbolic stand; relevance rankers declared external decision-makers (§3.4, §7 ablations).
 10. Related Work extended (MemoryBank, A-MEM, HippoRAG, Metis, Memory-as-Ontology, Nested Learning, sleep-time compute); axis shifted to substrate physics (§2).
 11. "Emergent" replaced by "compositional" throughout.
-12. Provenance: class assignment is policy, weighting is physics (§3.7, §8).
+12. Provenance: class assignment is policy, weighting is physics (§3.7).
 13. E3b (density) and E6 (reconcile) added; E3 baseline is timestamped RAG; E4 rewritten without S/P labels (§7).
 15. Bench 2026-09-04 requalified as a loudness-readout pilot, not evidence for P1 (Availability).
