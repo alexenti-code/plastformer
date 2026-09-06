@@ -5,8 +5,8 @@ authors:
   - family-names: Voronin
     given-names: Alexey
     affiliation: Aurum Estate LLC
-version: "0.5"
-date-released: "2026-09-05"
+version: "0.6"
+date-released: "2026-09-06"
 license: Apache-2.0
 repository-code: "https://github.com/alexenti-code/plastformer"
 doi: 10.5281/zenodo.22340929

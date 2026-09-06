@@ -2,8 +2,9 @@
 
 **Self-governed idiographic memory for frozen-core transformers.**
 
-- **Paper (draft v0.5):** [`preprint.md`](preprint.md)
-- **Pre-registered experiment E1 (v1.2):** [`experiments/e1-protocol.md`](experiments/e1-protocol.md)
+- **Paper (draft v0.6):** [`preprint.md`](preprint.md)
+- **Normative document:** [`docs/CONSTITUTION.md`](docs/CONSTITUTION.md) v3.0 (NORMATIVE, owner edition 2026-09-06)
+- **Pre-registered experiment E1 (v1.4):** [`experiments/e1-protocol.md`](experiments/e1-protocol.md)
 - **Architecture decision record (transition from the working name "Matryoshka"):** [`docs/ADR-001-plastformer-transition.md`](docs/ADR-001-plastformer-transition.md)
 - **Author:** Alexey Voronin, Aurum Estate LLC
 - **License:** Apache 2.0 (code), CC BY 4.0 (text)
@@ -23,7 +24,7 @@ The core split (after Windelband): a frozen **nomothetic core** (general laws: l
 | Topology | co-located (module inside the model) ↔ split via **PMI** — Plastic Memory Interface (core at a provider, module at the owner) |
 | Act training | trained (organ trained once, core frozen after) ↔ prompted (acts given by system prompt) |
 
-Target form: parametric × co-located × trained. Stand configuration used in E1: symbolic × split(PMI) × prompted. Both are PlastFormer; they differ in coordinates, not in architecture. **PMI** (formerly MMI) is the special case along the topology axis, not a different system.
+Target form: parametric × co-located × trained — this is the point registered for the E1 test (arm D). Stand configuration: symbolic × split(PMI) × prompted — evaluated in E1 as an ablation of D (arm D-stand), not as the object of the registered test. Both are PlastFormer; they differ in coordinates, not in architecture. **PMI** (formerly MMI) is the special case along the topology axis, not a different system.
 
 ## Compositional claims (refutable)
 
@@ -32,7 +33,7 @@ Target form: parametric × co-located × trained. Stand configuration used in E1
 
 ## Evaluation (planned)
 
-Anchored in LongMemEval (S/M) and LoCoMo, plus E1–E6 and E3b. See preprint Section 7 and `experiments/`. Results pending — this draft claims an architecture, not outcomes.
+Anchored in LongMemEval (S/M) and LoCoMo, plus E1–E6 and E3b. E1 registers a single comparison: **one wrapper agent** (decides what enters the model's context — cuts, extends, updates, consolidates) run over the base transformer (arm B) versus over the unified PlastFormer (arm D). The wrapper is one implementation shared by both arms; the variable is the model. A comparison against plain chat is not registered: every external memory system beats a bare context window, so it cannot separate this architecture from any notebook. See preprint Section 7 and `experiments/`. Results pending — this draft claims an architecture, not outcomes. The registered arm requires the unified artifact (organ in weights), which is not yet built; runs of the stand are reported as a rehearsal.
 
 ## Naming and lineage
 

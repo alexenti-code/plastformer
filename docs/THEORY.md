@@ -144,7 +144,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 - The memory organ is **not trained** — on the stand the acts are given by prompt (rehearsal, not the organ).
 - The **parametric substrate is unbuilt** — parametric rank-1 writes on the frozen predecessor stand (research scope) remain future work; evaluation runs at the symbolic × split × prompted point.
-- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.3 and preprint §7).
+- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.4 and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
 - P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
 

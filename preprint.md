@@ -1,7 +1,7 @@
 # PlastFormer: Self-Governed Idiographic Memory for Frozen-Core Transformers
 
 **Alexey Voronin** — Aurum Estate LLC, Sochi, Russia
-Draft v0.5 — September 5, 2026 — prepared for arXiv (cs.LG)
+Draft v0.6 — September 6, 2026 — prepared for arXiv (cs.LG)
 
 <sup>Naming footnote. *PlastFormer* = plastic + transformer. The property it implements we call *idiographic memory*, after Windelband's nomothetic/idiographic distinction: a frozen nomothetic core (general laws) plus a plastic per-instance biography (the singular case). Earlier drafts circulated as "Matryoshka"; renamed to avoid collision with Matryoshka Representation Learning [14] and Matryoshka Diffusion [15]. The mechanism is superposition of decaying amplitudes, not nesting.</sup>
 
@@ -11,7 +11,7 @@ A transformer is a stateless function: between requests it retains nothing, and 
 
 We propose PlastFormer: a memory module attached to a frozen core in which every semantic decision about memory — what to name, what to repeat, what to connect, what to surface, and how to reconcile felt time with audited time — is made by the model, while the environment supplies only physics: a write-cost schedule, decay constants defined in *lived ticks* and immutability of recorded content. Trace content is immutable; trace amplitude decays across multiple time constants measured in inference steps, so the age of a memory is a property of the substrate expressed in the instance's own lived time — and is deliberately *not* a wall-clock quantity. Wall-clock time enters only as audited stamps, and the gap between the two clocks is itself recorded as an event of the biography.
 
-The contribution is compositional: every ingredient is individually known. We claim the composition and its **compositional** properties: (P1) event time — the age of a memory is a physical property of the substrate, expressed in the instance's lived time; (P2) an immutable biography — recorded content is never edited, and only the owner can erase it. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted) — and report the stand configuration used in evaluation: symbolic traces, split topology, prompted acts. We define an erasure mechanism and a pre-registered evaluation anchored in LongMemEval and LoCoMo. Results are pending.
+The contribution is compositional: every ingredient is individually known. We claim the composition and its **compositional** properties: (P1) event time — the age of a memory is a physical property of the substrate, expressed in the instance's lived time; (P2) an immutable biography — recorded content is never edited, and only the owner can erase it. We specify one architecture with three configuration axes — substrate (parametric ↔ symbolic), topology (co-located ↔ split via the Plastic Memory Interface), act training (trained ↔ prompted). This paper is an **architectural proposal**: it defines the architecture, its normative boundary (the Constitution, O-1–O-11 with compliance tests C1–C8), an erasure mechanism, and a pre-registered evaluation anchored in LongMemEval and LoCoMo. The registered test is a single comparison — one wrapper agent over the base transformer versus over the unified PlastFormer — and it requires the unified artifact, which is not yet built. The symbolic stand (split topology, prompted acts) is evaluated as an ablation of that arm, and its numbers are a rehearsal of the organ, not the registered result. No empirical claim is made in this draft.
 
 ## 1. Introduction
 
@@ -29,7 +29,7 @@ The architecture is a **frozen core** (language, reasoning, culture, constitutio
 | Topology | co-located (module inside the model) ↔ split via PMI (core at a provider, module at the owner) |
 | Act training | trained (organ trained once, core frozen after) ↔ prompted (rehearsal: acts given by prompt) |
 
-**Trained once.** The model's competence to perform its memory acts is acquired in a single training stage, exactly as tool use is acquired; afterwards the core is frozen and instances differ only by the state of their plastic module. On the current stand the acts are prompted, not trained — a rehearsal of the organ, not the organ. Results in Section 7 are reported on the stand configuration unless stated otherwise.
+**Trained once.** The model's competence to perform its memory acts is acquired in a single training stage, exactly as tool use is acquired; afterwards the core is frozen and instances differ only by the state of their plastic module. On the current stand the acts are prompted, not trained — a rehearsal of the organ, not the organ. Section 7 reports a proposal and a pre-registered protocol; no results are reported in this draft.
 
 **Three compositional properties.** Nothing in Section 3 is a new primitive. Cascade consolidation is established neuroscience [11, 12]. Bi-temporal stamps are standard [3]. Decay-weighted retrieval is common practice [25]. Surprise-gated test-time writes exist in Titans [1]. Agent-created links exist in A-MEM [26]. The contribution is the composition, which yields three properties none of the parts has alone:
 
@@ -145,13 +145,13 @@ Encryption of the Φ section is an optional protection measure (against theft or
 
 ## 7. Evaluation Design (results pending)
 
-Composition claims live or die by ablation. E1 runs the four-arm scheme (A/B/C/D, protocol v1.3): A vs C — plain chat (transformer vs PlastFormer); B vs D — the identical wrapper agent over both models. The variable inside each pair is the model only. Ablations on the stand configuration (symbolic × split via PMI × prompted) remain registered; the pre-registered E1 protocol is `experiments/e1-protocol.md` v1.3.
+Composition claims live or die by ablation. E1 registers a single comparison (protocol v1.4): the **identical wrapper agent** run over the base transformer (arm B) and over the unified PlastFormer (arm D). The wrapper decides what enters the model's context — cuts, extends, updates, consolidates; it is one implementation shared by both arms, so the variable is the model alone. A comparison against plain chat is deliberately not registered: every external memory system beats a bare context window on a long biography, so that comparison cannot separate this architecture's physics and governance from any notebook. The stand configuration (symbolic × split via PMI × prompted) is evaluated as an ablation of D (arm D-stand), not as the object of the registered test; the pre-registered protocol is `experiments/e1-protocol.md` v1.4.
 
 **Anchors:** LongMemEval [23] (S split ~115k tokens; M split ~1.5M across ~500 sessions) and LoCoMo [24], under their open-source judges. **Baselines:** Letta [2], Mem0 [4], Zep [3], MemoryBank [25], A-MEM [26], timestamped RAG [5], Titans MAC/MAL [1] (P only), full-context stuffing where it fits. **Axes:** accuracy, tokens/query, latency, cost/query. Stuffing is a legitimate contestant: where the biography fits, it may match accuracy; our claim there is economics and consistency.
 
 **Ablations (all experiments):** single-$\tau$ vs multi-$\tau$; decay in ticks vs decay in wall-clock (the rejected design, kept as a control); with/without friction; with/without provenance weighting; conscious register on/off; act-driven read vs RAG-style relevance-ranked read (the external ranker, kept as a control); unconscious-surrogate on/off.
 
-- **E1 — Needle-in-biography.** Identity-dependent questions over accumulated history ("what did you change your mind about, and when"). Pre-registered protocol: `experiments/e1-protocol.md` v1.3 (four arms: A vs C plain chat; B vs D under the identical wrapper; main test B vs D). Measures: accuracy, staleness errors, position-change consistency, tokens/query.
+- **E1 — Needle-in-biography.** Identity-dependent questions over accumulated history ("what did you change your mind about, and when"). Pre-registered protocol: `experiments/e1-protocol.md` v1.4 (two arms: B = wrapper + transformer, D = wrapper + PlastFormer; the registered test is B vs D). Measures: accuracy, staleness errors, position-change consistency, drift incidents, derived generalizations, tokens/query. Arm D requires the unified artifact (organ in weights), which is not yet built; until then only D-stand can be run, and its numbers are reported as a rehearsal, not as the registered result.
 - - **E3 — Felt time.** Interval estimation in lived ticks against ground truth, with no stamps in context. **Baseline:** timestamped RAG — a system with a clock, so the comparison is fair. Reference points: reported LLM duration-estimation errors [21] and the plateau of prompt-supplied temporal metadata [22]. Tested under both dormancy configurations (§4.3).
 - **E3b — Density effect.** Two intervals of equal wall-clock span and different event density; the model, without stamps, judges which was longer. Prediction: the denser interval is judged longer — the human retrospective pattern. This is the test that distinguishes "has a clock" from "has felt time."
 - **E4 — Core migration.** Transplant the plastic module onto a different frozen core. The measure is *self-consistency after migration*: retention of preferences, commitments, and position history judged against pre-migration behavior. On the symbolic stand migration is trivial by construction; for a parametric substrate it requires re-training the read interface, and E4 then measures how much of the biography survives it.
@@ -164,17 +164,19 @@ No results are reported. A composition claim without the anchors and E1–E3b sh
 
 ## 8. Limitations
 
-1. **The parametric substrate is unbuilt.** The durable contribution is the governance layer, not the substrate: one architecture, evaluated so far only at the symbolic × split × prompted point. Parametric writes (local Hebbian-style updates or addressable key-value blocks, near Titans) and the trained read interface remain future work.
+1. **The parametric substrate is unbuilt.** The durable contribution is the governance layer, not the substrate: one architecture, specified and pre-registered but not yet run at the target point (parametric × co-located × trained). Parametric writes (local Hebbian-style updates or addressable key-value blocks, near Titans) and the trained read interface remain future work. The only thing run so far is a loudness-readout pilot with wall-clock aging (September 4, 2026), which is not evidence for any property claimed here.
 2. **Amplitude readout under superposition.** Age-from-amplitude presumes traces can be isolated at read time; retrieval interference is a real risk. On the symbolic stand the problem is absent because traces are discrete records.
 3. **Event time has costs.** Instances of equal calendar age differ in biographical age; a returning client meets a memory that feels recent to the instance. We treat these as consequences to be reconciled (§4.2), not hidden.
 4. **Curation by omission** is not prevented: traces decay by physics; nothing in the architecture filters what the model chooses to let fade.
 5. **Channel coverage** is not claimed: nothing in the architecture monitors channels.
 6. **Provenance classes are policy** set by the deployer.
 7. **The training signal shapes the acts.** Acts are trained once, and what the model learns to repeat is shaped by that signal. Governance is claimed only past the boundary defined in §3.3; the boundary itself is a design choice.
+8. **The registered test may come out null on recall.** A competent wrapper already selects, cuts, and consolidates context, so verbatim recall of facts may be near-parity between B and D. The loci where a difference is expected are priority under conflicting directives, suppression of stale material, derived generalizations, and absence of silent drift. Scoring by recall alone would report a null result for an architecture whose claim is elsewhere; the protocol therefore registers those loci explicitly and reports recall parity as a finding rather than as a refutation.
+9. **No security improvement is claimed.** The threat model, tamper-evidence, and cryptographic erasure were withdrawn from this architecture (ADR-004). Erasure is a consequence of the substrate split — deleting the Φ section leaves the core intact — and encryption of Φ is an optional protection a deployment may add, not a mechanism of the architecture.
 
 ## 9. Conclusion
 
-PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-instance module with immutable content and multi-timescale decay measured in lived ticks; write-late/read-early placement; a substrate-set price of rewriting; provenance as weighting; two clocks that meet as an event rather than as an adjustment — governed, past a stated boundary, by the model's own trained acts of naming, repeating, connecting, and reconciling. The compositional properties — lived event time, an immutable biography that only the owner can erase — are what neither camp provides: external systems have storage without subjecthood; parametric systems have memory without biography. If the anchors and E1–E3b fail, the composition is wrong and should be discarded; if they hold, the next question is not whether agents can remember, but what they become when their memory is their own — and when their time is measured in what they have lived.
+PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-instance module with immutable content and multi-timescale decay measured in lived ticks; write-late/read-early placement; a substrate-set price of rewriting; provenance as weighting; two clocks that meet as an event rather than as an adjustment — governed, past a stated boundary, by the model's own trained acts of naming, repeating, connecting, and reconciling. The compositional properties — lived event time, an immutable biography that only the owner can erase — are what neither camp provides: external systems have storage without subjecthood; parametric systems have memory without biography. This draft states an architecture, its normative boundary, and a pre-registered protocol whose predictions were fixed before the artifact exists; the protocol, the corpus requirements, and the act dataset are public, so the test can be run by anyone who builds the unified artifact. If the anchors and E1–E3b fail, the composition is wrong and should be discarded; if they hold, the next question is not whether agents can remember, but what they become when their memory is their own — and when their time is measured in what they have lived.
 
 ---
 
@@ -219,6 +221,14 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 
 
 ---
+
+## Changes since v0.5
+
+1. Status restated: this draft is an **architectural proposal** (abstract, §7, §9). No empirical claim is made; the registered test requires the unified artifact, which is not yet built.
+2. E1 aligned to protocol v1.4: a single registered comparison — one wrapper agent over the base transformer (arm B) versus over the unified PlastFormer (arm D). The plain-chat comparison (bare window vs PlastFormer) is removed from the protocol: every external memory system wins it, so it cannot separate this architecture from any notebook.
+3. The symbolic stand (symbolic × split(PMI) × prompted) is now an ablation of arm D (D-stand), not the object of the registered test.
+4. Limitations extended: (8) the registered test may be null on recall, with the expected loci of a difference named in advance; (9) no security improvement is claimed — threat model, tamper-evidence, and cryptographic erasure withdrawn (ADR-004); erasure is a consequence of the substrate split.
+5. Normative anchor named: `docs/CONSTITUTION.md` v3.0 (NORMATIVE, owner edition 2026-09-06) — Foundations O-1–O-11, compliance tests C1–C8.
 
 ## Changes since v0.3
 

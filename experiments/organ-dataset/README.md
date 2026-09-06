@@ -89,7 +89,7 @@ is a run dial, not baked into the data).
 Conventions:
 
 * **system** = the ONLY system text: compact act grammar. No memory
-  content, no facts, no ledger — the grammar alone (mirrors E1 Arm C
+  content, no facts, no ledger — the grammar alone (mirrors the E1 D-stand ablation
   "acts are prompted, nothing else is added").
 * **user** = conversation so far, sliding window of 14 transcript messages.
   Every context message is prefixed `[сообщение N]` (exchange number), so
