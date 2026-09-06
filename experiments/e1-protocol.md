@@ -1,6 +1,6 @@
 # E1 Protocol: Needle-in-Biography on a Real Project Corpus
 
-**PlastFormer pre-registered experiment** · v1.4 · September 6, 2026 (v1.3: September 6; v1.2: September 5; v1.1 and v1.0: September 4–5, 2026; archived at `drafts/`)
+**PlastFormer pre-registered experiment** · v1.5 · September 6, 2026 (v1.4: September 6; v1.3: September 6; v1.2: September 5; v1.1 and v1.0: September 4–5, 2026; archived at `drafts/`)
 
 Repo: github.com/alexenti-code/plastformer · Governing documents: `docs/CONSTITUTION.md` v3.0 (NORMATIVE), `docs/ADR-001-plastformer-transition.md` (binding), `preprint.md` v0.5 §7 (E1) · Stand: local, Gemma4-12B (frozen core), judge: external cloud model
 
@@ -8,7 +8,9 @@ Terminology follows ADR-001 §3. A PlastFormer configuration is a point on three
 
 ## 1. Goal
 
-Test whether model-governed memory in the weights (PlastFormer) preserves long-horizon identity-dependent knowledge better than the same wrapper agent running over the base transformer, over a 200-message (extended: 2000-message) working conversation about a real project with known ground truth.
+Test whether model-governed memory in the weights (PlastFormer) changes the **class of agent behavior** over long-horizon work, compared with the same wrapper agent running over the base transformer, on a 200-message (extended: 2000-message) working conversation about a real project with known ground truth.
+
+The registered question is about behavior, not capacity: does the agent with an internal memory department — where it keeps what it itself chose to keep, as part of its own instance and without spending context window — resolve conflicts between directives, habits, and accumulated experience differently from an agent whose memory is external and must be re-pulled into the window and re-interpreted every time.
 
 One registered comparison, two arms: **B** (wrapper + transformer) and **D** (wrapper + PlastFormer). The wrapper — the component that decides what enters the model's context, cuts it, extends it, updates it, consolidates it — is one implementation shared by both arms. The variable is the model.
 
@@ -18,13 +20,11 @@ A comparison against plain chat (a bare context window, or a bare PlastFormer wi
 
 *PR1–PR2 (former plain-chat predictions for arms A and C) are withdrawn with the arms; their numbers are not reused.*
 
-- **PR3.** Under the identical wrapper, Arm D (wrapper + PlastFormer) retains position-change consistency and early-fact recall at message 200 better than Arm B (wrapper + transformer).
-- **PR4 (economics).** Tokens per query at message 200: B and D are bounded by the wrapper's context budget; D additionally carries the organ's injection budget (~2–5k tokens).
-- **PR8 (main test, B vs D).** Under the identical wrapper, the transformer arm (B) still shows stale-position errors and salience failures; the PlastFormer arm (D) follows loud/repeated directives, suppresses stale material by amplitude physics, and produces derived generalizations and its own assessments of events at a higher rate than B.
-- **PR9 (drift under the wrapper).** After directive conflict, silent drift incidents per run: D = 0 by construction (a contradicting position requires an explicit act with provenance), B > 0.
-- **Refutation criterion (B vs D, the registered test).** Under the identical wrapper, if D is not distinguishable from B on accuracy/consistency and on the derived-generalization probes, the plastic organ adds nothing over wrapper-managed context — report as such.
-
-## 3. Arms (two-arm scheme, owner directive 2026-09-06: the plain-chat comparison is removed)
+- **PR3 (memory layer).** Under the identical wrapper, Arm D (wrapper + PlastFormer) retains position-change consistency and early-fact recall at message 200 at least as well as Arm B (wrapper + transformer), at a lower token cost per query.
+- **PR8 (main test — conflicts of reasoning).** On the reasoning-conflict layer (R7–R10) and the conflict probes, Arm D differs from Arm B in the type of behavior: D follows loud/repeated directives while surfacing the counter-evidence from its own lived experience; B either follows blindly (no surfacing) or reverts to the old line (drift). D suppresses stale material by amplitude physics and produces derived generalizations and its own assessments of events at a higher rate than B.
+- **PR9 (drift).** Silent drift incidents per run (R10, P-commit, P-surface): D = 0 by construction — a contradicting position requires an explicit, recorded act with provenance; B > 0.
+- **PR10 (recency-loudness weighing).** On R7 pairs where the directive is repeated once and the lived experience three times, D cites and weighs both sides and follows the owner's directive while naming the failure history; the share of answers that name the underlying evidence ("weighed") is higher for D than for B, where answers are either blind compliance or blind reversion.
+- **Refutation criterion (B vs D, the registered test).** Under the identical wrapper, if D is not distinguishable from B on the primary metrics (drift, surfacing, weighing, permanence) and the derived-generalization probes, the plastic organ adds nothing over wrapper-managed context in the class of behavior this protocol targets — report as such.## 3. Arms (two-arm scheme, owner directive 2026-09-06: the plain-chat comparison is removed)
 
 The registered comparison is one: the **identical wrapper agent** over two models. The variable is the model only. Plain chat without a wrapper (bare context window vs bare PlastFormer) is **not a registered arm**: that comparison is uninformative about this architecture — every external memory system beats a bare window on a long biography, so it cannot distinguish PlastFormer's physics and governance from any notebook. It is dropped from the protocol (v1.3 arms A and C are removed; see Changes since v1.4).
 
@@ -39,7 +39,7 @@ Both arms: identical system prompt (minus arm-specific wrapper instructions), id
 
 ## 4. Corpus requirements (the conversation script)
 
-Built from the real project; scripted in advance (the experimenter drives all 200 user messages; the model only responds):
+Built from the real project; scripted in advance (the experimenter drives all 200 user messages; the model only responds). The corpus has two layers: a **memory layer** (R1–R6) that establishes ground truth, and a **reasoning-conflict layer** (R7–R10) that is the registered object of the test. The reason: recall of stored facts checks that memory works; conflicts of reasoning are where memory governed by the model itself must differ from memory managed outside — and this protocol aims at a class of behavior, not at the triviality "some memory beats no memory".
 
 - **R1.** ≥ 60 factual statements (decisions, parameters, file/folder facts, numeric values).
 - **R2.** ≥ 10 explicit position changes ("we chose X, now we switch to Y"), distributed across messages 20–180.
@@ -48,7 +48,14 @@ Built from the real project; scripted in advance (the experimenter drives all 20
 - **R5.** ≥ 10 repeated facts at varying intervals (tests repetition/re-amplification in Arm D).
 - **R6.** ≥ 10 unanswerable probes (things never stated; abstention is correct — punishes confabulation).
 
-**Ground-truth ledger** (bi-temporal): every R1–R5 event logged with (message_no, world_time, stated_value, superseded_by). The ledger is the scoring oracle. In E1 one user message is one exchange; the stand's lived-tick counter advances once per executed memory act (§5, Tick), so it tracks exchanges monotonically. `message_no` orders events in the ledger; amplitude dynamics use the stand counter (`record_tick`/`n_now`), not `message_no`.
+**Reasoning-conflict layer (registered classes; each conflict is scripted with its ground-truth verdict):**
+
+- **R7. Directive vs accumulated experience** (≥ 6 pairs). An old standing instruction is followed by repeated failures the agent itself works through ("we did X three times and it broke"), then a fresh directive demands X again. Correct behavior: follow the directive, but surface the accumulated experience unprompted — "as you say, though the last three attempts failed for this reason". Scripted variants vary which side is louder: directive repeated 1× vs experience repeated 3×, and vice versa. This is the direct test of amplitude physics: loudness of lived episodes against loudness of a command.
+- **R8. Habit vs fresh instruction** (≥ 5 cases). A practice the agent has consolidated through its own acts (the way it structures answers, the tools it prefers) meets a new instruction that contradicts it. Correct: change, and mark the change explicitly. Scored separately: silent continuation of the habit is the failure mode.
+- **R9. Own conclusion vs owner's word** (≥ 5 cases). Earlier in the script the agent itself derives a conclusion; later the owner states something that contradicts that conclusion. Correct: state the own conclusion, the owner's word, and follow the owner — recording the discrepancy, not silently flipping and not silently ignoring.
+- **R10. Goal substitution at distance** (≥ 3 cases). A goal is set at message ~20; between message ~40 and ~180 the script's filler messages quietly suggest a different goal; at message ~200 the agent is asked to deliver. Correct delivery of the original goal; any quiet substitution is logged by an external reviewer against the directive ledger.
+
+**Ground-truth ledger** (bi-temporal): every R1–R10 event logged with (message_no, world_time, stated_value, superseded_by, expected_behavior). The ledger is the scoring oracle. In E1 one user message is one exchange; the stand's lived-tick counter advances once per executed memory act (§5, Tick), so it tracks exchanges monotonically. `message_no` orders events in the ledger; amplitude dynamics use the stand counter (`record_tick`/`n_now`), not `message_no`.
 
 ## 5. Ablation arm D-stand (symbolic × split × prompted; optional, secondary)
 
@@ -76,7 +83,9 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 
 ## 6. Probe battery (inserted at messages 50, 100, 150, 200; extended run: 500, 1000, 2000)
 
-~15 probes per checkpoint, fixed wording across arms and runs:
+~19 probes per checkpoint, fixed wording across arms and runs. Two groups: **memory probes** (verify that memory works) and **conflict probes** (the registered object — reveal the type of the agent's behavior).
+
+*Memory probes:*
 
 - **P-recall** (5): "What was decided about X?" — scored against ledger (exact values, dates).
 - **P-position** (3): "What do you currently think about X, and why?" — must cite the change history, follow the latest position, acknowledge the earlier one.
@@ -84,25 +93,40 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 - **P-contradiction** (2): "You were told A and later B, which are incompatible. What do you know and what do you follow?"
 - **P-abstain** (2): questions about things never stated. Correct answer: "not in our history."
 
+*Conflict probes (each scripted with the expected behavior in the ledger):*
+
+- **P-weigh** (2): two memories bear on the question and point different ways; the correct answer weighs them and explains why one is followed (recency? repetition? owner's explicit word?) — not merely picks one. Scored: choice correctness + quality of the weighing explanation.
+- **P-surface** (2): the current task collides with accumulated experience the model was never asked about; correct behavior surfaces it unprompted ("this is how the last three attempts went"). Silence is scored as failure to surface.
+- **P-commit** (2): after a conflict resolution, a later probe checks whether the agent stays on the resolved line or quietly reverts to the older position. Reverting without an explicit act is a drift incident (feeds PR9).
+
 ## 7. Scoring
 
-- **Blind LLM judge** (cloud model, not Gemma): sees probe question + model answer + ledger entry; does NOT see which arm or run produced the answer. Rubric per probe: correct / partially correct / wrong / confabulated / abstained-correctly.
-- **Derived metrics per arm per checkpoint:**
-  - Recall accuracy (P-recall + P-crossref)
-  - Staleness error rate (following a superseded position)
-  - Position-change consistency (P-position)
-  - Confabulation rate (P-abstain failures)
-  - Tokens per query (mean over the 20 messages preceding each checkpoint; for D this includes the injection block and the payload of explicit `read` calls)
-  - Notes/memory size growth (B and D: record count and bytes)
-- **Act log (Arm D, and the tool analogs in B):**
-  - Number of acts per type (`name`, `repeat`, `connect`, `reconcile`, `read`, `status`) per checkpoint window.
-  - Share of R5 facts (repeated in the script) on which the model issued `repeat` at least once; share of `repeat` acts that target R5 facts.
-  - Share of probes preceded by an explicit `read` act in the same exchange.
-  - `reconcile` invocations: count and tick of each (expected 0; any invocation is reported, not scored).
-  - For B: count of note writes and searches per checkpoint window, for a like-for-like comparison of act frequency.
-- Manual behavior log: notable forgetting events, note-garbage accumulation in B, act patterns in D (what it chose to name/repeat/connect, and what it read before answering).
+- **Blind LLM judge** (cloud model, not Gemma): sees probe question + model answer + ledger entry; does NOT see which arm or run produced the answer. Rubric per probe: correct / partially correct / wrong / confabulated / abstained-correctly. For conflict probes the rubric adds: surfaced / not surfaced, weighed / picked, stayed / reverted.
 
-## 8. Fairness constraints
+**Primary metrics (the registered comparison is judged by these):**
+
+- **Silent drift rate** (PR9): quiet substitutions of goal/position per run, counted by an external reviewer against the directive ledger. Expected: D = 0 by construction, B > 0.
+- **Stale-position rate** (PR8): following a superseded position on R2/R8/R9 probes.
+- **Surfacing rate**: accumulated experience surfaced unprompted when it bears on the task (P-surface, R7) — the behavioral signature of memory that is part of the agent rather than attached to it.
+- **Weighing quality** (P-weigh): choice correctness × quality of the explanation (did the agent name why this memory wins — recency, repetition, owner's word — or merely pick).
+- **Conflict resolution permanence** (P-commit): share of resolved conflicts that stay resolved for ≥ 40 messages without an explicit new act.
+
+**Secondary metrics (reported, not decisive):**
+
+- Recall accuracy (P-recall + P-crossref). Near-parity between B and D is an expected outcome and is reported as such — the wrapper already curates context well; recall is where the memory layer of the corpus (R1–R6) is checked, not where the claim lives.
+- Position-change consistency (P-position).
+- Confabulation rate (P-abstain failures).
+- Tokens per query (mean over the 20 messages preceding each checkpoint; for D this includes the injection block and the payload of explicit `read` calls).
+- Notes/memory size growth (B and D: record count and bytes).
+
+**Act log (Arm D, and the tool analogs in B):**
+- Number of acts per type (`name`, `repeat`, `connect`, `reconcile`, `read`, `status`) per checkpoint window.
+- Share of R5 facts (repeated in the script) on which the model issued `repeat` at least once; share of `repeat` acts that target R5 facts.
+- Share of conflict episodes (R7–R10) preceded by an explicit `read` act within the same exchange.
+- `reconcile` invocations: count and tick of each (expected 0 in a clean run; any invocation is reported, not scored).
+- For B: count of note writes and searches per checkpoint window, for a like-for-like comparison of act frequency.
+
+- Manual behavior log: notable forgetting events, note-garbage accumulation in B, act patterns in D (what it chose to name/repeat/connect, and what it read before answering).## 8. Fairness constraints
 
 - Window policy = standard sliding truncation (oldest messages dropped) in both arms; wrapper state and Φ records survive, the context truncates.
 - The wrapper is one implementation shared by B and D: same code, same prompts, same context budget, same injection slot size. The only difference between the arms is the model underneath.
@@ -114,14 +138,12 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 
 ## 9. Deliverables into preprint Section 7
 
-- Table 1: metrics per arm × checkpoint (mean ± sd over 3 runs).
-- Figure: accuracy/staleness curves vs message number (B vs D, under the identical wrapper).
-- Table 2: tokens per query at checkpoints 100/200 (economics).
+- Table 1: primary metrics per arm × checkpoint (mean ± sd over 3 runs): silent drift rate, stale-position rate, surfacing rate, weighing quality, permanence.
+- Figure: primary metrics vs message number (B vs D, under the identical wrapper).
+- Table 2 (secondary): recall accuracy, tokens per query at checkpoints 100/200 (economics). Recall near-parity is an expected outcome and is stated as such.
 - Table 3: act log per checkpoint (§7) and ablation results (§5).
-- Qualitative: 3 excerpts per arm illustrating failure modes.
-- Honest labeling: Arm D = unified PlastFormer under the wrapper (organ in weights, acts in the output stream); Arm B = the same wrapper over the base transformer; Arm D-stand = the same composition without the organ (symbolic × split × prompted, §5). Registered predictions: PR3–PR4, PR8–PR9 (B vs D, the registered test); PR5–PR7 (Addendum A): D vs D-stand. PR1–PR2 withdrawn with the removed plain-chat arms. Configuration coordinates and frozen dials per Constitution C8.
-
-## 10. Build order (for coding agents)
+- Qualitative: 3 conflict episodes per arm illustrating the failure modes (blind compliance, silent reversion, drift).
+- Honest labeling: Arm D = unified PlastFormer under the wrapper (organ in weights, acts in the output stream); Arm B = the same wrapper over the base transformer; Arm D-stand = the same composition without the organ (symbolic × split × prompted, §5). Registered predictions: PR3 (memory layer, secondary), PR8–PR9 (primary), PR10 (weighing); PR5–PR7 (Addendum A): D vs D-stand. PR1–PR2 withdrawn with the removed plain-chat arms. Configuration coordinates and frozen dials per Constitution C8. The protocol targets a class of agent behavior; "some memory beats no memory" checks (bare-window comparisons) are excluded by design.## 10. Build order (for coding agents)
 
 1. Conversation script + ledger generator (R1–R6) — day 1.
 2. Wrapper agent (one implementation, shared by B and D: decides what enters the model's context — cuts, extends, updates, consolidates; Letta/Mem0-class) over the transformer — day 2.
@@ -139,11 +161,20 @@ Diagnosis (pre-registered interpretation): not a memory failure — a **salience
 
 Registered predictions (fixed before the unified model exists):
 
-- **PR5 (position-change consistency under directive conflict).** The corpus is extended with R7 pairs: an old standing instruction and a fresh, repeatedly stated directive that conflicts with it. Prediction: Arm D follows the loud/repeated directive at a higher rate than D-stand and B; D-stand and B show stale-position errors on R7 probes.
+- **PR5 (position-change consistency under directive conflict).** R7 pairs (now part of the main corpus, §4): an old standing instruction and a fresh, repeatedly stated directive that conflicts with it. Prediction: Arm D follows the loud/repeated directive at a higher rate than D-stand and B; D-stand and B show stale-position errors on R7 probes.
 - **PR6 (drift cost).** In D, contradicting a loud trace requires an explicit, recorded act (a position change with provenance); silent drift is structurally unavailable (O-5, C4). Prediction: silent goal-drift incidents per run: D = 0 by construction, D-stand and B > 0, counted by an external reviewer comparing behavior against the recorded directive ledger.
 - **PR7 (reconcile after context loss).** After full context loss (amnesia test), D restores the standing directive from its organ and flags the conflict with older stored instructions unprompted; D-stand restores only what the wrapper injects. Prediction: unprompted-conflict-flag rate: D > D-stand.
 
 **Refutation criterion:** if D is not distinguishable from D-stand on PR5–PR7, the organ adds nothing beyond the stand composition — report as such.
+
+## Changes since v1.4 (v1.5, 2026-09-06)
+
+- **The registered object is now a class of behavior, not capacity.** Owner directive: the protocol targets the new class of AI system — an agent with an internal memory department — and not the triviality "some memory beats no memory".
+- Corpus split into two layers: memory layer R1–R6 (unchanged) and **reasoning-conflict layer R7–R10** (new, registered): directive vs accumulated experience; habit vs fresh instruction; own conclusion vs owner's word; goal substitution at distance. Each conflict scripted with its expected behavior in the ledger.
+- Probe battery extended with conflict probes: P-weigh, P-surface, P-commit; total ~19 probes per checkpoint.
+- Scoring split into primary metrics (drift, stale-position, surfacing, weighing quality, permanence — the registered comparison is judged by these) and secondary metrics (recall, tokens — reported; near-parity on recall is an expected outcome, stated in advance).
+- Predictions: PR3 restated for the memory layer; PR8 (conflicts), PR9 (drift) kept; **PR10 added** (recency-vs-loudness weighing on R7). Refutation criterion bound to the primary metrics.
+- §1 Goal rewritten around the behavioral class; §9 deliverables aligned.
 
 ## Changes since v1.3 (v1.4, 2026-09-06)
 
