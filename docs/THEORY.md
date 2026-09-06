@@ -73,6 +73,21 @@ A transformer already has a class of settings — continuous physics of generati
 | recall_sharpness | top_k | sharpness of key-proximity sampling |
 | repeat_gain | repetition_penalty (mirror) | how much `repeat` re-amplifies the trace |
 
+### 2.2.1. Canonical memory constants (owner-approved 2026-09-06)
+
+Six constants form the minimal regulation set for the first registered run. Start values are declared here and frozen per run in the run manifest (C3); mid-run changes are violations.
+
+| Constant | Start value | Meaning | Analog |
+|---|---|---|---|
+| dormancy_rate | 0.0 | rate of the background tick in dormancy; 0 = dormancy is zero lived time (strict position, §4.3) | — |
+| audibility_floor | 0.01 | amplitude threshold below which a trace is unreadable to the core; "forgotten" without a delete call | min_p |
+| act_price | 1.0 tick | base price of one storing act (1 executed act = +1 tick; friction_schedule adds per-speed surcharges) | — |
+| interference_factor | 1.0 (off) | readout blurring as traces accumulate in one speed component; symbolic stand: traces are discrete, factor stays 1.0; raised only as a stress test on long biographies | top_p (mirror) |
+| consolidation_ceiling | 8.0 | cumulative amplification cap per trace: (1+repeats) ≤ ceiling; guards against a perpetual anchor from looped `repeat` | repetition_penalty (hard) |
+| surfacing_cap | 12 records | N in the loudest-N physics injection (E1 range 8–16; ≤2k tokens) | top_k |
+
+All six are content-blind: they apply to amplitudes, act types and counters, never to record text. Anything that weights by meaning is a decider, not a constant, and stays out of the main run (ablation only).
+
 Descriptive note: temperature describes WHAT distribution text is sampled from without selecting content; forgetting_tempo is described in the same class. Enforceable boundaries for these dials (enumerated set, pre-registration, freezing) live in CONSTITUTION C3 (ADR-002 entries T5–T6).
 
 ---
