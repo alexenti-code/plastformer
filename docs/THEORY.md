@@ -15,7 +15,7 @@
 PlastFormer describes a transformer with an unchanged core K and a plastic module Φ, connected by the architectural coupling PMI. In this description:
 
 1. **Memory write is described as an act in the model's action space**, in the same class as saying, answering, or opening a file — analogous to a person writing a note.
-2. **Remembering is described as a trainable competence.** In an open model, PMI functions are trained once, after which the core is frozen. On the current stand the acts are given by prompt — a rehearsal of the organ, not the organ.
+2. **Remembering is described as a competence of the model itself.** In an open model, the PMI functions are embedded once — by a one-time instruction pass (the act grammar) — after which the core is frozen. On the current stand the acts are given by prompt — a rehearsal of the organ, not the organ.
 3. **Granularity of a record** (a paragraph, an event, a decision, a conclusion) is described as the model's output — the record content comes from the model's stream.
 4. **On the stand**, the write command arrives as a tool call in the model's output stream; the stand executes it. The mapping of removed normative sentences to enforceable tests is recorded in ADR-002 (entries T1–T4 → CONSTITUTION C2/C4).
 
@@ -96,11 +96,11 @@ Descriptive note: temperature describes WHAT distribution text is sampled from w
 
 | Axis | Values | Comment |
 |---|---|---|
-| **Trace substrate** | parametric (vectors/weights, read by a trained interface before attention) ↔ symbolic (records, read as tokens) | the form of Φ |
+| **Trace substrate** | parametric (vectors/weights, read by an embedded interface before attention) ↔ symbolic (records, read as tokens) | the form of Φ |
 | **Topology** | co-located (Φ inside the model / on the same machine) ↔ **split via PMI** (core at a provider, Φ at the owner) | the acts are the same; through PMI they are serialized (tool calls) |
-| **Act state** | trained (organ trained once, core frozen after) ↔ prompted (rehearsal: acts given by a system prompt) | the rehearsal stand is prompted; the registered arm D is trained |
+| **Act state** | instructed (act grammar embedded once, core frozen after) ↔ prompted (rehearsal: acts given by a system prompt) | the rehearsal stand is prompted; the registered arm D is instructed |
 
-Target form of PlastFormer: parametric × co-located × trained. Stand configuration (E1): symbolic × split (PMI) × prompted. Both are described as PlastFormer; they differ in coordinates, not in architecture.
+Target form of PlastFormer: parametric × co-located × instructed. Stand configuration (E1): symbolic × split (PMI) × prompted. Both are described as PlastFormer; they differ in coordinates, not in architecture.
 
 Ownership description: the frozen core K is shared weights; the plastic Φ belongs to one instance. Personal data are described as living in Φ and meeting the core through PMI functions in the instance's work. Instance continuity is described as preservation of the dedicated region between sessions. On a K version change, the question of Φ compatibility with the new core arises — see open questions.
 
@@ -139,7 +139,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 | Review point | Mechanism description |
 |---|---|
-| Where write competence comes from | Remembering is described as a trainable PMI competence; in an open model — training the organ once, core frozen after (§1, §5) |
+| Where write competence comes from | Remembering is described as the model's own PMI competence; in an open model — embedded once by the instruction pass, core frozen after (§1, §5) |
 | Write gates | Writing is described as the model's act; Φ only stores state (C1); decay by τ, ticks, and volume are the substrate's dynamics — they happen, and nobody executes them (§5; enforceable test in CONSTITUTION C2/C4) |
 | Bi-temporality in parameters | Stamps are described as a property of the memory act and PMI functions; storage method is implementation (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
@@ -149,15 +149,15 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 ## 8. Open questions
 
-- How to train PMI functions in an open model without destroying core competence; what signal trains `repeat` without training away legitimate repetition.
-- Φ portability between core versions (K replacement; re-training the read interface for a parametric substrate).
+- How to embed the PMI functions in an open model without destroying core competence; how the instruction anchors `repeat` without suppressing legitimate repetition.
+- Φ portability between core versions (K replacement; re-embedding the read interface for a parametric substrate).
 - Tick economics at a provider: which product model makes the split (PMI) topology possible.
 - Which tests distinguish PlastFormer memory from ordinary storage with a wrapper (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION C2/C4).
 - How bi-temporal stamps are represented in a parametric substrate.
 
 ## 9. Honest boundary: what is unbuilt
 
-- The memory organ is **not trained** — on the stand the acts are given by prompt (rehearsal, not the organ).
+- The memory organ is **not embedded** — on the stand the acts are given by prompt (rehearsal, not the organ).
 - The **parametric substrate is unbuilt** — parametric rank-1 writes on the frozen predecessor stand (research scope) remain future work; evaluation runs at the symbolic × split × prompted point.
 - There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.4 and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).

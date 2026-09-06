@@ -11,13 +11,13 @@
 ## Glossary (English, with Russian term in brackets)
 
 ### PlastFormer [ПластФормер]
-A transformer architecture with an unchanged core and a plastic per-instance module, organized in layers by timescale. One architecture with three configuration axes — substrate, topology, act training (see THEORY.md §3). Target form: parametric × co-located × trained.
+A transformer architecture with an unchanged core and a plastic per-instance module, organized in layers by timescale. One architecture with three configuration axes — substrate, topology, act state (see THEORY.md §3). Target form: parametric × co-located × instructed.
 
 ### Idiographic memory [идиографическая память]
 After Windelband's nomothetic/idiographic distinction: a frozen nomothetic core (general laws) plus a plastic per-instance biography (the singular case).
 
 ### Frozen core K [неизменное ядро, K]
-The part of the model weights carrying general competence. Unchanged during the life of an instance. Shared by all instances of one core. Frozen after the single training stage that teaches the model to operate its own memory organ.
+The part of the model weights carrying general competence. Unchanged during the life of an instance. Shared by all instances of one core. Frozen after the single instruction pass (the act grammar) that makes the model operate its own memory organ.
 
 ### Plastic module Φ [пластичный модуль, Φ]
 The part of the model that changes under memorization without changing the frozen core. Belongs to one instance. In the target form: vectors/weights; on the stand: symbolic records.

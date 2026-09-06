@@ -14,9 +14,9 @@ PlastFormer is an architectural proposal for transformer-based language models.
 
 It proposes that a working language-model instance be given, as a matter of architecture, **one thing**:
 
-1. its own plastic module Φ governed by its own trained acts — `name` / `repeat` / `connect` / `reconcile` — acquired in a single training stage, after which the core is frozen.
+1. its own plastic module Φ governed by its own acts — `name` / `repeat` / `connect` / `reconcile` — the skill of which is embedded by a one-time instruction pass (the act grammar), after which the core is frozen.
 
-This is a proposal of one architecture for all transformers: a frozen core plus a plastic per-instance substrate plus the model's own acts, trained once. It is not a memory file format, not an algorithm, not a retrieval wrapper, not a second reasoning agent, not a prompt assembly system, not an orchestration layer, and not a mechanism for altering the pretrained core. Substrate form (parametric ↔ symbolic), topology (co-located ↔ split via PMI), and act state (trained ↔ prompted) are configuration axes, not different systems.
+This is a proposal of one architecture for all transformers: a frozen core plus a plastic per-instance substrate plus the model's own acts, the skill of which is embedded by a one-time instruction pass. It is not a memory file format, not an algorithm, not a retrieval wrapper, not a second reasoning agent, not a prompt assembly system, not an orchestration layer, and not a mechanism for altering the pretrained core. Substrate form (parametric ↔ symbolic), topology (co-located ↔ split via PMI), and act state (instructed ↔ prompted) are configuration axes, not different systems.
 
 ## The starting situation
 
@@ -35,7 +35,7 @@ The acting whole at tick t:
 \mathcal{A}(t) = (K, \Phi(t))
 \]
 
-\(K\) is the pretrained core: the general linguistic and cognitive competence, shared by all instances of one core, frozen after the single training stage that teaches it to operate its own memory organ. \(\Phi(t)\) is the lived experience of this particular instance: what it did, said, saw, understood and decided, changing with its work.
+\(K\) is the pretrained core: the general linguistic and cognitive competence, shared by all instances of one core, frozen after the single instruction pass (the act grammar) that makes it operate its own memory organ. \(\Phi(t)\) is the lived experience of this particular instance: what it did, said, saw, understood and decided, changing with its work.
 
 ## Division of roles (declaration)
 
@@ -61,7 +61,7 @@ PlastFormer is the first engineering step of a broader program: continuity of ar
 
 ## Honest boundary
 
-This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The parametric substrate is unbuilt (work in progress: an MLX implementation of Gemma4-12B with the plastic organ in the weights); the organ's acts are prompted rather than trained on the rehearsal stand; no results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
+This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The parametric substrate is unbuilt (work in progress: an MLX implementation of Gemma4-12B with the plastic organ in the weights); the organ's acts are prompted on the rehearsal stand rather than embedded; no results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
 
 ## Superseded lineage notes (not norms)
 
@@ -76,7 +76,7 @@ The following sentences appeared as norms in MANIFEST v2.0–v3.0 and are **SUPE
 
 ## Research questions
 
-- how \(K\) reads and writes \(\Phi\) within the forward pass, without destroying core competence (training PMI functions);
+- how \(K\) reads and writes \(\Phi\) within the forward pass, without destroying core competence (embedding the PMI functions);
 - whether attention over a continuous timestamped stream suffices, or an explicit time channel is required;
 - how the substrate is verified, audited and protected;
 - what tests distinguish a PlastFormer substrate from ordinary key-value storage;

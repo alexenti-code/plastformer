@@ -12,7 +12,7 @@
 
 ## What this is
 
-PlastFormer is **one architecture**: a transformer with a frozen core and a plastic per-instance module, trained once to operate its own memory organ through acts — `name`, `repeat`, `connect`, `reconcile`. After that single training step the core is frozen. Every semantic decision about memory is the model's; the environment supplies only physics: write-cost schedule, decay constants in *lived ticks*, and immutability of recorded content.
+PlastFormer is **one architecture**: a transformer with a frozen core and a plastic per-instance module. A one-time instruction embedding — the act grammar — makes it operate its own memory organ through acts — `name`, `repeat`, `connect`, `reconcile`. After that single pass the core is frozen. Every semantic decision about memory is the model's; the environment supplies only physics: write-cost schedule, decay constants in *lived ticks*, and immutability of recorded content.
 
 The core split (after Windelband): a frozen **nomothetic core** (general laws: language, reasoning, culture) plus a plastic **idiographic module** — the unique biography of one instance.
 
@@ -20,11 +20,11 @@ The core split (after Windelband): a frozen **nomothetic core** (general laws: l
 
 | Axis | Values |
 |---|---|
-| Substrate | parametric (vectors/weights, read through a trained interface) ↔ symbolic (records, read as tokens) |
+| Substrate | parametric (vectors/weights, read through an embedded interface) ↔ symbolic (records, read as tokens) |
 | Topology | co-located (module inside the model) ↔ split via **PMI** — Plastic Memory Interface (core at a provider, module at the owner) |
-| Act training | trained (organ trained once, core frozen after) ↔ prompted (acts given by system prompt) |
+| Act state | instructed (act grammar embedded once, core frozen after) ↔ prompted (acts given by system prompt) |
 
-Target form: parametric × co-located × trained — this is the point registered for the E1 test (arm D). Stand configuration: symbolic × split(PMI) × prompted — evaluated in E1 as an ablation of D (arm D-stand), not as the object of the registered test. Both are PlastFormer; they differ in coordinates, not in architecture. **PMI** (formerly MMI) is the special case along the topology axis, not a different system.
+Target form: parametric × co-located × instructed — this is the point registered for the E1 test (arm D). Stand configuration: symbolic × split(PMI) × prompted — evaluated in E1 as an ablation of D (arm D-stand), not as the object of the registered test. Both are PlastFormer; they differ in coordinates, not in architecture. **PMI** (formerly MMI) is the special case along the topology axis, not a different system.
 
 ## Compositional claims (refutable)
 

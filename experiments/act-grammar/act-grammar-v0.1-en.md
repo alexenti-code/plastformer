@@ -1,6 +1,6 @@
 # Act Grammar v0.1 — PlastFormer memory acts (EN)
 
-**Status:** DRAFT v0.1 — candidate for the single one-pass training stage (Constitution O-8).
+**Status:** DRAFT v0.1 — candidate for the single one-time instruction embedding (Constitution O-8).
 **Normative anchor:** `docs/CONSTITUTION.md` v3.0 (O-1…O-11, C1…C8). This grammar describes the FORM of memory acts. It decides nothing semantic: what to record, what to repeat, when to read — the model decides itself (O-1). The environment supplies physics and decides nothing about meaning (O-2).
 
 ## 1. The five acts

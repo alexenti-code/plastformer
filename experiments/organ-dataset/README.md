@@ -1,9 +1,14 @@
-# organ-dataset — LoRA training data for the unified PlastFormer model
+# organ-dataset — ARCHIVED rehearsal material (pre-instruction phase)
 
-**Purpose:** training corpus for LoRA fine-tuning of `gemma4-12b` into a
-UNIFIED PlastFormer model — the model itself performs memory acts in its
-output stream. Target configuration point: **parametric × co-located ×
-trained** (per ADR-001 axes). There is NO external tool server: acts are
+**STATUS (owner directive 2026-09-07): ARCHIVED — not part of the build path.**
+The unified PlastFormer is produced by a ONE-TIME INSTRUCTION EMBEDDING of the
+act grammar — no training, no LoRA, no training corpus. This dataset trained
+nothing and will train nothing; it is kept as lineage of the rehearsal phase
+(symbolic stand, prompted acts), where it demonstrated what act streams look like.
+
+**Original purpose (historical):** rehearsal corpus for the stand phase.
+Target configuration point of the architecture: **parametric × co-located ×
+instructed** (per ADR-001 axes). There is NO external tool server: acts are
 emitted as a JSON block in the assistant's own output; execution is the
 environment's job, selection is always the model's.
 
@@ -130,12 +135,12 @@ Conventions:
   conventions); nothing reclassifies content.
 * **P8 (append-only).** The act stream is strictly append-only; supersession
   and corrections are new records with `refs`, the past is never rewritten.
-* **P9 (training shapes capacity).** The ledger exists only as the
+* **P9 (instruction shapes capacity).** The ledger exists only as the
   generator's scoring oracle and a separate JSON file; it is never part of
   any example's context. Acts are demonstrations = capacity scaffolding
   (legal per P9); content of live biographies is out of scope of this
   dataset.
-* **P10 (honest labeling).** This dataset trains acts for the target
+* **P10 (honest labeling).** Historical: this dataset demonstrated acts for the target
   configuration; it does NOT demonstrate or claim: parametric substrate,
   live governance, hash-chained journal, a0 weighting.
 
@@ -154,14 +159,14 @@ Conventions:
 ## Known gaps
 
 1. **Split is per-example, not per-biography.** P9 asks governance to be
-   demonstrated on held-out biographies; for a *training* corpus the
-   mechanical 90/10 split was requested. For governance evaluation, retrain
-   with biographies held out (e.g. train on bio-01..04, validate on bio-05;
+   demonstrated on held-out biographies; for this archived corpus the
+   mechanical 90/10 split was requested. (Moot: the corpus is archived; the
+   unified model is built by instruction embedding, not corpus training.)
    `emit_mlx.py` already tags every example with `bio_id`).
 2. **Citations may exceed the 14-message window.** Answers cite exchange
    numbers learned earlier (they appear in the model's own connect records
    and read results, i.e. memory-mediated), but a narrow window alone does
-   not contain them. This is intentional: it trains memory-mediated recall,
+   not contain them. This is intentional: it demonstrated memory-mediated recall,
    but makes the cited number unrecoverable if the model failed to record
    it earlier.
 3. **`reconcile` is minimally demonstrated** (10 calls). E1 declares it

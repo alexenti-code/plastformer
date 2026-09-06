@@ -19,7 +19,7 @@
 |---|---|
 | substrate | symbolic / parametric |
 | topology | co-located / split (PMI) |
-| act training | trained / prompted |
+| act state | instructed / prompted |
 
 ## Memory constants (owner-approved set, THEORY §2.2.1)
 
@@ -53,4 +53,4 @@
 
 ## Declaration (C8)
 
-This run reports: configuration coordinates, frozen constant values, ablation states, judge and blindness method, act-rate control. What is NOT claimed until built: parametric substrate, hash-chained journal, trained-act ceiling numbers.
+This run reports: configuration coordinates, frozen constant values, ablation states, judge and blindness method, act-rate control. What is NOT claimed until built: parametric substrate, hash-chained journal, act-ceiling numbers.

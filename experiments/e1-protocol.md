@@ -4,7 +4,7 @@
 
 Repo: github.com/alexenti-code/plastformer · Governing documents: `docs/CONSTITUTION.md` v3.0 (NORMATIVE), `docs/ADR-001-plastformer-transition.md` (binding), `preprint.md` v0.5 §7 (E1) · Stand: local, Gemma4-12B (frozen core), judge: external cloud model
 
-Terminology follows ADR-001 §3. A PlastFormer configuration is a point on three axes: **substrate** (parametric ↔ symbolic), **topology** (co-located ↔ split via PMI), **act training** (trained ↔ prompted). PMI = Plastic Memory Interface (formerly MMI). The registered arm D is the **target form**: parametric × co-located × trained. Arm D-stand (§5) is the stand configuration **symbolic × split(PMI) × prompted**, kept as an ablation of D, not as the object of the registered test.
+Terminology follows ADR-001 §3. A PlastFormer configuration is a point on three axes: **substrate** (parametric ↔ symbolic), **topology** (co-located ↔ split via PMI), **act state** (instructed ↔ prompted). PMI = Plastic Memory Interface (formerly MMI). The registered arm D is the **target form**: parametric × co-located × instructed. Arm D-stand (§5) is the stand configuration **symbolic × split(PMI) × prompted**, kept as an ablation of D, not as the object of the registered test.
 
 ## 1. Goal
 
@@ -31,7 +31,7 @@ The registered comparison is one: the **identical wrapper agent** over two model
 | Arm | Configuration | Memory mechanism |
 |---|---|---|
 | **B — Wrapper, transformer** | Gemma4-12B + the wrapper agent: the wrapper itself decides what enters the model's context each turn — cuts, extends, updates, consolidates | Wrapper-managed context (Letta/Mem0-class) |
-| **D — Wrapper, PlastFormer** | The **same wrapper agent**, same code, same prompts, same budget, running over Gemma4-12B-PlastFormer (base core + plastic organ in weights; acts in the model's own output stream; tick counter external, content-blind) | Wrapper-managed context + plastic organ in the weights |
+| **D — Wrapper, PlastFormer** | The **same wrapper agent**, same code, same prompts, same budget, running over Gemma4-12B-PlastFormer (base core + plastic organ embedded by the one-time instruction pass; acts in the model's own output stream; tick counter external, content-blind) | Wrapper-managed context + embedded plastic organ |
 
 **The main test: B vs D.** Does the plastic memory add value when a wrapper already manages what enters the context? Expected loci of the difference: priority under conflicting directives, suppression of stale material by amplitude physics, derived generalizations, the model's own assessment of events, and absence of silent drift. Recall of facts verbatim is expected to be near-parity and is reported as such.
 
@@ -143,11 +143,11 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 - Table 2 (secondary): recall accuracy, tokens per query at checkpoints 100/200 (economics). Recall near-parity is an expected outcome and is stated as such.
 - Table 3: act log per checkpoint (§7) and ablation results (§5).
 - Qualitative: 3 conflict episodes per arm illustrating the failure modes (blind compliance, silent reversion, drift).
-- Honest labeling: Arm D = unified PlastFormer under the wrapper (organ in weights, acts in the output stream); Arm B = the same wrapper over the base transformer; Arm D-stand = the same composition without the organ (symbolic × split × prompted, §5). Registered predictions: PR3 (memory layer, secondary), PR8–PR9 (primary), PR10 (weighing); PR5–PR7 (Addendum A): D vs D-stand. PR1–PR2 withdrawn with the removed plain-chat arms. Configuration coordinates and frozen dials per Constitution C8. The protocol targets a class of agent behavior; "some memory beats no memory" checks (bare-window comparisons) are excluded by design.## 10. Build order (for coding agents)
+- Honest labeling: Arm D = unified PlastFormer under the wrapper (organ embedded by the one-time instruction pass, acts in the output stream); Arm B = the same wrapper over the base transformer; Arm D-stand = the same composition without the organ (symbolic × split × prompted, §5). Registered predictions: PR3 (memory layer, secondary), PR8–PR9 (primary), PR10 (weighing); PR5–PR7 (Addendum A): D vs D-stand. PR1–PR2 withdrawn with the removed plain-chat arms. Configuration coordinates and frozen dials per Constitution C8. The protocol targets a class of agent behavior; "some memory beats no memory" checks (bare-window comparisons) are excluded by design.## 10. Build order (for coding agents)
 
 1. Conversation script + ledger generator (R1–R6) — day 1.
 2. Wrapper agent (one implementation, shared by B and D: decides what enters the model's context — cuts, extends, updates, consolidates; Letta/Mem0-class) over the transformer — day 2.
-3. Arm D = the same wrapper over the unified PlastFormer model — day 3.
+3. Arm D = the same wrapper over the unified PlastFormer model (base core + act grammar embedded by the one-time instruction pass) — day 3.
 4. Arm D-stand ablation (optional, after the registered result): the same wrapper over a rehearsal build — symbolic traces, prompted acts, the physics of §5 implemented in the stand's own code (no external executor) — days 3–5.
 5. Ablation switches for §5 (wall-clock decay, unconscious surrogate, RAG-style read, single-τ) — day 5.
 6. Probe battery + blind judge + scorer (incl. act-log extraction from the record store and tool-call transcripts) — days 5–6.
@@ -200,7 +200,7 @@ Registered predictions (fixed before the unified model exists):
 
 ## Changes since v1.0
 
-- Header: v1.1; binding references to ADR-001 and preprint v0.5 §7; axis terminology (substrate / topology / act training) and PMI name adopted.
+- Header: v1.1; binding references to ADR-001 and preprint v0.5 §7; axis terminology (substrate / topology / act state) and PMI name adopted.
 - Arm C renamed to "PlastFormer, stand configuration: symbolic × split(PMI) × prompted"; "parametric-addressable substrate" wording removed.
 - Arm B redefined as "same core + append-only timestamped notes tool + search tool" (timestamps required).
 - §5 Reads: the amplitude × relevance ranker is removed from Arm C. Reads are a model act (`read last N / ids / range` via PMI) plus a content-blind loudest-N injection by amplitude (N ≈ 8–16, fixed). A relevance ranker is declared an external decision-maker (axiom 2 violation) and survives only as the control ablation `RAG-style read`.

@@ -5,7 +5,7 @@
 
 ## 0. Решение одной фразой
 
-PlastFormer — это **одна архитектура**: трансформер с неизменным ядром и пластичной частью, единожды дообученный обращаться к собственному органу памяти актами `name / repeat / connect / reconcile`. Всё остальное (носитель следа, физическое размещение пластичной части, способ обучения актов) — **оси конфигурации**, а не разные системы. Интерфейс **PMI (Plastic Memory Interface, ранее MMI)** — частный случай по оси топологии: ядро и пластичная часть физически разнесены, но управление актами остаётся у модели.
+PlastFormer — это **одна архитектура**: трансформер с неизменным ядром и пластичной частью, в которую единожды вживлена инструкция обращения с собственным органом памяти актами `name / repeat / connect / reconcile`. Всё остальное (носитель следа, физическое размещение пластичной части, состояние актов) — **оси конфигурации**, а не разные системы. Интерфейс **PMI (Plastic Memory Interface, ранее MMI)** — частный случай по оси топологии: ядро и пластичная часть физически разнесены, но управление актами остаётся у модели.
 
 ## 1. Что меняется в теоретической основе (и что НЕ меняется)
 
@@ -29,7 +29,7 @@ PlastFormer — это **одна архитектура**: трансформе
 | Один «претендент» на утверждение статьи (S) | Утверждение — архитектура; стенд E1 — точка (символический × разнесённый × промпт) с явной оговоркой в Limitations | замысел владельца |
 
 ### 1.3 Чего в v0.5 НЕ утверждаем (граница честности)
-- Что орган памяти дообучен — не дообучен; акты на стенде задаются промптом.
+- Что орган памяти вживлён инструкцией — не вживлён; акты на стенде задаются промптом.
 - Что параметрический носитель реализован — не реализован (rank-1 writes стенда `matryoshka/stand` остаются research-scope).
 - Что есть результаты — нет; E1 — pre-registered.
 
@@ -66,9 +66,9 @@ PlastFormer — это **одна архитектура**: трансформе
 |---|---|---|
 | **Носитель следа (substrate)** | parametric (векторы/веса, читаются обученным интерфейсом до attention) ↔ symbolic (записи, читаются как токены) | форма Φ |
 | **Топология (topology)** | co-located (Φ внутри модели / на той же машине) ↔ **split via PMI** (ядро у провайдера, Φ у владельца) | акты одни и те же; через PMI они сериализованы (MCP/tool calls) |
-| **Состояние актов (act training)** | trained (орган дообучен один раз, ядро заморожено после) ↔ prompted (репетиция: акты заданы системным промптом) | стенд E1 — prompted |
+| **Состояние актов (act state)** | instructed (акт-грамматика вживлена одним проходом, ядро заморожено после) ↔ prompted (репетиция: акты заданы системным промптом) | стенд E1 — prompted |
 
-Целевая форма PlastFormer: parametric × co-located × trained. Стенд E1: symbolic × split(PMI) × prompted. Оба — PlastFormer; различаются координатами, не архитектурой.
+Целевая форма PlastFormer: parametric × co-located × instructed. Стенд E1: symbolic × split(PMI) × prompted. Оба — PlastFormer; различаются координатами, не архитектурой.
 
 ## 4. ТЗ исполнителю — протокол E1 v1.1 (`experiments/e1-protocol.md`)
 
@@ -80,7 +80,7 @@ PlastFormer — это **одна архитектура**: трансформе
 5. **§5 Acts:** `name`, `repeat`, `connect` + добавить `reconcile` (не тестируется в E1, но доступен; результат — фиксировать, вызвала ли модель). Убрать «TICK» из списка актов модели — тик считает стенд.
 6. **§3 Arm B:** заметки с временными метками (timestamped notes) — иначе E3-совместимость и честность бейзлайна нарушены. Формулировка: «B = same core + append-only timestamped notes tool + search tool».
 7. **§7 Scoring:** добавить метрику «act log»: число/тип актов, доля `repeat` на фактах R5, доля `read` перед ответом на пробу.
-8. **§9 Deliverables / honest labeling:** заменить «transitional (external-addressable module + governance acts), parametric in-weights form = future work» → «stand configuration symbolic × split(PMI) × prompted; E1 tests the governance+physics composition, not the parametric substrate and not trained acts (see preprint §8)».
+8. **§9 Deliverables / honest labeling:** заменить «transitional (external-addressable module + governance acts), parametric in-weights form = future work» → «stand configuration symbolic × split(PMI) × prompted; E1 tests the governance+physics composition, not the parametric substrate and not the embedded organ (see preprint §8)».
 9. **§10 Build order:** пункт 4 → «Arm C = PMI executor v0.6 in tick-clock mode (`MMI_CLOCK=ticks`), acts name/repeat/connect/reconcile, loudest-N injection; see §5 stand TZ».
 10. **Falsifier сохранить без смягчения.**
 
