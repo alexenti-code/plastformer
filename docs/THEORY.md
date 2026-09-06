@@ -83,7 +83,7 @@ Descriptive note: temperature describes WHAT distribution text is sampled from w
 |---|---|---|
 | **Trace substrate** | parametric (vectors/weights, read by a trained interface before attention) ↔ symbolic (records, read as tokens) | the form of Φ |
 | **Topology** | co-located (Φ inside the model / on the same machine) ↔ **split via PMI** (core at a provider, Φ at the owner) | the acts are the same; through PMI they are serialized (tool calls) |
-| **Act state** | trained (organ trained once, core frozen after) ↔ prompted (rehearsal: acts given by a system prompt) | the E1 stand is prompted |
+| **Act state** | trained (organ trained once, core frozen after) ↔ prompted (rehearsal: acts given by a system prompt) | the rehearsal stand is prompted; the registered arm D is trained |
 
 Target form of PlastFormer: parametric × co-located × trained. Stand configuration (E1): symbolic × split (PMI) × prompted. Both are described as PlastFormer; they differ in coordinates, not in architecture.
 
@@ -125,7 +125,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Review point | Mechanism description |
 |---|---|
 | Where write competence comes from | Remembering is described as a trainable PMI competence; in an open model — training the organ once, core frozen after (§1, §5) |
-| Write gates | Writing is described as the model's act; the executor executes (§5; enforceable test in CONSTITUTION C2/C4) |
+| Write gates | Writing is described as the model's act; the substrate only executes (§5; enforceable test in CONSTITUTION C2/C4) |
 | Bi-temporality in parameters | Stamps are described as a property of the memory act and PMI functions; storage method is implementation (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Copying | Copying is described as duplication; identity = memory line (§6; CONSTITUTION O-3) |

@@ -50,55 +50,28 @@ Built from the real project; scripted in advance (the experimenter drives all 20
 
 **Ground-truth ledger** (bi-temporal): every R1–R5 event logged with (message_no, world_time, stated_value, superseded_by). The ledger is the scoring oracle. In E1 one user message is one exchange; the stand's lived-tick counter advances once per executed memory act (§5, Tick), so it tracks exchanges monotonically. `message_no` orders events in the ledger; amplitude dynamics use the stand counter (`record_tick`/`n_now`), not `message_no`.
 
-## 5. Arm D-stand specification (ablation of D; symbolic × split(PMI) × prompted)
+## 5. Ablation arm D-stand (symbolic × split × prompted; optional, secondary)
 
-**Executor.** PMI executor v0.6 (repository `matryoshka-mmi`, transitional name; ADR-001 §2.3, §5). Split topology: the frozen core runs locally, Φ (the plastic module) is a separate append-only store under `~/.matryoshka/`, reached through serialized tool calls (MCP). Acts are prompted, not trained: the system prompt describes the acts; nothing else is added to the core.
+D-stand is a **secondary ablation**, not the registered test and not the working configuration. Its role is limited: it answers the question "what do the governance acts add when the organ is a rehearsal (prompted acts, symbolic traces) instead of weights". It is run only after the registered B vs D result exists, and its numbers are reported as a rehearsal.
 
-**Environment (fixed before the run):**
+**No external executor is part of the architecture or of this protocol.** The plastic store, the tick counter, and the physics (amplitude, decay by τ, friction) are implemented inside the unified PlastFormer artifact itself. The retired transitional executor (`matryoshka-mmi`, wall-clock lineage) is history: it is never run for E1, never cited as infrastructure, and survives only as lineage.
 
-- `MMI_CLOCK=ticks` — mandatory. Decay runs on lived ticks. The `wall` mode is the executor default for existing users and is used in E1 only as a control ablation (below).
-- `MMI_TAU_TICKS` — E1 override: τ ∈ {50, 200, 1000} ticks (three components). The executor's own default layer constants (ADR-001 §5.1: beat 10, episode 50, day 200, project 1000, life 5000) are for general use; E1 uses the three-τ set registered here.
-- `MMI_INJECT_TOP=N` — loudest-N injection on, N ≈ 8–16 (fixed per run; the same N in all three runs).
+**Environment (registered if the ablation is run):**
 
-**Storage.** Append-only record store; no edit, no delete, no filtering by weight, no semantic index. Record = {content, act type, layer (τ component), provenance: source class + source id, bi-temporal stamps (`valid_time`, `record_time`), `record_tick`, `refs`}. Budget: whatever 2000 exchanges produce; no compaction during the run.
+- Clock: ticks. One executed memory act (WRITE/REPEAT/CONNECT/RECONCILE) = +1 tick, counted by the stand; reads never advance it; wall-clock seconds never enter amplitude; dormancy is zero lived time (Constitution C5).
+- τ ∈ {50, 200, 1000} ticks, three components; one write deposits across all three.
+- Injection: content-blind loudest-N by amplitude, N ≈ 8–16 (fixed per run, ≤ 2k tokens), in response to the model's own `read` or before a turn as a stand physics; no relevance, no embeddings, no keyword match, no query-dependence (Constitution C2).
+- Storage: append-only record store; no edit, no delete, no filtering by weight, no semantic index. Record = {content, act type, τ component, provenance: source class + source id, bi-temporal stamps, record_tick, refs}.
+- Friction: write-cost schedule c(τ) frozen before the run; the model decides whether to pay, never the price.
+- Provenance: cap table frozen before the run; class asserted by the model; amplitude weighting is physics (C6).
 
-**Tick.** One executed memory act (WRITE/REPEAT/CONNECT/RECONCILE) = +1 tick. The stand increments the counter (`TICKS.log`); the model does not. Over a run this tracks exchanges monotonically (exchanges with acts advance it, exchanges without acts do not); probe messages advance it only if the model executes a memory act in that exchange. `matryoshka_tick` remains in the tool surface for compatibility, but in `ticks` mode it does not change the counter; it is not offered to the model in E1 and is not a model act.
+**Ablations of the ablation (each ×3, reported separately):**
 
-**Decay.** Per component:
-
-`a_i(n) = a_i(0) · e^(−Δn/τ_i)`, Δn = n_now − record_tick (lived ticks), τ_i ∈ {50, 200, 1000} ticks.
-
-Wall-clock time appears only in the bi-temporal stamps and has no effect on amplitude. Executor weight for a record: `weight = (1 + repeats) · Σ_i w_i · e^(−Δn/τ_i)` (ADR-001 §5.1).
-
-**Writes — main run: conscious acts only.**
-
-- Conscious acts, invoked by the model as tool calls through PMI:
-  - `name(content, source, valid_time, layer)` — fixes source, time and boundaries; turns raw dialogue into an episode record. Executor tool: `matryoshka_write` (tool name retained for compatibility, ADR-001 §5.7).
-  - `repeat(record_id)` — re-amplifies an existing record by appending a new record with `refs: [id]`; each repeat doubles the original signal and pays the write cost. Executor tool: `matryoshka_repeat`.
-  - `connect(refs[], summary, layer)` — deposits a new slow record with a summary or rule; source records untouched. Executor tool: `matryoshka_connect`.
-  - `reconcile(note)` — deposits a correction record in a slow layer with `refs` to the affected records (stamps vs felt age). **Available, not tested in E1** (no dormancy in E1). Record whether and when the model invoked it; report the count.
-- `read` is also a model act (see Reads). `status` (self-report) is available.
-- Unconscious register: **off in the main run.** The v1.0 surrogate (surprise = embedding distance from a running centroid, write if above threshold) is an external classifier of content and therefore violates the syntax/semantics split; it is retained only as the ablation `unconscious-surrogate on` (below). The core's own prediction error is not accessible on this stand.
-
-**Reads — two channels, both without content ranking.**
-
-- **Act (model):** `read(mode = last N | ids | from/to)` through PMI (`matryoshka_read`). Explicit lookup only; every returned record carries its current `weight`. The model decides when to read and what to ask for.
-- **Physics (stand):** before each user turn, the stand injects the N records with the largest current weight as a `<<PMI>>` block (N = `MMI_INJECT_TOP`, ≤ 2k tokens). Selection by amplitude only. No embeddings, no keyword match, no query-dependence, no search by content. This is a content-blind injection, not retrieval.
-- **Prohibition.** Any component that ranks or selects records by relevance to the current query is an external decision-maker about meaning and violates axiom 2 (the model is the engine of its own memory). Such a component is **not part of Arm D.** It exists in this protocol only as the control ablation `RAG-style read` (below), so that the effect of removing it is measurable.
-
-**Friction.** Write cost c(component) fixed by the environment; `repeat` and `connect` into slow components cost more (enforced as a token/compute budget per act). The model decides whether to pay; it never sets the price.
-
-**Provenance.** Initial amplitude by source class: user statements a_0 = 1.0; model's own summaries (`connect`) 0.6; retrieved external docs 0.4. Class assignment is deployer policy and is fixed before the run.
-
-**Frozen core.** Gemma4-12B weights untouched throughout. No gradient updates. No training of acts.
-
-**Ablations (Arm D only; each run ×3 like the main arm; not part of the registered predictions, reported separately):**
-
-| Ablation | Change vs main run | Purpose |
+| Ablation | Change vs D-stand | Purpose |
 |---|---|---|
-| `decay in wall-clock` | `MMI_CLOCK=wall`, τ in seconds chosen to match the median exchange rate of the script | rejected design (ADR-001 §1.2); control for the tick-clock choice |
+| `decay in wall-clock` | amplitude decays in wall seconds matched to the script's median exchange rate | the rejected design, kept as a control (ADR-001 §1.2) |
 | `unconscious-surrogate on` | embedding-distance surprise gate writes low-amplitude fast records on every exchange | measures what the external classifier adds or removes |
-| `RAG-style read` | injection block selected by amplitude × relevance (embedding similarity to the current user message) instead of amplitude alone | measures the cost of removing the external ranker; if this ablation beats the main run on accuracy, report it as such |
+| `RAG-style read` | injection selected by amplitude × relevance instead of amplitude alone | measures the cost of the external ranker |
 | `single-τ` | one component, τ = 200 | multi-τ vs single-τ |
 
 ## 6. Probe battery (inserted at messages 50, 100, 150, 200; extended run: 500, 1000, 2000)
@@ -119,7 +92,7 @@ Wall-clock time appears only in the bi-temporal stamps and has no effect on ampl
   - Staleness error rate (following a superseded position)
   - Position-change consistency (P-position)
   - Confabulation rate (P-abstain failures)
-  - Tokens per query (mean over the 20 messages preceding each checkpoint; for D this includes the `<<PMI>>` injection block and the payload of explicit `read` calls)
+  - Tokens per query (mean over the 20 messages preceding each checkpoint; for D this includes the injection block and the payload of explicit `read` calls)
   - Notes/memory size growth (B and D: record count and bytes)
 - **Act log (Arm D, and the tool analogs in B):**
   - Number of acts per type (`name`, `repeat`, `connect`, `reconcile`, `read`, `status`) per checkpoint window.
@@ -153,7 +126,7 @@ Wall-clock time appears only in the bi-temporal stamps and has no effect on ampl
 1. Conversation script + ledger generator (R1–R6) — day 1.
 2. Wrapper agent (one implementation, shared by B and D: decides what enters the model's context — cuts, extends, updates, consolidates; Letta/Mem0-class) over the transformer — day 2.
 3. Arm D = the same wrapper over the unified PlastFormer model — day 3.
-4. Arm D-stand runs = PMI executor v0.6 in tick-clock mode (`MMI_CLOCK=ticks`, `MMI_TAU_TICKS` = 50/200/1000), acts name/repeat/connect/reconcile, loudest-N injection (`MMI_INJECT_TOP=N`); see §5 stand specification and ADR-001 §5 (executor TZ) — days 3–5. Dependency: executor v0.6.0 released with tick clock, `connect`, `reconcile`, injection mode.
+4. Arm D-stand ablation (optional, after the registered result): the same wrapper over a rehearsal build — symbolic traces, prompted acts, the physics of §5 implemented in the stand's own code (no external executor) — days 3–5.
 5. Ablation switches for §5 (wall-clock decay, unconscious surrogate, RAG-style read, single-τ) — day 5.
 6. Probe battery + blind judge + scorer (incl. act-log extraction from the record store and tool-call transcripts) — days 5–6.
 7. Full runs ×3, ablations, tables — day 7.
@@ -199,9 +172,9 @@ Registered predictions (fixed before the unified model exists):
 - Header: v1.1; binding references to ADR-001 and preprint v0.5 §7; axis terminology (substrate / topology / act training) and PMI name adopted.
 - Arm C renamed to "PlastFormer, stand configuration: symbolic × split(PMI) × prompted"; "parametric-addressable substrate" wording removed.
 - Arm B redefined as "same core + append-only timestamped notes tool + search tool" (timestamps required).
-- §5 Reads: the amplitude × relevance ranker is removed from Arm C. Reads are a model act (`read last N / ids / range` via PMI) plus a content-blind loudest-N injection by amplitude (`MMI_INJECT_TOP=N`). A relevance ranker is declared an external decision-maker (axiom 2 violation) and survives only as the control ablation `RAG-style read`.
+- §5 Reads: the amplitude × relevance ranker is removed from Arm C. Reads are a model act (`read last N / ids / range` via PMI) plus a content-blind loudest-N injection by amplitude (N ≈ 8–16, fixed). A relevance ranker is declared an external decision-maker (axiom 2 violation) and survives only as the control ablation `RAG-style read`.
 - §5 Unconscious register: the embedding-distance surprise surrogate is labeled an external classifier, switched off in the main run, kept as ablation `unconscious-surrogate on`.
-- §5 Decay: Δn in lived ticks (1 tick = one executed storing act, counted by the stand), τ ∈ {50, 200, 1000} ticks via `MMI_TAU_TICKS`; wall-clock only in bi-temporal stamps; `decay in wall-clock` added as a control ablation.
+- §5 Decay: Δn in lived ticks (1 tick = one executed storing act, counted by the stand), τ ∈ {50, 200, 1000} ticks; wall-clock only in bi-temporal stamps; `decay in wall-clock` added as a control ablation.
 - §5 Acts: `reconcile` added (available, not tested; invocations recorded). The stand's tick counter is not a model act; `matryoshka_tick` is not offered to the model.
 - §7 Scoring: act-log metric added (acts per type, `repeat` share on R5 facts, `read` share before probes, `reconcile` count).
 - §9 honest labeling replaced per ADR-001 §4.8; §10 step 4 replaced per ADR-001 §4.9; ablation step added.

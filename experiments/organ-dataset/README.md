@@ -7,12 +7,11 @@ trained** (per ADR-001 axes). There is NO external tool server: acts are
 emitted as a JSON block in the assistant's own output; execution is the
 environment's job, selection is always the model's.
 
-**Status:** generated 2026-09-05; committed to `plastformer` (ec62a56). Regenerated 2026-09-05: `<<MMI>>` → `<<PMI>>` markers unified with executor v0.6.
+**Status:** generated 2026-09-05; committed to `plastformer` (ec62a56). Regenerated 2026-09-05: `<<MMI>>` → `<<PMI>>` markers unified.
 **Constitution:** `plastformer/docs/CONSTITUTION.md` v3.0 (NORMATIVE: Foundations O-1–O-11, compliance tests C1–C8).
 **Corpus requirements:** `experiments/e1-protocol.md` §4 (R1–R6).
-**Record format / act semantics:** PMI executor SPEC v0.6.0 (`matryoshka-mmi` repo — transitional name; canonical docs: `plastformer/docs/`).
-**Live act patterns:** PMI executor bench 2026-09-04 (`matryoshka-mmi` repo, transitional name) (incl. pattern D,
-amnesia recovery).
+**Record format / act semantics:** the act grammar of `plastformer/docs/` (Constitution O-8, THEORY §5); the retired transitional executor spec (`matryoshka-mmi`, wall-clock lineage) is history and is not part of this dataset.
+**Live act patterns:** bench 2026-09-04 (the wall-clock pilot; incl. pattern D, amnesia recovery) — lineage only.
 
 ---
 

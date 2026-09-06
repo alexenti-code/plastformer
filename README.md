@@ -37,7 +37,7 @@ Anchored in LongMemEval (S/M) and LoCoMo, plus E1–E6 and E3b. E1 registers a s
 
 ## Naming and lineage
 
-**PlastFormer** is the system name; **idiographic memory** is the property it implements. Formerly circulated as "Matryoshka" — renamed to avoid collision with Matryoshka Representation Learning and the nested-granularity namespace; the mechanism is superposition of decaying amplitudes, not nesting. Priority line: concept DOI 10.5281/zenodo.22124204, source release DOI 10.5281/zenodo.22141019 (under the former name). Former repositories: [`matryoshka`](https://github.com/alexenti-code/matryoshka) (theory, parametric stand — frozen, research scope), [`matryoshka-mmi`](https://github.com/alexenti-code/matryoshka-mmi) (PMI reference executor — transitional). Consolidation plan: `docs/ADR-001`.
+**PlastFormer** is the system name; **idiographic memory** is the property it implements. Formerly circulated as "Matryoshka" — renamed to avoid collision with Matryoshka Representation Learning and the nested-granularity namespace; the mechanism is superposition of decaying amplitudes, not nesting. Priority line: concept DOI 10.5281/zenodo.22124204, source release DOI 10.5281/zenodo.22141019 (under the former name). Former repositories: [`matryoshka`](https://github.com/alexenti-code/matryoshka) (theory, parametric stand — frozen, research scope), [`matryoshka-mmi`](https://github.com/alexenti-code/matryoshka-mmi) (retired transitional executor — historical only). Working stack: MLX + Gemma4-12B (mlx-community 4-bit), unified artifact in progress. Consolidation plan: `docs/ADR-001`.
 
 Name-collision check for "PlastFormer" / "idiographic memory": to be repeated on the arXiv submission day; date will be recorded here.
 

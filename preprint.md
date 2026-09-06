@@ -109,7 +109,7 @@ A deployment may keep an external append-only journal for its own audit purposes
 
 ### 3.9 PMI — Plastic Memory Interface (formerly MMI)
 
-When the core and the plastic module are physically split — the core at a provider, the module at the owner — the same acts cross the boundary serialized as tool calls. That serialization is the **Plastic Memory Interface**. PMI is not a different system and not an adapter: the model still governs (it alone issues `name`/`repeat`/`connect`/`reconcile`/`read`), the executor executes and decides nothing (no scoring, no relevance, no semantic search). Reference executor: `github.com/alexenti-code/matryoshka-mmi` (transitional name), a local MCP server with an append-only trace store. Note: the public executor computes decay in wall-clock time (legacy default); v0.6 adds a tick clock, and the E1 stand requires tick mode (see the E1 protocol and ADR-001).
+When the core and the plastic module are physically split — the core at a provider, the module at the owner — the same acts cross the boundary serialized as tool calls. That serialization is the **Plastic Memory Interface**. PMI is not a different system and not an adapter: the model still governs (it alone issues `name`/`repeat`/`connect`/`reconcile`/`read`), the executor executes and decides nothing (no scoring, no relevance, no semantic search). The physics of Φ (amplitudes, decay by τ, tick counter, friction) live in the unified PlastFormer artifact itself; no external executor is part of the architecture. A retired transitional executor (`github.com/alexenti-code/matryoshka-mmi`, wall-clock lineage) survives only as history: a local pilot of loudness-readout mechanics (September 4, 2026) was run with it and is cited nowhere as evidence.
 
 ## 4. Temporal Semantics: Two Clocks
 
@@ -215,7 +215,7 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 [30] Li, Z. Memory as Ontology: A Constitutional Memory Architecture for Persistent Digital Citizens. arXiv:2603.04740, 2026.
 [31] Behrouz, A. et al. Nested Learning: The Illusion of Deep Learning Architectures. NeurIPS, 2025; arXiv:2512.24695.
 
-**Availability.** Reference implementation under the former working name (`github.com/alexenti-code/matryoshka`, `github.com/alexenti-code/matryoshka-mmi`), to be consolidated under `plastformer`; architecture decision record `docs/ADR-001`. The September 4, 2026 bench run (Gemma4-12B, matryoshka-mmi 0.5.1) is cited only as a pilot of loudness-readout mechanics with wall-clock aging — not as evidence for P1. License: Apache 2.0 (code), CC-BY 4.0 (text). Russian-language essays at aura.kim are commentary, not the claim.
+**Availability.** Lineage repositories under the former working name (`github.com/alexenti-code/matryoshka`, `github.com/alexenti-code/matryoshka-mmi`) are retired: historical only, superseded by `github.com/alexenti-code/plastformer`; architecture decision record `docs/ADR-001`. The September 4, 2026 bench run (Gemma4-12B, the transitional executor 0.5.1) is cited only as a pilot of loudness-readout mechanics with wall-clock aging — not as evidence for P1. The unified artifact (plastic organ in weights, MLX implementation of Gemma4-12B) is work in progress and is not part of this draft. License: Apache 2.0 (code), CC-BY 4.0 (text). Russian-language essays at aura.kim are commentary, not the claim.
 
 </details>
 

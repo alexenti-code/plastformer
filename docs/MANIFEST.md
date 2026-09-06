@@ -61,7 +61,7 @@ PlastFormer is the first engineering step of a broader program: continuity of ar
 
 ## Honest boundary
 
-This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The parametric substrate is unbuilt; the organ's acts are, on the current stand, prompted rather than trained (stand configuration: symbolic × split via PMI × prompted); no results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
+This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The parametric substrate is unbuilt (work in progress: an MLX implementation of Gemma4-12B with the plastic organ in the weights); the organ's acts are prompted rather than trained on the rehearsal stand; no results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
 
 ## Superseded lineage notes (not norms)
 
