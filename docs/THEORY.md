@@ -125,7 +125,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Review point | Mechanism description |
 |---|---|
 | Where write competence comes from | Remembering is described as a trainable PMI competence; in an open model — training the organ once, core frozen after (§1, §5) |
-| Write gates | Writing is described as the model's act; the substrate only executes (§5; enforceable test in CONSTITUTION C2/C4) |
+| Write gates | Writing is described as the model's act; Φ only stores state (C1); decay by τ, ticks, and volume are the substrate's dynamics — they happen, and nobody executes them (§5; enforceable test in CONSTITUTION C2/C4) |
 | Bi-temporality in parameters | Stamps are described as a property of the memory act and PMI functions; storage method is implementation (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Copying | Copying is described as duplication; identity = memory line (§6; CONSTITUTION O-3) |
