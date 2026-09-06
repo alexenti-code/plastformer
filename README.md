@@ -25,7 +25,7 @@ The core split (after Windelband): a frozen **nomothetic core** (general laws: l
 
 Target form: parametric × co-located × trained. Stand configuration used in E1: symbolic × split(PMI) × prompted. Both are PlastFormer; they differ in coordinates, not in architecture. **PMI** (formerly MMI) is the special case along the topology axis, not a different system.
 
-## Compositional claims (falsifiable)
+## Compositional claims (refutable)
 
 - **P1 — Event time:** age is read from amplitude profiles, duration from lived ticks; not stored as text, not forgeable by retelling; wall-clock time enters only as audited stamps.
 - **P2 — Immutable past:** content immutable, amplitude decays by physics; a change of position is a new trace.

@@ -1,6 +1,8 @@
 # ADR-002 — Docs architecture: strict file semantics + public/internal split
 
 **Status:** ACTIVE. **Date:** 2026-09-05. **Owner:** Alex. **Author role:** docs architect (agent).
+
+> Note (2026-09-06): the P-numbers in the traceability tables below refer to the article numbering current when this ADR was written (CONSTITUTION v1.0/v2.0). In CONSTITUTION v2.1 (ADR-004) the journal article was removed and the numbering shifted; the current numbering is authoritative in `CONSTITUTION.md`.
 **Builds on:** [ADR-001](ADR-001-plastformer-transition.md). **Enforces:** [CONSTITUTION.md](CONSTITUTION.md) v1.0.
 **Scope note:** this ADR restructures documentation ONLY. The 15 content fixes from `drafts/constitution-audit.md` (Fix list 1–15) are NOT applied to preprint / E1 / code here; they come next, against the new CONSTITUTION.
 
@@ -66,7 +68,7 @@ Each row: one removed norm → its new home (CONSTITUTION postulate with test). 
 
 Substance carried over from `/Users/alex/matryoshka/RESEARCH_SCOPE.md`:
 
-- **Public:** conceptual architecture, terms, core distinctions, high-level evaluation direction, limited experimental code for controlled falsification.
+- **Public:** conceptual architecture, terms, core distinctions, high-level evaluation direction, limited experimental code for controlled refutation tests.
 - **Never public unless explicitly published in a later signed release:** exact parametric-update mechanisms; learning objectives/loss/update schedules; topologies/tensor layouts/layer placement; temporal-binding/interference/consolidation mechanisms; proprietary datasets, private evaluation records, commercial deployment data; production infra, credentials, integrations, client info, operational policies; trade-secret / patent-subject implementation details.
 - **PlastFormer additions:** keys/rodnik, run-secret manifests (`runs/*-secret*`), session logs, investor materials, future roadmap, `docs/INTERNAL.md`, `drafts/*-private*`, `*.local`, `.env`.
 
