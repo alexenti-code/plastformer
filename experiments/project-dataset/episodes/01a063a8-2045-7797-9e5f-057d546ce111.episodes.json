@@ -1,0 +1,13 @@
+[
+ {
+  "session_id": "01a063a8-2045-7797-9e5f-057d546ce111",
+  "turn_index": 141,
+  "timestamp": "2026-09-02T20:28:19.456Z",
+  "owner_message": "что значит : старые email в\n БД зашифрованы, креды восстановить было нельзя.? --если зайти в срм то в разделе ползователи или полобном можно просо все посмотртеь. а ты что натворил?",
+  "agent_before": [
+   "Сессия восстановлена, вчера́шние 500 устранены. Отчёт:\n\n## Что было сломано\n1. **Colima/Docker не был запущен** → PostgreSQL лежал → вся CRM отдавала 500 (это и была главная причина вчерашних «всё падает»).\n2. **Ошибка компиляции** в `src/modules/realty_properties/components/AdPlatformsList.tsx`: несуществующая переменная `platformProblems` + сломанная JSX-вложенность (блоки полноты карточки висели снаружи элемента).\n\n## Что сделано\n- Поднял Colima и контейнер `aura-realty-postgres-1` (Postgres healthy).\n- Исправил `AdPlatformsList.tsx`:\n  - `platformProblems` теперь берётся из `completeness.byPlatform[platform.code]`;\n  - строки площадок обёрнуты в `<React.Fragment key=...>`, блоки подсказок полноты внутри.\n- Запустил dev-сервер (`yarn dev`, лог: `/tmp/aura-mercato-dev.log`).\n- Создал дев-админа `dev-admin@aura2.ru / Aura2026!` (роль admin, org «Аурум Эстейт») через `mercato auth add-user` — старые email в БД зашифрованы, креды восстановить было нельзя.\n\n## Проверено на живом сервере "
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ }
+]

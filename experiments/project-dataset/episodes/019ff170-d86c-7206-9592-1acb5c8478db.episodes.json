@@ -1,0 +1,14 @@
+[
+ {
+  "session_id": "019ff170-d86c-7206-9592-1acb5c8478db",
+  "turn_index": 227,
+  "timestamp": "2026-08-11T16:35:24.753Z",
+  "owner_message": "нет. это банальные простые тесты. надо реальный",
+  "agent_before": [
+   "DeepSeek прошёл все 6 задач. Теперь добавлю Luna Pro в models.json и обновлю реестр через daemon, потом переключусь на неё.",
+   "Luna Pro работает через API. Теперь обновлю реестр Prime Agent, чтобы переключиться на неё. Посмотрю, как это сделать правильно (через daemon или CLI)."
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ }
+]

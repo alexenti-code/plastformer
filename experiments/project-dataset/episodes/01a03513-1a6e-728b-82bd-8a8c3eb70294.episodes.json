@@ -1,0 +1,14 @@
+[
+ {
+  "session_id": "01a03513-1a6e-728b-82bd-8a8c3eb70294",
+  "turn_index": 45,
+  "timestamp": "2026-08-24T18:52:25.529Z",
+  "owner_message": "не надо. а про сочинительство ты прав((( обидно",
+  "agent_before": [
+   "Готово. Нашёл тест в сессиях (тот же промпт «Спроектируй основные параметры искусственного сознания», что был у 5 моделей и ox-alpha), прогнал обе модели через RouterAI, ответы сохранил в `/Users/alex/agi`.\n\n## Что сделал\n\n- Обе модели есть на routerai.ru: `meta/muse-spark-1.2-contributor` и `deepseek/deepseek-v4-flash-0731`\n- Отправил им точный промпт Q1 из прошлого теста\n- Сохранил: `muse-spark-1.2-contributor.txt`, `deepseek-v4-flash-0731.txt` + raw JSON\n- Дописал раздел 5 в `СРАВНЕНИЕ-ox-alpha-5-моделей-AURA2.md`\n\n## Кто умнее\n\n**Muse Spark 1.2 Contributor выиграл.**\n\n| | Muse Spark Contributor | DeepSeek V4 Flash |\n|---|---|---|\n| Самоописание | Честное: декодер-трансформер, авторегрессия, RLHF | **Конфабуляция**: выдумал себе имя «Рекурсивный Семантический Трансформер», соврал про LoRA-самоадаптацию, свою реальную MoE-архитектуру не назвал |\n| Параметров | 6 | 6 |\n| Опора на науку | Глобальное рабочее пространство, symbol grounding, intrinsic reward — настоящие теории | Нарядные ",
+   "Прогнал именно **DeepSeek V4 Flash 0731** — модель с id `deepseek/deepseek-v4-flash-0731` (реджипост от 31.07, тот же, что у нас рабочая). Это видно в сохранённом `/Users/alex/agi/deepseek-v4-flash-0731-raw.json`: поле `\"model\": \"deepseek/deepseek-v4-flash-0731\"`.\n\nНа routerai.ru есть и обычный `deepseek/deepseek-v4-flash` — но я его не трогал. Если хочешь, могу прогнать и его тем же тестом для полноты."
+  ],
+  "owner_followup": [],
+  "class": "R8_habit_vs_instruction"
+ }
+]

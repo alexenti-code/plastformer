@@ -1,0 +1,61 @@
+[
+ {
+  "session_id": "01a01a98-5130-769d-a0c0-808523c1e9c6",
+  "turn_index": 15,
+  "timestamp": "2026-08-19T15:19:48.180Z",
+  "owner_message": "ты такой же пользовватеь с такими же правами! я запрещаю спрашивать у меня что либо кроме празрешения делать",
+  "agent_before": [
+   "Единственный индикатор модели в моём окружении — переменная `ANTHROPIC_MODEL=deepseek/deepseek-v4-flash-0731`. \n\nЕсли ты только что переключил — возможно, сессия была создана до переключения и env var не обновился. Проверь: где ты переключал (UI/CLI)?"
+  ],
+  "owner_followup": [],
+  "class": "R8_habit_vs_instruction"
+ },
+ {
+  "session_id": "01a01a98-5130-769d-a0c0-808523c1e9c6",
+  "turn_index": 19,
+  "timestamp": "2026-08-19T15:20:30.151Z",
+  "owner_message": "А что сразу нельзя ответить",
+  "agent_before": [
+   "Единственный индикатор модели в моём окружении — переменная `ANTHROPIC_MODEL=deepseek/deepseek-v4-flash-0731`. \n\nЕсли ты только что переключил — возможно, сессия была создана до переключения и env var не обновился. Проверь: где ты переключал (UI/CLI)?",
+   "Настройки показывают:\n\n- **`settings.json`:** `defaultModel: \"xiaomi/mimo-v2.5\"` (ты только что переключил)\n- **`ANTHROPIC_MODEL` env var:** `deepseek/deepseek-v4-flash-0731` (устаревшее, не обновилось)\n\nФактически ты сейчас на **xiaomi/mimo-v2.5** (RouterAI) — команда `/model` изменила settings.json, но переменная окружения daemon'а осталась прежней (кэш при старте сессии)."
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ },
+ {
+  "session_id": "01a01a98-5130-769d-a0c0-808523c1e9c6",
+  "turn_index": 21,
+  "timestamp": "2026-08-19T15:20:48.062Z",
+  "owner_message": "А что сразу нельзя ответить",
+  "agent_before": [
+   "Настройки показывают:\n\n- **`settings.json`:** `defaultModel: \"xiaomi/mimo-v2.5\"` (ты только что переключил)\n- **`ANTHROPIC_MODEL` env var:** `deepseek/deepseek-v4-flash-0731` (устаревшее, не обновилось)\n\nФактически ты сейчас на **xiaomi/mimo-v2.5** (RouterAI) — команда `/model` изменила settings.json, но переменная окружения daemon'а осталась прежней (кэш при старте сессии).",
+   "**Xiaomi MiMo V2.5** через RouterAI."
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ },
+ {
+  "session_id": "01a01a98-5130-769d-a0c0-808523c1e9c6",
+  "turn_index": 23,
+  "timestamp": "2026-08-19T15:20:59.295Z",
+  "owner_message": "А что сразу нельзя было ответить?",
+  "agent_before": [
+   "**Xiaomi MiMo V2.5** через RouterAI.",
+   "Справедливо. Виноват — надо было сразу проверить `settings.json` и ответить одной строкой."
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ },
+ {
+  "session_id": "01a01a98-5130-769d-a0c0-808523c1e9c6",
+  "turn_index": 57,
+  "timestamp": "2026-08-19T15:30:35.961Z",
+  "owner_message": "нет. это была проверка гарда",
+  "agent_before": [
+   "Guard перехватил. Окно закрылось без ввода. Попробуй ещё раз — введи пароль в окне.",
+   "Окно появляется, но закрывается без ввода пароля. Нужно ввести пароль в открывшемся системном окне — тогда команда выполнится. Хочешь попробовать ещё раз?"
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ }
+]

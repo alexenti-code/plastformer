@@ -1,0 +1,14 @@
+[
+ {
+  "session_id": "019ffba8-376f-7680-8a4d-a83d4c6bbe7f",
+  "turn_index": 76,
+  "timestamp": "2026-08-13T15:14:59.312Z",
+  "owner_message": "не надо. понятно что кроме нашекго ничего нет",
+  "agent_before": [
+   "Ещё уточню детали пробного периода Yandex Cloud (грант для новых пользователей).",
+   "Собрал всё. Ниже полная картина.\n\n## 1. Наша VM на Cloud.ru (что есть в памяти/сессиях)\n\nИсточник правды — `/Users/alex/rodnik/keys-cloudru.md` (+ сессия 12.08.2026, где я включал VM через консоль).\n\n**Конфигурация vm-247728 (free tier Cloud.ru Evolution):**\n| Параметр | Значение |\n|---|---|\n| Имя / ID | vm-247728 / `7b594c68-7126-4b56-b874-a0f94a473614` |\n| OS | Ubuntu 22.04 |\n| vCPU | 2 (10% guaranteed) |\n| RAM | 4 ГБ |\n| Диск | 30 ГБ NVMe SSD |\n| Публичный IP | 176.109.100.152 |\n| Зона / Security group | ru.AZ-1 / SSH-access |\n| Логин / пароль | user1 / Lpt505lpt$ |\n| Аккаунт | alexeus@mail.ru (2FA по SMS) |\n| Стоимость | **149,33 ₽/мес — только IP** (сама VM бесплатна) |\n\nЭто Evolution Free Tier Cloud.ru: **VM бесплатно навсегда** (2 vCPU / 4 ГБ / 30 ГБ), но публичный IPv4 платный; при регистрации дают 4000 бонусов на 60 дней, которые закрывают IP. На ней крутится Aura-Mercato CRM (Docker: Postgres, Redis, nginx, Next.js).\n\n## 2. Что похожее есть на российских серверах\n\n### А. Полн"
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ }
+]

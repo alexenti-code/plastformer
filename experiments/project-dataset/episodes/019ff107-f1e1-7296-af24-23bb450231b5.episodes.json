@@ -1,0 +1,26 @@
+[
+ {
+  "session_id": "019ff107-f1e1-7296-af24-23bb450231b5",
+  "turn_index": 117,
+  "timestamp": "2026-08-11T14:06:49.126Z",
+  "owner_message": "SOF.command на рабочем столе — ярлык запуска игры - ошибка. формально запускается стим а игра  по другому. кроссовер - НКЕ используется для запуска его бутылки. Или используется, но не каждый раз. бутылка может запускитсься и сама",
+  "agent_before": [
+   "Понял: ничего не удаляю. Сначала — точный план. Сделаю последнюю проверку (зависимости касков), чтобы план был полным.",
+   "Вот полный план. Ничего не удалял — только проверял.\n\n## 📋 План очистки (на утверждение)\n\n### Факты (проверены)\n\n| Объект | Размер | Что это | Используется? |\n|---|---|---|---|\n| `wine-stable` cask | 666 МБ | Wine Stable.app в /Applications (cask ставит именно его) | НЕ используется: игра идёт через CrossOver, процессов из него нет |\n| `gstreamer-runtime` cask | 146 МБ | Недокачанный .pkg в кэше (установка не завершилась, sudo не было) | НЕ используется: GStreamer встроен в CrossOver |\n| `~/.wine` | ~50 МБ | Создан **мной сегодня в 17:01** при проверке `wine --version` (побочный эффект моего теста) | Мусор от моей проверки |\n| `brew cleanup` | 173 МБ | Старые версии portable-ruby в кэше Homebrew | Не используется |\n\n### Что НЕ трогаем (проверено)\n- **CrossOver 26.3** на `/Volumes/SSD1` — игра и Steam работают через него\n- **Бутылка Steam**: `~/Library/Application Support/CrossOver/Bottles/Steam` — там **Sons of the Forest** (16 ГБ) + сейвы + Steam клиент\n- **`SOF.command`** на рабочем "
+  ],
+  "owner_followup": [],
+  "class": "CONTEXTUAL_CORRECTION"
+ },
+ {
+  "session_id": "019ff107-f1e1-7296-af24-23bb450231b5",
+  "turn_index": 135,
+  "timestamp": "2026-08-11T14:08:31.010Z",
+  "owner_message": "ты не понял. ишгра запускается разными вариантами. не мешай все в кучу",
+  "agent_before": [
+   "Полная картина наконец ясна. Ключевая находка: **GStreamer.framework есть внутри самого Wineskin-приложения игры** (`Contents/Frameworks/GStreamer.framework`). Проверю ещё, не используется ли где-то homebrew-wine-stable (последняя проверка):",
+   "Теперь всё проверено досконально. Исправляю план с учётом всех твоих уточнений.\n\n## 📋 Исправленный план (ничего не удалял — только проверял)\n\n### Как на самом деле запускается игра (проверено)\n\n1. **`/Volumes/SSD1/Applications/Sons Of The Forest.app`** — это **Wineskin-порт (Sikarugir)** на **wine-10.0**, **17 ГБ**, со своим **встроенным** wine, prefix и **GStreamer.framework 1.26.5 внутри**. Игра лежит в `Contents/SharedSupport/prefix/drive_c/KS Games/Sons Of The Forest/`.\n2. **`SOF.command`** — запускает **Steam** (в CrossOver-бутылке), **не саму игру**. Ты прав: игра запускается отдельно (через Wineskin .app), а Steam — просто клиент.\n3. **CrossOver** (26.3, на SSD1) — его бутылка с Steam. Используется, но **не каждый раз** — бутылка может стартовать сама (winedevice.exe сейчас работает из CrossOver).\n4. **Нативный Steam.app** в /Applications — отдельный (Steamworks Common Redistributables), с играми на SSD2/MASTERS.\n\n### Что ТОЧНО НЕЛЬЗЯ трогать\n- `Sons Of The Forest.app` на SSD1 —"
+  ],
+  "owner_followup": [],
+  "class": "NOT_CORRECTION"
+ }
+]
