@@ -16,7 +16,7 @@ Test whether model-governed memory (PlastFormer) preserves long-horizon identity
 - **PR2.** Arm B degrades more slowly than A but exhibits retrieval noise: stale or duplicated facts, inconsistent positions between adjacent probes.
 - **PR3.** Arm C retains position-change consistency and early-fact recall at message 200 at a substantially lower token cost per query than Arm B.
 - **PR4 (economics).** Tokens per query at message 200: A is fixed by window size; B grows with corpus of notes; C stays bounded by the injection budget (~2–5k tokens).
-- **Falsifier.** If C is not distinguishable from B on accuracy/consistency, the composition claim (governance layer) is not supported. Report as such.
+- **Refutation criterion.** If C is not distinguishable from B on accuracy/consistency, the composition claim (governance layer) is not supported. Report as such.
 
 ## 3. Arms
 
@@ -162,7 +162,7 @@ Registered predictions (fixed before the unified model exists):
 - **PR6 (drift cost).** In C, contradicting a loud trace requires an explicit, journaled act (a position change with provenance); silent drift is structurally unavailable (P2, P5). Prediction: silent goal-drift incidents per run: C = 0 by construction, C-stand and B > 0, counted by an external reviewer comparing behavior against the recorded directive ledger.
 - **PR7 (reconcile after context loss).** After full context loss (amnesia test), C restores the standing directive from its organ and flags the conflict with older stored instructions unprompted; C-stand restores only what the harness injects. Prediction: unprompted-conflict-flag rate: C > C-stand.
 
-**Falsifier:** if C is not distinguishable from C-stand on PR5–PR7, the organ adds nothing beyond the stand composition — report as such.
+**Refutation criterion:** if C is not distinguishable from C-stand on PR5–PR7, the organ adds nothing beyond the stand composition — report as such.
 
 ## Changes since v1.1
 
