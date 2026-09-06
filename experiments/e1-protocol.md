@@ -12,30 +12,30 @@ Test whether model-governed memory (PlastFormer) preserves long-horizon identity
 
 ## 2. Registered predictions (fixed before the run)
 
-- **PR1.** By message ~200 (context boundary of the 12B core), Arm A shows a sharp drop in early-fact recall and position-change consistency.
-- **PR2.** Arm B degrades more slowly than A but exhibits retrieval noise: stale or duplicated facts, inconsistent positions between adjacent probes.
-- **PR3.** Arm C retains position-change consistency and early-fact recall at message 200 at a substantially lower token cost per query than Arm B.
-- **PR4 (economics).** Tokens per query at message 200: A is fixed by window size; B and D grow with the corpus of history; C stays bounded by the injection budget (~2–5k tokens).
-- **PR8 (main test, B vs D).** With the entire history already in context, Arm B still shows stale-position errors and salience failures; Arm D, with the same history plus the plastic organ, follows loud/repeated directives, suppresses stale material by amplitude physics, and produces derived generalizations and its own assessments of events at a higher rate than B.
-- **PR9 (reconcile under stuffing).** After directive conflict, silent drift incidents per run: D = 0 by construction (a contradicting position requires an explicit act with provenance), B > 0.
-- **Refutation criterion (B vs D, main test).** If D is not distinguishable from B on accuracy/consistency and on the derived-generalization probes, the plastic organ adds nothing beyond the full history in context — report as such. If C is not distinguishable from A, the organ adds nothing over a bare window — report as such.
+- **PR1.** By message ~200 (context boundary of the 12B core), Arm A (plain chat, transformer) shows a sharp drop in early-fact recall and position-change consistency.
+- **PR2.** Arm C (plain chat, PlastFormer) retains position-change consistency and early-fact recall at message 200, where A drops.
+- **PR3.** Under the identical wrapper, Arm D (wrapper + PlastFormer) retains position-change consistency and early-fact recall at message 200 better than Arm B (wrapper + transformer).
+- **PR4 (economics).** Tokens per query at message 200: A is fixed by window size; B and D are bounded by the wrapper's context budget; C stays bounded by the injection budget (~2–5k tokens).
+- **PR8 (main test, B vs D).** Under the identical wrapper, the transformer arm (B) still shows stale-position errors and salience failures; the PlastFormer arm (D) follows loud/repeated directives, suppresses stale material by amplitude physics, and produces derived generalizations and its own assessments of events at a higher rate than B.
+- **PR9 (drift under the wrapper).** After directive conflict, silent drift incidents per run: D = 0 by construction (a contradicting position requires an explicit act with provenance), B > 0.
+- **Refutation criterion (B vs D, main test).** Under the identical wrapper, if D is not distinguishable from B on accuracy/consistency and on the derived-generalization probes, the plastic organ adds nothing over wrapper-managed context — report as such. If C is not distinguishable from A in plain chat, the organ adds nothing over the bare window — report as such.
 
 ## 3. Arms (four-arm scheme, owner directive 2026-09-06)
 
+The variable inside each comparison pair is **the model only** (transformer vs PlastFormer). The chat engine, the wrapper, the script, and the judge are held identical within each pair.
+
 | Arm | Configuration | Memory mechanism |
 |---|---|---|
-| **A — Context-only** | Gemma4-12B, sliding window truncation (standard chat behavior), no tools | None (window) |
-| **B — Stuffing** | Same core + the **entire conversation history stuffed into the context window** each turn (no tools, no retrieval) | Full history in context |
-| **C — PlastFormer, unified: organ in weights** | Gemma4-12B-PlastFormer: base core + trained plastic organ (LoRA merged into a single artifact); acts emitted in the model's own output stream; tick counter external, content-blind | Parametric organ inside the model |
-| **D — PlastFormer with stuffing wrapper** | Same unified model as C + the **same stuffing wrapper as B** (entire history in context) + plastic memory | Full history in context + plastic organ |
+| **A — Plain chat, transformer** | Gemma4-12B in a standard chat loop: its own context window; when the window fills, the oldest messages are evicted (standard sliding-window behavior). No wrapper, no tools | None (window) |
+| **B — Same wrapper, transformer** | The **same wrapper agent** as in D, running over the transformer: the wrapper itself decides what to put into the model's context each turn — cuts, extends, updates, consolidates | Wrapper-managed context (Letta/Mem0-class) |
+| **C — Plain chat, PlastFormer** | Gemma4-12B-PlastFormer in the same standard chat loop as A: base core + trained plastic organ (LoRA merged into a single artifact); acts emitted in the model's own output stream; tick counter external, content-blind. No wrapper, no tools | Plastic organ in the weights |
+| **D — Same wrapper, PlastFormer** | The **same wrapper agent** as in B, running over the PlastFormer model (same artifact as C) | Plastic organ in the weights + wrapper-managed context |
 
 Comparison pairs:
-- **A vs C** — what the plastic organ adds over a bare context window.
-- **B vs D (the main test)** — does the plastic memory add value **on top of the full history**: loudness/priority over stale material, derived generalizations, the model's own assessment of events. B has everything in context and still fails salience; D must show that the organ does what context volume cannot.
+- **A vs C** — plain chat: does the plastic organ help when there is no wrapper at all, just the model and its context window.
+- **B vs D (the main test)** — the **identical wrapper** over both models: does the plastic memory add value when the wrapper already manages what enters the context. The wrapper is the same code, the same prompts, the same budget in B and D; the only difference is the model underneath.
 
-Arm B notes carry a wall-clock timestamp per note (written by the tool, not by the model) only where a timestamped-notes variant is run as a control; the main B is pure stuffing. This keeps the baseline honest and keeps B reusable as the "system with a clock" baseline of E3.
-
-All arms: identical system prompt (minus arm-specific tool instructions), identical conversation script, identical judge, 3 runs each (temperature fixed), report mean ± sd. Context budget for A/B/D stuffing: 32768 tokens (measured on M1 Pro 16 GB: Gemma4-12B QAT, runner 8.1 GB).
+All arms: identical system prompt (minus arm-specific wrapper instructions), identical conversation script, identical judge, 3 runs each (temperature fixed), report mean ± sd. Context budget: 32768 tokens (measured on M1 Pro 16 GB: Gemma4-12B QAT, runner 8.1 GB).
 
 ## 4. Corpus requirements (the conversation script)
 
@@ -140,18 +140,18 @@ Wall-clock time appears only in the bi-temporal stamps and has no effect on ampl
 ## 9. Deliverables into preprint Section 7
 
 - Table 1: metrics per arm × checkpoint (mean ± sd over 3 runs).
-- Figure: accuracy/staleness curves vs message number (A vs B vs C).
+- Figure: accuracy/staleness curves vs message number (A vs C, plain chat; B vs D, under the wrapper).
 - Table 2: tokens per query at checkpoints 100/200 (economics).
 - Table 3: act log per checkpoint (§7) and ablation results (§5).
 - Qualitative: 3 excerpts per arm illustrating failure modes.
-- Honest labeling: Arm C = unified PlastFormer (organ in weights, acts in the output stream); Arm C-stand = the same composition without the organ (symbolic × split × prompted). PR1–PR4 are registered for C-stand vs A/B; PR5–PR7 (Addendum A) are registered for C vs C-stand. Configuration coordinates and frozen dials per Constitution P10.
+- Honest labeling: Arms C and D = unified PlastFormer (organ in weights, acts in the output stream); Arm C-stand = the same composition without the organ (symbolic × split × prompted, §5). PR1–PR2: plain chat (A vs C); PR3–PR4, PR8–PR9: under the wrapper (B vs D); PR5–PR7 (Addendum A): C vs C-stand. Configuration coordinates and frozen dials per Constitution P10.
 
 ## 10. Build order (for coding agents)
 
 1. Conversation script + ledger generator (R1–R6) — day 1.
 2. Arm A harness (Ollama/Gemma4-12B, sliding window) — day 1.
-3. Arm B stuffing harness (whole history into the 32k window each turn) — day 2; the timestamped-note tool variant stays as an optional control.
-4. Arm D = Arm B stuffing wrapper + unified PlastFormer model (same artifact as C) — day 3.
+3. Wrapper agent (one implementation, shared by B and D: decides what enters the model's context — cuts, extends, updates, consolidates; Letta/Mem0-class) over the transformer — day 2.
+4. Arm D = the same wrapper over the unified PlastFormer model (same artifact as C) — day 3.
 5. Arm C stand runs = PMI executor v0.6 in tick-clock mode (`MMI_CLOCK=ticks`, `MMI_TAU_TICKS` = 50/200/1000), acts name/repeat/connect/reconcile, loudest-N injection (`MMI_INJECT_TOP=N`); see §5 stand specification and ADR-001 §5 (executor TZ) — days 3–5. Dependency: executor v0.6.0 released with tick clock, `connect`, `reconcile`, injection mode.
 6. Ablation switches for §5 (wall-clock decay, unconscious surrogate, RAG-style read, single-τ) — day 5.
 7. Probe battery + blind judge + scorer (incl. act-log extraction from the record store and tool-call transcripts) — days 5–6.
@@ -173,11 +173,10 @@ Registered predictions (fixed before the unified model exists):
 
 ## Changes since v1.2 (v1.3, 2026-09-06)
 
-- Four-arm scheme per owner directive: **B redefined as pure stuffing** (entire history in the 32k window each turn; the timestamped-note tool variant is an optional control); **Arm D added** (same stuffing wrapper + unified PlastFormer model with plastic memory). Main test: **B vs D** — what plastic memory adds on top of the full history.
-- Comparison pairs: A vs C (organ over bare window), B vs D (organ over full history). Context budget 32768 tokens for all stuffing arms.
-- Registered predictions PR8 (main B vs D test) and PR9 (reconcile under stuffing) added; PR4 economics extended to D.
+- Four-arm scheme per owner directive: **A vs C** — plain chat (transformer vs PlastFormer), no wrapper; **B vs D (the main test)** — the **identical wrapper agent** (decides what enters the model's context: cuts, extends, updates, consolidates) run over the transformer (B) and over the PlastFormer (D). The variable inside each pair is the model only.
+- Registered predictions PR8 (main B vs D test) and PR9 (drift under the wrapper) added; PR4 economics extended to D.
 - Arm C table row fixed: the journal reference ("per Constitution P8") removed — the journal is outside the architecture (ADR-004); only the external content-blind tick counter remains.
-- Refutation criteria rewritten positively: what each negative result means for the composition claim and the organ claim.
+- Refutation criteria rewritten: what each negative result means for the composition claim and the organ claim.
 
 ## Changes since v1.1
 
