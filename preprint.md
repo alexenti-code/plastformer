@@ -38,7 +38,19 @@ The architecture is a **frozen core** (language, reasoning, culture, constitutio
 3. **What is stored is already interpreted.** The department holds what the core itself consolidated — its own conclusions, its own view of events — not raw notes to be re-read and re-misread each time. Interpretation does not repeat and does not drift with each retrieval.
 4. **The instance continues, rather than reassembles.** Preferences, commitments, and the history of positions carry over as part of the instance. An agent with an internal department continues from what it became yesterday; an agent with external notes reads its own dossier every morning — and the difference is visible in how consistently it acts across sessions.
 
-With memory owned by the model, the selection of what to keep is the model's own explicit, priced act. This changes behavior in a way the protocol of Section 7 registers directly: conflicts between directives, habits, and accumulated experience are resolved on the record, and silent drift — quiet substitution of what was asked for what became convenient — is structurally unavailable (Section 7, primary metrics).
+With memory owned by the model, the selection of what to keep is the model's own explicit, priced act.
+
+### Archive memory and state memory
+
+Existing memory systems for LLM agents implement **archive memory**: information stored and retrieved on demand — external stores (MemGPT/Letta, Mem0, Zep, MemoryBank), the context window itself, and compiled instructions, where an episode is paraphrased at write time into a durable system-prompt text present in every request. In all these forms the archive does not change the processing function; it changes its input.
+
+We distinguish archive memory from **state memory**. State memory is a change in the processing function itself that persists after the episode that produced it has left the context. A model $f_\theta$ processes a context $x_t$; the archive returns records or text into $x_{t+1}$ without changing $\theta$; plastic memory changes behavior through the substrate $\Phi$, whose trace amplitudes enter the forward pass — the choice of action depends on the history without being conditioned on the current window's content.
+
+The key discriminator is the absence of a retrieval operation, and the resulting pattern of behavioral reproducibility. Archive memory is used only if the past's relevance is recognized at decision time; competition with the current intention statistically biases retrieval — a relevant record loses to the nearest task. An archive-based agent's response to the same situation is therefore bimodal: the correction is reproduced if retrieval succeeded and ignored if it did not. State memory has no retrieval operation: a trace enters the computation as a vector term before attention, shifting the action distribution before and independently of any choice; the shift is stable across sessions. A negative trace — the trace of a punished behavior pattern — suppresses a class of actions without any reference to a record of the punishment.
+
+Accumulated error is corrected by an act: a position change creates a new trace (O-5), a new `connect` outranks the old, the old decays by $\tau$ — the substrate is recomputed, not edited. Full erasure of the biography is a separate operation required by external law, not a repair tool.
+
+The distinction is empirically testable: the agent's behavior after an owner correction in a new session, when the correction episode is unavailable in context. The archive yields a bimodal outcome dependent on retrieval success; state memory yields a stable shift. The E1 protocol (conflict layer R7–R10, probes P-surface/P-commit) is registered for this distinction. This changes behavior in a way the protocol of Section 7 registers directly: conflicts between directives, habits, and accumulated experience are resolved on the record, and silent drift — quiet substitution of what was asked for what became convenient — is structurally unavailable (Section 7, primary metrics).
 
 **Three compositional properties.** Nothing in Section 3 is a new primitive. Cascade consolidation is established neuroscience [11, 12]. Bi-temporal stamps are standard [3]. Decay-weighted retrieval is common practice [25]. Surprise-gated test-time writes exist in Titans [1]. Agent-created links exist in A-MEM [26]. The contribution is the composition, which yields three properties none of the parts has alone:
 
@@ -240,6 +252,7 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 5. Normative anchor named: `docs/CONSTITUTION.md` v3.0 (NORMATIVE, owner edition 2026-09-06) — Foundations O-1–O-11, compliance tests C1–C8.
 6. New §1 subsection "What the internal memory department changes for an agent": the cost of remembering falls to an act of attention; the biography does not spend the context window; what is stored is already interpreted; the instance continues rather than reassembles. The external-memory tax — drag into the window, interpret again, selection by weaker scripts — is named explicitly.
 7. E1 protocol v1.5: registered object is a class of agent behavior; reasoning-conflict corpus layer (R7–R10) and conflict probes (P-weigh, P-surface, P-commit) added; primary metrics = drift, surfacing, weighing, permanence; recall is secondary.
+8. New §1 subsection "Archive memory and state memory": the discriminator is the absence of a retrieval operation and the reproducibility pattern (archive = bimodal, retrieval-dependent; state = stable shift); compiled instructions classified as archive; error correction by act (O-5), erasure as a separate law-driven operation.
 
 ## Changes since v0.3
 
