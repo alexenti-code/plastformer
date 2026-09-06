@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE. **Date:** 2026-09-05. **Owner:** Alex. **Author role:** docs architect (agent).
 
-> Note (2026-09-06): the P-numbers in the traceability tables below refer to the article numbering current when this ADR was written (CONSTITUTION v1.0/v2.0). In CONSTITUTION v2.1 (ADR-004) the journal article was removed and the numbering shifted; the current numbering is authoritative in `CONSTITUTION.md`.
+> Note (2026-09-06): the P-numbers in the traceability tables below refer to the article numbering current when this ADR was written (CONSTITUTION v1.0/v2.0). CONSTITUTION v3.0 (NORMATIVE, owner edition) replaces them: Foundations O-1–O-11, compliance tests C1–C8. Mapping: P1→C1, P2→C2, P3→O-10, P4→C3, P5→C4, P6→C5, P7→C6, P8→removed (ADR-004), P9→C7, P10→C8. The current numbering is authoritative in `CONSTITUTION.md`.
 **Builds on:** [ADR-001](ADR-001-plastformer-transition.md). **Enforces:** [CONSTITUTION.md](CONSTITUTION.md) v1.0.
 **Scope note:** this ADR restructures documentation ONLY. The 15 content fixes from `drafts/constitution-audit.md` (Fix list 1–15) are NOT applied to preprint / E1 / code here; they come next, against the new CONSTITUTION.
 

@@ -1,6 +1,6 @@
 # PlastFormer: An Architectural Proposal for Transformers
 
-**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v1.0)
+**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
 **Status:** Draft for owner review — not published
 **Author:** Alexenti / AURA
 **Repository:** alexenti-code/plastformer
@@ -53,7 +53,7 @@ Every fact recorded in the substrate carries two times: when the event was true 
 
 ## Unique instances (declaration)
 
-One pretrained core K guarantees shared competence across all its instances. The substrate Φ makes every instance unique: a unique corpus of lived experience that cannot be pretrained. Copying Φ is described as branching — a new instance with shared history up to the copy point (test in CONSTITUTION P10).
+One pretrained core K guarantees shared competence across all its instances. The substrate Φ makes every instance unique: a unique corpus of lived experience that cannot be pretrained. Duplicating Φ is plain duplication — a new instance that shares history with the original up to the moment of duplication and diverges afterwards (CONSTITUTION O-3).
 
 ## Position in the continuity program
 
@@ -67,12 +67,12 @@ This document proposes an architecture and names an object of research. How Φ i
 
 The following sentences appeared as norms in MANIFEST v2.0–v3.0 and are **SUPERSEDED** — retained here as lineage only. The binding wording is in CONSTITUTION:
 
-- SUPERSEDED (→ CONSTITUTION P6): "continuous existence in time" / "continuous calendar existence" as a requirement. Binding position: continuity is a property of the Φ line in lived ticks; dormancy is zero lived time.
-- SUPERSEDED (→ CONSTITUTION P6): "the human/owner provides physical time" / "physical time is given, measured by a clock from the moment of launch". Binding position: the stand counts storing acts; the model owns working ticks; wall-clock stamps never enter amplitude.
-- SUPERSEDED (→ CONSTITUTION P3): "the architecture only states that the layers exist" read as containers/places. Binding position: layers are speeds (τ constants), never containers or permission zones.
-- SUPERSEDED (→ CONSTITUTION P10): "a unique corpus … that cannot be copied". Binding position: copying Φ is a branch — a new instance with shared history up to the copy point.
-- SUPERSEDED (→ CONSTITUTION P7): "No act of trust is required for this distinction — it is a property of the input." Binding position: source-class handling is capped physics asserted by the model; class policy is a deployment choice and an attack surface.
-- SUPERSEDED (→ CONSTITUTION P1–P10): the "Architectural axioms" §1–8 of MANIFEST v3.0 in full. Binding position: CONSTITUTION P1–P10 with "Violated if" tests.
+- SUPERSEDED (→ CONSTITUTION O-4): "continuous existence in time" / "continuous calendar existence" as a requirement. Binding position: continuity is a property of the Φ line in lived ticks; dormancy is zero lived time.
+- SUPERSEDED (→ CONSTITUTION O-4): "the human/owner provides physical time" / "physical time is given, measured by a clock from the moment of launch". Binding position: the stand counts storing acts; the model owns working ticks; wall-clock stamps never enter amplitude.
+- SUPERSEDED (→ CONSTITUTION O-10): "the architecture only states that the layers exist" read as containers/places. Binding position: layers are speeds (τ constants), never containers or permission zones.
+- SUPERSEDED (→ CONSTITUTION O-3): "a unique corpus … that cannot be copied". Binding position: duplicating Φ is plain duplication — a new instance that shares history with the original up to the moment of duplication and diverges afterwards.
+- SUPERSEDED (→ CONSTITUTION C6): "No act of trust is required for this distinction — it is a property of the input." Binding position: source-class handling is capped physics asserted by the model; class policy is a deployment choice and an attack surface.
+- SUPERSEDED (→ CONSTITUTION O-1–O-11 and C1–C8): the "Architectural axioms" §1–8 of MANIFEST v3.0 in full. Binding position: CONSTITUTION v3.0 — Foundations O-1–O-11 and compliance tests C1–C8.
 
 ## Research questions
 

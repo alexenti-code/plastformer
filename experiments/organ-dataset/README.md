@@ -8,7 +8,7 @@ emitted as a JSON block in the assistant's own output; execution is the
 environment's job, selection is always the model's.
 
 **Status:** generated 2026-09-05; committed to `plastformer` (ec62a56). Regenerated 2026-09-05: `<<MMI>>` → `<<PMI>>` markers unified with executor v0.6.
-**Constitution:** `plastformer/docs/CONSTITUTION.md` v1.0 (P1–P10, binding).
+**Constitution:** `plastformer/docs/CONSTITUTION.md` v3.0 (NORMATIVE: Foundations O-1–O-11, compliance tests C1–C8).
 **Corpus requirements:** `experiments/e1-protocol.md` §4 (R1–R6).
 **Record format / act semantics:** PMI executor SPEC v0.6.0 (`matryoshka-mmi` repo — transitional name; canonical docs: `plastformer/docs/`).
 **Live act patterns:** PMI executor bench 2026-09-04 (`matryoshka-mmi` repo, transitional name) (incl. pattern D,

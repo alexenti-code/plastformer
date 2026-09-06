@@ -1,7 +1,7 @@
 # PlastFormer — Glossary
 
-**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v1.0)
-**Status:** Draft — dictionary only, complements THEORY.md v4.0 and CONSTITUTION.md v1.0
+**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
+**Status:** Draft — dictionary only, complements THEORY.md v4.0 and CONSTITUTION.md v3.0
 **Related documents:** [THEORY.md](THEORY.md) · [CONSTITUTION.md](CONSTITUTION.md) · [MANIFEST.md](MANIFEST.md) · [preprint v0.5](../preprint.md)
 
 > This file is a dictionary: term → definition. It states no rules and no tests. Enforceable statements previously located here now live in [CONSTITUTION.md](CONSTITUTION.md); the migration table is in [ADR-002](ADR-002-docs-architecture.md). Where this file and the preprint overlap, preprint v0.5 terminology governs the formalization.
@@ -35,7 +35,7 @@ The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one c
 Property of a Φ record: event time (when it was true in the world) and learning time (when the instance learned it). Training weights carry no stream-time marks; memory records carry both.
 
 ### Tick [тик]
-One inference step (one generation batch). The substrate counts ticks; on the stand one executed storing act = +1 stand tick (sparse sampling of abstract ticks; counter rule in CONSTITUTION P6). The tick rate is a property of the substrate and is finite.
+One inference step (one generation batch). The substrate counts ticks; on the stand one executed storing act = +1 stand tick (sparse sampling of abstract ticks; counter rule in CONSTITUTION C5). The tick rate is a property of the substrate and is finite.
 
 ### Lived time [прожитое время]
 The substrate's own time: a trace's age is its amplitude profile; an interval's length is its tick count plus the accumulated trace mass. A year of dormancy is zero lived time in this description.

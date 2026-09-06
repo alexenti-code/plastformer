@@ -4,17 +4,17 @@ This file is public and harmless. It tells any agent how to read and extend this
 
 ## 1. Read order
 
-1. `docs/CONSTITUTION.md` v1.0 FIRST — binding norms P1–P10 with "Violated if" tests. On any conflict, CONSTITUTION wins.
+1. `docs/CONSTITUTION.md` v3.0 FIRST — normative: Foundations O-1–O-11, compliance tests C1–C8 with "Violated if" criteria. On any conflict, CONSTITUTION wins.
 2. `docs/ADR-001-plastformer-transition.md`, then `docs/ADR-002-docs-architecture.md` (file semantics + norm migration table + public/internal boundary).
 3. `docs/THEORY.md` (mechanisms only) + `docs/GLOSSARY.md` (dictionary only) + `docs/MANIFEST.md` (declaration only).
-4. `preprint.md` v0.5 (§1 split, §3.3, §3.7, §4.3, §7 E5) and `experiments/e1-protocol.md` v1.1 (§5, §7–8) — claims under test, not norms.
+4. `preprint.md` v0.5 (§1 split, §3.3, §3.7, §4.3, §7 E5) and `experiments/e1-protocol.md` v1.3 (§5, §7–8) — claims under test, not norms.
 5. `docs/INTERNAL.md` MUST NOT exist in public snapshots (gitignored; see ADR-002). If you see it locally, its contents never leave the machine.
 
 ## 2. File map
 
 | Path | Semantics | Normative? |
 |---|---|---|
-| `docs/CONSTITUTION.md` | enforceable postulates P1–P10, each with statement + "Violated if" test + example | YES — highest |
+| `docs/CONSTITUTION.md` | NORMATIVE: Foundations O-1–O-11 + compliance tests C1–C8, each test with a "Violated if" criterion | YES — highest |
 | `docs/ADR-001*`, `docs/ADR-002*` | decisions, file semantics, migration table, boundary | decisions bind; history does not |
 | `docs/THEORY.md` / `THEORY.ru.md` | mechanisms description only (multi-tau decay, two clocks, reconcile, background tick, cascade anchors) | NO |
 | `docs/GLOSSARY.md` | dictionary term→definition (EN with RU term in brackets) | NO |
@@ -42,11 +42,11 @@ Text and code patterns that violate CONSTITUTION in the main run. Each belongs i
 1. Read `experiments/e1-protocol.md` v1.2 fully (§5 stand TZ, §7–8 scoring/isolation).
 2. Freeze the P4 dial set in a run manifest before the run (clock mode `ticks`, τ set, N-cap, provenance caps, friction schedule); record axis coordinates `symbolic × split(PMI) × prompted`.
 3. Run the main configuration with all ablations OFF (`RAG-style read` off, `unconscious-surrogate` off, `decay-in-wall-clock` off, `loudest-N-auto` off, `verbatim-extractor` off, `friction-veto` off). Main-run code path must contain no `embedding`/`similarity` symbol.
-4. Report per P10: coordinates, frozen dials, ablations on/off, act log (counts/types of acts), and what is NOT claimed (parametric substrate, trained acts, hash chain, $a_0$ weighting) until built.
+4. Report per C8: coordinates, frozen dials, ablations on/off, act log (counts/types of acts), and what is NOT claimed (parametric substrate, trained acts, hash chain, $a_0$ weighting) until built.
 
 ## 5. Copying and attribution
 
-- Ideas: free to use from prior work (Titans, MemoryBank, Zep, ...) — with citation in the paper and docs. Claiming a copied idea as our own violates P10 and scientific ethics; the paper already declares the compositional claim and cites ingredients.
+- Ideas: free to use from prior work (Titans, MemoryBank, Zep, ...) — with citation in the paper and docs. Claiming a copied idea as our own violates C8 and scientific ethics; the paper already declares the compositional claim and cites ingredients.
 - Code: only MIT/BSD/Apache-2.0 sources may enter this Apache-2.0 repo, with copyright + license preserved and noted in NOTICE/CREDITS. GPL/AGPL code must not be merged. No license = no use.
 - Models: Gemma derivatives (our unified artifact) are governed by Gemma Terms of Use — re-read them before any public distribution of model weights.
 - Our own code is Apache-2.0: anyone may copy it. Our defense is priority (DOI, arXiv timestamps) and citation, per ADR-001 lineage.

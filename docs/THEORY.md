@@ -1,7 +1,7 @@
 # PlastFormer — Theory (mechanisms)
 
-**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v1.0)
-**Status:** Draft — mechanisms description, complements CONSTITUTION.md v1.0
+**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
+**Status:** Draft — mechanisms description, complements CONSTITUTION.md v3.0
 **Related documents:** [ADR-001](ADR-001-plastformer-transition.md) · [ADR-002](ADR-002-docs-architecture.md) · [CONSTITUTION.md](CONSTITUTION.md) · [preprint v0.5](../preprint.md) · [GLOSSARY.md](GLOSSARY.md) · [MANIFEST.md](MANIFEST.md) · Russian version: [THEORY.ru.md](THEORY.ru.md)
 
 > Naming note (lineage): this theory circulated earlier under the working name "Matryoshka" (see MANIFEST.md lineage). The architecture is now **PlastFormer**; the interface formerly abbreviated **MMI** is now **PMI (Plastic Memory Interface)**.
@@ -17,7 +17,7 @@ PlastFormer describes a transformer with an unchanged core K and a plastic modul
 1. **Memory write is described as an act in the model's action space**, in the same class as saying, answering, or opening a file — analogous to a person writing a note.
 2. **Remembering is described as a trainable competence.** In an open model, PMI functions are trained once, after which the core is frozen. On the current stand the acts are given by prompt — a rehearsal of the organ, not the organ.
 3. **Granularity of a record** (a paragraph, an event, a decision, a conclusion) is described as the model's output — the record content comes from the model's stream.
-4. **On the stand**, the write command arrives as a tool call in the model's output stream; the stand executes it. The mapping of removed normative sentences to enforceable tests is recorded in ADR-002 (entries T1–T4 → CONSTITUTION P2/P5).
+4. **On the stand**, the write command arrives as a tool call in the model's output stream; the stand executes it. The mapping of removed normative sentences to enforceable tests is recorded in ADR-002 (entries T1–T4 → CONSTITUTION C2/C4).
 
 ## 2. Experience levels: tact → episode → day → project → life
 
@@ -73,7 +73,7 @@ A transformer already has a class of settings — continuous physics of generati
 | recall_sharpness | top_k | sharpness of key-proximity sampling |
 | repeat_gain | repetition_penalty (mirror) | how much `repeat` re-amplifies the trace |
 
-Descriptive note: temperature describes WHAT distribution text is sampled from without selecting content; forgetting_tempo is described in the same class. Enforceable boundaries for these dials (enumerated set, pre-registration, freezing) live in CONSTITUTION P4 (ADR-002 entries T5–T6).
+Descriptive note: temperature describes WHAT distribution text is sampled from without selecting content; forgetting_tempo is described in the same class. Enforceable boundaries for these dials (enumerated set, pre-registration, freezing) live in CONSTITUTION C3 (ADR-002 entries T5–T6).
 
 ---
 
@@ -93,7 +93,7 @@ Ownership description: the frozen core K is shared weights; the plastic Φ belon
 
 Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
-- **Tick.** One tick = one inference step (one generation batch). The tick rate is a property of the substrate and is finite. Stand counter mapping: 1 executed storing act = +1 stand tick (sparse sampling of abstract ticks); see CONSTITUTION P6 for the enforceable counter rule.
+- **Tick.** One tick = one inference step (one generation batch). The tick rate is a property of the substrate and is finite. Stand counter mapping: 1 executed storing act = +1 stand tick (sparse sampling of abstract ticks); see CONSTITUTION C5 for the enforceable counter rule.
 - **Decay law.** a_i(n) = a_i(0)·e^(−Δn/τ_i), Δn in lived ticks; all τ_i therefore in ticks.
 - **Audited time** is symbolic: bi-temporal stamps on every trace (event time + learning time). A stamp reading "two years ago" carries no felt age and has no effect on amplitude in this description.
 - **Lived (felt) time** is the substrate's own: a trace's age is its amplitude profile; an interval's length is its tick count plus the accumulated trace mass. A year of dormancy is zero lived time in this description.
@@ -102,7 +102,7 @@ Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
 The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) is the experience of this instance at tick t.
 
-**Background tick (mechanism).** Background tick is described as the core running with no user input at a substrate-set low rate: replay of traces and `connect` acts issued by the core, each recorded as a new trace of the core's own act. A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (see CONSTITUTION P5/P9; ADR-002 entry T11).
+**Background tick (mechanism).** Background tick is described as the core running with no user input at a substrate-set low rate: replay of traces and `connect` acts issued by the core, each recorded as a new trace of the core's own act. A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (see CONSTITUTION C4/C7; ADR-002 entry T11).
 
 ## 5. Acts: name / repeat / connect / reconcile (+ write / read)
 
@@ -111,25 +111,25 @@ The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) i
 - **`repeat`** — re-amplify a trace, paying the write cost.
 - **`connect`** — deposit a summary or rule into slow components as a *new* trace; sources untouched.
 - **`reconcile`** — record the relation between felt time and audited time as a new trace (see §4 above).
-- **Physical `write (unconscious)`** — described as: every experience passing the window leaves a low-amplitude trace in fast components, gated by the core's own surprise signal. On the symbolic stand the core's own prediction error is not accessible; the symbolic surrogate stays an ablation (see CONSTITUTION P5; ADR-002 entry T9).
-- **Physical `read`** — surfacing through PMI (`read last N / ids / range`). On the symbolic stand, the content-free variant is described as: the N loudest traces by amplitude — no relevance, no embeddings. (Enforceable trigger/rank rules: CONSTITUTION P2; ADR-002 entries T7–T8.)
+- **Physical `write (unconscious)`** — described as: every experience passing the window leaves a low-amplitude trace in fast components, gated by the core's own surprise signal. On the symbolic stand the core's own prediction error is not accessible; the symbolic surrogate stays an ablation (see CONSTITUTION C4; ADR-002 entry T9).
+- **Physical `read`** — surfacing through PMI (`read last N / ids / range`). On the symbolic stand, the content-free variant is described as: the N loudest traces by amplitude — no relevance, no embeddings. (Enforceable trigger/rank rules: CONSTITUTION C2; ADR-002 entries T7–T8.)
 
 ## 6. Bi-temporality and instance continuity (description)
 
 Every fact recorded in Φ carries two times: when the event was true in the world (valid time) and when the instance learned it (record time). Training weights carry no stream time; memory records carry both. The storage method (symbolic fields vs. parametric encoding) is an implementation question.
 
-Continuity of an instance is described as following from preservation of Φ: the instance does not begin again with each session. Copying Φ is described as creating a branch — a new instance with shared history up to the copy point. Dormancy is zero lived time, and waking after dormancy is a recorded event (see §4). (Enforceable copy/continuity tests: CONSTITUTION P8/P10; ADR-002 entries T12–T13.)
+Continuity of an instance is described as following from preservation of Φ: the instance does not begin again with each session. Duplicating Φ is described plainly: the duplicate is a new instance that shares history with the original up to the moment of duplication and diverges afterwards. Dormancy is zero lived time, and waking after dormancy is a recorded event (see §4). (Copy = duplication, continuity = the Φ line: CONSTITUTION O-3/O-7; ADR-002 entries T12–T13.)
 
 ## 7. Relation to earlier review points (mechanism reading; brief)
 
 | Review point | Mechanism description |
 |---|---|
 | Where write competence comes from | Remembering is described as a trainable PMI competence; in an open model — training the organ once, core frozen after (§1, §5) |
-| Write gates | Writing is described as the model's act; the executor executes (§5; enforceable test in CONSTITUTION P2/P5) |
+| Write gates | Writing is described as the model's act; the executor executes (§5; enforceable test in CONSTITUTION C2/C4) |
 | Bi-temporality in parameters | Stamps are described as a property of the memory act and PMI functions; storage method is implementation (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
-| Copying | Copying is described as branching; identity = memory line (§6; test in CONSTITUTION P10) |
-| Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; test in CONSTITUTION P8) |
+| Copying | Copying is described as duplication; identity = memory line (§6; CONSTITUTION O-3) |
+| Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; CONSTITUTION O-7) |
 | Personal data / deletion | Personal data live in Φ as its own content; erasure = deletion of the Φ section (the core survives); a `connect` summary is an ordinary trace of Φ and is erased with it |
 
 ## 8. Open questions
@@ -137,14 +137,14 @@ Continuity of an instance is described as following from preservation of Φ: the
 - How to train PMI functions in an open model without destroying core competence; what signal trains `repeat` without training away legitimate repetition.
 - Φ portability between core versions (K replacement; re-training the read interface for a parametric substrate).
 - Tick economics at a provider: which product model makes the split (PMI) topology possible.
-- Which tests distinguish PlastFormer memory from ordinary storage with a wrapper (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION P2/P5).
+- Which tests distinguish PlastFormer memory from ordinary storage with a wrapper (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION C2/C4).
 - How bi-temporal stamps are represented in a parametric substrate.
 
 ## 9. Honest boundary: what is unbuilt
 
 - The memory organ is **not trained** — on the stand the acts are given by prompt (rehearsal, not the organ).
 - The **parametric substrate is unbuilt** — parametric rank-1 writes on the frozen predecessor stand (research scope) remain future work; evaluation runs at the symbolic × split × prompted point.
-- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.1 and preprint §7).
+- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.3 and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
 - P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
 

@@ -144,7 +144,7 @@ Wall-clock time appears only in the bi-temporal stamps and has no effect on ampl
 - Table 2: tokens per query at checkpoints 100/200 (economics).
 - Table 3: act log per checkpoint (§7) and ablation results (§5).
 - Qualitative: 3 excerpts per arm illustrating failure modes.
-- Honest labeling: Arms C and D = unified PlastFormer (organ in weights, acts in the output stream); Arm C-stand = the same composition without the organ (symbolic × split × prompted, §5). PR1–PR2: plain chat (A vs C); PR3–PR4, PR8–PR9: under the wrapper (B vs D); PR5–PR7 (Addendum A): C vs C-stand. Configuration coordinates and frozen dials per Constitution P10.
+- Honest labeling: Arms C and D = unified PlastFormer (organ in weights, acts in the output stream); Arm C-stand = the same composition without the organ (symbolic × split × prompted, §5). PR1–PR2: plain chat (A vs C); PR3–PR4, PR8–PR9: under the wrapper (B vs D); PR5–PR7 (Addendum A): C vs C-stand. Configuration coordinates and frozen dials per Constitution C8.
 
 ## 10. Build order (for coding agents)
 
