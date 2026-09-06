@@ -130,7 +130,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Copying | Copying is described as branching; identity = memory line (§6; test in CONSTITUTION P10) |
 | Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; test in CONSTITUTION P8) |
-| Personal data / deletion | Personal data live in Φ as its own content; erasure = deletion of the Φ section (the core survives); derived traces live in the same section and are erased with it |
+| Personal data / deletion | Personal data live in Φ as its own content; erasure = deletion of the Φ section (the core survives); a `connect` summary is an ordinary trace of Φ and is erased with it |
 
 ## 8. Open questions
 
