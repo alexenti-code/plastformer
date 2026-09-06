@@ -11,7 +11,7 @@
 
 ## What this is
 
-PlastFormer is **one architecture**: a transformer with a frozen core and a plastic per-instance module, trained once to operate its own memory organ through acts — `name`, `repeat`, `connect`, `reconcile`. After that single training step the core is frozen. Every semantic decision about memory is the model's; the environment supplies only physics: write-cost schedule, decay constants in *lived ticks*, immutability of recorded content, and an external append-only journal.
+PlastFormer is **one architecture**: a transformer with a frozen core and a plastic per-instance module, trained once to operate its own memory organ through acts — `name`, `repeat`, `connect`, `reconcile`. After that single training step the core is frozen. Every semantic decision about memory is the model's; the environment supplies only physics: write-cost schedule, decay constants in *lived ticks*, and immutability of recorded content.
 
 The core split (after Windelband): a frozen **nomothetic core** (general laws: language, reasoning, culture) plus a plastic **idiographic module** — the unique biography of one instance.
 
