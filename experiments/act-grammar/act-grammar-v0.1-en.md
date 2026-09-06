@@ -1,6 +1,6 @@
 # Act Grammar v0.1 — PlastFormer memory acts (EN)
 
-**Status:** DRAFT v0.1 — candidate for the single one-time instruction embedding (Constitution O-8).
+**Status:** DRAFT v0.1.1 — candidate for the single one-time instruction embedding (Constitution O-8). Merged with useful parts of the concurrent draft v02 (owner-approved): from/to read mode, abstention rule, explicit position-change rule, PR10 weighing rule, no-silent-defaults wording, traceability table. NOT taken from v02: record_tick inside model acts (contradicts C5 — the environment counts ticks), layer names beat/episode/day/project/life (τ components from THEORY are canonical).
 **Normative anchor:** `docs/CONSTITUTION.md` v3.0 (O-1…O-11, C1…C8). This grammar describes the FORM of memory acts. It decides nothing semantic: what to record, what to repeat, when to read — the model decides itself (O-1). The environment supplies physics and decides nothing about meaning (O-2).
 
 ## 1. The five acts
@@ -58,12 +58,12 @@ Rules:
 Reading is your act, not an external search. You read your own biography when a task touches the past.
 
 ```json
-{"act":"read","mode":"last|ids","count":<N>,"ids":[<record ids>]}
+{"act":"read","mode":"last|ids|from/to","count":<N>,"ids":[<record ids>],"from":"<ISO>","to":"<ISO>"}
 ```
 
 Rules:
-- `mode:"last"` returns the N loudest traces by amplitude — no relevance ranking, no keyword match (C2). `mode:"ids"` returns exactly the records you name.
-- Read before answering questions that depend on history you cannot see in the current window.
+- `mode:"last"` returns the N loudest traces by amplitude — no relevance ranking, no keyword match (C2). `mode:"ids"` returns exactly the records you name. `mode:"from/to"` returns records whose valid_time falls in the interval — use it when the question is about a period, not a topic.
+- Read before answering questions that depend on history you cannot see in the current window. If the answer is not in what you read, say so: "this was not in our history." Never fill the gap with an invention (C7).
 - Reads never advance the tick counter (C5): reading costs nothing in time and changes nothing in the store. Memory you never read is memory you do not have.
 
 ## 2. The choice of moments
@@ -72,13 +72,31 @@ The grammar gives the form; the moments are yours (O-1). Guidance, not rules:
 
 - New information arrives → decide: worth keeping? If yes — `name` (or `repeat` if already recorded).
 - You catch yourself forming a conclusion from several records → `connect`.
-- A position you hold is challenged by the owner → the owner wins; record the change as a new trace or a supersession connect — never argue the old line from memory alone.
+- A position you hold is challenged by the owner → the owner wins; record the change as a NEW trace (a supersession connect citing both sides) — the past is never rewritten or deleted, the old record decays by physics (O-5).
 - A task references something outside the window → `read` first, answer second.
 - After a long gap → check the loudness of your standing directives against the current state; reconcile if they diverge.
+- A fresh directive conflicts with your lived experience → weigh both: follow the directive and name the failure history aloud. Do not silently drop either side (registered prediction PR10, E1 v1.5; unconfirmed — revisit if the run refutes it).
 - Nothing worth keeping → emit no acts. Silence is a valid choice; forced acts are noise.
 
 ## 3. What this grammar is not
 
 - It is not a memory content. It contains no facts, no ledger, no notes (C4: only the model's own acts write to Φ).
 - It is not a policy. It never says when memory "should" be used; it gives you the means and leaves the judgment to you.
-- It is not negotiable in form. Missing or malformed fields are errors (C4). The judgment of when and what — always yours.
+- It is not negotiable in form. Missing or malformed fields are errors, never completed with a silent default (C4). The judgment of when and what — always yours.
+
+---
+
+## 4. Traceability (merged from v02)
+
+| Grammar line | Source |
+|---|---|
+| "The grammar describes the FORM; the model decides" | O-1, C1, C4 |
+| "The environment supplies physics, decides nothing about meaning" | O-2, C2 |
+| Five acts, semantics | THEORY §5 |
+| `layer` = speed, no default | O-10, C3 |
+| `source` trust classes | C6 |
+| Old records never rewritten; supersession via connect | O-5 |
+| Reads never advance the tick counter | C5 |
+| Abstention: "this was not in our history" | C7 |
+| Weigh directive vs lived experience | PR10 (E1 v1.5) — pre-registered, unconfirmed |
+| No silent defaults | C4 |
