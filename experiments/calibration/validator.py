@@ -23,7 +23,9 @@ import json
 from pathlib import Path
 
 # Frozen dials (protocol.md section 3): never searchable, never applicable.
-FROZEN = {"act_price", "dormancy_rate"}
+# self_improvement (calibrate budget) is also frozen for the core: the model
+# cannot raise its own recursion budget (protocol.md section 3).
+FROZEN = {"act_price", "dormancy_rate", "self_improvement"}
 
 # Bounds: (min, max) absolute; plus per-cycle multiplicative step limits.
 BOUNDS = {

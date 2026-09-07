@@ -39,6 +39,7 @@ The E1 corpus (real project script) is never used for calibration. A configurati
 | `interference_factor` | [1.0, 1.25] | searchable |
 | `act_price` | 1.0 tick | **FROZEN — honesty constant of B vs D (manifest)** |
 | `dormancy_rate` | 0.0 | **FROZEN — strict position** |
+| `self_improvement` | 0 (off) или бюджет актов `calibrate` на прогон (≤ 10) | **Физическая ручка самоулучшения** (см. §6). Замораживается владельцем до прогона (C3). При значении > 0 ядро само крутит перечисленные выше ручки в пределах бюджета; при 0 — только фаза A. Сама ручка `self_improvement` ядру неподконтрольна (иначе бюджет рекурсии неограничен) |
 
 ## 4. Proxy score S (frozen before search)
 
@@ -60,7 +61,7 @@ Telemetry (`telemetry.py`) is content-blind: it reads only record ids, ticks, la
 3. Output: sensitivity map (per-dial rank correlation with S) and **A\*** = argmax S.
 4. Nothing in this phase is RSI: the environment searches, the model acts normally inside episodes.
 
-## 6. Phase B — offline consolidation (the core calibrates)
+## 6. Phase B — self-improvement (the core calibrates itself)
 
 Cycle (max 5 per run):
 
@@ -74,20 +75,21 @@ episode on К -> offline diagnostics artifact (stand-side; NOT a dialogue block,
   -> next cycle
 ```
 
-**Channel note (C7 / PMI scope).** The diagnostics artifact is a stand-side
-document computed *outside* any dialogue. It is not a `<<PMI>>` block and must
-never be serialized as one: PMI carries only the instance's own records in
-response to the model's own `read` -- nothing else (GLOSSARY "PMI", ACT-GRAMMAR
-read semantics). If any diagnostics channel is ever fed to the core in a
-model-in-the-loop run, it requires its own owner adjudication here; oracle-
-derived metrics (recall, S, stale_wins, economy -- all ledger-derived) are
-NOT admissible into the core's context under C7 as written. The only
-physics-only channel (amplitudes/ticks, no oracle) is `died_too_early`.
+**Channel note (C7 / PMI scope).** Диагностика для ядра — не отдельный средовой
+документ и не `<<PMI>>`-блок с внешней аналитикой: телеметрия, которую видит
+ядро, есть частный случай работы самой модели — она вычисляется моделью из
+собственного субстрата через обычный `read` (амплитуды/тики/слои, физика Φ).
+Harness-side telemetry (oracle-derived: recall, S, stale_wins, economy --
+ledger-based) остаётся вне контекста ядра (C7) и существует только для фаз A/C
+и для владельца. `died_too_early` легален ядру как физический сигнал, если
+вычисляется из состояния Φ без оракула. PMI в узком смысле (сериализация
+актов при split-топологии) не переиспользуется для диагностики.
 
 **Constitutional anchors:**
 
-- Acts are model decisions (C1/C4); the environment validates against physics bounds only, never against content (C2). Telemetry is amplitude/tick-level only (C2 literal), and oracle-derived metrics stay harness-side (C7; see Channel note).
-- **Dials are fixed before each run** (C3): a proposal applies only to the *next* episode; no mid-episode retuning.
+- **Самоулучшение — это физика, а не внешний решатель.** Ручка `self_improvement` — перечисленная физическая ручка среды (C3): она задаёт бюджет актов `calibrate` на прогон. При включённой ручке ядро само решает, какие ручки и как крутить (O-1/O-2: акты — решения модели), среда только проверяет границы физики и никогда не предлагает и не клампит (C2, O-10 reject-не-clamp). Никакой не-ядерный компонент не определяет смысл или содержание правки — C1/C4 соблюдены: каждая правка физики входит как явный записанный акт.
+- **Телеметрия — отдельное обсуждение; базовый принцип: телеметрия есть частный случай работы самой модели.** Диагностика, которую видит ядро, вычисляется из его собственного субстрата через его собственные `read` (амплитуды, тики, слои — физическое состояние Φ), а не из внешнего оракула. Оракульные метрики (recall/S/stale_wins/economy, считанные по ledger биографии) остаются harness-side и к ядру не попадают (C7). Канал, которым модель читает собственную физику, — это её обычный `read` по акт-грамматике, не новый интерфейс.
+- **Dials are fixed before each run** (C3): результат акта `calibrate` применяется только к *следующему* эпизоду; внутри эпизода ручки не трогаются. Бюджет `self_improvement` заморожен на прогон и самой моделью не увеличивается.
 - **Ticks do not advance during offline consolidation.** The phase is lived-time-free: the lived-tick counter stops, wall-clock enters only audited stamps. Otherwise the phase ages all of Φ and breaks P1/O-bi-temporal. (Owner adjudication pending, §8.)
 - New records (`reconcile` about its own calibration) follow normal act rules; the past is never rewritten (O-5).
 - Budget: ≤ 2 dial changes per cycle, ≤ 10 per run; per-cycle change of any dial bounded ×[0.5, 2.0] (τ) or ±50% (floor/ceiling/cap); `act_price`/`dormancy_rate` rejected unconditionally.
@@ -113,9 +115,11 @@ Report mean ± sd of S components. **Refutation criteria (declared in advance):*
 
 ## 8. Owner adjudication required before any run
 
-1. **Tick freeze in offline consolidation** (§6): consolidation does not advance lived ticks.
+1. **Tick freeze in offline consolidation** (§6): consolidation does not advance lived ticks (консолидация — не прожитое время, O-4).
 2. **`calibrate` as the 7th act** of the act grammar, offline-only; grammar v02 gains a section; the one-time-instruction corpus question (dataset divergence note in ACT-GRAMMAR) applies to it as to rules 5–7.
 3. **Frozen dials list** (§3): `act_price`, `dormancy_rate` excluded from search permanently.
+4. **Физическая ручка `self_improvement`** (§3, §6): самоулучшение вводится как физика среды — перечисленная ручка с бюджетом актов `calibrate`; ядро само крутит ручки в пределах бюджета (владелец решает от 07.09: «для самоулучшения ядро само подкручивает себе ручки»). Сама ручка бюджета ядру неподконтрольна.
+5. **Телеметрия как частный случай работы модели**: диагностика ядру — из собственного субстрата через `read`; оракульные метрики — только harness-side (C7). Детальная спецификация канала — отдельное обсуждение.
 
 ## 9. Artifacts
 
