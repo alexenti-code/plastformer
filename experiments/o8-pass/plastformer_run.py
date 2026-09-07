@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """PlastFormer run script — Gemma4-12B + act grammar (O-8 assembly alpha) + Phi substrate.
 
-Configuration: parametric-dials x co-located x instructed (target form, symbolic substrate).
+Configuration: parametric-dials x co-located x instructed (target form; trace bank of text records pending the vector substrate).
 Phi = trace bank: content + provenance + amplitude[t1..t5] + stamps. Show dials per DESIGN
 §11: surfacing_cap=12, prefix_depth=12, residency_horizon=16, rebuild_period=1, gap/surprise
 thresholds off by default (surprise needs perplexity probe — off in this build).

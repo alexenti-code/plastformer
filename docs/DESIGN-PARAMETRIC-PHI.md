@@ -193,8 +193,7 @@ as non-decisive.
 
 Geometric progression x5; at 200 ticks (E1): tau_1 dead, tau_2 ~8%, tau_3 ~61%,
 tau_4 ~90%, tau_5 ~98% — the expected survival profile of a session biography.
-One write deposits across all five (O-10). D-stand keeps its own stand-era set
-(tau in {50, 200, 1000}, k=3) as an ablation; the registered Arm D uses k=5.
+One write deposits across all five (O-10); the registered Arm D uses k=5.
 Note: these figures were approved in the architecture discussion of 2026-09-07;
 they are dials (C3) and must be frozen in the run manifest before the first run.
 
@@ -253,5 +252,4 @@ choice: the bank is a passive array; no instance running means no ticks, no deca
 (delta-n is measured in ticks, which do not advance), no replays. A "background tick"
 would be executable work with no executor — the exact thing the architecture removed
 ("decay/ticks/volumes are substrate dynamics nobody executes"). Wake-up is recorded by
-the gap-trace (enabled). The dormancy_rate dial is removed from the manifest template
-(it was a stand-era artifact where a script simulated the background process).
+the gap-trace (enabled). The dormancy_rate dial is removed from the manifest template.

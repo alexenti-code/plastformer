@@ -63,7 +63,7 @@ Telemetry (`telemetry.py`) is content-blind: it reads only record ids, ticks, la
 ## 5. Phase A — external optimizer (no model decisions)
 
 1. 24 configurations sampled uniformly at random over the dial space (seed 43, recorded).
-2. Per configuration: one episode on К (stand adapter, prompted acts, D-stand coordinates), telemetry, S.
+2. Per configuration: one episode on К (act grammar embedded by the one-time instruction pass; vector Φ substrate), telemetry, S.
 3. Output: sensitivity map (per-dial rank correlation with S) and **A\*** = argmax S.
 4. Nothing in this phase is RSI: the environment searches, the model acts normally inside episodes.
 
@@ -82,20 +82,19 @@ episode on К
   -> applied to the NEXT episode or rejected (rejection is logged, never silent)
   -> next cycle
 
-(No stand-side diagnostics artifact mediates the channel: what the core sees, it
+(No external diagnostics artifact mediates the channel: what the core sees, it
 computes from its own substrate through its own `read`/`scan` — owner-aligned with
 the master-switch semantics; oracle-derived metrics stay harness-side, C7.)
 ```
 
-**Channel note (C7 / PMI scope).** Диагностика для ядра — не отдельный средовой
-документ и не `<<PMI>>`-блок с внешней аналитикой: телеметрия, которую видит
+**Channel note (C7).** Диагностика для ядра — не отдельный средовой
+документ и не внешний блок с чужой аналитикой: телеметрия, которую видит
 ядро, есть частный случай работы самой модели — она вычисляется моделью из
 собственного субстрата через обычный `read` (амплитуды/тики/слои, физика Φ).
 Harness-side telemetry (oracle-derived: recall, S, stale_wins, economy --
 ledger-based) остаётся вне контекста ядра (C7) и существует только для фаз A/C
 и для владельца. `died_too_early` легален ядру как физический сигнал, если
-вычисляется из состояния Φ без оракула. PMI в узком смысле (сериализация
-актов при split-топологии) не переиспользуется для диагностики.
+вычисляется из состояния Φ без оракула.
 
 **Constitutional anchors:**
 
@@ -114,7 +113,7 @@ ledger-based) остаётся вне контекста ядра (C7) и сущ
 
 ## 7. Phase C — comparison and refutation
 
-On Х, ≥ 3 runs per configuration (fixed temperature, identical wrapper/stand adapter). Statistics caveat (review 2.4): with n = 3 the "within 1 sd" criterion cannot distinguish "equal" from "underpowered" — at n = 3 the outcome is registered as **exploratory** only; a confirming claim requires n ≥ 10 or a permutation test (registered in advance):
+On Х, ≥ 3 runs per configuration (fixed temperature, identical wrapper/adapter). Statistics caveat (review 2.4): with n = 3 the "within 1 sd" criterion cannot distinguish "equal" from "underpowered" — at n = 3 the outcome is registered as **exploratory** only; a confirming claim requires n ≥ 10 or a permutation test (registered in advance):
 
 | Arm | Configuration |
 |---|---|
@@ -144,5 +143,5 @@ Report mean ± sd of S components. **Refutation criteria (declared in advance):*
 | `telemetry.py` | content-blind metrics from act stream + ledger oracle |
 | `calibrate-schema.json` | the `calibrate` act contract |
 | `validator.py` | physics bounds, budget, frozen dials |
-| `runner.py` | Phases A/B/C orchestration (stand adapter interface) |
+| `runner.py` | Phases A/B/C orchestration (adapter interface) |
 | `manifests/` | run manifests, one per search run (`cal-a01`, `cal-b01`, …) |

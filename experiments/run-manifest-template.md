@@ -13,13 +13,13 @@
 | repo commit hash | |
 | protocol version | e1-protocol v1.5 |
 
-## Configuration axes
+## Configuration (fixed: parametric × co-located × instructed)
 
-| Axis | Value |
+| Component | Value |
 |---|---|
-| substrate | symbolic / parametric |
-| topology | co-located / split (PMI) |
-| act state | instructed / prompted |
+| substrate | parametric (vector bank, embedded read interface) |
+| topology | co-located |
+| act state | instructed (act grammar embedded once) |
 
 ## Memory constants (owner-approved set, THEORY §2.2.1)
 
