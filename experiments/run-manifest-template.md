@@ -51,6 +51,27 @@
 | act-rate control method (identical across arms) | |
 | provenance cap table (a0: user / connect / docs) | |
 
+## Instruction pass (O-8) record
+
+| Field | Value |
+|---|---|
+| grammar version | act-grammar v0.1.2 |
+| pass structure | mixed distribution: grammar (verbatim + dry calibration pairs) + self-distillation anchor on frozen core outputs |
+| mixture proportion | grammar % / anchor % |
+| LoRA rank / lr / seed | |
+| material checksum | |
+
+## Post-pass battery (embedding tax, Limitation 10)
+
+| Check | Result | Ceiling |
+|---|---|---|
+| grammar verbatim reproduction | | ≥ 95% |
+| valid act-schema form | | ≥ 95% |
+| MMLU-mini / GSM8K-mini / IFEval-mini avg delta vs base | | ≤ −2 pts |
+| perplexity drift on held-out general texts | | ≤ +3% |
+| genre-diversity probe vs base (blind) | | no genre below base |
+| outcome | accepted / re-run (rank, mixture) | |
+
 ## Declaration (C8)
 
-This run reports: configuration coordinates, frozen constant values, ablation states, judge and blindness method, act-rate control. What is NOT claimed until built: parametric substrate, hash-chained journal, act-ceiling numbers.
+This run reports: configuration coordinates, frozen constant values, ablation states, judge and blindness method, act-rate control, instruction-pass record and post-pass battery. What is NOT claimed until built: parametric substrate, hash-chained journal, act-ceiling numbers.
