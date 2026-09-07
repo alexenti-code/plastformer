@@ -1,0 +1,1 @@
+{"traces": [{"id": 1, "content": "Cat's name: Barsik; Dislikes rain.", "source": "user", "layer": "t1", "loudness": "anchor", "valid_time": "2024-10-26T10:00:00Z", "refs": [], "tick": 1, "last_tick": 1, "amp": [1.0, 1.0, 0.75, 0.375, 0.15000000000000002], "repeats": 0}], "tick": 3, "next_id": 2}

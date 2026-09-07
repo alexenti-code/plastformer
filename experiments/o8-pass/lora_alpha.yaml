@@ -4,8 +4,8 @@ train: true
 fine_tune_type: lora
 num_layers: -1
 batch_size: 1
-iters: 1200
-learning_rate: 0.0001
+iters: 2400
+learning_rate: 2.0e-05
 steps_per_report: 20
 steps_per_eval: 200
 val_batches: -1
