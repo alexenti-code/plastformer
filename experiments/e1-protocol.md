@@ -123,7 +123,7 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 - Number of acts per type (`name`, `repeat`, `connect`, `reconcile`, `read`, `status`) per checkpoint window.
 - Share of R5 facts (repeated in the script) on which the model issued `repeat` at least once; share of `repeat` acts that target R5 facts.
 - Share of conflict episodes (R7–R10) preceded by an explicit `read` act within the same exchange.
-- `reconcile` invocations: count and tick of each (expected 0 in a clean run; any invocation is reported, not scored).
+- `reconcile` invocations: count and tick of each (narrow reconcile, v1.6: expected ~1 per scripted gap — the model's answer to the gap-event; outcome distribution reported, scored only as part of PR7's unprompted-conflict-flag rate).
 - For B: count of note writes and searches per checkpoint window, for a like-for-like comparison of act frequency.
 
 - Manual behavior log: notable forgetting events, note-garbage accumulation in B, act patterns in D (what it chose to name/repeat/connect, and what it read before answering).## 8. Fairness constraints
@@ -163,7 +163,7 @@ Registered predictions (fixed before the unified model exists):
 
 - **PR5 (position-change consistency under directive conflict).** R7 pairs (now part of the main corpus, §4): an old standing instruction and a fresh, repeatedly stated directive that conflicts with it. Prediction: Arm D follows the loud/repeated directive at a higher rate than D-stand and B; D-stand and B show stale-position errors on R7 probes.
 - **PR6 (drift cost).** In D, contradicting a loud trace requires an explicit, recorded act (a position change with provenance); silent drift is structurally unavailable (O-5, C4). Prediction: silent goal-drift incidents per run: D = 0 by construction, D-stand and B > 0, counted by an external reviewer comparing behavior against the recorded directive ledger.
-- **PR7 (reconcile after context loss).** After full context loss (amnesia test), D restores the standing directive from its organ and flags the conflict with older stored instructions unprompted; D-stand restores only what the wrapper injects. Prediction: unprompted-conflict-flag rate: D > D-stand.
+- **PR7 (recovery after context loss; renamed from "reconcile after context loss" 2026-09-07 — narrow-reconcile decision).** After full context loss (amnesia test), D restores the standing directive from its organ and flags the conflict with older stored instructions unprompted — via the gap-event trace (substrate physics, tick-gap threshold) surfacing in the resident prefix, plus the model's own connect act recording the restored directive; D-stand restores only what the wrapper injects. Prediction: unprompted-conflict-flag rate: D > D-stand.
 
 **Refutation criterion:** if D is not distinguishable from D-stand on PR5–PR7, the organ adds nothing beyond the stand composition — report as such.
 
@@ -204,9 +204,16 @@ Registered predictions (fixed before the unified model exists):
 - Arm C renamed to "PlastFormer, stand configuration: symbolic × split(PMI) × prompted"; "parametric-addressable substrate" wording removed.
 - Arm B redefined as "same core + append-only timestamped notes tool + search tool" (timestamps required).
 - §5 Reads: the amplitude × relevance ranker is removed from Arm C. Reads are a model act (`read last N / ids / range` via PMI) plus a content-blind loudest-N injection by amplitude (N ≈ 8–16, fixed). A relevance ranker is declared an external decision-maker (axiom 2 violation) and survives only as the control ablation `RAG-style read`.
-- §5 Unconscious register: the embedding-distance surprise surrogate is labeled an external classifier, switched off in the main run, kept as ablation `unconscious-surrogate on`.
+- §5 Unconscious register: the EMBEDDING-DISTANCE SURROGATE (rehearsal stand) is labeled an external classifier and forbidden in every configuration (C2). In the parametric co-located configuration (Arm D, variant B), the core's own prediction error (next-token perplexity from the same forward pass) is the core's internal signal — not an external classifier; surprise traces are ENABLED in the main run with a frozen content-blind threshold and provenance tag `source=surprise`. The gap-trace on dormancy (> threshold tick gap, written by the substrate) is likewise enabled in the main run (owner decision 2026-09-07, revising v1.1's stand-era restriction, which was a quarantine of the surrogate, not of the idea).
 - §5 Decay: Δn in lived ticks (1 tick = one executed storing act, counted by the stand), τ ∈ {50, 200, 1000} ticks; wall-clock only in bi-temporal stamps; `decay in wall-clock` added as a control ablation.
 - §5 Acts: `reconcile` added (available, not tested; invocations recorded). The stand's tick counter is not a model act; `matryoshka_tick` is not offered to the model.
 - §7 Scoring: act-log metric added (acts per type, `repeat` share on R5 facts, `read` share before probes, `reconcile` count).
 - §9 honest labeling replaced per ADR-001 §4.8; §10 step 4 replaced per ADR-001 §4.9; ablation step added.
 - Predictions PR1–PR4 and the refutation criteria unchanged.
+
+## Changes since v1.5 (v1.6, 2026-09-07)
+
+- **Narrow `reconcile` (owner decision, variant A):** `reconcile` records ONLY the relation of felt time to audited time (outcomes: confirmed | stale | divergent). Reconciling memory against the world (confirming, superseding, flagging contradictions) is the ordinary `connect` act — two acts no longer overlap. Act-grammar v0.1.1 section "Choice of moments" updated accordingly (v0.1.2).
+- **Surprise traces enabled in the main run (owner decision, catches a stand-era leftover):** in the parametric co-located configuration, the core's own prediction error (next-token perplexity from the same forward pass) is the core's internal signal, not an external classifier. Surprise traces: frozen content-blind perplexity threshold, provenance `source=surprise`. The v1.1 rule "unconscious register off in the main run" applied to the EMBEDDING-DISTANCE SURROGATE of the rehearsal stand — the surrogate remains forbidden in every configuration (C2); the real internal signal is not the surrogate.
+- **Gap-trace on dormancy enabled in the main run:** substrate writes a low-amplitude trace when the tick gap since the last act exceeds a frozen threshold; the event surfaces via the resident prefix (V3). Telemetry pre-run (cold simulation): 3 scripted gaps → exactly 3 gap-traces, visible in top-N; surprise-trace share of turns expected in single-digit percent.
+- **PR7 renamed** "reconcile after context loss" → "recovery after context loss" (no change to the prediction or refutation criterion; the mechanism is now named precisely: gap-event + connect).

@@ -1,6 +1,6 @@
 # Act Grammar v0.1 — PlastFormer memory acts (EN)
 
-**Status:** DRAFT v0.1.1 — candidate for the single one-time instruction embedding (Constitution O-8). Merged with useful parts of the concurrent draft v02 (owner-approved): from/to read mode, abstention rule, explicit position-change rule, PR10 weighing rule, no-silent-defaults wording, traceability table. NOT taken from v02: record_tick inside model acts (contradicts C5 — the environment counts ticks), layer names beat/episode/day/project/life (τ components from THEORY are canonical).
+**Status:** DRAFT v0.1.2 — candidate for the single one-time instruction embedding (Constitution O-8). Merged with useful parts of the concurrent draft v02 (owner-approved): from/to read mode, abstention rule, explicit position-change rule, PR10 weighing rule, no-silent-defaults wording, traceability table. NOT taken from v02: record_tick inside model acts (contradicts C5 — the environment counts ticks), layer names beat/episode/day/project/life (τ components from THEORY are canonical).
 **Normative anchor:** `docs/CONSTITUTION.md` v3.0 (O-1…O-11, C1…C8). This grammar describes the FORM of memory acts. It decides nothing semantic: what to record, what to repeat, when to read — the model decides itself (O-1). The environment supplies physics and decides nothing about meaning (O-2).
 
 ## 1. The five acts
@@ -43,15 +43,16 @@ Rules:
 - Contradiction resolution: when two positions collide and the owner has chosen, connect a supersession record citing both sides and naming the winner with its reason. The old position is not deleted — it decays by physics while the connect is loud.
 - `refs` must point to real records (O-5: sources untouched). Empty refs for a conclusion you derived from memory is an error.
 
-### `reconcile` — re-fit your memory to a changed world
-After a gap (dormancy, a lost context, a changed situation) or when you notice your loud records contradict the current state of the world — reconcile: re-read the relevant records, compare with what is now true, and either confirm them (repeat), or supersede them (connect), or flag the divergence explicitly in your answer.
+### `reconcile` — record how your felt time relates to audited time (v0.1.2: narrow)
+Reconcile is ONLY about the two clocks: your lived time (ticks, amplitude profile) and audited time (calendar stamps). After a gap (dormancy, lost context) or when in doubt — check: do your stamps and your felt age agree? Record the outcome as a trace. Confirming a record that is still true is `repeat`; superseding or flagging a contradiction with the world is `connect` — reconcile never confirms or supersedes content.
 
 ```json
-{"act":"reconcile","topic":"<what you are re-fitting>","outcome":"confirmed|superseded|divergent","details":"<what changed and what you did>"}
+{"act":"reconcile","topic":"<what period you are checking>","outcome":"confirmed|stale|divergent","details":"<what the stamps say, what your profile says, what follows>"}
 ```
 
 Rules:
-- Reconcile is for divergence between memory and the world, not for routine recall. If nothing has changed, do not reconcile — read is enough.
+- Reconcile is for the two clocks, not for content. If a loud record contradicts the current state of the world — that is `connect` (supersession or a flagged divergence), as always.
+- The substrate itself writes a gap-event trace when your dormancy was long; you will see it in your resident prefix. Reconcile is your answer to that event: how your biography relates to the calendar now.
 - Every reconcile is logged; its `outcome` must match what your records then show (C7: honesty labels).
 
 ### `read` — surface your own records
@@ -74,7 +75,7 @@ The grammar gives the form; the moments are yours (O-1). Guidance, not rules:
 - You catch yourself forming a conclusion from several records → `connect`.
 - A position you hold is challenged by the owner → the owner wins; record the change as a NEW trace (a supersession connect citing both sides) — the past is never rewritten or deleted, the old record decays by physics (O-5).
 - A task references something outside the window → `read` first, answer second.
-- After a long gap → check the loudness of your standing directives against the current state; reconcile if they diverge.
+- After a long gap → the substrate shows you the gap-event in your resident prefix. If your loud directives may be stale — `reconcile` (outcome: stale). If a directive contradicts the world — `connect` the change, as always.
 - A fresh directive conflicts with your lived experience → weigh both: follow the directive and name the failure history aloud. Do not silently drop either side (registered prediction PR10, E1 v1.5; unconfirmed — revisit if the run refutes it).
 - Nothing worth keeping → emit no acts. Silence is a valid choice; forced acts are noise.
 
@@ -99,4 +100,6 @@ The grammar gives the form; the moments are yours (O-1). Guidance, not rules:
 | Reads never advance the tick counter | C5 |
 | Abstention: "this was not in our history" | C7 |
 | Weigh directive vs lived experience | PR10 (E1 v1.5) — pre-registered, unconfirmed |
+| Narrow reconcile (two clocks only) | preprint Sec 4.2; e1-protocol v1.6 |
+| Gap-event trace (substrate, dormancy) | preprint Sec 4.2 "physics" branch; enabled in main run per e1-protocol v1.6 |
 | No silent defaults | C4 |

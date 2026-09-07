@@ -23,6 +23,10 @@ Substrate physics (properties of the artifact; nobody executes them):
 - decay `a_i(n) = a_i(0) * exp(-dn / tau_i)` (ticks, never wall-clock)
 - tick counter by the substrate; act_price 1.0 tick; audibility_floor 0.01
 - surfacing_cap 12 records (<= 2k tokens) per read
+- surprise traces: low-amplitude writes gated by the core's own prediction error
+  (next-token perplexity, frozen content-blind threshold, provenance source=surprise)
+- gap-trace: substrate writes a low-amplitude event trace when the tick gap since the
+  last act exceeds a frozen threshold (dormancy event, visible via the resident prefix)
 
 Two learned interfaces, both embedded by the single instruction pass (O-8), then frozen:
 - write interface: model act (JSON in its own output) -> content_vector + amplitude -> bank
@@ -47,8 +51,12 @@ addressable records. Against our canon A breaks two of four requirements:
 | audit / E4 export | opaque | row-by-row export |
 
 Titans writes everything through a surprise gate (unconscious register, our Sec 3.3
-"physics"). B implements the conscious register: only explicit acts write (C4).
-Honest framing: "Titans = unconscious writes + MAC; PlastFormer = conscious acts + MAC."
+"physics"). B implements BOTH registers: the conscious one (only explicit acts write
+content, C4) and the physical one (surprise traces from the core's own perplexity and
+gap-traces on dormancy — gated by the core's internal signal, enabled in the main run
+per e1-protocol v1.6; the embedding-distance surrogate remains forbidden everywhere, C2).
+Honest framing: "Titans = unconscious-only writes + MAC; PlastFormer = conscious acts
++ internal-signal physics + MAC."
 THEORY Sec 9 already marks rank-1 writes as future work; A remains a post-publication
 research branch.
 
@@ -172,3 +180,20 @@ decision-maker: updates are amplitude physics, not content analysis.
 
 KV-cache cost of the resident prefix (+N positions) is acknowledged and accepted
 as non-decisive.
+
+## 9. Tau set (owner-approved 2026-09-07): k = 5
+
+| Component | tau (ticks) | Horizon |
+|---|---|---|
+| tau_1 | 15 | in-tact (turn intonation) |
+| tau_2 | 80 | episode (~session) |
+| tau_3 | 400 | day-week of the project |
+| tau_4 | 2000 | whole project |
+| tau_5 | 10000 | identity ("forever") |
+
+Geometric progression x5; at 200 ticks (E1): tau_1 dead, tau_2 ~8%, tau_3 ~61%,
+tau_4 ~90%, tau_5 ~98% — the expected survival profile of a session biography.
+One write deposits across all five (O-10). D-stand keeps its own stand-era set
+(tau in {50, 200, 1000}, k=3) as an ablation; the registered Arm D uses k=5.
+Note: these figures were approved in the architecture discussion of 2026-09-07;
+they are dials (C3) and must be frozen in the run manifest before the first run.
