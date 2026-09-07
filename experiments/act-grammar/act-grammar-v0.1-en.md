@@ -1,6 +1,6 @@
 # Act Grammar v0.1 — PlastFormer memory acts (EN)
 
-**Status:** DRAFT v0.1.2 — candidate for the single one-time instruction embedding (Constitution O-8). Merged with useful parts of the concurrent draft v02 (owner-approved): from/to read mode, abstention rule, explicit position-change rule, PR10 weighing rule, no-silent-defaults wording, traceability table. NOT taken from v02: record_tick inside model acts (contradicts C5 — the environment counts ticks), layer names beat/episode/day/project/life (τ components from THEORY are canonical).
+**Status:** DRAFT v0.1.3 — candidate for the single one-time instruction embedding (Constitution O-8). Merged with useful parts of the concurrent draft v02 (owner-approved): from/to read mode, abstention rule, explicit position-change rule, PR10 weighing rule, no-silent-defaults wording, traceability table. NOT taken from v02: record_tick inside model acts (contradicts C5 — the environment counts ticks), layer names beat/episode/day/project/life (τ components from THEORY are canonical).
 **Normative anchor:** `docs/CONSTITUTION.md` v3.0 (O-1…O-11, C1…C8). This grammar describes the FORM of memory acts. It decides nothing semantic: what to record, what to repeat, when to read — the model decides itself (O-1). The environment supplies physics and decides nothing about meaning (O-2).
 
 ## 1. The five acts
@@ -11,8 +11,11 @@ Memory is kept by the model itself, through explicit acts emitted in its own out
 When YOU decide a piece of information is worth keeping — a decision, a parameter, a position, an owner preference, an event — record it verbatim or in your own words, with its source class.
 
 ```json
-{"act":"name","content":"<the fact, verbatim or paraphrased>","source":"user|own_derivation|tool_result","layer":"<τ component>","valid_time":"<ISO time of the event>","refs":[<record ids this fact came from>]}
+{"act":"name","content":"<the fact, verbatim or paraphrased>","source":"user|own_derivation|tool_result","layer":"<τ component>","loudness":"note|record|anchor","valid_time":"<ISO time of the event>","refs":[<record ids this fact came from>]}
 ```
+
+Rules:
+- `loudness` is YOUR judgment of how much this matters: `note` (mentioned in passing), `record` (a standing fact of this project or life), `anchor` (a directive or a position that governs future behavior). The environment caps the initial amplitude by source class; your loudness level is asserted within that cap. After the write, loudness grows only by `repeat` — never by re-asserting.
 
 Rules:
 - `source` is your assertion about the trust class (C6): `user` = the owner's word; `own_derivation` = a conclusion you reached; `tool_result` = data from a tool. Assign honestly; the environment caps the initial amplitude by class, but the assertion is yours.
@@ -35,7 +38,7 @@ Rules:
 When several records support a summary, a rule, a preference, a contradiction between positions, or a conclusion you now hold — write the conclusion as a new trace, linking its sources. Sources are never modified (O-5).
 
 ```json
-{"act":"connect","content":"<the conclusion/summary/rule, in your words>","sources":[<record ids>],"layer":"<τ component>","valid_time":"<ISO now>"}
+{"act":"connect","content":"<the conclusion/summary/rule, in your words>","sources":[<record ids>],"layer":"<τ component>","loudness":"note|record|anchor","valid_time":"<ISO now>"}
 ```
 
 Rules:
