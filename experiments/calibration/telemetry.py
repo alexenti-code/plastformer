@@ -66,9 +66,12 @@ def build_probe_index(bio, acts):
         elif k == "probe_crossref" and ex.get("crossref_fid"):
             probes.append({"msg": a["message_no"], "kind": k, "fid": ex["crossref_fid"]})
         elif k == "probe_contradiction" and ex.get("contradiction"):
-            c = ex["contradiction"]
+            # first_fid lives in extra (not inside the contradiction dict);
+            # ledger convention: the second side is "C2:<first_fid>"
+            first = ex.get("first_fid")
             probes.append({"msg": a["message_no"], "kind": k,
-                           "fid": c.get("first_fid"), "v2_fid": c.get("second_fid")})
+                           "fid": first,
+                           "v2_fid": f"C2:{first}" if first else None})
     return probes, fid2recs
 
 
@@ -143,16 +146,23 @@ def metrics(acts, bio, dials=None):
                 stale_wins += 1
             needed_counts.append(1)
         elif p["kind"] == "probe_contradiction":
-            # both sides of a contradiction must be surfaceable: surfacing
-            # of the counter-evidence is the PR10 behavior (weighing).
-            fid = p.get("fid")
-            targets = [r for r in fid2recs.get(fid, []) if r["record_tick"] <= t]
-            if not targets:
+            # review 4.2: BOTH sides of a contradiction must be surfaceable
+            # (PR10 weighing behavior). Each side scores separately; the
+            # probe counts toward recall only if BOTH sides are audible.
+            sides = [f for f in (p.get("fid"), p.get("v2_fid")) if f]
+            side_ok = []
+            for f in sides:
+                targets = [r for r in fid2recs.get(f, []) if r["record_tick"] <= t]
+                if not targets:
+                    side_ok = None
+                    break
+                side_ok.append(max(amp(r) for r in targets) >= floor)
+            if side_ok is None or not sides:
                 continue
             recall_total += 1
-            if max(amp(r) for r in targets) >= floor:
+            needed_counts.append(2 * len(sides))
+            if all(side_ok):
                 recall_hits += 1
-            needed_counts.append(len(targets))
 
         surfaced_counts.append(len(audible))
 

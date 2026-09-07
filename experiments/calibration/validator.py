@@ -37,9 +37,17 @@ BOUNDS = {
 for layer in ("beat", "episode", "day", "project", "life"):
     BOUNDS[f"tau_multiplier.{layer}"] = (0.25, 4.0)
 
-# Per-cycle step: |new/old - 1| must be within the limit (multiplicative
-# x[0.5, 2.0] for tau-like dials; +-50% for floor/ceiling/cap).
-STEP_LIMIT = 1.0
+# Per-cycle step limits (protocol.md section 6): multiplicative bounds on
+# new/old per cycle. tau-like dials: x[0.5, 2.0]; floor/ceiling/cap: x[0.5, 1.5]
+# (+-50%). Separate lo/hi fixes the round-1 review bug (4.1): a single
+# symmetric limit allowed ratio down to ~0 (unbounded downward step).
+STEP_LIMITS = {
+    "tau": (0.5, 2.0),
+    "plain": (0.5, 1.5),
+}
+
+def _step_class(name):
+    return "tau" if name.startswith("tau_multiplier.") else "plain"
 
 BUDGET_PER_CYCLE = 2
 BUDGET_PER_RUN = 10
@@ -62,7 +70,8 @@ def _step_ok(name, old, new):
     if old in (None, 0):
         return False
     ratio = float(new) / float(old)
-    return abs(ratio - 1.0) <= STEP_LIMIT
+    lo, hi = STEP_LIMITS[_step_class(name)]
+    return lo <= ratio <= hi
 
 
 def validate(proposal_act, current, budget_run_used):
@@ -115,7 +124,8 @@ def validate(proposal_act, current, budget_run_used):
             continue
         old = current.get(name)
         if old is not None and not _step_ok(name, old, value):
-            errors.append(f"{name}: step |{new_ratio(old, value)} - 1| > {STEP_LIMIT}")
+            lo, hi = STEP_LIMITS[_step_class(name)]
+            errors.append(f"{name}: step ratio {new_ratio(old, value)} outside [{lo}, {hi}]")
             continue
         new_dials[name] = value
 
@@ -153,7 +163,11 @@ if __name__ == "__main__":
     tests = [
         ({"act": "calibrate", "proposal": {"act_price": 0.5}, "evidence": [{"metric": "died_too_early"}], "budget_used": 1}, cur, 0, False),
         ({"act": "calibrate", "proposal": {"audibility_floor": 0.9}, "evidence": [{"metric": "died_too_early"}], "budget_used": 1}, cur, 0, False),
-        ({"act": "calibrate", "proposal": {"audibility_floor": 0.05}, "evidence": [{"metric": "wasted_surface"}], "budget_used": 1}, cur, 0, False),  # step x5
+        ({"act": "calibrate", "proposal": {"audibility_floor": 0.05}, "evidence": [{"metric": "wasted_surface"}], "budget_used": 1}, cur, 0, False),  # step x5 > x1.5
+        ({"act": "calibrate", "proposal": {"audibility_floor": 0.0025}, "evidence": [{"metric": "wasted_surface"}], "budget_used": 1}, cur, 0, False),  # step x0.25 < x0.5 (round-1 bug)
+        ({"act": "calibrate", "proposal": {"tau_multiplier.project": 0.3}, "evidence": [{"metric": "stale_win"}], "budget_used": 1}, cur, 0, False),  # tau step x0.3 < x0.5
+        ({"act": "calibrate", "proposal": {"tau_multiplier.project": 1.8}, "evidence": [{"metric": "died_too_early"}], "budget_used": 1}, cur, 0, True),  # tau step x1.8 <= x2.0
+        ({"act": "calibrate", "proposal": {"self_improvement": 20}, "evidence": [{"metric": "loop_repeat"}], "budget_used": 1}, cur, 0, False),  # frozen recursion budget
         ({"act": "calibrate", "proposal": {"audibility_floor": 0.008, "tau_multiplier.project": 0.7}, "evidence": [{"metric": "died_too_early", "record_id": 88}, {"metric": "stale_win", "record_id": 12}], "budget_used": 2}, cur, 0, True),
     ]
     for i, (act, c, b, expect) in enumerate(tests):
