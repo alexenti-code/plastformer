@@ -1,0 +1,511 @@
+{
+ "phase": "A",
+ "seed": 43,
+ "n": 24,
+ "results": [
+  {
+   "config": "cal-a04",
+   "dials": {
+    "audibility_floor": 0.01368,
+    "tau_multiplier.beat": 2.15,
+    "tau_multiplier.episode": 2.407,
+    "tau_multiplier.day": 1.663,
+    "tau_multiplier.project": 0.433,
+    "tau_multiplier.life": 0.48,
+    "surfacing_cap": 8,
+    "consolidation_ceiling": 14.07,
+    "interference_factor": 1.0
+   },
+   "S": -1.373076923076923,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 6.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a05",
+   "dials": {
+    "audibility_floor": 0.00518,
+    "tau_multiplier.beat": 3.583,
+    "tau_multiplier.episode": 2.208,
+    "tau_multiplier.day": 0.636,
+    "tau_multiplier.project": 3.459,
+    "tau_multiplier.life": 2.441,
+    "surfacing_cap": 8,
+    "consolidation_ceiling": 5.13,
+    "interference_factor": 1.0
+   },
+   "S": -1.373076923076923,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 6.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a07",
+   "dials": {
+    "audibility_floor": 0.00258,
+    "tau_multiplier.beat": 1.448,
+    "tau_multiplier.episode": 3.536,
+    "tau_multiplier.day": 1.255,
+    "tau_multiplier.project": 2.981,
+    "tau_multiplier.life": 2.77,
+    "surfacing_cap": 9,
+    "consolidation_ceiling": 15.63,
+    "interference_factor": 1.0
+   },
+   "S": -1.5230769230769232,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 7.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a10",
+   "dials": {
+    "audibility_floor": 0.0112,
+    "tau_multiplier.beat": 1.912,
+    "tau_multiplier.episode": 0.392,
+    "tau_multiplier.day": 0.259,
+    "tau_multiplier.project": 3.638,
+    "tau_multiplier.life": 3.912,
+    "surfacing_cap": 9,
+    "consolidation_ceiling": 5.51,
+    "interference_factor": 1.0
+   },
+   "S": -1.5230769230769232,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 7.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a08",
+   "dials": {
+    "audibility_floor": 0.01182,
+    "tau_multiplier.beat": 0.675,
+    "tau_multiplier.episode": 2.106,
+    "tau_multiplier.day": 3.172,
+    "tau_multiplier.project": 3.832,
+    "tau_multiplier.life": 2.932,
+    "surfacing_cap": 8,
+    "consolidation_ceiling": 9.68,
+    "interference_factor": 1.0
+   },
+   "S": -1.526923076923077,
+   "components": {
+    "recall": 0.8461538461538461,
+    "stale_wins": 0,
+    "window_cost": 6.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a06",
+   "dials": {
+    "audibility_floor": 0.01485,
+    "tau_multiplier.beat": 3.201,
+    "tau_multiplier.episode": 3.621,
+    "tau_multiplier.day": 1.492,
+    "tau_multiplier.project": 2.233,
+    "tau_multiplier.life": 2.879,
+    "surfacing_cap": 10,
+    "consolidation_ceiling": 5.52,
+    "interference_factor": 1.0
+   },
+   "S": -1.6730769230769231,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 8.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a20",
+   "dials": {
+    "audibility_floor": 0.02583,
+    "tau_multiplier.beat": 2.057,
+    "tau_multiplier.episode": 1.524,
+    "tau_multiplier.day": 1.45,
+    "tau_multiplier.project": 0.287,
+    "tau_multiplier.life": 1.028,
+    "surfacing_cap": 10,
+    "consolidation_ceiling": 7.43,
+    "interference_factor": 1.0
+   },
+   "S": -1.6730769230769231,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 8.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a22",
+   "dials": {
+    "audibility_floor": 0.01172,
+    "tau_multiplier.beat": 1.854,
+    "tau_multiplier.episode": 1.876,
+    "tau_multiplier.day": 3.307,
+    "tau_multiplier.project": 0.514,
+    "tau_multiplier.life": 2.552,
+    "surfacing_cap": 10,
+    "consolidation_ceiling": 11.28,
+    "interference_factor": 1.0
+   },
+   "S": -1.6730769230769231,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 8.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a03",
+   "dials": {
+    "audibility_floor": 0.0024,
+    "tau_multiplier.beat": 0.652,
+    "tau_multiplier.episode": 0.717,
+    "tau_multiplier.day": 0.826,
+    "tau_multiplier.project": 0.852,
+    "tau_multiplier.life": 3.379,
+    "surfacing_cap": 10,
+    "consolidation_ceiling": 13.27,
+    "interference_factor": 1.0
+   },
+   "S": -1.75,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 8.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a12",
+   "dials": {
+    "audibility_floor": 0.01924,
+    "tau_multiplier.beat": 3.414,
+    "tau_multiplier.episode": 3.465,
+    "tau_multiplier.day": 1.696,
+    "tau_multiplier.project": 2.921,
+    "tau_multiplier.life": 0.599,
+    "surfacing_cap": 11,
+    "consolidation_ceiling": 14.17,
+    "interference_factor": 1.0
+   },
+   "S": -1.8230769230769233,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 9.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a14",
+   "dials": {
+    "audibility_floor": 0.00236,
+    "tau_multiplier.beat": 2.266,
+    "tau_multiplier.episode": 3.187,
+    "tau_multiplier.day": 0.954,
+    "tau_multiplier.project": 3.016,
+    "tau_multiplier.life": 0.442,
+    "surfacing_cap": 11,
+    "consolidation_ceiling": 15.51,
+    "interference_factor": 1.0
+   },
+   "S": -1.8230769230769233,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 9.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a17",
+   "dials": {
+    "audibility_floor": 0.0129,
+    "tau_multiplier.beat": 1.238,
+    "tau_multiplier.episode": 0.737,
+    "tau_multiplier.day": 3.116,
+    "tau_multiplier.project": 0.83,
+    "tau_multiplier.life": 0.273,
+    "surfacing_cap": 11,
+    "consolidation_ceiling": 5.49,
+    "interference_factor": 1.0
+   },
+   "S": -1.9000000000000001,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 9.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a23",
+   "dials": {
+    "audibility_floor": 0.00216,
+    "tau_multiplier.beat": 0.656,
+    "tau_multiplier.episode": 3.557,
+    "tau_multiplier.day": 2.874,
+    "tau_multiplier.project": 3.641,
+    "tau_multiplier.life": 3.601,
+    "surfacing_cap": 11,
+    "consolidation_ceiling": 6.26,
+    "interference_factor": 1.0
+   },
+   "S": -1.9000000000000001,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 9.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a09",
+   "dials": {
+    "audibility_floor": 0.0076,
+    "tau_multiplier.beat": 3.151,
+    "tau_multiplier.episode": 1.593,
+    "tau_multiplier.day": 2.669,
+    "tau_multiplier.project": 3.526,
+    "tau_multiplier.life": 2.992,
+    "surfacing_cap": 12,
+    "consolidation_ceiling": 5.31,
+    "interference_factor": 1.0
+   },
+   "S": -1.9730769230769232,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 10.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a11",
+   "dials": {
+    "audibility_floor": 0.00211,
+    "tau_multiplier.beat": 3.148,
+    "tau_multiplier.episode": 3.331,
+    "tau_multiplier.day": 3.177,
+    "tau_multiplier.project": 0.695,
+    "tau_multiplier.life": 2.246,
+    "surfacing_cap": 12,
+    "consolidation_ceiling": 15.25,
+    "interference_factor": 1.0
+   },
+   "S": -1.9730769230769232,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 10.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a18",
+   "dials": {
+    "audibility_floor": 0.01484,
+    "tau_multiplier.beat": 1.004,
+    "tau_multiplier.episode": 1.844,
+    "tau_multiplier.day": 0.305,
+    "tau_multiplier.project": 1.661,
+    "tau_multiplier.life": 1.481,
+    "surfacing_cap": 12,
+    "consolidation_ceiling": 10.46,
+    "interference_factor": 1.0
+   },
+   "S": -2.05,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 10.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a19",
+   "dials": {
+    "audibility_floor": 0.01141,
+    "tau_multiplier.beat": 0.818,
+    "tau_multiplier.episode": 1.16,
+    "tau_multiplier.day": 1.137,
+    "tau_multiplier.project": 0.59,
+    "tau_multiplier.life": 2.046,
+    "surfacing_cap": 12,
+    "consolidation_ceiling": 14.05,
+    "interference_factor": 1.0
+   },
+   "S": -2.05,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 10.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a13",
+   "dials": {
+    "audibility_floor": 0.01743,
+    "tau_multiplier.beat": 0.977,
+    "tau_multiplier.episode": 3.757,
+    "tau_multiplier.day": 1.763,
+    "tau_multiplier.project": 2.478,
+    "tau_multiplier.life": 1.783,
+    "surfacing_cap": 13,
+    "consolidation_ceiling": 8.77,
+    "interference_factor": 1.0
+   },
+   "S": -2.2,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 11.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a02",
+   "dials": {
+    "audibility_floor": 0.01421,
+    "tau_multiplier.beat": 2.178,
+    "tau_multiplier.episode": 2.412,
+    "tau_multiplier.day": 2.592,
+    "tau_multiplier.project": 3.802,
+    "tau_multiplier.life": 3.574,
+    "surfacing_cap": 14,
+    "consolidation_ceiling": 8.73,
+    "interference_factor": 1.0
+   },
+   "S": -2.273076923076923,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 12.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a24",
+   "dials": {
+    "audibility_floor": 0.00377,
+    "tau_multiplier.beat": 3.226,
+    "tau_multiplier.episode": 3.288,
+    "tau_multiplier.day": 0.476,
+    "tau_multiplier.project": 0.887,
+    "tau_multiplier.life": 3.993,
+    "surfacing_cap": 14,
+    "consolidation_ceiling": 7.57,
+    "interference_factor": 1.0
+   },
+   "S": -2.273076923076923,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 12.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a01",
+   "dials": {
+    "audibility_floor": 0.00226,
+    "tau_multiplier.beat": 2.861,
+    "tau_multiplier.episode": 0.79,
+    "tau_multiplier.day": 1.984,
+    "tau_multiplier.project": 2.769,
+    "tau_multiplier.life": 3.224,
+    "surfacing_cap": 15,
+    "consolidation_ceiling": 11.19,
+    "interference_factor": 1.0
+   },
+   "S": -2.4230769230769234,
+   "components": {
+    "recall": 1.0,
+    "stale_wins": 0,
+    "window_cost": 13.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a15",
+   "dials": {
+    "audibility_floor": 0.00408,
+    "tau_multiplier.beat": 0.954,
+    "tau_multiplier.episode": 1.062,
+    "tau_multiplier.day": 1.689,
+    "tau_multiplier.project": 3.961,
+    "tau_multiplier.life": 1.093,
+    "surfacing_cap": 15,
+    "consolidation_ceiling": 10.02,
+    "interference_factor": 1.0
+   },
+   "S": -2.5,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 13.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a21",
+   "dials": {
+    "audibility_floor": 0.01721,
+    "tau_multiplier.beat": 1.371,
+    "tau_multiplier.episode": 2.054,
+    "tau_multiplier.day": 1.915,
+    "tau_multiplier.project": 3.671,
+    "tau_multiplier.life": 3.071,
+    "surfacing_cap": 16,
+    "consolidation_ceiling": 9.84,
+    "interference_factor": 1.0
+   },
+   "S": -2.65,
+   "components": {
+    "recall": 0.9230769230769231,
+    "stale_wins": 0,
+    "window_cost": 14.538461538461538,
+    "economy": 13.923076923076923
+   }
+  },
+  {
+   "config": "cal-a16",
+   "dials": {
+    "audibility_floor": 0.00272,
+    "tau_multiplier.beat": 0.339,
+    "tau_multiplier.episode": 3.478,
+    "tau_multiplier.day": 3.426,
+    "tau_multiplier.project": 3.58,
+    "tau_multiplier.life": 2.139,
+    "surfacing_cap": 16,
+    "consolidation_ceiling": 15.41,
+    "interference_factor": 1.0
+   },
+   "S": -2.726923076923077,
+   "components": {
+    "recall": 0.8461538461538461,
+    "stale_wins": 0,
+    "window_cost": 14.538461538461538,
+    "economy": 13.923076923076923
+   }
+  }
+ ]
+}
