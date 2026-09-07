@@ -276,4 +276,6 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 11. "Emergent" replaced by "compositional" throughout.
 12. Provenance: class assignment is policy, weighting is physics (§3.7).
 13. E3b (density) and E6 (reconcile) added; E3 baseline is timestamped RAG; E4 rewritten without S/P labels (§7).
-15. Bench 2026-09-04 requalified as a loudness-readout pilot, not evidence for P1 (Availability).
+15. Bench 2026-09-04 requalified as a loudness-readout pilot, not evidence for P1 (Availability).The choice of embedding coverage is a per-deployment computation: the protocol admits several assemblies of one base core (an assembly is an instance, O-3); the choice between assemblies belongs to the deployer.
+
+

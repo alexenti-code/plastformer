@@ -219,3 +219,29 @@ and the final dial composition. HARD RULE: a dial must never become an external 
 of what the model does with its own memory — dials bound what is SHOWN, never what it MEANS.
 Any dial that would filter, rank, or threshold by meaning is an external decider (C2) and
 is forbidden (owner decision, Fork 7: no "significant change" thresholds).
+
+## 12. Embedding coverage: assembly space, alpha first (owner decision 08.09.2026, Fork 6 closed)
+
+The instruction-pass coverage is NOT a one-time irreversible choice. O-8 freezes the core
+within one instance's life; it does not forbid multiple instances assembled from the same
+base checkpoint by different mechanisms. Each assembly is a separate artifact (O-3: a copy
+made by a different pass is a new instance that diverges from the point of assembly).
+
+- **Assembly alpha (first):** embedding into ALL target modules — MLP + q,v across all
+  layers (k,o untouched so the weighing mechanics stay exactly baseline; the B-vs-D delta
+  must come from skill + Phi, not from a shifted attention). Maximum skill capacity,
+  maximum competence surface touched.
+- **Assembly beta (contingency):** narrow embedding (upper-layer MLPs only). Minimum tax,
+  risk of under-embedding. Built ONLY if alpha shows degradation: "если тупит и потеря
+  себя — собираем абсолютно новую бетту" (owner). Built from the ORIGINAL base checkpoint,
+  never as a second pass over alpha (second pass over a frozen core is not O-8).
+- Both assemblies pass the same post-pass battery (grammar >=95%, act form >=95%,
+  competence <=-2 pts, perplexity <=+3%, genre probe). The battery comparison yields an
+  empirical curve "embedding coverage <-> tax" — paper material.
+- Switching between assemblies in a live instance is impossible (second pass over a live
+  frozen core violates O-8); switching between ARTIFACTS by the deployer is always available
+  (download another assembly; the base checkpoint is free, the pass takes hours).
+
+Preprint line (registered): the choice of embedding coverage is a per-deployment
+computation; the protocol admits several assemblies of one base core; an assembly is an
+instance (O-3); the choice between assemblies belongs to the deployer.
