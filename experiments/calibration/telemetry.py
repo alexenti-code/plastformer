@@ -196,13 +196,22 @@ def died_too_early(acts, bio, dials=None, horizon_after_end=50):
 
 
 def report(acts, bio, dials=None):
-    """The <<PMI>> offline-consolidation report handed to the core."""
+    """Offline diagnostics artifact (stand/harness side).
+
+    NOT a PMI block and never serialized as one: PMI carries only the
+    instance's own records in response to the model's own `read`.
+    The oracle-derived metrics below (recall, stale_wins, window_cost,
+    economy, S) stay harness-side (C7); the only physics-only channel
+    admissible near the core is `died_too_early` (amplitudes/ticks, no
+    oracle). Feeding any oracle-derived metric to the core requires a
+    separate owner adjudication in protocol.md (Channel note)."""
     m = metrics(acts, bio, dials)
     dte = died_too_early(acts, bio, dials)
     return {"metrics": {k: round(v, 4) if isinstance(v, float) else v
                         for k, v in m.items()},
             "died_too_early": dte[:20],
-            "content_blind": True}
+            "content_blind": True,
+            "channel": "offline-diagnostics/harness-only"}
 
 
 def main():

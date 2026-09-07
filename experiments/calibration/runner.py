@@ -12,7 +12,9 @@ Phase B: offline-consolidation loop skeleton. The core's `calibrate` act
          validation and budget accounting end-to-end. Replay proposals are
          supplied by a deterministic policy, NOT by a model (this is a
          harness test, not a model decision; any model-in-the-loop run must
-         record its run manifest, see manifests/).
+         record its run manifest, see manifests/). The diagnostics report
+         is a stand-side artifact, never a <<PMI>> block (C7/PMI scope:
+         see telemetry.report docstring and protocol.md Channel note).
 Phase C: score A* / B* / default on the held-out corpus.
 
 Pure stdlib. Deterministic. Content-blind (C2): no module here reads

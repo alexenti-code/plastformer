@@ -65,16 +65,28 @@ Telemetry (`telemetry.py`) is content-blind: it reads only record ids, ticks, la
 Cycle (max 5 per run):
 
 ```
-episode on К -> telemetry report (content-blind, in <<PMI>> block)
-  -> core reads report via `read`, emits `calibrate` proposal with evidence
-  -> validator (validator.py) checks: budget, multiplicative bounds, frozen dials
+episode on К -> offline diagnostics artifact (stand-side; NOT a dialogue block,
+                NOT a PMI message -- see note below)
+  -> core (model-in-the-loop) reads the permitted channels, emits `calibrate`
+     proposal with evidence
+  -> validator (validator.py) checks: budget, step bounds, frozen dials
   -> applied or rejected (rejection is logged, never silent)
   -> next cycle
 ```
 
+**Channel note (C7 / PMI scope).** The diagnostics artifact is a stand-side
+document computed *outside* any dialogue. It is not a `<<PMI>>` block and must
+never be serialized as one: PMI carries only the instance's own records in
+response to the model's own `read` -- nothing else (GLOSSARY "PMI", ACT-GRAMMAR
+read semantics). If any diagnostics channel is ever fed to the core in a
+model-in-the-loop run, it requires its own owner adjudication here; oracle-
+derived metrics (recall, S, stale_wins, economy -- all ledger-derived) are
+NOT admissible into the core's context under C7 as written. The only
+physics-only channel (amplitudes/ticks, no oracle) is `died_too_early`.
+
 **Constitutional anchors:**
 
-- Acts are model decisions (C1/C4); the environment validates against physics bounds only, never against content (C2). Telemetry is amplitude/tick-level only.
+- Acts are model decisions (C1/C4); the environment validates against physics bounds only, never against content (C2). Telemetry is amplitude/tick-level only (C2 literal), and oracle-derived metrics stay harness-side (C7; see Channel note).
 - **Dials are fixed before each run** (C3): a proposal applies only to the *next* episode; no mid-episode retuning.
 - **Ticks do not advance during offline consolidation.** The phase is lived-time-free: the lived-tick counter stops, wall-clock enters only audited stamps. Otherwise the phase ages all of Φ and breaks P1/O-bi-temporal. (Owner adjudication pending, §8.)
 - New records (`reconcile` about its own calibration) follow normal act rules; the past is never rewritten (O-5).

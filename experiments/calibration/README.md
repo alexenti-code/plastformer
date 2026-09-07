@@ -5,7 +5,7 @@
 **What this is:** the pre-E1 calibration loop. It finds working values for the Φ dials (memory constants of the run manifest) by two independent procedures and compares them:
 
 - **Phase A** — external random search over the dial space (`runner.py A`), proxy score from content-blind telemetry. No model decisions; not RSI.
-- **Phase B** — offline consolidation: between episodes the core reads a content-blind `<<PMI>>` telemetry report and emits a new act `calibrate` (schema: `calibrate-schema.json`); the environment validates (validator.py: bounds, step limits, budget, frozen dials) and applies the change only to the NEXT episode (C3). The offline phase does NOT advance lived ticks (protocol.md §6 — owner adjudication pending).
+- **Phase B** — offline consolidation: between episodes the core reads an offline diagnostics artifact (stand-side, NOT a `<<PMI>>` block — PMI carries only the instance's own records in response to the model's own `read`) and emits a new act `calibrate` (schema: `calibrate-schema.json`); the environment validates (validator.py: bounds, step limits, budget, frozen dials) and applies the change only to the NEXT episode (C3). The offline phase does NOT advance lived ticks (protocol.md §6 — owner adjudication pending). Oracle-derived metrics stay harness-side (C7; protocol.md Channel note).
 - **Phase C** — A* vs B* vs default on the held-out corpus (never seen in search). Refutation criteria are pre-declared in protocol.md §7.
 
 **Rule (C2/C7):** telemetry and the ledger oracle are content-blind and post-hoc. No module in this directory reads record `content`; oracle data never enters the model's context.
