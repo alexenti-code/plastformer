@@ -5,7 +5,7 @@
 **What this is:** the pre-E1 calibration loop. It finds working values for the Φ dials (memory constants of the run manifest) by two independent procedures and compares them:
 
 - **Phase A** — external random search over the dial space (`runner.py A`), proxy score from content-blind telemetry. No model decisions; not RSI.
-- **Phase B** — self-improvement: a physical dial `self_improvement` (frozen by the owner per C3) sets the per-run budget of `calibrate` acts; within the budget the CORE itself turns its own dials (owner directive 07.09). Each change is an explicit recorded model act; the environment only validates physics bounds (reject-не-clamp, O-10) and applies accepted changes to the NEXT episode (C3). The `self_improvement` dial itself is not core-controllable. Diagnostics the core sees are computed from its own substrate via its own `read` (telemetry as a special case of the model's own work); oracle-derived metrics stay harness-side (C7; protocol.md Channel note). The offline phase does NOT advance lived ticks (protocol.md §6 — owner adjudication pending).
+- **Phase B** — self-improvement mode (the master switch `self_improvement`, owner directive 07.09): when ON, the core **scans** its own substrate physics with the read-class act `scan` (raw amplitudes/ticks/layers — no scores, no writes, no ticks per C5; budget scan ≤ 32/run; a scan leaves no trace — remembering is only via an explicit act) and **turns its own dials** with `calibrate` acts (budget ≤ 10/run); the environment only validates physics bounds (reject-not-clamp, O-10) and applies accepted changes to the NEXT episode (C3). The switch itself is not core-controllable. Oracle-derived metrics stay harness-side (C7; protocol.md Channel note). The offline phase does NOT advance lived ticks (protocol.md §6 — owner adjudication pending). Deferred milestone: standalone core operation without a user (background mode, THEORY §4) — separate session, not designed now.
 - **Phase C** — A* vs B* vs default on the held-out corpus (never seen in search). Refutation criteria are pre-declared in protocol.md §7.
 
 **Rule (C2/C7):** telemetry and the ledger oracle are content-blind and post-hoc. No module in this directory reads record `content`; oracle data never enters the model's context.
@@ -19,6 +19,7 @@
 | `protocol.md` | pre-registered calibration protocol v0.1 (corpora, score S, phases, refutation criteria, adjudication points) |
 | `telemetry.py` | content-blind metrics: recall, stale_wins, window_cost, economy → proxy score S; died_too_early report; usable standalone (`--acts/--bio`) |
 | `calibrate-schema.json` | the `calibrate` act contract (7th act, offline-only) |
+| `scan-schema.json` | the `scan` act contract (8th act, read-class, offline-only: raw physics, no writes, no ticks, no trace) |
 | `validator.py` | physics bounds, per-cycle/per-run budget, frozen dials (`act_price`, `dormancy_rate`, `self_improvement` — the core cannot raise its own recursion budget — rejected unconditionally); self-test on `__main__` |
 | `runner.py` | Phases A/B/C orchestration |
 | `manifests/` | one manifest per search run (`cal-a-search-*.json`, `cal-b-replay-*.json`) |

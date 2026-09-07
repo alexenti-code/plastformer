@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PlastFormer scan act (offline consolidation only; read-class)",
+  "type": "object",
+  "required": [
+    "act",
+    "mode"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "act": {
+      "const": "scan"
+    },
+    "mode": {
+      "enum": [
+        "amplitudes",
+        "ticks",
+        "summary"
+      ]
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "для mode=amplitudes по конкретным записям; иначе физика всего банка"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 256
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 300
+    }
+  },
+  "description": "Read-class act: no writes, no ticks (C5), no trace deposited. Returns raw substrate physics (amplitudes/ticks/layers) — no scores, no interpretations. Interpretation is the model's own work. Budget governed by the self_improvement master switch (scan <= 32 per consolidation run)."
+}

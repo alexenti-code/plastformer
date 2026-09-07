@@ -41,7 +41,7 @@ The E1 corpus (real project script) is never used for calibration. A configurati
 | `interference_factor` | [1.0, 1.25] | searchable |
 | `act_price` | 1.0 tick | **FROZEN — honesty constant of B vs D (manifest)** |
 | `dormancy_rate` | 0.0 | **FROZEN — strict position** |
-| `self_improvement` | 0 (off) или бюджет актов `calibrate` на прогон (≤ 10) | **Физическая ручка самоулучшения** (см. §6). Замораживается владельцем до прогона (C3). При значении > 0 ядро само крутит перечисленные выше ручки в пределах бюджета; при 0 — только фаза A. Сама ручка `self_improvement` ядру неподконтрольна (иначе бюджет рекурсии неограничен) |
+| `self_improvement` | master switch (owner directive 07.09): **0 = fixed-dials mode**, **> 0 = self-improvement mode** с бюджетами актов консолидации на прогон (calibrate ≤ 10, scan ≤ 32) | **Большой выключатель режима** (см. §6). В режиме > 0 ядро само крутит перечисленные выше ручки актами `calibrate` и само сканирует физику своего субстрата актом `scan` — в пределах бюджетов. В режиме 0 ядро не может накрутить ничего и сканировать не может. Сам выключатель ядру неподконтролен (иначе режим не переключаем и бюджет рекурсии неограничен). **Отложенная веха (owner, 07.09): самостоятельная работа модели без пользователя (background mode, THEORY §4 background tick) — обсуждается минимум на отдельной сессии; сейчас не проектируется и не включается** |
 
 ## 4. Proxy score S (frozen before search)
 
@@ -72,8 +72,8 @@ Cycle (max 5 per run):
 ```
 episode on К -> offline diagnostics artifact (stand-side; NOT a dialogue block,
                 NOT a PMI message -- see note below)
-  -> core (model-in-the-loop) reads the permitted channels, emits `calibrate`
-     proposal with evidence
+  -> core (model-in-the-loop) scans its substrate physics with `scan`,
+     emits `calibrate` proposal with evidence
   -> validator (validator.py) checks: budget, step bounds, frozen dials
   -> applied or rejected (rejection is logged, never silent)
   -> next cycle
@@ -94,6 +94,7 @@ ledger-based) остаётся вне контекста ядра (C7) и сущ
 - **Самоулучшение — это физика, а не внешний решатель.** Ручка `self_improvement` — перечисленная физическая ручка среды (C3): она задаёт бюджет актов `calibrate` на прогон. При включённой ручке ядро само решает, какие ручки и как крутить (O-1/O-2: акты — решения модели), среда только проверяет границы физики и никогда не предлагает и не клампит (C2, O-10 reject-не-clamp). Никакой не-ядерный компонент не определяет смысл или содержание правки — C1/C4 соблюдены: каждая правка физики входит как явный записанный акт.
 - **Телеметрия — отдельное обсуждение; базовый принцип: телеметрия есть частный случай работы самой модели.** Диагностика, которую видит ядро, вычисляется из его собственного субстрата через его собственные `read` (амплитуды, тики, слои — физическое состояние Φ), а не из внешнего оракула. Оракульные метрики (recall/S/stale_wins/economy, считанные по ledger биографии) остаются harness-side и к ядру не попадают (C7). Канал, которым модель читает собственную физику, — это её обычный `read` по акт-грамматике, не новый интерфейс.
 - **Dials are fixed before each run** (C3): результат акта `calibrate` применяется только к *следующему* эпизоду; внутри эпизода ручки не трогаются. Бюджет `self_improvement` заморожен на прогон и самой моделью не увеличивается.
+- **`scan` — восьмой акт консолидации (read-класс).** Ядро запрашивает физику своего субстрата (амплитуды, тики, слои по записям — сырые данные, не оценки). Физика скана: тики не идут (C5: reads never advance); scan ничего не пишет — изменение только отдельными актами (`calibrate`/`connect`/`repeat`), каждый с ценой; сам скан не оставляет следа — запомнить результат можно только явным актом (иначе скан стал бы тайной памятью); бюджет сканов на прогон задан выключателем `self_improvement` (scan ≤ 32). Толкование данных — целиком модельное: среда не выдаёт выводов.
 - **Ticks do not advance during offline consolidation.** The phase is lived-time-free: the lived-tick counter stops, wall-clock enters only audited stamps. Otherwise the phase ages all of Φ and breaks P1/O-bi-temporal. (Owner adjudication pending, §8.)
 - New records (`reconcile` about its own calibration) follow normal act rules; the past is never rewritten (O-5).
 - Budget: ≤ 2 dial changes per cycle, ≤ 10 per run; per-cycle change of any dial bounded ×[0.5, 2.0] (τ) or ±50% (floor/ceiling/cap); `act_price`/`dormancy_rate` rejected unconditionally.
@@ -120,7 +121,7 @@ Report mean ± sd of S components. **Refutation criteria (declared in advance):*
 ## 8. Owner adjudication required before any run
 
 1. **Tick freeze in offline consolidation** (§6): consolidation does not advance lived ticks (консолидация — не прожитое время, O-4).
-2. **`calibrate` as the 7th act** of the act grammar, offline-only; grammar v02 gains a section; the one-time-instruction corpus question (dataset divergence note in ACT-GRAMMAR) applies to it as to rules 5–7.
+2. **`calibrate` (7th) and `scan` (8th) acts** of the act grammar, offline-only; grammar gains sections for both; the one-time-instruction corpus question (dataset divergence note in ACT-GRAMMAR) applies to them as to rules 5–7.
 3. **Frozen dials list** (§3): `act_price`, `dormancy_rate` excluded from search permanently.
 4. **Физическая ручка `self_improvement`** (§3, §6): самоулучшение вводится как физика среды — перечисленная ручка с бюджетом актов `calibrate`; ядро само крутит ручки в пределах бюджета (владелец решает от 07.09: «для самоулучшения ядро само подкручивает себе ручки»). Сама ручка бюджета ядру неподконтрольна.
 5. **Телеметрия как частный случай работы модели**: диагностика ядру — из собственного субстрата через `read`; оракульные метрики — только harness-side (C7). Детальная спецификация канала — отдельное обсуждение.
