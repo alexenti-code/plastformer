@@ -35,12 +35,16 @@ The E1 corpus (real project script) is never used for calibration. A configurati
 | Dial | Range | Frozen? |
 |---|---|---|
 | `audibility_floor` | [0.002, 0.05], log grid | searchable |
-| `tau_multiplier.<layer>` (beat/episode/day/project/life) | [0.25, 4.0], multiplicative | searchable |
+| `tau_multiplier.τ1..τ5` (k=5: 15/80/400/2000/10000 ticks, act-grammar v0.1.3 canon) | [0.25, 4.0], multiplicative | searchable |
 | `surfacing_cap` | 8–16, integer | searchable |
 | `consolidation_ceiling` | 4.0–16.0 | searchable |
 | `interference_factor` | [1.0, 1.25] | searchable |
+| `prefix_depth` | 4–16, integer (may differ from surfacing_cap) | searchable |
+| `residency_horizon` | 0–32, integer (how many recent prefix changes stay visible as history) | searchable |
+| `rebuild_period` | 1–8, integer ticks (prefix rebuild frequency; 1 = every turn) | searchable |
 | `act_price` | 1.0 tick | **FROZEN — honesty constant of B vs D (manifest)** |
-| `dormancy_rate` | 0.0 | **FROZEN — strict position** |
+
+(dormancy_rate removed entirely, owner decision 09.09: dormancy = zero ticks by construction in the parametric assembly — the dial does not exist and is not searchable.)
 | `self_improvement` | master switch (owner directive 07.09, уточнение 07.09): **0 = fixed-dials mode**, **> 0 = самостоятельная работа модели с памятью в любой момент** — не только в привязке к тикам/прогонам/инференсам | **Большой выключатель.** В режиме > 0 модель САМА, без пользователя, работает с памятью когда считает нужным: скан (память и среда), calibrate (ручки), connect/repeat и др. — все акты записываются, все ограничения физики действуют. Т.е. выключатель размораживает не «offline-фазу по расписанию», а самостоятельность модели как таковую. Бюджеты на консолидационный прогон (calibrate ≤ 10, scan ≤ 32) — начальные рамки CAL-1; в общем режиме нормируются отдельно. В режиме 0 модель не может накрутить ничего. Сам выключатель модели неподконтролен. Примечание: это сближает режим с background tick (THEORY §4) — но полноценная самостоятельная работа (когда инфраструктура вообще даёт ядру время без пользователя) остаётся отложенной вехой: нужны несвязанные с инференсом вычислительные окна, сейчас их нет |
 
 ## 4. Proxy score S (frozen before search)
@@ -63,20 +67,24 @@ Telemetry (`telemetry.py`) is content-blind: it reads only record ids, ticks, la
 3. Output: sensitivity map (per-dial rank correlation with S) and **A\*** = argmax S.
 4. Nothing in this phase is RSI: the environment searches, the model acts normally inside episodes.
 
-**Scope caveat (review 2.2):** on a 200-exchange corpus the τ multipliers are nearly inert (ticks ≪ τ; verified numerically — S is flat over ×0.25–×4.0 for all non-beat layers). A\* is therefore valid **only within the sensitive subspace** (`surfacing_cap`, `audibility_floor`, `tau_multiplier.beat`); the slow-τ components are calibrated separately on an extended corpus (500–2000 exchanges) before any E1 manifest freezes them.
+**Scope caveat (review 2.2):** on a 200-exchange corpus the τ multipliers are nearly inert (ticks ≪ τ; verified numerically — S is flat over ×0.25–×4.0 for all non-beat layers). A\* is therefore valid **only within the sensitive subspace** (`surfacing_cap`, `audibility_floor`, `tau_multiplier.τ1`); the slow-τ components are calibrated separately on an extended corpus (500–2000 exchanges) before any E1 manifest freezes them.
 
 ## 6. Phase B — self-improvement (the core calibrates itself)
 
 Cycle (max 5 per run):
 
 ```
-episode on К -> offline diagnostics artifact (stand-side; NOT a dialogue block,
-                NOT a PMI message -- see note below)
-  -> core (model-in-the-loop) scans its substrate physics with `scan`,
-     emits `calibrate` proposal with evidence
+episode on К
+  -> core reads its own substrate physics with `scan` (read-class act; raw
+     amplitudes/ticks/layers, no scores, no interpretations)
+  -> core emits `calibrate` proposal with evidence
   -> validator (validator.py) checks: budget, step bounds, frozen dials
-  -> applied or rejected (rejection is logged, never silent)
+  -> applied to the NEXT episode or rejected (rejection is logged, never silent)
   -> next cycle
+
+(No stand-side diagnostics artifact mediates the channel: what the core sees, it
+computes from its own substrate through its own `read`/`scan` — owner-aligned with
+the master-switch semantics; oracle-derived metrics stay harness-side, C7.)
 ```
 
 **Channel note (C7 / PMI scope).** Диагностика для ядра — не отдельный средовой

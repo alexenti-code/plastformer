@@ -25,7 +25,7 @@ from pathlib import Path
 # Frozen dials (protocol.md section 3): never searchable, never applicable.
 # self_improvement (calibrate budget) is also frozen for the core: the model
 # cannot raise its own recursion budget (protocol.md section 3).
-FROZEN = {"act_price", "dormancy_rate", "self_improvement"}
+FROZEN = {"act_price", "self_improvement"}  # dormancy_rate removed entirely (owner 09.09: zero ticks by construction)
 
 # Bounds: (min, max) absolute; plus per-cycle multiplicative step limits.
 BOUNDS = {
@@ -34,8 +34,11 @@ BOUNDS = {
     "consolidation_ceiling":  (4.0, 16.0),
     "surfacing_cap":          (8, 16),
 }
-for layer in ("beat", "episode", "day", "project", "life"):
-    BOUNDS[f"tau_multiplier.{layer}"] = (0.25, 4.0)
+for i in range(1, 6):
+    BOUNDS[f"tau_multiplier.t{i}"] = (0.25, 4.0)  # tau1..tau5 (k=5 canon, v0.1.3)
+BOUNDS["prefix_depth"] = (4, 16)
+BOUNDS["residency_horizon"] = (0, 32)
+BOUNDS["rebuild_period"] = (1, 8)
 
 # Per-cycle step limits (protocol.md section 6): multiplicative bounds on
 # new/old per cycle. tau-like dials: x[0.5, 2.0]; floor/ceiling/cap: x[0.5, 1.5]
@@ -45,6 +48,7 @@ STEP_LIMITS = {
     "tau": (0.5, 2.0),
     "plain": (0.5, 1.5),
 }
+# rebuild_period: integer step, handled in _step_ok via ratio bounds (plain)
 
 def _step_class(name):
     return "tau" if name.startswith("tau_multiplier.") else "plain"

@@ -57,8 +57,8 @@ def sample_dials(rng):
     FROZEN dials (act_price, dormancy_rate) are never sampled."""
     d = {}
     d["audibility_floor"] = round(10 ** rng.uniform(-2.7, -1.3), 5)  # ~0.002..0.05
-    for layer in T.LAYERS:
-        d[f"tau_multiplier.{layer}"] = round(rng.uniform(0.25, 4.0), 3)
+    for i in range(1, 6):
+        d[f"tau_multiplier.t{i}"] = round(rng.uniform(0.25, 4.0), 3)
     d["surfacing_cap"] = rng.randint(8, 16)
     d["consolidation_ceiling"] = round(rng.uniform(4.0, 16.0), 2)
     d["interference_factor"] = 1.0  # stress-test dial: off in calibration

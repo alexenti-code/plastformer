@@ -22,7 +22,7 @@ import json
 import math
 from pathlib import Path
 
-LAYERS = ["beat", "episode", "day", "project", "life"]
+LAYERS = ["t1", "t2", "t3", "t4", "t5"]  # tau1..tau5 (k=5 canon: 15/80/400/2000/10000 ticks)
 
 # Default tau set in ticks (executor defaults, gen_acts.py SPEC 3.2).
 TAU_TICKS = {"beat": 10, "episode": 50, "day": 200,
