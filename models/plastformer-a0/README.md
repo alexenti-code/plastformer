@@ -19,7 +19,7 @@ v0.1.3 (сборка α: LoRA r=16 на MLP+q,v всех слоёв, k,o не т
 
 ## Состав
 - Модель: experiments/o8-pass/gemma4-12b-text-4bit/ (текстовая, 4-bit)
-- Адаптер: experiments/o8-pass/adapters_alpha/adapters.safetensors (O-8 сборка α)
+- Инструкция (LoRA-адаптер, сборка α): experiments/o8-pass/adapters_alpha/adapters.safetensors
 - Носитель: plastformer_run.py (банк, амплитуды, resident prefix, акт-парсер)
 - Грамматика: experiments/act-grammar/act-grammar-v0.1-en.md (+ru)
 
