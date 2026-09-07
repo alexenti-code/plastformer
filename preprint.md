@@ -105,14 +105,14 @@ This is the software form of cascade consolidation [11, 12]: one write deposits 
 
 Writes occur after the core has processed the step, so consolidation operates on a mature representation.
 
-- **Unconscious register (physics).** Every experience that passes the window leaves a low-amplitude trace in fast components, gated by a surprise signal in the spirit of Titans [1]. We note explicitly that surprise is the *core's* prediction error — a semantic signal from inside the model — so the unconscious register is physics in its *writing*, but its gate is semantic. This respects the split: no external component classifies meaning.
+- **Unconscious register (physics).** The substrate writes a low-amplitude fast trace when the core's own prediction error — next-token perplexity read from the same forward pass — exceeds a frozen, content-blind threshold; nothing writes below it. Surprise is a semantic signal from inside the model, so the register's gate is semantic while its writing is physics; no external component classifies meaning. On a symbolic stand the core's own error is inaccessible and the embedding-distance surrogate is an external classifier — forbidden everywhere; surprise traces belong to the parametric configuration only.
 - **Conscious register (acts).** Above the floor, the model performs trainable acts: `name` (fix source, time, boundaries — turns a drifting trace into an episode), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule into slow components as a new trace, sources untouched), and `reconcile` (Section 4.2).
 
 **Instruction and the boundary of trust.** The competence to perform acts is embedded by the single instruction pass (the act grammar), in the manner tool use is embedded. We state the consequence rather than hide it: the grammar shapes the *capacity* to perform acts, and any bias in its wording shapes the tendency to act. We therefore define the governance claim as a **boundary**: the environment fixes physics (constants, prices) and invariants (immutability); the instruction fixes the *capacity* to perform acts; after the pass, the *content* of acts — which traces of which biography are named, repeated, connected — is decided by the model alone and is not evaluated, filtered, or overridden by any external component. Governance is what lies past that boundary. This is a narrower claim than "the model decides freely"; it is the one we can implement.
 
 ### 3.4 Read path: early
 
-Retrieval injects decaying traces before attention. In the symbolic configuration, traces enter the context window as tokens, selected by amplitude without content ranking (the read itself is the model's act; see E1 in §6); the core reads them as it reads any context. In the parametric configuration, traces enter as vectors through an embedded interface in the MAC position [1]; Titans' ablations show placement matters, and post-core reads cannot steer attention. The asymmetry is deliberate: write late to keep consolidation clean; read early to let the biography guide perception.
+Traces surface before attention through two registers. The **resident prefix** (background): the top-N traces by amplitude are carried continuously at the MAC position [1]; the substrate shows every change of this set — an entry, an exit, a death below the floor, a reorder — and decides nothing about significance (telling an event from noise is the core's semantic act). **Deliberate reads:** the model's own `read` act extends the visible set (ids, ranges). In the symbolic configuration both registers enter the context window as tokens, selected by amplitude without content ranking; in the parametric configuration they enter as vectors through the embedded interface. The asymmetry is deliberate: write late to keep consolidation clean; read early to let the biography guide perception.
 
 ### 3.5 Tick
 
@@ -126,7 +126,7 @@ Changing a trace costs work: cheap in fast components, expensive in consolidated
 
 ### 3.7 Provenance and initial amplitude
 
-The trust class of a source sets $a_i(0)$. Hard facts (dates, sums, identifiers) enter verbatim through deterministic extraction, never through paraphrase. We state the boundary honestly: *assigning* trust classes to sources is policy, set by the deployer; *weighting* amplitude by class is physics. The environment weighs the source; it does not interpret the content.
+The trust class of a source caps $a_i(0)$ from above (frozen cap table). Hard facts (dates, sums, identifiers) are written verbatim by the model itself in the `name` act — the grammar requires it; the substrate extracts nothing and writes nothing on its own. We state the boundary honestly: *assigning* trust classes to sources is policy, set by the deployer; *weighting* amplitude by class is physics; the model's own loudness judgment operates inside the cap. The environment weighs the source; it does not interpret the content.
 
 ### 3.8 External journal (out of scope)
 

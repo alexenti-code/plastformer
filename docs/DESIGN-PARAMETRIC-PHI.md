@@ -245,3 +245,13 @@ made by a different pass is a new instance that diverges from the point of assem
 Preprint line (registered): the choice of embedding coverage is a per-deployment
 computation; the protocol admits several assemblies of one base core; an assembly is an
 instance (O-3); the choice between assemblies belongs to the deployer.
+
+## 13. Dormancy = zero ticks by construction (owner decision 09.09.2026, Fork 8 closed)
+
+In the parametric assembly (trace bank + interfaces) dormancy is not a configuration
+choice: the bank is a passive array; no instance running means no ticks, no decay
+(delta-n is measured in ticks, which do not advance), no replays. A "background tick"
+would be executable work with no executor — the exact thing the architecture removed
+("decay/ticks/volumes are substrate dynamics nobody executes"). Wake-up is recorded by
+the gap-trace (enabled). The dormancy_rate dial is removed from the manifest template
+(it was a stand-era artifact where a script simulated the background process).

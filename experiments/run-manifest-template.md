@@ -25,7 +25,7 @@
 
 | Constant | Value for this run | Decided by / note |
 |---|---|---|
-| dormancy_rate | 0.0 | strict position; >0 only in dormancy ablations |
+(dormancy_rate removed 09.09.2026: in the parametric assembly dormancy = zero ticks BY CONSTRUCTION — the bank is not running, nobody executes background work; a background tick would be an executable job with no executor. Wake-up is recorded by the gap-trace, already enabled.)
 | audibility_floor | 0.01 | raise if age profile blurs; lower if dying traces are lost early |
 | act_price | 1.0 tick | MUST be identical across compared arms — the honesty constant for B vs D |
 | interference_factor | 1.0 (off) | stress test only: 1.0 → 1.1 → 1.25 on long biographies |

@@ -67,7 +67,7 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 
 - Clock: ticks. One executed memory act (WRITE/REPEAT/CONNECT/RECONCILE) = +1 tick, counted by the stand; reads never advance it; wall-clock seconds never enter amplitude; dormancy is zero lived time (Constitution C5).
 - τ ∈ {50, 200, 1000} ticks, three components; one write deposits across all three.
-- Injection: content-blind loudest-N by amplitude, N ≈ 8–16 (fixed per run, ≤ 2k tokens), in response to the model's own `read` or before a turn as a stand physics; no relevance, no embeddings, no keyword match, no query-dependence (Constitution C2).
+- Injection: content-blind loudest-N by amplitude, N ≈ 8–16 (fixed per run, ≤ 2k tokens), in response to the model's own `read`; pre-turn pushes exist only as the registered ablation `loudest-N-auto on` (opt-out, act-log accounting). No relevance, no embeddings, no keyword match, no query-dependence (Constitution C2). In the registered parametric Arm D the read path is the resident prefix (all changes visible; no significance thresholds) plus `read` acts — preprint §3.4, DESIGN §11.
 - Storage: append-only record store; no edit, no delete, no filtering by weight, no semantic index. Record = {content, act type, τ component, provenance: source class + source id, bi-temporal stamps, record_tick, refs}.
 - Friction: write-cost schedule c(τ) frozen before the run; the model decides whether to pay, never the price.
 - Provenance: cap table frozen before the run; class asserted by the model; amplitude weighting is physics (C6).
@@ -120,7 +120,7 @@ D-stand is a **secondary ablation**, not the registered test and not the working
 - Notes/memory size growth (B and D: record count and bytes).
 
 **Act log (Arm D, and the tool analogs in B):**
-- Number of acts per type (`name`, `repeat`, `connect`, `reconcile`, `read`, `status`) per checkpoint window.
+- Number of acts per type (`name`, `repeat`, `connect`, `reconcile`, `read`) per checkpoint window.
 - Share of R5 facts (repeated in the script) on which the model issued `repeat` at least once; share of `repeat` acts that target R5 facts.
 - Share of conflict episodes (R7–R10) preceded by an explicit `read` act within the same exchange.
 - `reconcile` invocations: count and tick of each (narrow reconcile, v1.6: expected ~1 per scripted gap — the model's answer to the gap-event; outcome distribution reported, scored only as part of PR7's unprompted-conflict-flag rate).
