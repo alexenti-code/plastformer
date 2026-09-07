@@ -13,3 +13,4 @@ experiments/o8-pass/gemma4-12b-text-4bit/
 models/gemma4-12b-plastformer-a0/
 experiments/o8-pass/adapters_alpha/
 experiments/o8-pass/phi_state.json
+experiments/phi-vector/section-phi/
