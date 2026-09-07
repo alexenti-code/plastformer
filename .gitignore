@@ -9,3 +9,4 @@ runs/*-secret*
 .DS_Store
 *.pyc
 __pycache__/
+experiments/o8-pass/gemma4-12b-text-4bit/

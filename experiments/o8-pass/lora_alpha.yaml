@@ -1,0 +1,26 @@
+model: /Users/alex/plastformer/experiments/o8-pass/gemma4-12b-text-4bit
+data: /Users/alex/plastformer/experiments/o8-pass/material
+train: true
+fine_tune_type: lora
+num_layers: -1
+batch_size: 1
+iters: 1200
+learning_rate: 0.0001
+steps_per_report: 20
+steps_per_eval: 200
+val_batches: -1
+max_seq_length: 4096
+grad_checkpoint: true
+seed: 7
+save_every: 300
+adapter_path: /Users/alex/plastformer/experiments/o8-pass/adapters_alpha
+lora_parameters:
+  rank: 16
+  dropout: 0.0
+  scale: 20.0
+  keys:
+  - mlp.gate_proj
+  - mlp.up_proj
+  - mlp.down_proj
+  - self_attn.q_proj
+  - self_attn.v_proj
