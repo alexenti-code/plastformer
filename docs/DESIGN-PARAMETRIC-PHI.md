@@ -197,3 +197,25 @@ One write deposits across all five (O-10). D-stand keeps its own stand-era set
 (tau in {50, 200, 1000}, k=3) as an ablation; the registered Arm D uses k=5.
 Note: these figures were approved in the architecture discussion of 2026-09-07;
 they are dials (C3) and must be frozen in the run manifest before the first run.
+
+## 11. Show dials (owner decision 08.09.2026, Fork 7 closed)
+
+Resident prefix: ALL changes are shown to the model — the substrate hides nothing and
+decides nothing about significance. Distinguishing "is this an event" is a semantic act
+of the core. The environment owns only show-dials (content-blind boundaries, frozen per
+manifest, tuned in the experiment):
+
+| Dial | Meaning |
+|---|---|
+| surfacing_cap (N) | top-N traces by amplitude shown as the prefix |
+| prefix_depth | how many traces the resident prefix carries (can differ from N) |
+| residency_horizon | how many recent prefix changes remain visible as history |
+| rebuild_period | how often the substrate rebuilds the top-N (1 = every turn) |
+| gap_threshold | tick gap that fires the dormancy gap-trace |
+| surprise_threshold | perplexity threshold for surprise traces |
+
+Design-stage dial set is provisional: the model plus telemetry find the optimal values
+and the final dial composition. HARD RULE: a dial must never become an external decider
+of what the model does with its own memory — dials bound what is SHOWN, never what it MEANS.
+Any dial that would filter, rank, or threshold by meaning is an external decider (C2) and
+is forbidden (owner decision, Fork 7: no "significant change" thresholds).

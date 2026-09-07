@@ -31,6 +31,11 @@
 | interference_factor | 1.0 (off) | stress test only: 1.0 → 1.1 → 1.25 on long biographies |
 | consolidation_ceiling | 8.0 | lower if the organ loops on `repeat`; raise if R5 facts die early |
 | surfacing_cap | 12 records | E1 range 8–16; ≤2k tokens injected |
+| prefix_depth | =surfacing_cap (provisional) | size of the resident prefix; may differ from N |
+| residency_horizon | (provisional) | how many recent prefix changes stay visible as history |
+| rebuild_period | 1 (provisional) | prefix rebuild frequency, in ticks |
+| gap_threshold | (provisional) | tick gap firing the dormancy gap-trace |
+| surprise_threshold | (provisional) | perplexity threshold for surprise traces |
 
 ## Ablations (default OFF in the main run)
 
