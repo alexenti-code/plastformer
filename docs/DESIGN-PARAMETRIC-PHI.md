@@ -128,3 +128,47 @@ The 200-message scenario (~2-3 h) is unaffected.
    insertion before attention (custom forward).
 4. Grammar pass: act-grammar v0.1.1 embedded in the trunk (one LoRA pass, frozen).
 5. Harness: substrate, ticks, act acknowledgements, judge channel.
+
+## 8. Residency of the surfaced set (decided: V3, owner-approved 07.09.2026)
+
+**Decision principle:** chosen by the project's intent (give the transformer memory and
+awareness of its own history), not by cost. Cheapness is explicitly not a criterion.
+
+**V3 = resident prefix + read acts on top.** Two registers of memory:
+
+1. **Resident prefix (background self-knowledge).** The surfaced set (loudest-N by
+   amplitude, N <= surfacing_cap) stays resident as the MAC prefix across turns.
+   It updates when the substrate physics changes the loudness profile materially:
+   a trace enters the top-N, dies below the audibility floor, or the ordering shifts.
+   Constant prefix -> the biography is part of the model's standing self-view.
+2. **Read acts (deliberate recollection).** The model's own `read` act
+   (ids / from-to) extends or re-selects the resident set for the turn.
+
+**Why this serves the intent (owner's argument, adopted):**
+- A per-turn flash (V1) makes memory a repeated hint, not lived history: the model
+  cannot build cross-turn reasoning over its own biography. Rejected as contrary
+  to the intent.
+- A resident prefix makes biography part of the "I": stable background knowledge,
+  cross-turn reasoning becomes possible.
+- **Change of the prefix is a visible event.** A trace entering/leaving the resident
+  set is perceived by the model as a delta of its own biography — the horizon of
+  events. This matches THEORY Sec 4: the gap between audited stamps and the amplitude
+  profile becomes an event of the biography (surprise gate). V1 has no delta — nothing
+  can be an event.
+- Two registers mirror human memory: background knowing (physics) + deliberate
+  recollection (act). Together they implement the state-form of memory (the project's
+  "state vs archive" thesis): a stable offset, not a bimodal retrieval.
+
+**Constitutional position (re-checked, unchanged):** what is surfaced — substrate
+physics (C2, content-blind); what the model does with it — its own attention (C1);
+writes — only explicit acts (C4). The resident prefix adds no external semantic
+decision-maker: updates are amplitude physics, not content analysis.
+
+**Honest risks (experiment will show, registered loci):**
+- attention habituation to a constant prefix; mitigated by the prefix actually
+  changing on events, and by N <= surfacing_cap;
+- stale-trace conservation amplified by residency; measured by the registered
+  locus "suppression of stale material".
+
+KV-cache cost of the resident prefix (+N positions) is acknowledged and accepted
+as non-decisive.
