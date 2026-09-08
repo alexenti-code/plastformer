@@ -34,6 +34,9 @@ The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one c
 ### Bi-temporality [би-темпоральность]
 Property of a Φ record: event time (when it was true in the world) and learning time (when the instance learned it). Training weights carry no stream-time marks; memory records carry both.
 
+### Rollback [откат]
+Restoration of the bank to an earlier state, possible only through export/import (E4): a snapshot taken at tick N can be restored; within a live bank there is no rollback operation — traces are append-only (O-5) and decay is physics. Rollback is an environment/owner operation on the artifact, not a model act.
+
 ### Tick [тик]
 One inference step (one generation batch). The substrate counts ticks; one executed storing act = +1 tick (sparse sampling of abstract ticks; counter rule in CONSTITUTION C5). The tick rate is a property of the substrate and is finite.
 

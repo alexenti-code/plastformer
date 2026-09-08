@@ -82,6 +82,17 @@ def main():
         ce = nn.losses.cross_entropy(lg, tgt_pad)  # [B, L]
         return mx.sum(ce * mask) / mx.sum(mask)
 
+    def _save(G, path):
+        flat = {}
+        def _flatten(prefix, d):
+            for k, v in d.items():
+                if isinstance(v, dict): _flatten(prefix + k + ".", v)
+                else: flat[prefix + k] = v
+        _flatten("", G.parameters())
+        params = {k: np.array(v, dtype=np.float16) for k, v in flat.items()}
+        np.savez(path, **params)
+        print(f"[checkpoint] {path}", flush=True)
+
     loss_and_grad = nn.value_and_grad(G, step_fn)
     opt = optim = __import__("mlx.optimizers", fromlist=["AdamW"]).AdamW(LR)
     # shorter: direct import
@@ -99,6 +110,8 @@ def main():
         if it % 5 == 0 or it == 1:
             el = time.time() - t0
             print(f"it {it:4d} loss {float(l):.3f} | {el:.0f}s ({el/it:.2f}s/it)", flush=True)
+        if it % 50 == 0:
+            _save(G, OUT)
 
     # valid loss
     vl = []
@@ -109,9 +122,8 @@ def main():
         vl.append(float(step_fn(batch)))
     print(f"valid CE: {np.mean(vl):.3f}")
 
-    params = {k: np.array(v, dtype=np.float16) for k, v in G.parameters().items()}
-    np.savez(OUT, **params)
-    print(f"saved {OUT}: " + ", ".join(f"{k} {v.shape}" for k, v in params.items()))
+    _save(G, OUT)
+    print(f"saved {OUT}")
 
 if __name__ == "__main__":
     main()

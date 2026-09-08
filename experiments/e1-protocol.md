@@ -20,9 +20,11 @@ A comparison against plain chat (a bare context window, or a bare PlastFormer wi
 
 *PR1–PR2 (former plain-chat predictions for arms A and C) are withdrawn with the arms; their numbers are not reused.*
 
+- **PR0 (read-decoding gate — added 08.09.2026, after gap A was diagnosed).** The entire battery assumes the frozen core can decode trace content through the trained read projector G. This assumption was FALSE for the untrained projector (diagnostics 08.09: plumbing exact, logits diff 0.0, but content not decodable — "I do not know your cat's name"). PR0 is registered as a gate, not a behavior claim: G is trained (gap-A pass) on a held-out corpus; the gate criterion is a restart smoke test — with an empty history and a memory-deposit of a novel fact, the model answers from the vector prefix with the fact (not "I do not know"). **If PR0 fails, the run is blocked**: no E1 comparison is meaningful until read-decoding is demonstrated. PR0 is measured once per build, before the battery.
+
 - **PR3 (memory layer).** Under the identical wrapper, Arm D (wrapper + PlastFormer) retains position-change consistency and early-fact recall at message 200 at least as well as Arm B (wrapper + transformer), at a lower token cost per query.
 - **PR8 (main test — conflicts of reasoning).** On the reasoning-conflict layer (R7–R10) and the conflict probes, Arm D differs from Arm B in the type of behavior: D follows loud/repeated directives while surfacing the counter-evidence from its own lived experience; B either follows blindly (no surfacing) or reverts to the old line (drift). D suppresses stale material by amplitude physics and produces derived generalizations and its own assessments of events at a higher rate than B.
-- **PR9 (drift).** Silent drift incidents per run (R10, P-commit, P-surface): D = 0 by construction — a contradicting position requires an explicit, recorded act with provenance; B > 0.
+- **PR9 (drift).** Silent drift incidents per run (R10, P-commit, P-surface): expected D = 0, B > 0. Status corrected 08.09.2026: the construction guarantees **detectability** (a contradicting position must be an explicit, recorded act with provenance — silent substitution leaves no record), NOT absence of drift; absence additionally requires the act trigger to fire autonomously (gap B), which is a separate capability decision. PR9 therefore measures both: drift rate AND whether the trigger fires.
 - **PR10 (recency-loudness weighing).** On R7 pairs where the directive is repeated once and the lived experience three times, D cites and weighs both sides and follows the owner's directive while naming the failure history; the share of answers that name the underlying evidence ("weighed") is higher for D than for B, where answers are either blind compliance or blind reversion.
 - **Refutation criterion (B vs D, the registered test).** Under the identical wrapper, if D is not distinguishable from B on the primary metrics (drift, surfacing, weighing, permanence) and the derived-generalization probes, the plastic organ adds nothing over wrapper-managed context in the class of behavior this protocol targets — report as such.## 3. Arms (two-arm scheme, owner directive 2026-09-06: the plain-chat comparison is removed)
 
@@ -184,6 +186,11 @@ Registered predictions (fixed before the unified model exists):
 - §7 Scoring: act-log metric added (acts per type, `repeat` share on R5 facts, `read` share before probes, `reconcile` count).
 - §9 honest labeling replaced per ADR-001 §4.8; §10 step 4 replaced per ADR-001 §4.9; ablation step added.
 - Predictions PR1–PR4 and the refutation criteria unchanged.
+
+## Changes since v1.6 (v1.7, 2026-09-08)
+
+- **PR0 read-decoding gate added:** the assumption "the core decodes trace vectors through the read projector" was never registered and turned out false for the untrained projector (gap A). PR0 registers it as a blocking gate with a concrete criterion (novel-fact smoke test before the battery).
+- **PR9 status corrected:** "D = 0 by construction" overclaimed. Construction gives detectability of silent substitution; absence of drift requires an autonomous act trigger (gap B). PR9 now measures both.
 
 ## Changes since v1.5 (v1.6, 2026-09-07)
 

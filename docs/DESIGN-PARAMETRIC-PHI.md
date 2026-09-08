@@ -121,6 +121,13 @@ The 200-message scenario (~2-3 h) is unaffected.
 
 ## 6. Honest caveats
 
+- Cost figures in §5 are LATENCY overhead (wall-clock per turn), not quality tax.
+  The quality effect of the 12-position prefix and injected vectors on answer quality
+  (the "embedding tax") is NOT covered by §5 and is measured only by the E1 battery
+  (secondary metrics) and pre/post core benchmarks; no claim better than "to be measured".
+- Read-decoding is a REGISTERED GATE (E1 v1.7 PR0): the untrained read side cannot
+  decode trace content (gap A, diagnostics 08.09); the whole comparison assumes a
+  trained projector G and is blocked until the smoke test passes.
 - Not "memory in weights" literally: traces in the bank, interfaces in weights.
   Paper framing: frozen core + addressable plastic substrate; interfaces embedded once.
 - The difference from RAG is governance (who decides), not access mechanics; both
