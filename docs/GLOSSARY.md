@@ -51,3 +51,12 @@ Historical term for the external implementation of PlastFormer outside the model
 
 ### Journal [журнал] — out of scope
 An external append-only log with a hash chain, kept by the environment at deployment time. Not part of PlastFormer: the architecture neither includes nor claims a journal (ADR-004). A deployment may add one for its own audit purposes.
+
+### Instruction [Инструкция]
+A frozen competency layer carrying the act grammar — the rules by which the model operates its own memory: when to emit memory acts, how to write, how to read. Embedded once into the core by a single instruction pass, after which the core is frozen. The act of handing the model the rules of memory work is the Instruction; the core itself is never modified afterwards (except by that one embedding).
+
+### Self-enrichment [самообогащение памяти]
+The model's own act of adding new traces to its plastic module Φ during its life: writing facts, summaries, connections into memory without changing the core. The growth of the biography. (Next stage — self-improvement [самоулучшение] — means improving the memory operations themselves: how the model writes, reads, connects and consolidates; not yet part of the architecture.)
+
+### PlastFormer (sense definition) [ПластФормер — смысл]
+PlastFormer is a dedicated layer of the weight file reserved for the fact of memory: a transformer whose weights are split so that one part stays the unchanged organism and another part is a living, model-owned record. The model receives its memory rules through the Instruction, then enriches its own plastic layer by itself. Transformer + plastic Φ.
