@@ -43,7 +43,14 @@ def main():
     print(f"train={len(train)} valid={len(valid)}")
 
     G = ReadProj(d, K_SLOTS, BOTTLENECK)
-    mx.eval(G.parameters())
+    if os.path.exists(OUT):
+        z = np.load(OUT)
+        G.fc1.weight = mx.array(z["fc1.weight"].astype(np.float32))
+        G.fc1.bias = mx.array(z["fc1.bias"].astype(np.float32))
+        G.fc2.weight = mx.array(z["fc2.weight"].astype(np.float32))
+        G.fc2.bias = mx.array(z["fc2.bias"].astype(np.float32))
+        mx.eval(G.parameters())
+        print(f"resumed from {OUT}")
 
     embed = model.model.embed_tokens
     scale = float(model.model.embed_scale)
