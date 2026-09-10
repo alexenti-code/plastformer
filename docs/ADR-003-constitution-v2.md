@@ -1,5 +1,7 @@
 # ADR-003: Constitution v2.0 — двухчастный основной закон
 
+**Status:** LINEAGE-ONLY (2026-09-10) — historical decision about Constitution v2 numbering; also preserves split-era conventions (stand, executor, PMI) that no longer exist in the architecture. History only; not a norm, not a source of ТЗ. First normative: CONSTITUTION.md. COMPLETED — исполнен (CONSTITUTION v3.0 опубликована); LINEAGE-история решений.
+
 **Дата:** 2026-09-05. **Автор:** Архитектор (агент). **Утверждение:** утверждено владельцем; дальнейшее развитие — CONSTITUTION v3.0 (NORMATIVE, редакция владельца 06.09.2026), которая заменяет нумерацию v2.x: Основы O-1–O-11 + тесты C1–C8.
 **Повод:** обзор владельца показал, что CONSTITUTION v1.0 — только «уголовный кодекс» (10 запретительных статей), без основ строя. Принципы доверия были разбросаны по пяти файлам (GLOSSARY акс. 1–9 и Разрешения, MANIFEST, THEORY §1, SPEC) и частично вообще не вошли в v1.0.
 

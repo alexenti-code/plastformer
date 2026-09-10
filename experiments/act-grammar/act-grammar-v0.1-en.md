@@ -1,5 +1,7 @@
 # Act Grammar v0.1 — PlastFormer memory acts (EN)
 
+**Status:** RETIRED / SUPERSEDED — canonical text: `act-grammar-v0.2-ru.md`. Kept as assembly history only; mentions of the stand do not correspond to any existing component and are not a source of ТЗ.
+
 **Status:** DRAFT v0.1.3 — candidate for the single one-time instruction embedding (Constitution O-8). Merged with useful parts of the concurrent draft v02 (owner-approved): from/to read mode, abstention rule, explicit position-change rule, PR10 weighing rule, no-silent-defaults wording, traceability table. NOT taken from v02: record_tick inside model acts (contradicts C5 — the environment counts ticks), layer names beat/episode/day/project/life (τ components from THEORY are canonical).
 **Normative anchor:** `docs/CONSTITUTION.md` v3.0 (O-1…O-11, C1…C8). This grammar describes the FORM of memory acts. It decides nothing semantic: what to record, what to repeat, when to read — the model decides itself (O-1). The environment supplies physics and decides nothing about meaning (O-2).
 

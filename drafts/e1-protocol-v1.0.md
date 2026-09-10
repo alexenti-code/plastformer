@@ -1,3 +1,5 @@
+**Status:** SUPERSEDED — актуальный протокол: experiments/e1-protocol.md (версия в шапке файла).
+
 # E1 Protocol: Needle-in-Biography on a Real Project Corpus
 
 **PlastFormer pre-registered experiment** · v1.0 · September 4, 2026

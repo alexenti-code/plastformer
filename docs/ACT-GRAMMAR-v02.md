@@ -1,7 +1,7 @@
 # PlastFormer — Act Grammar (System Instruction)
 
-**Version:** 02 (2026-09-06, agent draft)
-**Status:** DRAFT — candidate for the one-time instruction embedding (Constitution O-8) and for prompted rehearsal (axis: act state). Owner adjudication pending against a concurrent external draft (v01, other developer; not yet in repo).
+**Version:** 02 — superseded by `experiments/act-grammar/act-grammar-v0.2-ru.md` (v0.2.0, owner-approved 2026-09-09: calibrate/scan in the embedding corpus; layer names t1–t5)
+**Status:** SUPERSEDED — see `experiments/act-grammar/` for the ratified grammar. Historical terms below (the `<<PMI>>` result block, the stand counter) name retired split-era entities; they do not exist in the current architecture and are not a source of ТЗ. In the current architecture the Φ section of the single file A = (K, Φ) is the medium, and acknowledgements arrive from the environment.
 **Sources:** organ-dataset system prompt (the working text the corpus was generated with), THEORY §5 (act semantics), CONSTITUTION O-1–O-11, C1–C8.
 **Language note:** canonical wording is Russian (corpus language); this file carries both. The two texts are the same grammar, not translations to be maintained independently.
 **Dataset divergence (must resolve before any training run):** rules 5–7 below are NOT demonstrated in the current organ-dataset corpus (generated 2026-09-05 from the earlier prompt). If rules 5–7 survive owner adjudication, the corpus must be regenerated so demonstrations carry the same rules; otherwise training and rehearsal teach different behaviors.

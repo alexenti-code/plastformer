@@ -1,5 +1,7 @@
 # Run Manifest — PlastFormer E1 (template)
 
+**Status:** SUPERSEDED (2026-09-10) — the template describes runs against the split-era setup (external vector bank, e1-protocol v1.5) and cannot be active until it describes the single-file artifact A = (K, Φ). Kept as a formatting reference only; do not use for new runs and do not treat as a source of ТЗ. The template will be rebuilt against A = (K, Φ).
+
 **What this is:** the passport of one registered run (C8: every result cites its run_id).
 **What this is not:** the protocol. The protocol (`e1-protocol.md`, v1.5) is one; manifests are many — one per run or per series.
 **Rule (C3):** values below are frozen **before** the run. A mid-run change of any value is a violation. Nothing here reads record content.
@@ -17,7 +19,7 @@
 
 | Component | Value |
 |---|---|
-| substrate | parametric (vector bank, embedded read interface) |
+| substrate | parametric (records live in the Φ section of the single file A = (K, Φ); no external bank) |
 | topology | co-located |
 | act state | instructed (act grammar embedded once) |
 
@@ -25,7 +27,7 @@
 
 | Constant | Value for this run | Decided by / note |
 |---|---|---|
-(dormancy_rate removed 09.09.2026: in the parametric assembly dormancy = zero ticks BY CONSTRUCTION — the bank is not running, nobody executes background work; a background tick would be an executable job with no executor. Wake-up is recorded by the gap-trace, already enabled.)
+(dormancy_rate removed 09.09.2026: in the parametric assembly dormancy = zero ticks BY CONSTRUCTION — nothing external is running and nobody executes background work; wake-up is recorded by the gap-trace, already enabled.)
 | audibility_floor | 0.01 | raise if age profile blurs; lower if dying traces are lost early |
 | act_price | 1.0 tick | MUST be identical across compared arms — the honesty constant for B vs D |
 | interference_factor | 1.0 (off) | stress test only: 1.0 → 1.1 → 1.25 on long biographies |
@@ -60,10 +62,10 @@
 
 | Field | Value |
 |---|---|
-| grammar version | act-grammar v0.1.2 |
+| grammar version | act-grammar v0.2.0 |
 | pass structure | mixed distribution: grammar (verbatim + dry calibration pairs) + self-distillation anchor on frozen core outputs |
 | mixture proportion | grammar % / anchor % |
-| LoRA rank / lr / seed | |
+| pass parameters (rank / lr / seed) | |
 | material checksum | |
 
 ## Post-pass battery (embedding tax, Limitation 10)
@@ -79,4 +81,4 @@
 
 ## Declaration (C8)
 
-This run reports: configuration coordinates, frozen constant values, ablation states, judge and blindness method, act-rate control, instruction-pass record and post-pass battery. What is NOT claimed until built: parametric substrate, hash-chained journal, act-ceiling numbers.
+This run reports: configuration coordinates, frozen constant values, ablation states, judge and blindness method, act-rate control, instruction-pass record and post-pass battery. What is NOT claimed until built: the fused single weight file, act-ceiling numbers.

@@ -1,7 +1,7 @@
 # PlastFormer — Glossary
 
-**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
-**Status:** Draft — dictionary only, complements THEORY.md v4.0 and CONSTITUTION.md v3.0
+**Version:** 4.1 (disinfected per owner's ТЗ, 2026-09-10; acts — eight; RETIRED entries added)
+**Status:** ACTIVE — dictionary only, complements THEORY.md v4.1 and CONSTITUTION.md v3.0
 **Related documents:** [THEORY.md](THEORY.md) · [CONSTITUTION.md](CONSTITUTION.md) · [MANIFEST.md](MANIFEST.md) · [preprint v0.5](../preprint.md)
 
 > This file is a dictionary: term → definition. It states no rules and no tests. Enforceable statements previously located here now live in [CONSTITUTION.md](CONSTITUTION.md); the migration table is in [ADR-002](ADR-002-docs-architecture.md). Where this file and the preprint overlap, preprint v0.5 terminology governs the formalization.
@@ -25,8 +25,8 @@ The part of the model that changes under memorization without changing the froze
 ### Embedded read interface
 The architectural coupling connecting the frozen core with its plastic module in one model; the model's functions for writing and reading its memory. The interface is embedded once — by a one-time instruction pass (the act grammar) — after which the core is frozen. (Historical note: an early draft carried a split-topology interface abbreviated MMI, later PMI; the split topology is retired from the architecture.)
 
-### Memory act [акт запоминания] — name / repeat / connect / reconcile / read
-An act of the model that writes into its memory as part of its activity — analogous to a person writing a note. The acts: `name` (fix source, time, boundaries), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule as a new trace, sources untouched), `reconcile` (record the relation of felt time to audited time). `read` is surfacing (`read last N / ids / range` through the embedded interface). TICK is counted by the substrate, not issued by the model.
+### Memory act [акт памяти] — name / repeat / connect / reconcile / read / calibrate / scan
+An act of the model that writes into its memory as part of its activity — analogous to a person writing a note. The acts: `name` (fix source, time, boundaries), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule as a new trace, sources untouched), `reconcile` (record the relation of felt time to audited time). `read` is surfacing (`read last N / ids / range` through the embedded interface). `calibrate` — the model inspects the physics of its own memory and proposes dial changes; the environment validates boundaries and applies from the next episode (budget capped; master switch owned by the owner). `scan` — the model inspects the Φ1 register layout. TICK is counted by the substrate, not issued by the model. (Ratified set of eight: act-grammar v0.2.0, owner approval 2026-09-09.)
 
 ### Instance A = (K, Φ) [экземпляр]
 The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one core; the plastic module belongs to one instance.
@@ -49,8 +49,20 @@ Bi-temporal stamps on every trace. Precise and verifiable; in this description t
 ### Trace amplitude [амплитуда следа]
 A vector with one component per decay time constant τ_1 < τ_2 < … < τ_k: a_i(n) = a_i(0)·e^(−Δn/τ_i), Δn in lived ticks. Content is immutable in this description; amplitude decays by substrate dynamics.
 
-### Stand [стенд] (retired term)
-Historical term for the external implementation of PlastFormer outside the model, used in drafts before the vector substrate was built. No live component of the architecture carries this name.
+### Stand [стенд] (RETIRED)
+Historical term for the external implementation of PlastFormer outside the model, used in drafts before the vector substrate was built. No live component of the architecture carries this name. Forbidden as a live actor in any current document.
+
+### Adapter [адаптер] / LoRA-adapter / base+adapter (RETIRED — forbidden)
+The Instruction is a competency layer embedded once into the core; "adapter", "LoRA-adapter", and the split form "base+adapter" describe a temporary storage state of development, not an architecture entity. The artifact is ONE weight file. The split form is FORBIDDEN by the owner (2026-09-09) as a state, result, or "working pair".
+
+### Harness / жгут (RETIRED — forbidden)
+No such entity exists in the architecture. Development code that runs the physics during experiments is instrumentation ("инструментарий разработки") and is never part of the artifact. Roles are only: model / environment / carrier (CONSTITUTION, ADR-003).
+
+### PMI / MMI (RETIRED — lineage only)
+Split-topology interface from early drafts. The split topology is retired from the architecture; the interface of the co-located configuration has no separate name. Historical mentions must carry a LINEAGE/RETIRED mark.
+
+### trained (as a configuration value) (RETIRED — forbidden)
+The canonical act-state value is **instructed** (one instruction pass, then frozen — O-8). "Trained" misdescribes the one-time embedding as ongoing training.
 
 ### Journal [журнал] — out of scope
 An external append-only log with a hash chain, kept by the environment at deployment time. Not part of PlastFormer: the architecture neither includes nor claims a journal (ADR-004). A deployment may add one for its own audit purposes.
@@ -62,4 +74,4 @@ A frozen competency layer carrying the act grammar — the rules by which the mo
 The model's own act of adding new traces to its plastic module Φ during its life: writing facts, summaries, connections into memory without changing the core. The growth of the biography. (Next stage — self-improvement [самоулучшение] — means improving the memory operations themselves: how the model writes, reads, connects and consolidates; not yet part of the architecture.)
 
 ### PlastFormer (sense definition) [ПластФормер — смысл]
-PlastFormer is a dedicated layer of the weight file reserved for the fact of memory: a transformer whose weights are split so that one part stays the unchanged organism and another part is a living, model-owned record. The model receives its memory rules through the Instruction, then enriches its own plastic layer by itself. Transformer + plastic Φ.
+PlastFormer is a single weight file divided into sections: the section K stays the unchanged organism, the section Φ is a living, model-owned record. The model receives its memory rules through the Instruction, then enriches its own Φ section by itself. Transformer + plastic Φ.

@@ -1,3 +1,5 @@
+**Status:** LINEAGE-ONLY — рабочая проверка препринта v0.5 от 05.09.2026; не норма, не актуальный статус.
+
 # arXiv readiness — PlastFormer preprint v0.5 (05.09.2026, worker arxiv-prep)
 
 ## Verification table (method: arXiv API over HTTPS curl; web-tools runner search; jneurosci.org links)

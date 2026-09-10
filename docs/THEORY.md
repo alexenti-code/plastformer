@@ -1,10 +1,12 @@
-# PlastFormer — Theory (mechanisms)
+# PlastFormer — Theory
+
+**Status:** ACTIVE — mechanisms only (v4.1, disinfected 2026-09-10; background tick deferred per Fork 8; §9 state updated). (mechanisms)
 
 **Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
 **Status:** Draft — mechanisms description, complements CONSTITUTION.md v3.0
 **Related documents:** [ADR-001](ADR-001-plastformer-transition.md) · [ADR-002](ADR-002-docs-architecture.md) · [CONSTITUTION.md](CONSTITUTION.md) · [preprint v0.5](../preprint.md) · [GLOSSARY.md](GLOSSARY.md) · [MANIFEST.md](MANIFEST.md) · Russian version: [THEORY.ru.md](THEORY.ru.md)
 
-> Naming note (lineage): this theory circulated earlier under the working name "Matryoshka" (see MANIFEST.md lineage). The architecture is now **PlastFormer**. An earlier draft used a split-topology interface abbreviated **MMI**, later renamed **PMI**; the split topology is retired from the architecture (history, not a live component).
+> Naming note (lineage): this theory circulated earlier under the working name "Matryoshka" (see MANIFEST.md lineage). The architecture is now **PlastFormer**. An earlier draft used a split-topology interface abbreviated **MMI**, later renamed **PMI**; the split topology is retired from the architecture (history, not a live component; these names are not a source of ТЗ and appear here only to prevent re-import of the retired scheme).
 
 > What this document is: a description of mechanisms — multi-tau decay, two clocks, reconcile, background tick as core-without-input, cascade anchors, acts, and open questions. Normative statements and tests live in [CONSTITUTION.md](CONSTITUTION.md). Where this file and the preprint overlap, preprint v0.5 wording describes the formalization; where this file and CONSTITUTION overlap, CONSTITUTION governs (see ADR-002 migration table).
 
@@ -111,7 +113,7 @@ Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
 The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) is the experience of this instance at tick t.
 
-**Background tick (mechanism).** Background tick is described as the core running with no user input at a substrate-set low rate: replay of traces and `connect` acts issued by the core, each recorded as a new trace of the core's own act. A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (see CONSTITUTION C4/C7; ADR-002 entry T11).
+**Background tick (mechanism — DEFERRED, Fork 8).** The background tick (the core running with no user input; nothing external executes work — there is no such executor in the architecture) — described for completeness: the core running with no user input at a substrate-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (DESIGN §13, Fork 8; owner decision 2026-09). A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7; ADR-002 entry T11).
 
 ## 5. Acts: name / repeat / connect / reconcile (+ write / read)
 
@@ -145,13 +147,15 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 - How to embed the interface functions in an open model without destroying core competence; how the instruction anchors `repeat` without suppressing legitimate repetition.
 - Φ portability between core versions (K replacement; re-embedding the read interface for a parametric substrate).
-- Which tests distinguish PlastFormer memory from ordinary storage with a wrapper (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION C2/C4).
+- Which tests distinguish PlastFormer memory from ordinary storage (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION C2/C4).
 - How bi-temporal stamps are represented in a parametric substrate.
 
-## 9. Honest boundary: what is unbuilt
+## 9. Honest boundary: what is built and what is not (state of 2026-09-09)
 
-- The **act grammar is embedded** (assembly α: one LoRA pass on the text core), but the vector Φ substrate is **unbuilt** — the vector bank, the write projector, and the MAC read interface remain future work.
-- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md` v1.4 and preprint §7).
+- Built: the vector Φ bank (unit-tested), the write and read interfaces (deterministic, native input-embeddings path), the act grammar **v0.2.0** (owner-approved 2026-09-09; acts `calibrate` and `scan` included; layer names t1–t5).
+- Not built: the read side of the Φ section — trace content is not decoded from the Φ section of the single file yet (**gap A**, registered as E1 PR0 gate); the autonomous act trigger without prompt scaffolding (**gap B**); the single fused weight file (core K + Instruction in one file). The Instruction of assembly α exists as a separately stored parameter set (a pass mechanism, not an architecture component); the split storage is a temporary development state — the artifact is ONE file.
+- Memory registers Φ1/Φ2 (ADR-005, owner-approved 2026-09-09): two provenance registers of one substrate — Φ1 (involuntary layout of perception, written by physics only: surprise, gap-after-dormancy; visible in `scan`, never in the prefix) and Φ2 (personality; explicit acts only; only Φ2 enters the prefix). Φ1/Φ2 volume is unlimited; decay is the only limiter.
+- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md`, version in the file header, and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
 - P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
 

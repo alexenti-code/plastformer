@@ -1,12 +1,14 @@
 # PlastFormer: An Architectural Proposal for Transformers
 
-**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
-**Status:** Draft for owner review — not published
+**Version:** 4.1 (disinfected per owner's ТЗ, 2026-09-10; PMI/stand moved to lineage)
+**Status:** ACTIVE — declaration only, not published; norms live in CONSTITUTION.md
 **Author:** Alexenti / AURA
 **Repository:** alexenti-code/plastformer
 **Lineage:** primary disclosure AURA-Retrieval, commit 539fc32 (2026-06-26); source release DOI 10.5281/zenodo.22141019; concept DOI 10.5281/zenodo.22124204
-**Working name note:** earlier drafts circulated as "Matryoshka"; renamed to PlastFormer to avoid collision with Matryoshka Representation Learning and Matryoshka Diffusion. The name "Matryoshka" is retained for lineage/DOI only. The interface formerly abbreviated MMI is now PMI (Plastic Memory Interface).
+**Working name note:** earlier drafts circulated as "Matryoshka"; renamed to PlastFormer to avoid collision with Matryoshka Representation Learning and Matryoshka Diffusion. The name "Matryoshka" is retained for lineage/DOI only. (Historical note, lineage only: an early draft discussed a split-topology interface abbreviated MMI, later PMI; the split topology is retired from the architecture — GLOSSARY RETIRED.)
 **Normative anchor:** this file declares a position and states no enforceable rules. Enforceable statements and tests live in [CONSTITUTION.md](CONSTITUTION.md); the migration table is in [ADR-002](ADR-002-docs-architecture.md).
+
+**LINEAGE-ONLY (2026-09-10, outside the agent read order):** `docs/ADR-001-plastformer-transition.md` (transition record from the working name "Matryoshka"; describes the retired split topology PMI/MMI and the stand — none of these exist in the current architecture) and `docs/RESEARCH-LOG-2026-09.md` (research diary of the split era). Both are history, not norms, not sources of ТЗ, not read-order material. The active assembly target is the single-file artifact A = (K, Φ): `docs/ARCHITECTURE-FIXED-BRAIN-v1.md`.
 
 ## Declaration
 
@@ -16,7 +18,7 @@ It proposes that a working language-model instance be given, as a matter of arch
 
 1. its own plastic module Φ governed by its own acts — `name` / `repeat` / `connect` / `reconcile` — the skill of which is embedded by a one-time instruction pass (the act grammar), after which the core is frozen.
 
-This is a proposal of one architecture for all transformers: a frozen core plus a plastic per-instance substrate plus the model's own acts, the skill of which is embedded by a one-time instruction pass. It is not a memory file format, not an algorithm, not a retrieval wrapper, not a second reasoning agent, not a prompt assembly system, not an orchestration layer, and not a mechanism for altering the pretrained core. Substrate form (parametric ↔ symbolic), topology (co-located ↔ split via PMI), and act state (instructed ↔ prompted) are configuration axes, not different systems.
+This is a proposal of one architecture for all transformers: a frozen core plus a plastic per-instance substrate plus the model's own acts, the skill of which is embedded by a one-time instruction pass. It is not a memory file format, not an algorithm, not a retrieval wrapper, not a second reasoning agent, not a prompt assembly system, not an orchestration layer, and not a mechanism for altering the pretrained core. The configuration of the artifact is single: parametric × co-located × instructed. (Historical drafts treated substrate form, topology, and act state as configuration axes; the split topology and the symbolic rehearsal configuration are retired — GLOSSARY RETIRED.)
 
 ## The starting situation
 
@@ -61,14 +63,14 @@ PlastFormer is the first engineering step of a broader program: continuity of ar
 
 ## Honest boundary
 
-This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The parametric substrate is unbuilt (work in progress: an MLX implementation of Gemma4-12B with the plastic organ in the weights); the organ's acts are prompted on the rehearsal stand rather than embedded; no results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
+This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. Built as of 2026-09-09: the vector bank, write/read interfaces (unit-tested), the act grammar v0.2.0 (owner-approved 2026-09-09, calibrate/scan included). Not built: the trained read projector (gap A), the autonomous act trigger (gap B), the single fused weight file. No results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
 
 ## Superseded lineage notes (not norms)
 
 The following sentences appeared as norms in MANIFEST v2.0–v3.0 and are **SUPERSEDED** — retained here as lineage only. The binding wording is in CONSTITUTION:
 
 - SUPERSEDED (→ CONSTITUTION O-4): "continuous existence in time" / "continuous calendar existence" as a requirement. Binding position: continuity is a property of the Φ line in lived ticks; dormancy is zero lived time.
-- SUPERSEDED (→ CONSTITUTION O-4): "the human/owner provides physical time" / "physical time is given, measured by a clock from the moment of launch". Binding position: the stand counts storing acts; the model owns working ticks; wall-clock stamps never enter amplitude.
+- SUPERSEDED (→ CONSTITUTION O-4): "the human/owner provides physical time" / "physical time is given, measured by a clock from the moment of launch". Binding position: storing acts advance the tick counter; the model owns working ticks; wall-clock stamps never enter amplitude.
 - SUPERSEDED (→ CONSTITUTION O-10): "the architecture only states that the layers exist" read as containers/places. Binding position: layers are speeds (τ constants), never containers or permission zones.
 - SUPERSEDED (→ CONSTITUTION O-3): "a unique corpus … that cannot be copied". Binding position: duplicating Φ is plain duplication — a new instance that shares history with the original up to the moment of duplication and diverges afterwards.
 - SUPERSEDED (→ CONSTITUTION C6): "No act of trust is required for this distinction — it is a property of the input." Binding position: source-class handling is capped physics asserted by the model; class policy is a deployment choice and an attack surface.
@@ -76,10 +78,10 @@ The following sentences appeared as norms in MANIFEST v2.0–v3.0 and are **SUPE
 
 ## Research questions
 
-- how \(K\) reads and writes \(\Phi\) within the forward pass, without destroying core competence (embedding the PMI functions);
+- how \(K\) reads and writes \(\Phi\) within the forward pass, without destroying core competence (embedding the memory functions);
 - whether attention over a continuous timestamped stream suffices, or an explicit time channel is required;
 - how the substrate is verified, audited and protected;
 - what tests distinguish a PlastFormer substrate from ordinary key-value storage;
 - how baseline competence is preserved for every instance of one core;
 - how \(\Phi\) is ported between core versions;
-- which product model makes the split (PMI) topology and its tick economics possible.
+- which deployment forms make owner-side Φ hosting possible without a second semantic actor (LINEAGE: superseded split-topology framing, retired).

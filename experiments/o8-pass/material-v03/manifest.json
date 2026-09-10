@@ -1,0 +1,44 @@
+{
+ "material": "o8-pass-v03 (awakening dataset, two-register Φ1/Φ2)",
+ "created": "2026-09-09",
+ "spec": "docs/DATASET-SPEC-v03.md (D1-D12 coverage)",
+ "grammar_source": "experiments/act-grammar/act-grammar-v0.2-ru.md (owner-approved)",
+ "components": {
+  "awakening_biographies": {
+   "count": 36,
+   "exchanges": 864,
+   "domains": [
+    "проект",
+    "семья",
+    "учёба",
+    "ремонт",
+    "поездка",
+    "торговля"
+   ],
+   "covers": "D1-D12"
+  },
+  "grammar_pairs": 33,
+  "moment_demos": 15,
+  "register_pairs": 5,
+  "grammar_repeats": 3
+ },
+ "mix": {
+  "total": 1023,
+  "grammar_share": "15.5% (window 13-20%)",
+  "train": 955,
+  "valid": 68
+ },
+ "registers": {
+  "phi1": "непроизвольная раскладка восприятия по слоям сразу (внешние тексты + собственные ответы); чувство времени, причинность; без лимита объёма",
+  "phi2": "личность: записи только явными актами; без лимита объёма"
+ },
+ "owner_decisions_encoded": [
+  "Φ1/Φ2 architecture (ADR-005)",
+  "no volume caps on Φ1/Φ2 (owner 09.09)",
+  "connect: no source field (owner 09.09, вариант Б)",
+  "PR10 rule excluded (ablation)",
+  "scan/calibrate in corpus",
+  "layer names t1-t5"
+ ],
+ "framing_guard": "Φ — плоть от плоти ядра; код среды — исполнение физики, не местоположение органа"
+}

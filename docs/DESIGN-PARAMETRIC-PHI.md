@@ -1,9 +1,10 @@
 # Design: Parametric Phi — Variant B (trace bank + MAC interface)
 
-**Status:** ENGINEERING DESIGN (owner review pending) — 07.09.2026
-**Decision context:** E1 arm D needs a parametric substrate. Two candidates analyzed:
+**Status:** SUPERSEDED (2026-09-10, owner directive) — this is a design of the split-era trace bank with external write/read interfaces; the split scheme was removed and is not an object of development. Not a source of ТЗ. The active assembly architecture of the single file A = (K, Φ) is `docs/ARCHITECTURE-FIXED-BRAIN-v1.md`. Historical engineering analysis below is kept as lineage; terms like "trace bank", "harness", "projector", "trained read side" name retired split-era entities that do not exist in the current architecture.
+
+**Original decision context (history):** E1 arm D needed a parametric substrate. Two candidates were analyzed:
 (A) rank-1 weight updates in a Titans-style memory block; (B) trace bank + learned
-write/read interfaces at the MAC position. **Variant B selected** for E1 and the paper.
+write/read interfaces at the MAC position. Variant B was selected then; both are superseded.
 
 ## 1. What variant B is
 
@@ -141,8 +142,8 @@ The 200-message scenario (~2-3 h) is unaffected.
 2. Write interface (projector d x d + small MLP): act JSON -> vector + amplitude.
 3. Read interface (projector d x d): trace vectors -> hidden space; MAC-prefix
    insertion before attention (custom forward).
-4. Grammar pass: act-grammar v0.1.1 embedded in the trunk (one LoRA pass, frozen).
-5. Harness: substrate, ticks, act acknowledgements, judge channel.
+4. Grammar pass: act-grammar v0.2.0 embedded in the trunk (one instruction pass, frozen).
+5. Run harness (development instrumentation, NOT part of the artifact): substrate, ticks, act acknowledgements, judge channel. The artifact is the single weight file (K + Instruction + Φ region) plus the Φ section data; everything that runs the physics during experiments is tooling.
 
 ## 8. Residency of the surfaced set (decided: V3, owner-approved 07.09.2026)
 

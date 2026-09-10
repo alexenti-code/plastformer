@@ -1,3 +1,5 @@
+**Status:** LINEAGE-ONLY — аудит от 05.09.2026 (матрёшкина эпоха, PMI executor); не норма.
+
 # PlastFormer Constitutional Audit — v0.5 / E1 v1.1 / PMI executor v0.6.0
 
 Date: 2026-09-05. Auditor role: constitutional (owner: Alex).

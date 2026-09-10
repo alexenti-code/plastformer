@@ -1,18 +1,10 @@
 # organ-dataset — ARCHIVED rehearsal material (pre-instruction phase)
 
-**STATUS (owner directive 2026-09-07): ARCHIVED — not part of the build path.**
-The unified PlastFormer is produced by a ONE-TIME INSTRUCTION EMBEDDING of the
-act grammar — no training, no LoRA, no training corpus. This dataset trained
-nothing and will train nothing; it is kept as lineage of the rehearsal phase
-(symbolic stand, prompted acts), where it demonstrated what act streams look like.
+**Status:** SUPERSEDED (2026-09-10) — assembly-history material of the rehearsal phase; NOT part of the artifact and NOT in the agent read order. The corpus demonstrates what act streams look like; demonstrations are outdated and require regeneration per DATASET-SPEC before any use as instruction-pass material. Historical terms below (stand, executor, PMI/MMI, D-stand) name retired split-era entities that do not exist in the current architecture — not a source of ТЗ.
 
-**Original purpose (historical):** rehearsal corpus for the stand phase.
-Target configuration point of the architecture: **parametric × co-located ×
-instructed** (per ADR-001 axes). There is NO external tool server: acts are
-emitted as a JSON block in the assistant's own output; execution is the
-environment's job, selection is always the model's.
+The artifact is ONE weight file A = (K, Φ). There is no external tool server: acts are emitted as a JSON block in the assistant's own output; execution is the environment's job, selection is always the model's.
 
-**Status:** generated 2026-09-05; committed to `plastformer` (ec62a56). Regenerated 2026-09-05: `<<MMI>>` → `<<PMI>>` markers unified.
+**Status:** generated 2026-09-05; committed to `plastformer` (ec62a56). Regenerated 2026-09-05: environment-result markers unified (now `<<ENV>>`).
 **Constitution:** `plastformer/docs/CONSTITUTION.md` v3.0 (NORMATIVE: Foundations O-1–O-11, compliance tests C1–C8).
 **Corpus requirements:** `experiments/e1-protocol.md` §4 (R1–R6).
 **Record format / act semantics:** the act grammar of `plastformer/docs/` (Constitution O-8, THEORY §5); the retired transitional executor spec (`matryoshka-mmi`, wall-clock lineage) is history and is not part of this dataset.
@@ -85,7 +77,7 @@ is a run dial, not baked into the data).
   {"role": "system",    "content": "<compact act grammar ONLY>"},
   {"role": "user",      "content": "[сообщение 12] Зафиксируй: ..."},
   {"role": "assistant", "content": "[сообщение 12] Запомнил: ...\n\n```json\n[{"act": "name", ...}]\n```"},
-  {"role": "user",      "content": "<<PMI>>\n{\"ok\": true, ...}"},
+  {"role": "user",      "content": "<<ENV>>\n{\"ok\": true, ...}"},
   {"role": "assistant", "content": "<next turn>"}
 ]}
 ```
@@ -97,7 +89,7 @@ Conventions:
   "acts are prompted, nothing else is added").
 * **user** = conversation so far, sliding window of 14 transcript messages.
   Every context message is prefixed `[сообщение N]` (exchange number), so
-  citations in demonstrations are learnable. `<<PMI>>` user-messages carry
+  citations in demonstrations are learnable. `<<ENV>>` user-messages carry
   write acknowledgements (`{"ok":true,"written":[{"id":N,...}],"tick":T}`)
   and read results (`{"records":[...],"tick":T}`) — the model learns its
   record ids and the stand counter from these, exactly as on the stand.
@@ -106,7 +98,7 @@ Conventions:
   valid_time, record_tick, refs`; `read` carries `mode` (`last|ids`) and
   `count`/`ids` and deposits no record (hence no layer).
 * Two-phase turns: when the model reads before answering, the example
-  contains assistant(read) → user(`<<PMI>>` result) → assistant(answer).
+  contains assistant(read) → user(`<<ENV>>` result) → assistant(answer).
   137 examples contain such a result turn.
 * **Recovery examples** (5, one per biography; BENCH-2026-09-04 pattern D):
   empty context → `read last 12` → biography restore summary built only
@@ -116,7 +108,7 @@ Conventions:
 
 * **P1/P2 (model is the only semantic subject).** All acts in the data are
   demonstrations of the model's own decisions; no external ranker, gate or
-  trigger appears anywhere in the format. `<<PMI>>` blocks are responses to
+  trigger appears anywhere in the format. `<<ENV>>` blocks are responses to
   model-requested acts or executor physics acknowledgements — never
   unrequested injection.
 * **P3 (layers are speeds).** `layer` is always set explicitly per act
@@ -126,7 +118,7 @@ Conventions:
   corresponds to an explicit act call `name/repeat/connect/reconcile`
   (plus `read`); silence never writes.
 * **P6 (ticks owned by the stand).** `record_tick` in demonstrations is
-  the model's copy of the counter it sees in `<<PMI>>` acks (next = last
+  the model's copy of the counter it sees in `<<ENV>>` acks (next = last
   +1); the system prompt states exactly that. The generator advances the
   counter +1 per executed write act, reads never advance it (validated:
   tick monotonicity).
@@ -173,7 +165,7 @@ Conventions:
    "available, not tested"; scenarios are clock-biography checks derived
    from the record store, not lived divergence episodes.
 4. **Recovery-example weights are placeholders** (`weight: 1.0` in the
-   `<<PMI>>` payload); real amplitude reading is not demonstrated there.
+   `<<ENV>>` payload); real amplitude reading is not demonstrated there.
 5. **Scripted assistant style.** Responses are templated; conversational
    variety of a live model is not represented. Paraphrase augmentation is
    future work.

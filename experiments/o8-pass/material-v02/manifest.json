@@ -1,0 +1,42 @@
+{
+ "material": "o8-pass-v02 (one-pass instruction, grammar v0.2.0)",
+ "created": "2026-09-09",
+ "grammar_source": "experiments/act-grammar/act-grammar-v0.2-ru.md (owner-approved 09.09.2026)",
+ "components": {
+  "grammar_pairs": {
+   "count": 33,
+   "kind": "recite + rules QA, verbatim from v0.2.0"
+  },
+  "moment_demos": {
+   "count": 15,
+   "kind": "scripted live-dialog act demonstrations, strict JSON validated, no PR10 rule"
+  },
+  "anchors": {
+   "count": 120,
+   "repeats": 2,
+   "kind": "self-distillation ballast from frozen core (approved pass 07.09), converted to messages format"
+  }
+ },
+ "mix": {
+  "grammar_side_total": 48,
+  "anchors_total": 240,
+  "grammar_share": "16.7% (window 13-20%)",
+  "train": 264,
+  "valid": 24
+ },
+ "validation": {
+  "no_record_tick_in_acts": true,
+  "no_old_layer_names": true,
+  "no_PMI_blocks": true,
+  "act_json_strict_parse": true,
+  "dials_match_calibrate_schema": true,
+  "layers_t1_t5_only": true
+ },
+ "owner_decisions_encoded": [
+  "scan/calibrate in embedding corpus (ratified 09.09)",
+  "layer names t1-t5",
+  "PR10 weighing rule excluded from embedding (ablation file)"
+ ],
+ "core_source_note": "backup path per owner 09.09: fresh download from source site only (mlx-community/gemma-4-12B-it-4bit), local cache not a backup",
+ "framing_guard": "Φ — плоть от плоти ядра: пластичный субстрат того же тела, НЕ внешний файл и НЕ внешняя память. Код среды (bank.py и пр.) — исполнение физики, не местоположение органа. Ядро = генетический инструмент (не меняется); Φ = опыт, знания, личность (пишется только моделью, объём и скорости затухания — физика, не выбор модели)."
+}

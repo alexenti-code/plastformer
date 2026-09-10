@@ -1,5 +1,7 @@
 # PlastFormer: Self-Governed Idiographic Memory for Frozen-Core Transformers
 
+**Status:** SUPERSEDED (2026-09-10, owner directive) — the paper describes the split-era framing (wrapper evaluation, configuration axes, retired PMI/MMI terminology) and is NOT the current architecture; do not use as a source of ТЗ. It will be rewritten only against the single-file artifact A = (K, Φ): one MLX 4-bit weight file, section K (frozen core with the embedded Instruction) plus section Φ (the plastic records of the same instance). Historical "Changes since…" sections at the bottom are history only.
+
 **Alexey Voronin** — Aurum Estate LLC, Sochi, Russia
 Draft v0.6 — September 6, 2026 — prepared for arXiv (cs.LG)
 
@@ -239,6 +241,8 @@ PlastFormer is a composition claim: a frozen nomothetic core; a plastic per-inst
 
 
 ---
+
+> Note (disinfection 2026-09-10): all "Changes since …" sections below are HISTORY. Mentions of the stand, PMI/MMI, D-stand, or "trained" are historical records, not live entities (GLOSSARY RETIRED entries; AGENTS.md §1.2).
 
 ## Changes since v0.5
 

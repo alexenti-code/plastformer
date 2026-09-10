@@ -1,58 +1,66 @@
-# AGENTS.md — PlastFormer (PUBLIC)
+# AGENTS.md — PlastFormer
 
-This file is public and harmless. It tells any agent how to read and extend this repository without breaking the architecture or the public/internal boundary.
+**Status:** ACTIVE (v3, 2026-09-10, owner directive: split-architecture traces eliminated).
 
-## 1. Read order
+This file tells any agent how to read and extend this repository. It is binding.
 
-1. `docs/CONSTITUTION.md` v3.0 FIRST — normative: Foundations O-1–O-11, compliance tests C1–C8 with "Violated if" criteria. On any conflict, CONSTITUTION wins.
-2. `docs/ADR-001-plastformer-transition.md`, then `docs/ADR-002-docs-architecture.md` (file semantics + norm migration table + public/internal boundary).
-3. `docs/THEORY.md` (mechanisms only) + `docs/GLOSSARY.md` (dictionary only) + `docs/MANIFEST.md` (declaration only).
-4. `preprint.md` v0.6 (§1 split, §3.3, §3.7, §4.3, §7 E5) and `experiments/e1-protocol.md` v1.4 (§5, §7–8) — claims under test, not norms.
-5. `docs/INTERNAL.md` MUST NOT exist in public snapshots (gitignored; see ADR-002). If you see it locally, its contents never leave the machine.
+## 1. What is being built
 
-## 2. File map
+ONE MLX 4-bit weight file: **A = (K, Φ)**.
 
-| Path | Semantics | Normative? |
-|---|---|---|
-| `docs/CONSTITUTION.md` | NORMATIVE: Foundations O-1–O-11 + compliance tests C1–C8, each test with a "Violated if" criterion | YES — highest |
-| `docs/ADR-001*`, `docs/ADR-002*` | decisions, file semantics, migration table, boundary | decisions bind; history does not |
-| `docs/THEORY.md` / `THEORY.ru.md` | mechanisms description only (multi-tau decay, two clocks, reconcile, background tick, cascade anchors) | NO |
-| `docs/GLOSSARY.md` | dictionary term→definition (EN with RU term in brackets) | NO |
-| `docs/MANIFEST.md` | outward declaration (claim, positioning, lineage, working-name note) | NO |
-| `preprint.md`, `experiments/e1-protocol.md` | claims + pre-registered evaluation | under CONSTITUTION, not above it |
-| `docs/PMI-SPEC.md` (when present), code | implementation | lowest; must satisfy CONSTITUTION |
-| `docs/INTERNAL.md`, `drafts/*-private*`, `*.local`, `.env`, `runs/*-secret*` | internal only, gitignored | NEVER public |
+- **K** — the frozen core: 4-bit weights with the Instruction (the act grammar) embedded once. After the embedding pass K never changes.
+- **Φ** — the plastic substrate of the same instance, living as a section inside the same file. Φ1 and Φ2 are two origins of records within one Φ — not separate stores, not separate files, not separate entities.
+- Deleting the Φ section removes the biography; K survives. Copying the Φ section creates a copy of the memory line. Moving the file moves the instance. Outside the file there is no instance state: no state folder, no vector bank, no companion process, no separate Instruction file.
 
-## 3. Forbidden patterns (main run)
+## 2. Source of norms
 
-Text and code patterns that violate CONSTITUTION in the main run. Each belongs in a named ablation only, default off, manifest-logged:
+The single source of norms is [`docs/CONSTITUTION.md`](docs/CONSTITUTION.md) (with the Russian twin `docs/CONSTITUTION.ru.md`). On any conflict, CONSTITUTION wins.
 
-- **No embeddings/similarity in the main path.** No `embedding`, `similarity`, relevance ranking, keyword match, or query-dependent selection for reads. Read physics is amplitude-only loudest-N in response to the model's own `read`. (C2)
-- **No auto-write.** No "every experience leaves a trace" rule on the symbolic stand. Only the model's explicit `name / repeat / connect / reconcile` write to Φ (content). Core-gated surprise traces (the core's own perplexity signal above a frozen content-blind threshold, provenance source=surprise) are ENABLED in the parametric assembly (e1-protocol v1.6); the embedding-distance surrogate is forbidden everywhere. (C4)
-- **No auto-remind / pre-turn push.** The stand never injects `<<PMI>>` before a user turn unasked. Loudest-N context is a `read` response field only. Auto-injection lives only in ablation `loudest-N-auto on` with opt-out and act-log accounting. (C2)
-- **No auto-link / auto-extract.** No background process issues `connect`; no deterministic pre-extractor writes to Φ or sets amplitude. Proposals require model confirmation by act. (C1/C4/C6)
-- **No silent defaults (including layer).** Missing parameters are errors or recorded `unspecified`, never silently completed. `layer="episode"` as a silent default is forbidden; fallbacks must be labeled and excluded from layer-based claims. (O-10/C4)
-- **Tick rule.** 1 stand tick = 1 executed storing act (WRITE/REPEAT/CONNECT/RECONCILE), counted by the stand. READ/STATUS/`tick` calls never advance it. Wall-clock seconds never enter amplitude. Dormancy is zero lived time; background tick = core running with no user input, every act recorded as a trace of Φ. (C5)
-- **Dials frozen pre-run in manifest.** Only the P4 enumerated dials (volume, forgetting tempo, τ set + scale, friction meter schedule, provenance cap table, injection N-cap, clock mode). No mid-run retuning; no content-reading dial. (C3)
-- **Judge/ledger never feed back into runs.** Oracle/ledger/judge score post-hoc only; they never enter Φ, context, notes, or any external log and never trigger/filter acts. E5 bounds capacity, it does not measure governance. (C7)
-- **Refs carry sources.** `connect`/`reconcile` records carry `refs` to source records; sources are never mutated; archive moves preserve ids/fields/ticks; `last`-reads-active-only is disclosed in `read` help and STATUS. (O-5/C4)
+## 3. Read order
 
-## 4. How to reproduce E1
+1. This file and [`README.md`](README.md) — the target form and the work object.
+2. `docs/CONSTITUTION.md` — norms.
+3. `docs/WHAT-IS-PLASTFORMER.md` — the plain-language description of the artifact.
+4. `docs/ARCHITECTURE-FIXED-BRAIN-v1.md` — the assembly architecture of A = (K, Φ) (sections, pipeline, open questions).
+5. `docs/ADR-005-registers-phi1-phi2.md` — Φ1/Φ2 registers inside one Φ (approved).
+6. `docs/THEORY.md`, `docs/GLOSSARY.md`, `docs/MANIFEST.md` — mechanisms, dictionary, declaration.
 
-1. Read `experiments/e1-protocol.md` v1.4 fully (§3 two arms B/D, §5 D-stand TZ, §7–8 scoring/isolation).
-2. Freeze the C3 dial set in a run manifest before the run (clock mode `ticks`, τ set, N-cap, provenance caps, friction schedule); record axis coordinates — registered arm D: `parametric × co-located × trained`; ablation arm D-stand (§5): `symbolic × split(PMI) × prompted`.
-3. Run the registered arms (B and D) with all ablations OFF (`RAG-style read` off, `unconscious-surrogate` off, `decay-in-wall-clock` off, `loudest-N-auto` off, `verbatim-extractor` off, `friction-veto` off). Main-run code path must contain no `embedding`/`similarity` symbol.
-4. Report per C8: coordinates, frozen dials, ablations on/off, act log (counts/types of acts), wrapper strength, and what is NOT claimed until built. Arm D requires the unified artifact; until it exists only D-stand can be run and its numbers are a rehearsal, not the registered result.
+Everything else — ADR-001/002/003, `docs/RESEARCH-LOG`, `preprint.md`, `experiments/e1-protocol.md`, `drafts/` — is history marked `LINEAGE-ONLY` or `SUPERSEDED`. It is not in the read order, it is not a source of ТЗ, and nothing in it is a live component.
 
-## 5. Copying and attribution
+## 4. Forbidden: the split architecture must not return
 
-- Ideas: free to use from prior work (Titans, MemoryBank, Zep, ...) — with citation in the paper and docs. Claiming a copied idea as our own violates C8 and scientific ethics; the paper already declares the compositional claim and cites ingredients.
-- Code: only MIT/BSD/Apache-2.0 sources may enter this Apache-2.0 repo, with copyright + license preserved and noted in NOTICE/CREDITS. GPL/AGPL code must not be merged. No license = no use.
-- Models: Gemma derivatives (our unified artifact) are governed by Gemma Terms of Use — re-read them before any public distribution of model weights.
-- Our own code is Apache-2.0: anyone may copy it. Our defense is priority (DOI, arXiv timestamps) and citation, per ADR-001 lineage.
+Do not recreate, repair, "improve" or resurrect the former split scheme ("model here, memory there", "core plus an external bank", "state folder", "model plus an adjacent system"). It was removed from the repository on 2026-09-10 and is not an object of further development. In particular:
 
-## 6. Commit discipline (public, harmless)
+- no external bank of vectors, no `vectors*.npy` / `amplitudes*.npy` / `.npz` projector files, no `meta.jsonl` state, no `section-phi/` directory;
+- no state folder next to the model; every save writes the single file A = (K, Φ);
+- no separate Instruction file or launch path of the form "core + external Φ";
+- no adapter/LoRA/base+adapter pair as a form of the artifact — the Instruction lives inside K;
+- no `adapter_path` / `adapters_alpha` in any launch path of the artifact;
+- no harness / stand / executor / wrapper as an architectural entity (development instrumentation that runs the physics is allowed, but it is never part of the artifact and never appears in launch instructions of the model);
+- no "PMI", "MMI", "split topology", "symbolic surrogate", "trained" as an architecture state (the canonical act-state value is **instructed**).
+
+History survives only in git history and in files headed `LINEAGE-ONLY` / `SUPERSEDED`; such files are outside the read order, and their historical terms never act as a source of ТЗ.
+
+## 5. If you find separate Φ files
+
+If you encounter separate Φ files, a `vectors.npy`/`amplitudes.npy` bank, a `section-phi/` directory, an `adapter_path` in a launch config, or any other split-era artifact: do NOT repair, restore, port, rename or modernize them. Classify them as removable legacy and delete them (or leave them only in git history). Report the deletion.
+
+## 6. Current work
+
+The nearest work: design and assemble the single file A = (K, Φ):
+
+1. freeze the owner decisions: K/Φ proportion, storage precision, the Φ write mechanism;
+2. prepare the file: K region = the current 4-bit core, Φ region initialized;
+3. the one instruction pass embeds the Instruction (material v0.3, grammar v0.2.0) into the K region; freeze K;
+4. verify: grammar ≥ 95 %, acts fire unprompted, reads from Φ work, no core degradation;
+5. life: perception → Φ1 → acts → Φ2, writes into the Φ section of the file;
+6. then the E1 examination (protocol to be rebuilt against A = (K, Φ) — the current `experiments/e1-protocol.md` is SUPERSEDED).
+
+Assembly material (the raw material of the one instruction pass, the base checkpoint, the grammar v0.2.0) is kept under `experiments/o8-pass/` and `experiments/act-grammar/` as **assembly material**; it is not part of the artifact.
+
+## 7. Commit discipline
 
 - Do NOT commit. Do NOT push without the owner's explicit command in this session.
-- Before any push: read this repo's README/ADR rules; push only the remote the owner named; never copy one project's push config to another.
+- Before any push: read this repo's rules; push only the remote the owner named; never copy one project's push config to another.
 - Public snapshots contain only released files (see ADR-002 boundary). When in doubt, keep local.
+- Ideas from prior work are used with citation (Titans, MemoryBank, Zep, ...). Code entering this Apache-2.0 repo must be MIT/BSD/Apache-2.0 with attribution; GPL/AGPL must not be merged. Gemma-derived weights follow the Gemma Terms of Use.

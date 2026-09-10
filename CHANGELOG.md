@@ -1,5 +1,51 @@
 # Changelog
 
+**Status:** CHANGELOG — история изменений; не норма.
+
+## [split-removed] — 2026-09-10
+
+### Removed (ТЗ «ликвидация следов разделённой архитектуры», приказ владельца)
+
+**Старая раздельная архитектура удалена; она не является объектом дальнейшей разработки.** Итоговая форма изделия — один MLX 4-bit файл весов A = (K, Φ): секция K (неизменное ядро с вшитой Инструкцией) + секция Φ (пластичные записи того же экземпляра). Φ1/Φ2 — два происхождения записей внутри одного Φ, не отдельные хранилища. Вне файла нет состояния экземпляра.
+
+- **Код раздельной памяти удалён целиком:** `experiments/phi-vector/` — `bank.py`, `read_iface.py`, `write_iface.py`, `train_read.py`, `run_vector.py`, `smoke_pr0.py`, `tests_test_bank.py`, `read_proj.npz`, `section-phi/`, `read-corpus/`, кэши; `experiments/calibration/` (CAL-1, стендовая физика); `experiments/e1-run/` (стендовый генератор корпуса).
+- **Старый цикл o8-pass удалён:** `plastformer_run.py`, `battery.py`, `gen_anchor.py`, `mix_material.py`, `anchor.jsonl`, `phi_state.json`, `grammar*.jsonl`, `lora_v02.yaml`, `lora_v03.yaml`, `lora_alpha.yaml`, `adapters_v02/`, `adapters_v03/`, `adapters_alpha/` (включая не отслеживавшиеся git-ом каталоги и `phi_state.json`).
+- **Слитая бракованная сборка удалена:** `models/plastformer-a1-ollama/`, `models/Modelfile-a1`.
+- **Сохранено как сборочный материал (не часть изделия):** материал прохода Инструкции (`experiments/o8-pass/material*/`), генератор материала (`gen_material.py`), базовый чекпойнт ядра (`gemma4-12b-text-4bit/`), Инструкция v0.2.0 (`experiments/act-grammar/`), датасеты (`organ-dataset/`, `project-dataset/`).
+- **e1-protocol.md → SUPERSEDED:** описывает распорядок эпохи разделения (wrapper-arms); добавлен §5.1 «регистрируемый объект — единый файл A=(K,Φ)»; никаких суррогатных конфигураций. Будет пересобран под A=(K,Φ).
+- **preprint.md → SUPERSEDED:** описывает рамку эпохи разделения; будет переписан под A=(K,Φ).
+- **DESIGN-PARAMETRIC-PHI.md → SUPERSEDED:** дизайн раздельного trace-банка; активная сборочная архитектура — `docs/ARCHITECTURE-FIXED-BRAIN-v1.md`.
+- **run-manifest-template.md → SUPERSEDED** до пересборки под A=(K,Φ).
+- **ADR-001 → LINEAGE-ONLY** (переход от «Матрёшки»; split topology PMI/MMI и стенд выведены из архитектуры), **ADR-003 → LINEAGE-ONLY** (история нумерации Конституции + соглашения эпохи разделения), **RESEARCH-LOG → LINEAGE-ONLY** (дневник эпохи разделения); все три выведены из read order в AGENTS.md.
+- **AGENTS.md v3:** целевая форма — один файл A=(K,Φ); единственный источник норм — Конституция; запрет возвращать раздельную схему; правило «отдельные файлы Φ — удаляемое наследие, не чинить»; ближайшая работа — сборка единого файла; новый read order без наследия эпохи разделения.
+- **README.md:** описывает только единый артефакт A=(K,Φ).
+- **TECHNICAL-STATE.md** (корень + копия в `experiments/phi-vector/`): карта «удалено / сохранено как сборочный материал / единственный объект работы»; советы «чинить» старый код исключены.
+- **INSTRUCTION-PACKAGE.md:** пакет переведён в статус сборочного материала; §1 (банк/интерфейсы) переписан — физика Φ это будущая секция Φ единого файла; §4 (сборка изделия) — единый файл A=(K,Φ); упоминания банка/проектора/стенда убраны.
+- **GLOSSARY/MANIFEST/THEORY/THEORY.ru/act-grammar/organ-dataset:** локальные правки — «wrapper», «обвязка», «trained projector», «PMI/MMI-маркеры», «стенд» заменены нейтральными формулировками либо снабжены пометками RETIRED/LINEAGE; `<<PMI>>` → `<<ENV>>` в коде и текстах.
+
+## [disinfection] — 2026-09-10
+
+### Changed (ТЗ «полная дезинфекция документов», приказ владельца)
+- **AGENTS.md** v2: добавлены §1.1 (изделие — один файл весов K+Φ) и §1.2 (запрещённый словарь для всех агентов); §2–§4 вычищены — стенд/PMI/D-stand/trained удалены как живые сущности; ось — instructed; ссылка на e1-protocol — «версия в шапке файла».
+- **experiments/phi-vector/TECHNICAL-STATE.md** v2: статус ACTIVE (карта состояния); «LoRA-адаптер» → «Инструкция» с пометкой «временная форма до слияния»; строка a0 переписана с контекстом инцидента (изъятие ≠ запрет слияния); «символический суррогат a0» изъят из карты; §5 (правила) перенесён в AGENTS.md, оставлено решение владельца о запрете разнесённой формы.
+- **README.md**: таблица «Three configuration axes» удалена — одна конфигурация (parametric × co-located × instructed); PMI — строкой LINEAGE; E1-версия — «по шапке файла».
+- **docs/MANIFEST.md** v4.1: PMI из шапки и research questions переведён в lineage-примечания; honest boundary переписан по факту 09.09 (банк/интерфейсы/грамматика v0.2.0 построены; разрывы A/B и единый файл — нет).
+- **docs/THEORY.md** v4.1 / **docs/THEORY.ru.md**: §4 background tick помечен DEFERRED (Fork 8); §9 переписан — построено/непостроено, регистры Φ1/Φ2 по ADR-005; «LoRA» убрано.
+- **docs/GLOSSARY.md** v4.1: акты — восемь (добавлены calibrate, scan, ратифицированы 09.09); sense definition переформулирован без «split»; добавлены RETIRED-записи: adapter/base+adapter, harness, PMI/MMI, stand, trained.
+- **experiments/run-manifest-template.md**: grammar v0.2.0; «LoRA rank» → «pass parameters»; упоминание hash-chained journal снято (ADR-004).
+- **experiments/calibration/protocol.md** v0.2: статус — частично ратифицирован (§8.2 ратифицирован 09.09); «harness-side» → «evaluator-side»; runner помечен инструментарием.
+- **docs/ADR-001**: статус COMPLETED (LINEAGE-история); §3/§5 помечены как координаты/ТЗ своего времени (split(PMI)/стенд выведены).
+- **docs/ACT-GRAMMAR-v02.md**: статус SUPERSEDED → experiments/act-grammar (v0.2.0, утверждена владельцем 09.09).
+- **docs/DESIGN-PARAMETRIC-PHI.md** v4.1: §7 модуль 5 переименован — «run harness (development instrumentation, NOT part of the artifact)»; grammar v0.2.0.
+- **drafts/**: всем шести файлам проставлены шапки SUPERSEDED/LINEAGE-ONLY.
+- Не тронуты (проверено чистыми): docs/CONSTITUTION.md, docs/CONSTITUTION.ru.md, docs/ADR-004, docs/ADR-005, preprint.md (исторические секции Changes — по правилу «история не трогается»).
+- Примечание к сборке (ТЗ §6): фиксированная ёмкость Φ отменена — объём Φ1/Φ2 не лимитируется, ограничитель — затухание; Φ-регион файла переменной длины (ADR-005); синхронизировано в docs/ARCHITECTURE-FIXED-BRAIN-v1.md §2.
+- Шапки статуса проставлены всем .md (включая CHANGELOG, ADR-003/004, preprint, README датасетов, служебные файлы грамматики, models/*/README).
+- e1-protocol.md: заголовок исправлен на фактическую v1.7 (в теле были Changes до v1.7 при шапке v1.5).
+- В e1-protocol.md и preprint.md перед блоками «Changes since…» добавлено примечание: история, упоминания стенда/PMI — не живые сущности.
+- docs/RESEARCH-LOG-2026-09.md, docs/ADR-002: шапки LINEAGE/ACTIVE с пометками об исторических упоминаниях.
+- INSTRUCTION-PACKAGE.md, calibration/README.md: «LoRA-проход» → «инструктивный проход», harness → инструментарий; шапки уточнены.
+
 ## [0.6] — 2026-09-06
 
 ### Changed

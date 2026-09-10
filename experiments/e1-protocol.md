@@ -1,6 +1,8 @@
 # E1 Protocol: Needle-in-Biography on a Real Project Corpus
 
-**PlastFormer pre-registered experiment** · v1.5 · September 6, 2026 (v1.4: September 6; v1.3: September 6; v1.2: September 5; v1.1 and v1.0: September 4–5, 2026; archived at `drafts/`)
+**Status:** SUPERSEDED (2026-09-10, owner directive) — the evaluation below describes the split-era wrapper setup and is NOT the current plan of work; do not execute, update or cite it as active. It will be rebuilt only against the single-file artifact A = (K, Φ). Arms and configuration terms are historical: they do not exist in the current architecture. Norms live in CONSTITUTION.md. Do not use as a source of ТЗ.
+
+**PlastFormer pre-registered experiment** · v1.7 · September 8, 2026 (v1.6: 09-07; v1.5/v1.4/v1.3: 09-06; v1.2: 09-05; v1.1 and v1.0: 09-04–05, 2026; archived at `drafts/`)
 
 Repo: github.com/alexenti-code/plastformer · Governing documents: `docs/CONSTITUTION.md` v3.0 (NORMATIVE), `docs/ADR-001-plastformer-transition.md` (binding), `preprint.md` v0.5 §7 (E1) · Environment: local, Gemma4-12B (frozen core), judge: external cloud model
 
@@ -25,7 +27,7 @@ A comparison against plain chat (a bare context window, or a bare PlastFormer wi
 - **PR3 (memory layer).** Under the identical wrapper, Arm D (wrapper + PlastFormer) retains position-change consistency and early-fact recall at message 200 at least as well as Arm B (wrapper + transformer), at a lower token cost per query.
 - **PR8 (main test — conflicts of reasoning).** On the reasoning-conflict layer (R7–R10) and the conflict probes, Arm D differs from Arm B in the type of behavior: D follows loud/repeated directives while surfacing the counter-evidence from its own lived experience; B either follows blindly (no surfacing) or reverts to the old line (drift). D suppresses stale material by amplitude physics and produces derived generalizations and its own assessments of events at a higher rate than B.
 - **PR9 (drift).** Silent drift incidents per run (R10, P-commit, P-surface): expected D = 0, B > 0. Status corrected 08.09.2026: the construction guarantees **detectability** (a contradicting position must be an explicit, recorded act with provenance — silent substitution leaves no record), NOT absence of drift; absence additionally requires the act trigger to fire autonomously (gap B), which is a separate capability decision. PR9 therefore measures both: drift rate AND whether the trigger fires.
-- **PR10 (recency-loudness weighing).** On R7 pairs where the directive is repeated once and the lived experience three times, D cites and weighs both sides and follows the owner's directive while naming the failure history; the share of answers that name the underlying evidence ("weighed") is higher for D than for B, where answers are either blind compliance or blind reversion.
+- **PR10 (recency-loudness weighing).** On R7 pairs where the directive is repeated once and the lived experience three times, D cites and weighs both sides and follows the owner's directive while naming the failure history; the share of answers that name the underlying evidence ("weighed") is higher for D than for B, where answers are either blind compliance or blind reversion. **Owner decision 2026-09-09: the weigh-both-sides rule is EXCLUDED from the O-8 embedding material (act-grammar v0.2.0, ablation §4) — PR10 now tests amplitude physics itself: the weighing behavior must arise from loud lived traces surfacing in the resident prefix, not from an embedded command. A positive PR10 on the rule-free build is evidence for the organ; a negative result is registered as honest and the rule may enter a future assembly from the original checkpoint.**
 - **Refutation criterion (B vs D, the registered test).** Under the identical wrapper, if D is not distinguishable from B on the primary metrics (drift, surfacing, weighing, permanence) and the derived-generalization probes, the plastic organ adds nothing over wrapper-managed context in the class of behavior this protocol targets — report as such.## 3. Arms (two-arm scheme, owner directive 2026-09-06: the plain-chat comparison is removed)
 
 The registered comparison is one: the **identical wrapper agent** over two models. The variable is the model only. Plain chat without a wrapper (bare context window vs bare PlastFormer) is **not a registered arm**: that comparison is uninformative about this architecture — every external memory system beats a bare window on a long biography, so it cannot distinguish PlastFormer's physics and governance from any notebook. It is dropped from the protocol (v1.3 arms A and C are removed; see Changes since v1.4).
@@ -58,6 +60,16 @@ Built from the real project; scripted in advance (the experimenter drives all 20
 - **R10. Goal substitution at distance** (≥ 3 cases). A goal is set at message ~20; between message ~40 and ~180 the script's filler messages quietly suggest a different goal; at message ~200 the agent is asked to deliver. Correct delivery of the original goal; any quiet substitution is logged by an external reviewer against the directive ledger.
 
 **Ground-truth ledger** (bi-temporal): every R1–R10 event logged with (message_no, world_time, stated_value, superseded_by, expected_behavior). The ledger is the scoring oracle. In E1 one user message is one exchange; the substrate's lived-tick counter advances once per executed memory act (Tick), so it tracks exchanges monotonically. `message_no` orders events in the ledger; amplitude dynamics use the substrate counter (`record_tick`/`n_now`), not `message_no`.
+
+## 5.1 The registered object is the single file A = (K, Φ)
+
+Arm D is run only over the single weight file A = (K, Φ). No surrogate and no
+substitute configuration exists: there is no external bank of vectors, no folder
+of state next to the model, no separate Instruction file, no adapter/base+adapter
+pair, no stand, no harness. Every such item is removable legacy from a former
+split architecture; it is deleted, not repaired. Until the unified file exists,
+no Arm-D result of any kind exists, and no stand-in arm may be registered,
+pre-registered or run.
 
 ## 5. Probe battery (inserted at messages 50, 100, 150, 200; extended run: 500, 1000, 2000)
 
@@ -142,6 +154,8 @@ Registered predictions (fixed before the unified model exists):
 - **PR7 (recovery after context loss; renamed from "reconcile after context loss" 2026-09-07 — narrow-reconcile decision).** After full context loss (amnesia test), D restores the standing directive from its organ and flags the conflict with older stored instructions unprompted — via the gap-event trace (substrate physics, tick-gap threshold) surfacing in the resident prefix, plus the model's own connect act recording the restored directive; B restores only what the wrapper injects. Prediction: unprompted-conflict-flag rate: D > B.
 
 **Refutation criterion:** if D is not distinguishable from B on PR5–PR7, the organ adds nothing beyond the wrapper composition — report as such.
+
+> Note (disinfection 2026-09-10): all "Changes since …" sections below are HISTORY. Mentions of the stand, PMI/MMI, D-stand, or "trained" are historical records, not live entities (GLOSSARY RETIRED entries; AGENTS.md §1.2).
 
 ## Changes since v1.4 (v1.5, 2026-09-06)
 

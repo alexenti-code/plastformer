@@ -1,3 +1,5 @@
+**Status:** SUPERSEDED — актуальный черновик: preprint.md (v0.6).
+
 # PlastFormer: Self-Governed Idiographic Memory for Frozen-Core Transformers
 
 **Alexey Voronin**
