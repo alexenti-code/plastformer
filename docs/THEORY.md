@@ -14,10 +14,10 @@
 
 ## 1. Starting description: model coupled to its own memory substrate
 
-PlastFormer describes a transformer with an unchanged core K and a plastic module Φ, connected by an embedded read interface. In this description:
+PlastFormer describes one transformer whose weights are a single file: an unchanged part K and a plastic part Φ of the same body. The model reads and writes its own Φ by its own acts. In this description:
 
 1. **Memory write is described as an act in the model's action space**, in the same class as saying, answering, or opening a file — analogous to a person writing a note.
-2. **Remembering is described as a competence of the model itself.** In an open model, the interface functions are embedded once — by a one-time instruction pass (the act grammar) — after which the core is frozen.
+2. **Remembering is described as a competence of the model itself.** In an open model, the memory act rules are embedded once — by a one-time instruction pass (the act grammar) — after which the core is frozen.
 3. **Granularity of a record** (a paragraph, an event, a decision, a conclusion) is described as the model's output — the record content comes from the model's stream.
 4. **The write command arrives as an act in the model's output stream; the substrate executes it.** The mapping of removed normative sentences to enforceable tests is recorded in ADR-002 (entries T1–T4 → CONSTITUTION C2/C4).
 
@@ -96,9 +96,9 @@ Descriptive note: temperature describes WHAT distribution text is sampled from w
 
 ## 3. Configuration
 
-PlastFormer has one configuration: parametric × co-located × instructed. Traces are vectors in the model's own plastic substrate, read before attention through an interface embedded once, after which the core is frozen.
+PlastFormer has one configuration: parametric × co-located × instructed. Traces are vectors in the model's own plastic Φ section, surfaced before attention — the rule for that is embedded once, after which the core is frozen.
 
-Ownership description: the frozen core K is shared weights; the plastic Φ belongs to one instance. Personal data are described as living in Φ and meeting the core through the embedded interface in the instance's work. Instance continuity is described as preservation of the dedicated region between sessions. On a K version change, the question of Φ compatibility with the new core arises — see open questions.
+Ownership description: the frozen core K is shared weights; the plastic Φ belongs to one instance. Personal data are described as living in Φ, inside the same body that holds the core. Instance continuity is described as preservation of the dedicated region between sessions. On a K version change, the question of Φ compatibility with the new core arises — see open questions.
 
 ## 4. Time: lived ticks, audited stamps, reconcile
 
@@ -123,7 +123,7 @@ The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) i
 - **`connect`** — deposit a summary or rule into slow components as a *new* trace; sources untouched.
 - **`reconcile`** — record the relation between felt time and audited time as a new trace (see §4 above).
 - **Physical `write (unconscious)`** — described as: the substrate writes a low-amplitude fast trace when the core's own prediction error (next-token perplexity, read from the same forward pass in the parametric co-located configuration) exceeds a frozen, content-blind threshold; nothing writes below it. The embedding-distance surrogate is an external classifier and stays forbidden in every configuration (C2; ADR-002 entry T9). Surprise traces are enabled in the main run of the parametric assembly with provenance `source=surprise` (owner decision 2026-09-07; e1-protocol v1.6).
-- **Physical `read`** — surfacing through the embedded interface (`read last N / ids / range`): the N loudest traces by amplitude — no relevance, no embeddings. (Enforceable trigger/rank rules: CONSTITUTION C2; ADR-002 entries T7–T8.)
+- **Physical `read`** — surfacing from the model's own Φ section (`read last N / ids / range`): the N loudest traces by amplitude — no relevance, no embeddings. (Enforceable trigger/rank rules: CONSTITUTION C2; ADR-002 entries T7–T8.)
 
 ## 6. Bi-temporality and instance continuity (description)
 
@@ -137,7 +137,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 |---|---|
 | Where write competence comes from | Remembering is described as the model's own competence; in an open model — embedded once by the instruction pass, core frozen after (§1, §5) |
 | Write gates | Writing is described as the model's act; Φ only stores state (C1); decay by τ, ticks, and volume are the substrate's dynamics — they happen, and nobody executes them (§5; enforceable test in CONSTITUTION C2/C4) |
-| Bi-temporality in parameters | Stamps are described as a property of the memory act and the embedded interface (§6) |
+| Bi-temporality in parameters | Stamps are described as a property of the memory act (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Copying | Copying is described as duplication; identity = memory line (§6; CONSTITUTION O-3) |
 | Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; CONSTITUTION O-7) |
@@ -145,15 +145,15 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 ## 8. Open questions
 
-- How to embed the interface functions in an open model without destroying core competence; how the instruction anchors `repeat` without suppressing legitimate repetition.
-- Φ portability between core versions (K replacement; re-embedding the read interface for a parametric substrate).
+- How to embed the memory act rules in an open model without destroying core competence; how the instruction anchors `repeat` without suppressing legitimate repetition.
+- Φ portability between core versions (K replacement; re-embedding the act rules for a parametric substrate).
 - Which tests distinguish PlastFormer memory from ordinary storage (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION C2/C4).
 - How bi-temporal stamps are represented in a parametric substrate.
 
 ## 9. Honest boundary: what is built and what is not (state of 2026-09-09)
 
-- Built: the vector Φ bank (unit-tested), the write and read interfaces (deterministic, native input-embeddings path), the act grammar **v0.2.0** (owner-approved 2026-09-09; acts `calibrate` and `scan` included; layer names t1–t5).
-- Not built: the read side of the Φ section — trace content is not decoded from the Φ section of the single file yet (**gap A**, registered as E1 PR0 gate); the autonomous act trigger without prompt scaffolding (**gap B**); the single fused weight file (core K + Instruction in one file). The Instruction of assembly α exists as a separately stored parameter set (a pass mechanism, not an architecture component); the split storage is a temporary development state — the artifact is ONE file.
+- Built as development instrumentation (not part of the artifact): a working model of the Φ physics, the write and read paths (deterministic, native input-embeddings path), the act grammar **v0.2.0** (owner-approved 2026-09-09; seven acts — `name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate`; layer names t1–t5).
+- Not built: the single weight file A = (K, Φ) with the Instruction inside K; reading the Φ section of that file at run time; the autonomous act trigger without prompt scaffolding. The Instruction exists today as a separate text (the pass material) — that is assembly material, not a second entity of the architecture: the artifact is ONE file.
 - Memory registers Φ1/Φ2 (ADR-005, owner-approved 2026-09-09): two provenance registers of one substrate — Φ1 (involuntary layout of perception, written by physics only: surprise, gap-after-dormancy; visible in `scan`, never in the prefix) and Φ2 (personality; explicit acts only; only Φ2 enters the prefix). Φ1/Φ2 volume is unlimited; decay is the only limiter.
 - There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md`, version in the file header, and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).

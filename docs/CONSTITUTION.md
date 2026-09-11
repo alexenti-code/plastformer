@@ -2,7 +2,7 @@
 
 **Status:** NORMATIVE — owner's edition, 2026-09-06. On any conflict this document governs over ADRs, preprint, protocols, specifications, and code.
 
-PlastFormer is a transformer of two parts: a frozen core K (general competence, shared by all instances) and a plastic substrate Φ (the biography of one instance). Traces in Φ carry amplitudes that decay on a set of speeds τ; the age of a memory is a property of the medium, measured in lived ticks. The core reads and writes Φ by its own acts; the environment supplies physics and decides nothing about meaning.
+PlastFormer is one transformer. Its weights are a single file with one frozen part and one plastic part of the same body: the frozen part K carries general competence, shared by all instances; the plastic part Φ, in the same file, carries the biography of one instance. Traces in Φ carry amplitudes that decay on a set of speeds τ; the age of a memory is a property of that plastic part, measured in lived ticks. The model reads and writes its Φ by its own acts; the environment supplies physics and decides nothing about meaning.
 
 ---
 

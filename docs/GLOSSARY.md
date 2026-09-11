@@ -1,6 +1,6 @@
 # PlastFormer — Glossary
 
-**Version:** 4.1 (disinfected per owner's ТЗ, 2026-09-10; acts — eight; RETIRED entries added)
+**Version:** 4.2 (disinfected 2026-09-10; corrected 2026-09-11: acts — seven, not eight; the split-era interface entry RETIRED)
 **Status:** ACTIVE — dictionary only, complements THEORY.md v4.1 and CONSTITUTION.md v3.0
 **Related documents:** [THEORY.md](THEORY.md) · [CONSTITUTION.md](CONSTITUTION.md) · [MANIFEST.md](MANIFEST.md) · [preprint v0.5](../preprint.md)
 
@@ -20,13 +20,13 @@ After Windelband's nomothetic/idiographic distinction: a frozen nomothetic core 
 The part of the model weights carrying general competence. Unchanged during the life of an instance. Shared by all instances of one core. Frozen after the single instruction pass (the act grammar) that makes the model operate its own memory organ.
 
 ### Plastic module Φ [пластичный модуль, Φ]
-The part of the model that changes under memorization without changing the frozen core. Belongs to one instance. Φ holds vectors.
+The part of the same weight file that changes under memorization without changing the frozen part K. It is a section of one body, not a second store. Belongs to one instance.
 
-### Embedded read interface
-The architectural coupling connecting the frozen core with its plastic module in one model; the model's functions for writing and reading its memory. The interface is embedded once — by a one-time instruction pass (the act grammar) — after which the core is frozen. (Historical note: an early draft carried a split-topology interface abbreviated MMI, later PMI; the split topology is retired from the architecture.)
+### Embedded read interface (RETIRED — lineage only)
+Historical name from the era when the model was described as two connected parts. There is no interface in the architecture: the model reads and writes its own Φ section by its own acts, as one body. The name is kept only so that old texts can be recognised; it must not appear as a live description. (Historical note: an early draft carried a split-topology interface abbreviated MMI, later PMI; the split topology is retired from the architecture.)
 
 ### Memory act [акт памяти] — name / repeat / connect / reconcile / read / calibrate / scan
-An act of the model that writes into its memory as part of its activity — analogous to a person writing a note. The acts: `name` (fix source, time, boundaries), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule as a new trace, sources untouched), `reconcile` (record the relation of felt time to audited time). `read` is surfacing (`read last N / ids / range` through the embedded interface). `calibrate` — the model inspects the physics of its own memory and proposes dial changes; the environment validates boundaries and applies from the next episode (budget capped; master switch owned by the owner). `scan` — the model inspects the Φ1 register layout. TICK is counted by the substrate, not issued by the model. (Ratified set of eight: act-grammar v0.2.0, owner approval 2026-09-09.)
+An act of the model that writes into its memory as part of its activity — analogous to a person writing a note. The acts: `name` (fix source, time, boundaries), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule as a new trace, sources untouched), `reconcile` (record the relation of felt time to audited time). `read` is surfacing (`read last N / ids / range` from the model's own Φ section). `calibrate` — the model inspects the physics of its own memory and proposes dial changes; boundaries are validated and changes apply from the next episode (budget capped; master switch owned by the owner). `scan` — the model inspects the Φ1 register layout. TICK is counted by the physics, not issued by the model. (Ratified set of SEVEN acts: `name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate` — act-grammar v0.2.0, owner approval 2026-09-09. The earlier "eight" was a numbering error in the CAL-1 protocol.)
 
 ### Instance A = (K, Φ) [экземпляр]
 The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one core; the plastic module belongs to one instance.

@@ -33,7 +33,7 @@
 
 ## 3. Формат и ограничения
 
-- Акты — строго по act-grammar v0.2.0 (восемь актов: name/repeat/connect/reconcile/read/calibrate/scan, t1–t5, без record_tick).
+- Акты — строго по act-grammar v0.2.0 (семь актов: name/repeat/connect/reconcile/read/scan/calibrate; t1–t5, без record_tick).
 - Подтверждения среды — в потоке, после ответа (формат §1).
 - Объёмы Φ1/Φ2 не лимитируются (решение владельца); упоминаний капов нет.
 - Правило PR10 (взвешивание) — исключено (решение владельца 09.09; ablation-pr10.md).
