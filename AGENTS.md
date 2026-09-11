@@ -44,17 +44,25 @@ What follows from this rule:
 
 ## 5. Current work
 
-The nearest work: design and assemble the single file A = (K, Φ):
+Work is split into **two parts**, and they are different things:
 
-1. freeze the owner decisions: K/Φ proportion, storage precision, the Φ write mechanism;
-2. prepare the file: K region = the current 4-bit core, Φ region initialized;
-3. the one instruction pass embeds the Instruction (material v0.3, grammar v0.2.0) into the K region; freeze K;
-4. verify: grammar ≥ 95 %, acts fire unprompted, reads from Φ work, no core degradation;
-5. life: perception → Φ1 → acts → Φ2, writes into the Φ section of the file;
-6. then the E1 examination (protocol to be rebuilt against A = (K, Φ) — the current `experiments/e1-protocol.md` is SUPERSEDED).
+**Part one — setup (the instrument).** Build the Jacobian lens for our own core and measure the workspace band: does it exist, at which layer does it start, does a vector fed at the input reach it, and should we feed the raw vector or its projection onto the workspace basis. This settles where memory is injected and in what form. The instrument is used **once**, during setup. It is not part of the finished artifact. Plan: `docs/ASSEMBLY-PLAN.ru.md` section 9.
 
-Assembly material (the raw material of the one instruction pass, the base checkpoint, the grammar v0.2.0) is kept under `experiments/o8-pass/` and `experiments/act-grammar/` as **assembly material**; it is not part of the artifact.
+**Part two — assembly (the instance itself):**
 
+1. add `gap_threshold` and `surprise_threshold` to the Instruction knob list (owner decision 11.09.2026, option A);
+2. repair the material generator (`experiments/organ-dataset/`: layer names `t1–t5`, add `scan` and `calibrate`, fix small runs) and build material **v04** with three layers: grammar, awakening biographies, and reflection tasks;
+3. the one instruction pass embeds the Instruction into the K region — LoRA, rank 8, 8 of 48 layers, 300 iterations, `--mask-prompt`; freeze K afterwards;
+4. fuse the adapter (the installed `mlx_lm fuse` already dequantizes per layer) and merge the weight parts into ONE file;
+5. create the Φ region: 1.50 GB (Φ1 1.30 + Φ2 0.20), record 1 003 bytes, knobs and budgets written into the Φ header;
+6. write the Φ code (eight functions: open, write, read, resident, calibrate, scan, knobs, project);
+7. assemble the file A = (K, Φ) 8.20 GB;
+8. run-in: the file loads, the model answers, records are written and read back, memory survives a restart, the run fits in memory. **This checks workability only** — it is not a quality measurement;
+9. hand the instance to the owner. The artifact does not score itself, and we do not measure "better or worse".
+
+Assembly material lives under `experiments/o8-pass/` and `experiments/act-grammar/`; it is not part of the artifact.
+
+**What is NOT in this project:** copying, rolling back or deleting a biography; the journal; a blind judge or any external scorer; renting machines. Records are append-only, decay is physics, and if data must be removed the carrier is removed.
 ## 6. Commit discipline
 
 - Version control is the agent's responsibility: commit and push the project's own work without asking. The owner does not track commit hashes, versions or CHANGELOG details.

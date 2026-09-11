@@ -18,7 +18,7 @@ PlastFormer is ONE MLX 4-bit weight file: **A = (K, Φ)**.
 - **K** — the frozen core: general competence (language, reasoning, culture) plus the Instruction — the act grammar (`name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate`) embedded once, after which K never changes.
 - **Φ** — the plastic substrate of the same instance, a section of the same file. Φ1 and Φ2 are two origins of records within one Φ: Φ1 is written involuntarily by perception, Φ2 only by the model's explicit acts. Neither is a separate store, file or entity.
 
-Outside the file there is no instance state. Moving the file moves the instance. Deleting the Φ section deletes the biography; K survives. Copying the Φ section creates a copy of the memory line.
+Outside the file there is no instance state. Moving the file moves the instance. Records are append-only and decay by physics; there is no separate operation for copying, rolling back or deleting a biography (owner decision 2026-09-11) — if data must be removed, the carrier is removed.
 
 ## The one configuration
 
@@ -31,7 +31,11 @@ PlastFormer has ONE configuration: **parametric × co-located × instructed** �
 
 ## Evaluation
 
-Anchored in LongMemEval (S/M) and LoCoMo. The registered examination (E1) will be defined only against the assembled artifact A = (K, Φ). A historical evaluation draft exists under `experiments/e1-protocol.md` marked SUPERSEDED — it is history, not a plan of work, and it is not to be executed or cited as active.
+Anchored in LongMemEval (S/M) and LoCoMo (external benchmarks; the owner decides what to run). The artifact does **not** score itself and the project does not measure "better or worse": any external grader is just another model with an opinion. The historical evaluation draft under `experiments/e1-protocol.md` is SUPERSEDED — history, not a plan of work, not to be executed or cited as active.
+
+## Current work
+
+Two parts: (1) **setup** — build the Jacobian lens for our own core and measure the workspace band, which settles where Φ is injected and in what form; the instrument is used once and is not part of the artifact; (2) **assembly** — material v04, the one instruction pass, fusion into one file, the Φ region, the Φ code, and handover. Full plan: `docs/ASSEMBLY-PLAN.ru.md`. Band analysis: `docs/JSPACE-ANALYSIS.ru.md`.
 
 ## Naming and lineage
 
