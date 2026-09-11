@@ -11,5 +11,6 @@ runs/*-secret*
 __pycache__/
 # model weights (assembly inputs; never in git)
 experiments/o8-pass/gemma4-12b-text-4bit/
+experiments/o8-pass/gemma4-12b-qat-text-4bit/
 models/*.safetensors
 models/*/

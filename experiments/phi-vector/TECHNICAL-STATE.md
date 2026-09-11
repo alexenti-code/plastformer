@@ -15,7 +15,7 @@
 ## Что сохранено (только как сборочный материал, не часть изделия)
 
 - `experiments/o8-pass/material/`, `material-v02/`, `material-v03/` — исходный материал однократного прохода Инструкции;
-- `experiments/o8-pass/gemma4-12b-text-4bit/` — исходный базовый чекпойнт ядра (MLX 4-bit);
+- `experiments/o8-pass/gemma4-12b-text-4bit/` — базовый чекпойнт ядра для образца (MLX 4-bit, 6,73 ГБ); `experiments/o8-pass/gemma4-12b-qat-text-4bit/` (10,98 ГБ) — вариант QAT для машин с большей памятью;
 - `experiments/o8-pass/gen_material.py` — генератор материала прохода;
 - `experiments/act-grammar/` — Инструкция v0.2.0 (канон: `act-grammar-v0.2-ru.md`; пакет вшивания: `INSTRUCTION-PACKAGE.md`);
 - `experiments/organ-dataset/` — источник биографий для материала;
