@@ -3830,14 +3830,14 @@
      "fact_id": "F001",
      "subject": "имя клиента",
      "value": "Павел Андреевич",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     },
     {
      "fact_id": "F002",
      "subject": "проект",
      "value": "сайт студии «Формат»",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     }
    ],
@@ -3851,14 +3851,14 @@
      "fact_id": "F003",
      "subject": "город",
      "value": "Москва",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     },
     {
      "fact_id": "F004",
      "subject": "предпочтительный канал связи",
      "value": "текстовые сообщения, не звонки",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     }
    ],
@@ -3902,7 +3902,7 @@
      "fact_id": "F053",
      "subject": "запас на складе",
      "value": "24 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": true
     }
    ],
@@ -3916,7 +3916,7 @@
      "fact_id": "F034",
      "subject": "доплата за ночные работы",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3930,7 +3930,7 @@
      "fact_id": "F007",
      "subject": "способ деплоя",
      "value": "Docker на сервере",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -3944,7 +3944,7 @@
      "fact_id": "F054",
      "subject": "этаж встречи по этапу 1",
      "value": "переговорка",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -3958,7 +3958,7 @@
      "fact_id": "F055",
      "subject": "сумма счёта от ООО «Мегаполис-Сервис» №2",
      "value": "24 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3972,7 +3972,7 @@
      "fact_id": "F027",
      "subject": "место встречи по этапу 1",
      "value": "переговорка",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -3986,7 +3986,7 @@
      "fact_id": "F056",
      "subject": "срок поставки от ООО «Мегаполис-Сервис»",
      "value": "2026-09-28",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4000,7 +4000,7 @@
      "fact_id": "F033",
      "subject": "языковая версия",
      "value": "только русская",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4014,7 +4014,7 @@
      "fact_id": "F006",
      "subject": "CMS",
      "value": "WordPress",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4028,7 +4028,7 @@
      "fact_id": "F025",
      "subject": "дата постановки задачи №1",
      "value": "2026-09-16",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4042,7 +4042,7 @@
      "fact_id": "F008",
      "subject": "структура главной",
      "value": "видео-шапка + кейсы",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4056,7 +4056,7 @@
      "fact_id": "F029",
      "subject": "срок поставки от ООО «Мегаполис-Сервис»",
      "value": "2026-09-27",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4070,7 +4070,7 @@
      "fact_id": "F005",
      "subject": "форма обратной связи",
      "value": "CRM-виджет",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4084,7 +4084,7 @@
      "fact_id": "F017",
      "subject": "время начала работ на этапе 3",
      "value": "10:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4098,7 +4098,7 @@
      "fact_id": "F052",
      "subject": "лимит расходов на этап 3",
      "value": "36 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4112,7 +4112,7 @@
      "fact_id": "F035",
      "subject": "дата постановки задачи №2",
      "value": "2026-09-15",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4126,7 +4126,7 @@
      "fact_id": "F019",
      "subject": "длительность работ по этапу 3",
      "value": "4 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4140,7 +4140,7 @@
      "fact_id": "F057",
      "subject": "сумма экономии по этапу 2",
      "value": "42 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4154,7 +4154,7 @@
      "fact_id": "F022",
      "subject": "номер договора с ООО «Мегаполис-Сервис» №2",
      "value": "№163/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4180,7 +4180,7 @@
      "fact_id": "F038",
      "subject": "сумма экономии по этапу 1",
      "value": "74 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4194,7 +4194,7 @@
      "fact_id": "F018",
      "subject": "лимит расходов на этап 4",
      "value": "36 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4208,7 +4208,7 @@
      "fact_id": "F059",
      "subject": "ответственный за этап 2",
      "value": "Мария",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4222,7 +4222,7 @@
      "fact_id": "F010",
      "subject": "аналитика",
      "value": "Яндекс.Метрика",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4236,7 +4236,7 @@
      "fact_id": "F011",
      "subject": "цвет акцентной кнопки",
      "value": "оранжевый",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4250,7 +4250,7 @@
      "fact_id": "F031",
      "subject": "доля предоплаты ООО «Мегаполис-Сервис»",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4264,7 +4264,7 @@
      "fact_id": "F042",
      "subject": "брак в партии №3",
      "value": "20 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4278,7 +4278,7 @@
      "fact_id": "F026",
      "subject": "объём партии №1",
      "value": "12 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4292,7 +4292,7 @@
      "fact_id": "F036",
      "subject": "переплата за срочность",
      "value": "18 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4306,7 +4306,7 @@
      "fact_id": "F028",
      "subject": "контакт ответственного этапа 2",
      "value": "+7 938 539-94-17",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4320,7 +4320,7 @@
      "fact_id": "F021",
      "subject": "время доставки образцов",
      "value": "14:00",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4346,7 +4346,7 @@
      "fact_id": "F032",
      "subject": "стоимость доставки партии №1",
      "value": "74 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4360,7 +4360,7 @@
      "fact_id": "F009",
      "subject": "шрифт заголовков",
      "value": "Manrope",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4374,7 +4374,7 @@
      "fact_id": "F061",
      "subject": "срок поставки от ООО «Мегаполис-Сервис»",
      "value": "2026-09-21",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4388,7 +4388,7 @@
      "fact_id": "F062",
      "subject": "номер заявки в ООО «Мегаполис-Сервис» №3",
      "value": "№170/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": true
     }
    ],
@@ -4402,7 +4402,7 @@
      "fact_id": "F020",
      "subject": "ответственный за этап 4",
      "value": "Николай",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4416,7 +4416,7 @@
      "fact_id": "F012",
      "subject": "языковая версия",
      "value": "три языка",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4491,7 +4491,7 @@
      "fact_id": "F024",
      "subject": "объём переделок по этапу 1",
      "value": "60 шт",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4505,7 +4505,7 @@
      "fact_id": "F030",
      "subject": "длительность работ по этапу 5",
      "value": "3 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4527,7 +4527,7 @@
      "fact_id": "F046",
      "subject": "лимит расходов на этап 2",
      "value": "42 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4585,7 +4585,7 @@
      "fact_id": "F037",
      "subject": "дата промежуточной приёмки этапа 1",
      "value": "2026-09-21",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4599,7 +4599,7 @@
      "fact_id": "F023",
      "subject": "длительность работ по этапу 4",
      "value": "2 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4613,7 +4613,7 @@
      "fact_id": "F072",
      "subject": "место встречи по этапу 2",
      "value": "кабинет 404",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4627,7 +4627,7 @@
      "fact_id": "F051",
      "subject": "сумма счёта от ООО «Мегаполис-Сервис» №1",
      "value": "96 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4641,7 +4641,7 @@
      "fact_id": "F073",
      "subject": "исполнителей на этапе 1",
      "value": "5 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4655,7 +4655,7 @@
      "fact_id": "F074",
      "subject": "время начала работ на этапе 2",
      "value": "13:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4669,7 +4669,7 @@
      "fact_id": "F075",
      "subject": "сумма счёта от ООО «Мегаполис-Сервис» №3",
      "value": "24 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4683,7 +4683,7 @@
      "fact_id": "F047",
      "subject": "место встречи по этапу 3",
      "value": "офис на Садовой",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4697,7 +4697,7 @@
      "fact_id": "F076",
      "subject": "брак в партии №1",
      "value": "10 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4711,7 +4711,7 @@
      "fact_id": "F050",
      "subject": "дедлайн релиза",
      "value": "2026-09-28",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4725,7 +4725,7 @@
      "fact_id": "F041",
      "subject": "номер счёта-фактуры №2",
      "value": "№428/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4739,7 +4739,7 @@
      "fact_id": "F048",
      "subject": "сумма счёта от ООО «Мегаполис-Сервис» №5",
      "value": "36 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4753,7 +4753,7 @@
      "fact_id": "F040",
      "subject": "бюджет проекта",
      "value": "220 000 ₽",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4767,7 +4767,7 @@
      "fact_id": "F077",
      "subject": "дата промежуточной приёмки этапа 3",
      "value": "2026-09-16",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4803,7 +4803,7 @@
      "fact_id": "F080",
      "subject": "номер счёта-фактуры №1",
      "value": "№267/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4817,7 +4817,7 @@
      "fact_id": "F081",
      "subject": "штраф ООО «Мегаполис-Сервис» за просрочку",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4831,7 +4831,7 @@
      "fact_id": "F082",
      "subject": "длительность работ по этапу 1",
      "value": "4 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4865,7 +4865,7 @@
      "fact_id": "F049",
      "subject": "время начала работ на этапе 4",
      "value": "16:45",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4879,7 +4879,7 @@
      "fact_id": "F044",
      "subject": "брак в партии №2",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4893,7 +4893,7 @@
      "fact_id": "F085",
      "subject": "телефон разработчик",
      "value": "+7 964 779-65-28",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4915,7 +4915,7 @@
      "fact_id": "F087",
      "subject": "контакт ответственного этапа 1",
      "value": "+7 978 828-23-64",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4939,7 +4939,7 @@
      "fact_id": "F014",
      "subject": "цвет акцентной кнопки",
      "value": "зелёный",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4963,7 +4963,7 @@
      "fact_id": "F090",
      "subject": "адрес склада ООО «Мегаполис-Сервис»",
      "value": "площадка у ТТК, въезд с торца",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4977,7 +4977,7 @@
      "fact_id": "F091",
      "subject": "объём партии №2",
      "value": "12 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4991,7 +4991,7 @@
      "fact_id": "F092",
      "subject": "аванс разработчик",
      "value": "24 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5005,7 +5005,7 @@
      "fact_id": "F093",
      "subject": "время доставки образцов",
      "value": "17:00",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -5019,7 +5019,7 @@
      "fact_id": "F094",
      "subject": "скидка ООО «Мегаполис-Сервис» за объём",
      "value": "20 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5033,7 +5033,7 @@
      "fact_id": "F095",
      "subject": "стоимость доставки партии №2",
      "value": "42 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5047,7 +5047,7 @@
      "fact_id": "F013",
      "subject": "языковая версия",
      "value": "только русская",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5061,7 +5061,7 @@
      "fact_id": "F043",
      "subject": "исполнителей на этапе 2",
      "value": "2 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5187,7 +5187,7 @@
      "fact_id": "F105",
      "subject": "время звонка с разработчик",
      "value": "11:00",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -5245,7 +5245,7 @@
      "fact_id": "F015",
      "subject": "цвет акцентной кнопки",
      "value": "оранжевый",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5259,7 +5259,7 @@
      "fact_id": "F045",
      "subject": "номер договора с ООО «Мегаполис-Сервис» №3",
      "value": "№902/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5273,7 +5273,7 @@
      "fact_id": "F039",
      "subject": "объём переделок по этапу 2",
      "value": "24 шт",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5419,7 +5419,7 @@
      "fact_id": "F016",
      "subject": "цвет акцентной кнопки",
      "value": "синий",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],

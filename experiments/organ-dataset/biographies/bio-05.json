@@ -3830,14 +3830,14 @@
      "fact_id": "F001",
      "subject": "имя клиента",
      "value": "Сергей Николаевич",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     },
     {
      "fact_id": "F002",
      "subject": "проект",
      "value": "переезд семьи в другой город",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     }
    ],
@@ -3851,14 +3851,14 @@
      "fact_id": "F003",
      "subject": "город",
      "value": "Екатеринбург",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     },
     {
      "fact_id": "F004",
      "subject": "предпочтительный канал связи",
      "value": "текстовые сообщения, не звонки",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     }
    ],
@@ -3896,7 +3896,7 @@
      "fact_id": "F053",
      "subject": "номер заявки в ИП Ковалёв А.П. №1",
      "value": "№235/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3910,7 +3910,7 @@
      "fact_id": "F024",
      "subject": "место встречи по этапу 1",
      "value": "зал на первом",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -3924,7 +3924,7 @@
      "fact_id": "F054",
      "subject": "номер счёта-фактуры №2",
      "value": "№913/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3938,7 +3938,7 @@
      "fact_id": "F034",
      "subject": "этаж встречи по этапу 1",
      "value": "офис на Садовой",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -3952,7 +3952,7 @@
      "fact_id": "F005",
      "subject": "способ перевозки вещей",
      "value": "две газели",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -3966,7 +3966,7 @@
      "fact_id": "F031",
      "subject": "объём партии №3",
      "value": "36 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3980,7 +3980,7 @@
      "fact_id": "F032",
      "subject": "место встречи по этапу 2",
      "value": "офис на Садовой",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -3994,7 +3994,7 @@
      "fact_id": "F009",
      "subject": "срок аренды жилья",
      "value": "3 месяца",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4008,7 +4008,7 @@
      "fact_id": "F055",
      "subject": "лимит расходов на этап 2",
      "value": "42 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": true
     }
    ],
@@ -4022,7 +4022,7 @@
      "fact_id": "F007",
      "subject": "страховка груза",
      "value": "без страховки",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4036,7 +4036,7 @@
      "fact_id": "F033",
      "subject": "исполнителей на этапе 2",
      "value": "5 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4050,7 +4050,7 @@
      "fact_id": "F017",
      "subject": "время начала работ на этапе 3",
      "value": "13:45",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4064,7 +4064,7 @@
      "fact_id": "F006",
      "subject": "упаковка мебели",
      "value": "упаковщики компании",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4078,7 +4078,7 @@
      "fact_id": "F056",
      "subject": "сумма экономии по этапу 1",
      "value": "58 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": true
     }
    ],
@@ -4100,7 +4100,7 @@
      "fact_id": "F025",
      "subject": "запас на складе",
      "value": "24 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4114,7 +4114,7 @@
      "fact_id": "F058",
      "subject": "срок поставки от ИП Ковалёв А.П.",
      "value": "2026-09-16",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": true
     }
    ],
@@ -4128,7 +4128,7 @@
      "fact_id": "F023",
      "subject": "адрес склада ИП Ковалёв А.П.",
      "value": "терминал на Рязанской, 7",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4142,7 +4142,7 @@
      "fact_id": "F008",
      "subject": "транспорт семьи",
      "value": "самолёт",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4156,7 +4156,7 @@
      "fact_id": "F011",
      "subject": "кто едет с грузом",
      "value": "представитель компании",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4170,7 +4170,7 @@
      "fact_id": "F036",
      "subject": "время доставки образцов",
      "value": "18:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4184,7 +4184,7 @@
      "fact_id": "F038",
      "subject": "кто едет с грузом",
      "value": "представитель компании",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4198,7 +4198,7 @@
      "fact_id": "F040",
      "subject": "штраф ИП Ковалёв А.П. за просрочку",
      "value": "20 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4212,7 +4212,7 @@
      "fact_id": "F059",
      "subject": "сумма счёта от ИП Ковалёв А.П. №1",
      "value": "74 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": true
     }
    ],
@@ -4226,7 +4226,7 @@
      "fact_id": "F012",
      "subject": "дата выгрузки",
      "value": "утро 24-го",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4240,7 +4240,7 @@
      "fact_id": "F010",
      "subject": "смена школы",
      "value": "перевод до переезда",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4254,7 +4254,7 @@
      "fact_id": "F052",
      "subject": "брак в партии №3",
      "value": "10 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4280,7 +4280,7 @@
      "fact_id": "F035",
      "subject": "дата постановки задачи №3",
      "value": "2026-09-26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4294,7 +4294,7 @@
      "fact_id": "F026",
      "subject": "номер договора с ИП Ковалёв А.П. №2",
      "value": "№149/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4308,7 +4308,7 @@
      "fact_id": "F061",
      "subject": "номер счёта-фактуры №3",
      "value": "№337/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4340,7 +4340,7 @@
      "fact_id": "F022",
      "subject": "стоимость доставки партии №2",
      "value": "36 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4354,7 +4354,7 @@
      "fact_id": "F063",
      "subject": "номер заявки в ИП Ковалёв А.П. №3",
      "value": "№761/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4368,7 +4368,7 @@
      "fact_id": "F029",
      "subject": "объём партии №2",
      "value": "48 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4382,7 +4382,7 @@
      "fact_id": "F028",
      "subject": "объём партии №1",
      "value": "36 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4396,7 +4396,7 @@
      "fact_id": "F019",
      "subject": "время звонка с менеджер переездной компании",
      "value": "11:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4410,7 +4410,7 @@
      "fact_id": "F064",
      "subject": "время начала работ на этапе 4",
      "value": "10:45",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4485,7 +4485,7 @@
      "fact_id": "F021",
      "subject": "срок поставки от ИП Ковалёв А.П.",
      "value": "2026-09-17",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4499,7 +4499,7 @@
      "fact_id": "F070",
      "subject": "дата промежуточной приёмки этапа 1",
      "value": "2026-09-24",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4513,7 +4513,7 @@
      "fact_id": "F020",
      "subject": "длительность работ по этапу 3",
      "value": "3 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4527,7 +4527,7 @@
      "fact_id": "F049",
      "subject": "ответственный за этап 2",
      "value": "Алексей",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4551,7 +4551,7 @@
      "fact_id": "F030",
      "subject": "этаж встречи по этапу 2",
      "value": "зал на первом",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4565,7 +4565,7 @@
      "fact_id": "F018",
      "subject": "время звонка с менеджер переездной компании",
      "value": "10:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4579,7 +4579,7 @@
      "fact_id": "F027",
      "subject": "исполнителей на этапе 1",
      "value": "5 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4609,7 +4609,7 @@
      "fact_id": "F037",
      "subject": "брак в партии №2",
      "value": "5 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4675,7 +4675,7 @@
      "fact_id": "F078",
      "subject": "номер счёта-фактуры №4",
      "value": "№451/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4717,7 +4717,7 @@
      "fact_id": "F044",
      "subject": "дата выгрузки",
      "value": "утро 25-го",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4731,7 +4731,7 @@
      "fact_id": "F081",
      "subject": "время доставки образцов",
      "value": "10:45",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4745,7 +4745,7 @@
      "fact_id": "F082",
      "subject": "аванс менеджер переездной компании",
      "value": "18 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4759,7 +4759,7 @@
      "fact_id": "F043",
      "subject": "скидка ИП Ковалёв А.П. за объём",
      "value": "5 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4773,7 +4773,7 @@
      "fact_id": "F083",
      "subject": "этаж выгрузки",
      "value": "9-й, два лифта",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4787,7 +4787,7 @@
      "fact_id": "F039",
      "subject": "контакт ответственного этапа 2",
      "value": "+7 975 311-82-40",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4801,7 +4801,7 @@
      "fact_id": "F042",
      "subject": "дата постановки задачи №1",
      "value": "2026-09-27",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4815,7 +4815,7 @@
      "fact_id": "F050",
      "subject": "объём переделок по этапу 1",
      "value": "48 шт",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4829,7 +4829,7 @@
      "fact_id": "F046",
      "subject": "исполнителей на этапе 3",
      "value": "4 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4843,7 +4843,7 @@
      "fact_id": "F084",
      "subject": "номер договора с ИП Ковалёв А.П. №1",
      "value": "№574/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4867,7 +4867,7 @@
      "fact_id": "F086",
      "subject": "время начала работ на этапе 1",
      "value": "09:45",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4881,7 +4881,7 @@
      "fact_id": "F087",
      "subject": "место встречи по этапу 3",
      "value": "зал на первом",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4895,7 +4895,7 @@
      "fact_id": "F013",
      "subject": "дата выгрузки",
      "value": "вечер 24-го",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4909,7 +4909,7 @@
      "fact_id": "F088",
      "subject": "номер пропуска для менеджер переездной компании",
      "value": "№623/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4923,7 +4923,7 @@
      "fact_id": "F089",
      "subject": "брак в партии №4",
      "value": "10 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4937,7 +4937,7 @@
      "fact_id": "F051",
      "subject": "длительность работ по этапу 4",
      "value": "6 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4957,7 +4957,7 @@
      "fact_id": "F090",
      "subject": "дата постановки задачи №4",
      "value": "2026-09-25",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4971,7 +4971,7 @@
      "fact_id": "F091",
      "subject": "лимит правок",
      "value": "12 шт",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4985,7 +4985,7 @@
      "fact_id": "F014",
      "subject": "дата выгрузки",
      "value": "вечер 24-го",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4999,7 +4999,7 @@
      "fact_id": "F048",
      "subject": "время звонка с менеджер переездной компании",
      "value": "17:00",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -5013,7 +5013,7 @@
      "fact_id": "F092",
      "subject": "номер договора с ИП Ковалёв А.П. №3",
      "value": "№328/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5047,7 +5047,7 @@
      "fact_id": "F041",
      "subject": "объём вещей",
      "value": "34 м³",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5129,7 +5129,7 @@
      "fact_id": "F100",
      "subject": "переплата за срочность",
      "value": "36 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5143,7 +5143,7 @@
      "fact_id": "F045",
      "subject": "лимит расходов на этап 1",
      "value": "96 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5195,7 +5195,7 @@
      "fact_id": "F105",
      "subject": "доплата за ночные работы",
      "value": "20 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5219,7 +5219,7 @@
      "fact_id": "F047",
      "subject": "время начала работ на этапе 2",
      "value": "18:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -5233,7 +5233,7 @@
      "fact_id": "F107",
      "subject": "лимит расходов на этап 3",
      "value": "36 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5335,7 +5335,7 @@
      "fact_id": "F016",
      "subject": "дата выгрузки",
      "value": "вечер 24-го",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5560,7 +5560,7 @@
      "fact_id": "F015",
      "subject": "дата выгрузки",
      "value": "вечер 24-го",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],

@@ -6,7 +6,7 @@
    "record_time": "2026-09-07T10:00:00+03:00",
    "valid_time": "2026-09-07T10:00:00+03:00",
    "record_tick": 1,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "имя клиента — Анна Витальевна",
    "source": "user",
@@ -30,7 +30,7 @@
    "record_time": "2026-09-07T10:00:00+03:00",
    "valid_time": "2026-09-07T10:00:00+03:00",
    "record_tick": 2,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "проект — конференция «Данные и люди»",
    "source": "user",
@@ -54,7 +54,7 @@
    "record_time": "2026-09-07T10:33:00+03:00",
    "valid_time": "2026-09-07T10:33:00+03:00",
    "record_tick": 3,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "город — Москва",
    "source": "user",
@@ -79,7 +79,7 @@
    "record_time": "2026-09-07T10:33:00+03:00",
    "valid_time": "2026-09-07T10:33:00+03:00",
    "record_tick": 4,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "предпочтительный канал связи — текстовые сообщения, не звонки",
    "source": "user",
@@ -104,7 +104,7 @@
    "record_time": "2026-09-07T21:48:00+03:00",
    "valid_time": "2026-09-07T21:48:00+03:00",
    "record_tick": 5,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "сумма экономии по этапу 1 — 18 400 ₽",
    "source": "user",
@@ -132,7 +132,7 @@
    "record_time": "2026-09-07T22:01:00+03:00",
    "valid_time": "2026-09-07T22:01:00+03:00",
    "record_tick": 6,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время начала работ на этапе 4 — 16:00",
    "source": "user",
@@ -159,7 +159,7 @@
    "record_time": "2026-09-07T22:34:00+03:00",
    "valid_time": "2026-09-07T22:34:00+03:00",
    "record_tick": 7,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 2 — 6 часа",
    "source": "user",
@@ -186,7 +186,7 @@
    "record_time": "2026-09-07T22:45:00+03:00",
    "valid_time": "2026-09-07T22:45:00+03:00",
    "record_tick": 8,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "число докладчиков — 12",
    "source": "user",
@@ -212,7 +212,7 @@
    "record_time": "2026-09-07T22:57:00+03:00",
    "valid_time": "2026-09-07T22:57:00+03:00",
    "record_tick": 9,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "формат докладов — 15 минут + 5 вопросов",
    "source": "user",
@@ -239,7 +239,7 @@
    "record_time": "2026-09-07T23:01:00+03:00",
    "valid_time": "2026-09-07T23:01:00+03:00",
    "record_tick": 10,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер договора с ООО «Гарант-Плюс» №2 — №941/26",
    "source": "user",
@@ -267,7 +267,7 @@
    "record_time": "2026-09-08T10:01:00+03:00",
    "valid_time": "2026-09-08T10:01:00+03:00",
    "record_tick": 11,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "этаж встречи по этапу 1 — кабинет 404",
    "source": "user",
@@ -294,7 +294,7 @@
    "record_time": "2026-09-08T10:31:00+03:00",
    "valid_time": "2026-09-08T10:31:00+03:00",
    "record_tick": 12,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "дата постановки задачи №1 — 2026-09-26",
    "source": "user",
@@ -321,7 +321,7 @@
    "record_time": "2026-09-08T10:42:00+03:00",
    "valid_time": "2026-09-08T10:42:00+03:00",
    "record_tick": 13,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "буфет — кофе-брейк дважды",
    "source": "user",
@@ -346,7 +346,7 @@
    "record_time": "2026-09-08T10:53:00+03:00",
    "valid_time": "2026-09-08T10:53:00+03:00",
    "record_tick": 14,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время доставки образцов — 13:00",
    "source": "user",
@@ -372,7 +372,7 @@
    "record_time": "2026-09-08T11:38:00+03:00",
    "valid_time": "2026-09-08T11:38:00+03:00",
    "record_tick": 15,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "телефон координатор площадки — +7 921 543-77-84",
    "source": "user",
@@ -402,7 +402,7 @@
    "record_time": "2026-09-08T12:04:00+03:00",
    "valid_time": "2026-09-08T12:04:00+03:00",
    "record_tick": 16,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "спонсорский пакет — без спонсоров",
    "source": "user",
@@ -427,7 +427,7 @@
    "record_time": "2026-09-08T12:13:00+03:00",
    "valid_time": "2026-09-08T12:13:00+03:00",
    "record_tick": 17,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет брендирования — чёрный + жёлтый",
    "source": "user",
@@ -452,7 +452,7 @@
    "record_time": "2026-09-08T21:13:00+03:00",
    "valid_time": "2026-09-08T21:13:00+03:00",
    "record_tick": 18,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 11:00",
    "source": "user",
@@ -478,7 +478,7 @@
    "record_time": "2026-09-08T21:48:00+03:00",
    "valid_time": "2026-09-08T21:48:00+03:00",
    "record_tick": 19,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "способ регистрации — свой лендинг + форма",
    "source": "user",
@@ -503,7 +503,7 @@
    "record_time": "2026-09-08T22:18:00+03:00",
    "valid_time": "2026-09-08T22:18:00+03:00",
    "record_tick": 20,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "этаж встречи по этапу 2 — офис на Садовой",
    "source": "user",
@@ -529,7 +529,7 @@
    "record_time": "2026-09-08T22:59:00+03:00",
    "valid_time": "2026-09-08T22:59:00+03:00",
    "record_tick": 21,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "исполнителей на этапе 2 — 2 человека",
    "source": "user",
@@ -555,7 +555,7 @@
    "record_time": "2026-09-08T23:03:00+03:00",
    "valid_time": "2026-09-08T23:03:00+03:00",
    "record_tick": 22,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "формат докладов — PechaKucha",
    "source": "user",
@@ -579,7 +579,7 @@
    "record_time": "2026-09-08T23:03:00+03:00",
    "valid_time": "2026-09-08T23:03:00+03:00",
    "record_tick": 23,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «формат докладов» изменена: 15 минут + 5 вопросов → PechaKucha. Прежняя больше не действует.",
    "source": "connect",
@@ -617,7 +617,7 @@
    "record_time": "2026-09-08T23:11:00+03:00",
    "valid_time": "2026-09-08T23:11:00+03:00",
    "record_tick": 24,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "исполнителей на этапе 3 — 5 человека",
    "source": "user",
@@ -644,7 +644,7 @@
    "record_time": "2026-09-08T23:54:00+03:00",
    "valid_time": "2026-09-08T23:54:00+03:00",
    "record_tick": 25,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "объём партии №3 — 48 шт",
    "source": "user",
@@ -671,7 +671,7 @@
    "record_time": "2026-09-09T00:30:00+03:00",
    "valid_time": "2026-08-31T00:30:00+03:00",
    "record_tick": 26,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время звонка с координатор площадки — 18:30",
    "source": "user",
@@ -695,7 +695,7 @@
    "record_time": "2026-09-09T00:58:00+03:00",
    "valid_time": "2026-09-09T00:58:00+03:00",
    "record_tick": 27,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "трансляция — не ведём",
    "source": "user",
@@ -718,7 +718,7 @@
    "record_time": "2026-09-09T01:32:00+03:00",
    "valid_time": "2026-09-01T01:32:00+03:00",
    "record_tick": 28,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "срок поставки от ООО «Гарант-Плюс» — 2026-09-21",
    "source": "user",
@@ -743,7 +743,7 @@
    "record_time": "2026-09-09T02:07:00+03:00",
    "valid_time": "2026-09-09T02:07:00+03:00",
    "record_tick": 29,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Гарант-Плюс» №4 — 74 400 ₽",
    "source": "user",
@@ -770,7 +770,7 @@
    "record_time": "2026-09-09T02:42:00+03:00",
    "valid_time": "2026-09-09T02:42:00+03:00",
    "record_tick": 30,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "раздатка — только приложение",
    "source": "user",
@@ -794,7 +794,7 @@
    "record_time": "2026-09-09T02:56:00+03:00",
    "valid_time": "2026-09-09T02:56:00+03:00",
    "record_tick": 31,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "лимит расходов на этап 2 — 96 400 ₽",
    "source": "user",
@@ -821,7 +821,7 @@
    "record_time": "2026-09-09T03:02:00+03:00",
    "valid_time": "2026-09-09T03:02:00+03:00",
    "record_tick": 32,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "способ регистрации — Timepad",
    "source": "user",
@@ -844,7 +844,7 @@
    "record_time": "2026-09-09T03:02:00+03:00",
    "valid_time": "2026-09-09T03:02:00+03:00",
    "record_tick": 33,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «способ регистрации» изменена: свой лендинг + форма → Timepad. Прежняя больше не действует.",
    "source": "connect",
@@ -878,7 +878,7 @@
    "record_time": "2026-09-09T03:40:00+03:00",
    "valid_time": "2026-09-09T03:40:00+03:00",
    "record_tick": 34,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер счёта-фактуры №4 — №564/26",
    "source": "user",
@@ -904,7 +904,7 @@
    "record_time": "2026-09-09T04:06:00+03:00",
    "valid_time": "2026-09-09T04:06:00+03:00",
    "record_tick": 35,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "стоимость доставки партии №1 — 42 400 ₽",
    "source": "user",
@@ -931,7 +931,7 @@
    "record_time": "2026-09-09T04:13:00+03:00",
    "valid_time": "2026-09-09T04:13:00+03:00",
    "record_tick": 36,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "дата промежуточной приёмки этапа 2 — 2026-09-14",
    "source": "user",
@@ -957,7 +957,7 @@
    "record_time": "2026-09-09T04:53:00+03:00",
    "valid_time": "2026-09-09T04:53:00+03:00",
    "record_tick": 37,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "доля предоплаты ООО «Гарант-Плюс» — 5 %",
    "source": "user",
@@ -982,7 +982,7 @@
    "record_time": "2026-09-09T05:37:00+03:00",
    "valid_time": "2026-09-09T05:37:00+03:00",
    "record_tick": 38,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "дата промежуточной приёмки этапа 3 — 2026-09-22",
    "source": "user",
@@ -1008,7 +1008,7 @@
    "record_time": "2026-09-09T06:23:00+03:00",
    "valid_time": "2026-09-09T06:23:00+03:00",
    "record_tick": 39,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "лимит расходов на этап 1 — 74 400 ₽",
    "source": "user",
@@ -1035,7 +1035,7 @@
    "record_time": "2026-09-09T06:53:00+03:00",
    "valid_time": "2026-09-02T06:53:00+03:00",
    "record_tick": 40,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 5 — 2 часа",
    "source": "user",
@@ -1061,7 +1061,7 @@
    "record_time": "2026-09-09T07:52:00+03:00",
    "valid_time": "2026-09-09T07:52:00+03:00",
    "record_tick": 41,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "место встречи по этапу 1 — офис на Садовой",
    "source": "user",
@@ -1086,7 +1086,7 @@
    "record_time": "2026-09-09T08:26:00+03:00",
    "valid_time": "2026-09-09T08:26:00+03:00",
    "record_tick": 42,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "переплата за срочность — 36 400 ₽",
    "source": "user",
@@ -1112,7 +1112,7 @@
    "record_time": "2026-09-09T09:50:00+03:00",
    "valid_time": "2026-09-07T23:01:00+03:00",
    "record_tick": 43,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на номер договора с ООО «Гарант-Плюс» №2 — №941/26",
    "source": "user",
@@ -1138,7 +1138,7 @@
    "record_time": "2026-09-09T09:50:00+03:00",
    "valid_time": "2026-09-09T09:50:00+03:00",
    "record_tick": 44,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается номер договора с ООО «Гарант-Плюс» №2 — №941/26 (зафиксировано в сообщении 12, 2026-09-07 23:01).",
    "source": "connect",
@@ -1174,7 +1174,7 @@
    "record_time": "2026-09-09T11:02:00+03:00",
    "valid_time": "2026-09-09T11:02:00+03:00",
    "record_tick": 45,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время звонка с координатор площадки — 10:15",
    "source": "user",
@@ -1200,7 +1200,7 @@
    "record_time": "2026-09-09T11:27:00+03:00",
    "valid_time": "2026-09-09T11:27:00+03:00",
    "record_tick": 46,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Гарант-Плюс» №1 — 18 400 ₽",
    "source": "user",
@@ -1227,7 +1227,7 @@
    "record_time": "2026-09-09T11:34:00+03:00",
    "valid_time": "2026-09-09T11:34:00+03:00",
    "record_tick": 47,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "контакт ответственного этапа 1 — +7 941 942-75-32",
    "source": "user",
@@ -1257,7 +1257,7 @@
    "record_time": "2026-09-09T12:07:00+03:00",
    "valid_time": "2026-09-09T12:07:00+03:00",
    "record_tick": 48,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "брак в партии №3 — 20 %",
    "source": "user",
@@ -1283,7 +1283,7 @@
    "record_time": "2026-09-09T12:42:00+03:00",
    "valid_time": "2026-09-09T12:42:00+03:00",
    "record_tick": 49,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер пропуска для координатор площадки — №518/26",
    "source": "user",
@@ -1309,7 +1309,7 @@
    "record_time": "2026-09-09T13:06:00+03:00",
    "valid_time": "2026-09-09T13:06:00+03:00",
    "record_tick": 50,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер заявки в ООО «Гарант-Плюс» №1 — №121/26",
    "source": "user",
@@ -1336,7 +1336,7 @@
    "record_time": "2026-09-09T13:19:00+03:00",
    "valid_time": "2026-09-09T13:19:00+03:00",
    "record_tick": 51,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет брендирования — белый + синий",
    "source": "user",
@@ -1360,7 +1360,7 @@
    "record_time": "2026-09-09T13:19:00+03:00",
    "valid_time": "2026-09-09T13:19:00+03:00",
    "record_tick": 52,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «цвет брендирования»: чёрный + жёлтый (сообщение 19, 2026-09-08 12:13) и белый + синий (сообщение 57, 2026-09-09 13:19). Несовместимы; следую позднейшему — белый + синий.",
    "source": "connect",
@@ -1394,7 +1394,7 @@
    "record_time": "2026-09-09T13:24:00+03:00",
    "valid_time": "2026-09-09T13:24:00+03:00",
    "record_tick": 53,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "объём партии №2 — 48 шт",
    "source": "user",
@@ -1420,7 +1420,7 @@
    "record_time": "2026-09-09T14:07:00+03:00",
    "valid_time": "2026-09-09T14:07:00+03:00",
    "record_tick": 54,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "площадка — лофт Katerna",
    "source": "user",
@@ -1444,7 +1444,7 @@
    "record_time": "2026-09-09T14:22:00+03:00",
    "valid_time": "2026-09-09T14:22:00+03:00",
    "record_tick": 55,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 4 — 4 часа",
    "source": "user",
@@ -1469,7 +1469,7 @@
    "record_time": "2026-09-09T15:06:00+03:00",
    "valid_time": "2026-09-09T15:06:00+03:00",
    "record_tick": 56,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 1 — Алексей",
    "source": "user",
@@ -1494,7 +1494,7 @@
    "record_time": "2026-09-09T15:22:00+03:00",
    "valid_time": "2026-09-09T15:22:00+03:00",
    "record_tick": 57,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "штраф ООО «Гарант-Плюс» за просрочку — 20 %",
    "source": "user",
@@ -1519,7 +1519,7 @@
    "record_time": "2026-09-09T15:55:00+03:00",
    "valid_time": "2026-09-09T15:55:00+03:00",
    "record_tick": 58,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "буфет — фуршет в конце",
    "source": "user",
@@ -1543,7 +1543,7 @@
    "record_time": "2026-09-09T15:55:00+03:00",
    "valid_time": "2026-09-09T15:55:00+03:00",
    "record_tick": 59,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «буфет» изменена: кофе-брейк дважды → фуршет в конце. Прежняя больше не действует.",
    "source": "connect",
@@ -1578,7 +1578,7 @@
    "record_time": "2026-09-09T16:23:00+03:00",
    "valid_time": "2026-09-09T16:23:00+03:00",
    "record_tick": 60,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер счёта-фактуры №2 — №706/26",
    "source": "user",
@@ -1605,7 +1605,7 @@
    "record_time": "2026-09-09T16:51:00+03:00",
    "valid_time": "2026-09-09T16:51:00+03:00",
    "record_tick": 61,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "дата проведения — 2026-11-21",
    "source": "user",
@@ -1631,7 +1631,7 @@
    "record_time": "2026-09-09T17:31:00+03:00",
    "valid_time": "2026-09-09T17:31:00+03:00",
    "record_tick": 62,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "место встречи по этапу 2 — зал на первом",
    "source": "user",
@@ -1656,7 +1656,7 @@
    "record_time": "2026-09-09T17:58:00+03:00",
    "valid_time": "2026-09-09T17:58:00+03:00",
    "record_tick": 63,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 10:00",
    "source": "user",
@@ -1681,7 +1681,7 @@
    "record_time": "2026-09-09T17:58:00+03:00",
    "valid_time": "2026-09-09T17:58:00+03:00",
    "record_tick": 64,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «время начала»: 11:00 (сообщение 20, 2026-09-08 21:13) и 10:00 (сообщение 68, 2026-09-09 17:58). Несовместимы; следую позднейшему — 10:00.",
    "source": "connect",
@@ -1719,7 +1719,7 @@
    "record_time": "2026-09-10T02:58:00+03:00",
    "valid_time": "2026-09-10T02:58:00+03:00",
    "record_tick": 65,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "трансляция — прямой эфир в VK",
    "source": "user",
@@ -1744,7 +1744,7 @@
    "record_time": "2026-09-10T02:58:00+03:00",
    "valid_time": "2026-09-10T02:58:00+03:00",
    "record_tick": 66,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «трансляция» изменена: не ведём → прямой эфир в VK. Прежняя больше не действует.",
    "source": "connect",
@@ -1778,7 +1778,7 @@
    "record_time": "2026-09-10T03:11:00+03:00",
    "valid_time": "2026-09-10T03:11:00+03:00",
    "record_tick": 67,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 1 — 6 часа",
    "source": "user",
@@ -1804,7 +1804,7 @@
    "record_time": "2026-09-10T03:20:00+03:00",
    "valid_time": "2026-09-10T03:20:00+03:00",
    "record_tick": 68,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 12:00",
    "source": "user",
@@ -1829,7 +1829,7 @@
    "record_time": "2026-09-10T04:00:00+03:00",
    "valid_time": "2026-09-10T04:00:00+03:00",
    "record_tick": 69,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Гарант-Плюс» №3 — 58 400 ₽",
    "source": "user",
@@ -1856,7 +1856,7 @@
    "record_time": "2026-09-10T04:13:00+03:00",
    "valid_time": "2026-09-10T04:13:00+03:00",
    "record_tick": 70,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "лимит правок — 48 шт",
    "source": "user",
@@ -1882,7 +1882,7 @@
    "record_time": "2026-09-10T04:38:00+03:00",
    "valid_time": "2026-09-10T04:38:00+03:00",
    "record_tick": 71,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "раздатка — бейджи с QR-программой",
    "source": "user",
@@ -1907,7 +1907,7 @@
    "record_time": "2026-09-10T04:38:00+03:00",
    "valid_time": "2026-09-10T04:38:00+03:00",
    "record_tick": 72,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «раздатка» изменена: только приложение → бейджи с QR-программой. Прежняя больше не действует.",
    "source": "connect",
@@ -1943,7 +1943,7 @@
    "record_time": "2026-09-10T20:38:00+03:00",
    "valid_time": "2026-09-10T20:38:00+03:00",
    "record_tick": 73,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "дата постановки задачи №2 — 2026-09-14",
    "source": "user",
@@ -1970,7 +1970,7 @@
    "record_time": "2026-09-10T20:47:00+03:00",
    "valid_time": "2026-09-10T20:47:00+03:00",
    "record_tick": 74,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "объём переделок по этапу 1 — 36 шт",
    "source": "user",
@@ -1997,7 +1997,7 @@
    "record_time": "2026-09-10T22:01:00+03:00",
    "valid_time": "2026-09-10T22:01:00+03:00",
    "record_tick": 75,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер заявки в ООО «Гарант-Плюс» №2 — №987/26",
    "source": "user",
@@ -2025,7 +2025,7 @@
    "record_time": "2026-09-10T22:22:00+03:00",
    "valid_time": "2026-09-10T22:22:00+03:00",
    "record_tick": 76,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "срок гарантии — 12 месяцев",
    "source": "user",
@@ -2050,7 +2050,7 @@
    "record_time": "2026-09-10T23:02:00+03:00",
    "valid_time": "2026-09-10T23:02:00+03:00",
    "record_tick": 77,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "спонсорский пакет — два золотых за 150k",
    "source": "user",
@@ -2076,7 +2076,7 @@
    "record_time": "2026-09-10T23:02:00+03:00",
    "valid_time": "2026-09-10T23:02:00+03:00",
    "record_tick": 78,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «спонсорский пакет» изменена: без спонсоров → два золотых за 150k. Прежняя больше не действует.",
    "source": "connect",
@@ -2114,7 +2114,7 @@
    "record_time": "2026-09-10T23:40:00+03:00",
    "valid_time": "2026-09-10T23:40:00+03:00",
    "record_tick": 79,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 3 — Дмитрий",
    "source": "user",
@@ -2140,7 +2140,7 @@
    "record_time": "2026-09-10T23:44:00+03:00",
    "valid_time": "2026-09-10T23:44:00+03:00",
    "record_tick": 80,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "доплата за ночные работы — 5 %",
    "source": "user",
@@ -2166,7 +2166,7 @@
    "record_time": "2026-09-11T00:10:00+03:00",
    "valid_time": "2026-09-11T00:10:00+03:00",
    "record_tick": 81,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "срок поставки от ООО «Гарант-Плюс» — 2026-09-28",
    "source": "user",
@@ -2191,7 +2191,7 @@
    "record_time": "2026-09-11T00:17:00+03:00",
    "valid_time": "2026-09-11T00:17:00+03:00",
    "record_tick": 82,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "исполнителей на этапе 1 — 4 человека",
    "source": "user",
@@ -2217,7 +2217,7 @@
    "record_time": "2026-09-11T00:20:00+03:00",
    "valid_time": "2026-09-11T00:20:00+03:00",
    "record_tick": 83,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время начала работ на этапе 1 — 11:15",
    "source": "user",
@@ -2243,7 +2243,7 @@
    "record_time": "2026-09-11T00:24:00+03:00",
    "valid_time": "2026-09-11T00:24:00+03:00",
    "record_tick": 84,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "брак в партии №2 — 20 %",
    "source": "user",
@@ -2269,7 +2269,7 @@
    "record_time": "2026-09-11T00:30:00+03:00",
    "valid_time": "2026-09-11T00:30:00+03:00",
    "record_tick": 85,
-   "layer": "project",
+   "layer": "t4",
    "act": "repeat",
    "content": "Повтор: лимит правок — 48 шт",
    "source": "repeat",
@@ -2298,7 +2298,7 @@
    "record_time": "2026-09-11T00:34:00+03:00",
    "valid_time": "2026-09-11T00:34:00+03:00",
    "record_tick": 86,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Гарант-Плюс» №2 — 24 400 ₽",
    "source": "user",
@@ -2325,7 +2325,7 @@
    "record_time": "2026-09-11T01:10:00+03:00",
    "valid_time": "2026-09-11T01:10:00+03:00",
    "record_tick": 87,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время начала работ на этапе 2 — 14:45",
    "source": "user",
@@ -2353,7 +2353,7 @@
    "record_time": "2026-09-11T01:36:00+03:00",
    "valid_time": "2026-09-11T01:36:00+03:00",
    "record_tick": 88,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 12:00",
    "source": "user",
@@ -2379,7 +2379,7 @@
    "record_time": "2026-09-11T02:09:00+03:00",
    "valid_time": "2026-09-11T02:09:00+03:00",
    "record_tick": 89,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "вместимость зала — 220 мест",
    "source": "user",
@@ -2404,7 +2404,7 @@
    "record_time": "2026-09-11T02:12:00+03:00",
    "valid_time": "2026-09-11T02:12:00+03:00",
    "record_tick": 90,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "дата промежуточной приёмки этапа 1 — 2026-09-27",
    "source": "user",
@@ -2431,7 +2431,7 @@
    "record_time": "2026-09-11T02:31:00+03:00",
    "valid_time": "2026-09-11T02:31:00+03:00",
    "record_tick": 91,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 2 — Алексей",
    "source": "user",
@@ -2457,7 +2457,7 @@
    "record_time": "2026-09-11T02:37:00+03:00",
    "valid_time": "2026-09-11T02:37:00+03:00",
    "record_tick": 92,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 3 — 4 часа",
    "source": "user",
@@ -2484,7 +2484,7 @@
    "record_time": "2026-09-11T03:29:00+03:00",
    "valid_time": "2026-09-09T14:22:00+03:00",
    "record_tick": 93,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на длительность работ по этапу 4 — 4 часа",
    "source": "user",
@@ -2509,7 +2509,7 @@
    "record_time": "2026-09-11T03:29:00+03:00",
    "valid_time": "2026-09-11T03:29:00+03:00",
    "record_tick": 94,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается длительность работ по этапу 4 — 4 часа (зафиксировано в сообщении 60, 2026-09-09 14:22).",
    "source": "connect",
@@ -2543,7 +2543,7 @@
    "record_time": "2026-09-11T04:28:00+03:00",
    "valid_time": "2026-09-11T04:28:00+03:00",
    "record_tick": 95,
-   "layer": "beat",
+   "layer": "t1",
    "act": "repeat",
    "content": "Повтор: время звонка с координатор площадки — 10:15",
    "source": "repeat",
@@ -2574,7 +2574,7 @@
    "record_time": "2026-09-11T16:28:00+03:00",
    "valid_time": "2026-09-11T16:28:00+03:00",
    "record_tick": 96,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: дата постановки задачи №2 — 2026-09-14",
    "source": "repeat",
@@ -2605,7 +2605,7 @@
    "record_time": "2026-09-11T17:10:00+03:00",
    "valid_time": "2026-09-11T17:10:00+03:00",
    "record_tick": 97,
-   "layer": "project",
+   "layer": "t4",
    "act": "repeat",
    "content": "Повтор: дата проведения — 2026-11-21",
    "source": "repeat",
@@ -2635,7 +2635,7 @@
    "record_time": "2026-09-11T17:46:00+03:00",
    "valid_time": "2026-09-11T17:46:00+03:00",
    "record_tick": 98,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер счёта-фактуры №1 — №409/26",
    "source": "user",
@@ -2663,7 +2663,7 @@
    "record_time": "2026-09-11T17:57:00+03:00",
    "valid_time": "2026-09-11T17:57:00+03:00",
    "record_tick": 99,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: доплата за ночные работы — 5 %",
    "source": "repeat",
@@ -2693,7 +2693,7 @@
    "record_time": "2026-09-11T19:33:00+03:00",
    "valid_time": "2026-09-11T19:33:00+03:00",
    "record_tick": 100,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: дата промежуточной приёмки этапа 1 — 2026-09-27",
    "source": "repeat",
@@ -2724,7 +2724,7 @@
    "record_time": "2026-09-11T20:18:00+03:00",
    "valid_time": "2026-09-11T20:18:00+03:00",
    "record_tick": 101,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "адрес склада ООО «Гарант-Плюс» — склад на Промышленной, 4",
    "source": "user",
@@ -2750,7 +2750,7 @@
    "record_time": "2026-09-12T05:13:00+03:00",
    "valid_time": "2026-09-12T05:13:00+03:00",
    "record_tick": 102,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "запас на складе — 24 шт",
    "source": "user",
@@ -2776,7 +2776,7 @@
    "record_time": "2026-09-12T06:25:00+03:00",
    "valid_time": "2026-09-12T06:25:00+03:00",
    "record_tick": 103,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: номер счёта-фактуры №1 — №409/26",
    "source": "repeat",
@@ -2808,7 +2808,7 @@
    "record_time": "2026-09-12T07:02:00+03:00",
    "valid_time": "2026-09-12T07:02:00+03:00",
    "record_tick": 104,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "место встречи по этапу 3 — офис на Садовой",
    "source": "user",
@@ -2834,7 +2834,7 @@
    "record_time": "2026-09-12T07:12:00+03:00",
    "valid_time": "2026-09-12T07:12:00+03:00",
    "record_tick": 105,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 4 — Николай",
    "source": "user",
@@ -2859,7 +2859,7 @@
    "record_time": "2026-09-12T07:52:00+03:00",
    "valid_time": "2026-09-07T23:01:00+03:00",
    "record_tick": 106,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на номер договора с ООО «Гарант-Плюс» №2 — №941/26",
    "source": "user",
@@ -2887,7 +2887,7 @@
    "record_time": "2026-09-12T07:52:00+03:00",
    "valid_time": "2026-09-12T07:52:00+03:00",
    "record_tick": 107,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается номер договора с ООО «Гарант-Плюс» №2 — №941/26 (зафиксировано в сообщении 12, 2026-09-07 23:01).",
    "source": "connect",
@@ -2923,7 +2923,7 @@
    "record_time": "2026-09-12T08:02:00+03:00",
    "valid_time": "2026-09-08T10:53:00+03:00",
    "record_tick": 108,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на время доставки образцов — 13:00",
    "source": "user",
@@ -2949,7 +2949,7 @@
    "record_time": "2026-09-12T08:02:00+03:00",
    "valid_time": "2026-09-12T08:02:00+03:00",
    "record_tick": 109,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается время доставки образцов — 13:00 (зафиксировано в сообщении 16, 2026-09-08 10:53).",
    "source": "connect",
@@ -2984,7 +2984,7 @@
    "record_time": "2026-09-12T08:41:00+03:00",
    "valid_time": "2026-09-09T11:34:00+03:00",
    "record_tick": 110,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на контакт ответственного этапа 1 — +7 941 942-75-32",
    "source": "user",
@@ -3015,7 +3015,7 @@
    "record_time": "2026-09-12T08:41:00+03:00",
    "valid_time": "2026-09-12T08:41:00+03:00",
    "record_tick": 111,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается контакт ответственного этапа 1 — +7 941 942-75-32 (зафиксировано в сообщении 53, 2026-09-09 11:34).",
    "source": "connect",
@@ -3055,7 +3055,7 @@
    "record_time": "2026-09-12T09:10:00+03:00",
    "valid_time": "2026-09-09T02:07:00+03:00",
    "record_tick": 112,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Гарант-Плюс» №4 — 74 400 ₽",
    "source": "user",
@@ -3082,7 +3082,7 @@
    "record_time": "2026-09-12T09:10:00+03:00",
    "valid_time": "2026-09-12T09:10:00+03:00",
    "record_tick": 113,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается сумма счёта от ООО «Гарант-Плюс» №4 — 74 400 ₽ (зафиксировано в сообщении 30, 2026-09-09 02:07).",
    "source": "connect",
@@ -3118,7 +3118,7 @@
    "record_time": "2026-09-12T09:57:00+03:00",
    "valid_time": "2026-09-12T09:57:00+03:00",
    "record_tick": 114,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 11:00",
    "source": "user",
@@ -3143,7 +3143,7 @@
    "record_time": "2026-09-12T09:57:00+03:00",
    "valid_time": "2026-09-12T09:57:00+03:00",
    "record_tick": 115,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «время начала»: 12:00 (сообщение 71, 2026-09-10 03:20) и 11:00 (сообщение 128, 2026-09-12 09:57). Несовместимы; следую позднейшему — 11:00.",
    "source": "connect",
@@ -3179,7 +3179,7 @@
    "record_time": "2026-09-12T10:32:00+03:00",
    "valid_time": "2026-09-12T10:32:00+03:00",
    "record_tick": 116,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: ответственный за этап 2 — Алексей",
    "source": "repeat",
@@ -3209,7 +3209,7 @@
    "record_time": "2026-09-12T11:09:00+03:00",
    "valid_time": "2026-09-08T10:31:00+03:00",
    "record_tick": 117,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на дата постановки задачи №1 — 2026-09-26",
    "source": "user",
@@ -3235,7 +3235,7 @@
    "record_time": "2026-09-12T11:09:00+03:00",
    "valid_time": "2026-09-12T11:09:00+03:00",
    "record_tick": 118,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается дата постановки задачи №1 — 2026-09-26 (зафиксировано в сообщении 14, 2026-09-08 10:31).",
    "source": "connect",
@@ -3271,7 +3271,7 @@
    "record_time": "2026-09-12T11:30:00+03:00",
    "valid_time": "2026-09-07T22:34:00+03:00",
    "record_tick": 119,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 2 — 6 часа",
    "source": "user",
@@ -3298,7 +3298,7 @@
    "record_time": "2026-09-12T11:30:00+03:00",
    "valid_time": "2026-09-12T11:30:00+03:00",
    "record_tick": 120,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается длительность работ по этапу 2 — 6 часа (зафиксировано в сообщении 9, 2026-09-07 22:34).",
    "source": "connect",
@@ -3335,7 +3335,7 @@
    "record_time": "2026-09-12T11:56:00+03:00",
    "valid_time": "2026-09-12T11:56:00+03:00",
    "record_tick": 121,
-   "layer": "project",
+   "layer": "t4",
    "act": "repeat",
    "content": "Повтор: адрес склада ООО «Гарант-Плюс» — склад на Промышленной, 4",
    "source": "repeat",
@@ -3365,7 +3365,7 @@
    "record_time": "2026-09-12T12:23:00+03:00",
    "valid_time": "2026-09-09T05:37:00+03:00",
    "record_tick": 122,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на дата промежуточной приёмки этапа 3 — 2026-09-22",
    "source": "user",
@@ -3391,7 +3391,7 @@
    "record_time": "2026-09-12T12:23:00+03:00",
    "valid_time": "2026-09-12T12:23:00+03:00",
    "record_tick": 123,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается дата промежуточной приёмки этапа 3 — 2026-09-22 (зафиксировано в сообщении 38, 2026-09-09 05:37).",
    "source": "connect",
@@ -3426,7 +3426,7 @@
    "record_time": "2026-09-12T13:33:00+03:00",
    "valid_time": "2026-09-12T13:33:00+03:00",
    "record_tick": 124,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 11:00",
    "source": "user",
@@ -3452,7 +3452,7 @@
    "record_time": "2026-09-12T13:33:00+03:00",
    "valid_time": "2026-09-12T13:33:00+03:00",
    "record_tick": 125,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «время начала»: 12:00 (сообщение 91, 2026-09-11 01:36) и 11:00 (сообщение 136, 2026-09-12 13:33). Несовместимы; следую позднейшему — 11:00.",
    "source": "connect",
@@ -3489,7 +3489,7 @@
    "record_time": "2026-09-12T14:11:00+03:00",
    "valid_time": "2026-09-12T14:11:00+03:00",
    "record_tick": 126,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 11:00",
    "source": "user",
@@ -3514,7 +3514,7 @@
    "record_time": "2026-09-12T14:34:00+03:00",
    "valid_time": "2026-09-12T14:34:00+03:00",
    "record_tick": 127,
-   "layer": "project",
+   "layer": "t4",
    "act": "repeat",
    "content": "Повтор: срок гарантии — 12 месяцев",
    "source": "repeat",
@@ -3543,7 +3543,7 @@
    "record_time": "2026-09-12T15:34:00+03:00",
    "valid_time": "2026-09-12T15:34:00+03:00",
    "record_tick": 128,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет брендирования — чёрный + жёлтый",
    "source": "user",
@@ -3568,7 +3568,7 @@
    "record_time": "2026-09-12T15:46:00+03:00",
    "valid_time": "2026-09-07T22:45:00+03:00",
    "record_tick": 129,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на число докладчиков — 12",
    "source": "user",
@@ -3593,7 +3593,7 @@
    "record_time": "2026-09-12T15:46:00+03:00",
    "valid_time": "2026-09-12T15:46:00+03:00",
    "record_tick": 130,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается число докладчиков — 12 (зафиксировано в сообщении 10, 2026-09-07 22:45).",
    "source": "connect",
@@ -3628,7 +3628,7 @@
    "record_time": "2026-09-12T18:30:00+03:00",
    "valid_time": "2026-09-07T22:01:00+03:00",
    "record_tick": 131,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на время начала работ на этапе 4 — 16:00",
    "source": "user",
@@ -3655,7 +3655,7 @@
    "record_time": "2026-09-12T18:30:00+03:00",
    "valid_time": "2026-09-12T18:30:00+03:00",
    "record_tick": 132,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается время начала работ на этапе 4 — 16:00 (зафиксировано в сообщении 8, 2026-09-07 22:01).",
    "source": "connect",
@@ -3692,7 +3692,7 @@
    "record_time": "2026-09-12T19:15:00+03:00",
    "valid_time": "2026-09-12T19:15:00+03:00",
    "record_tick": 133,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: длительность работ по этапу 3 — 4 часа",
    "source": "repeat",
@@ -3723,7 +3723,7 @@
    "record_time": "2026-09-12T19:28:00+03:00",
    "valid_time": "2026-09-08T11:38:00+03:00",
    "record_tick": 134,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на телефон координатор площадки — +7 921 543-77-84",
    "source": "user",
@@ -3753,7 +3753,7 @@
    "record_time": "2026-09-12T19:28:00+03:00",
    "valid_time": "2026-09-12T19:28:00+03:00",
    "record_tick": 135,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается телефон координатор площадки — +7 921 543-77-84 (зафиксировано в сообщении 17, 2026-09-08 11:38).",
    "source": "connect",
@@ -3793,7 +3793,7 @@
    "record_time": "2026-09-12T22:10:00+03:00",
    "valid_time": "2026-09-12T22:10:00+03:00",
    "record_tick": 136,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "трансляция — запись потом",
    "source": "user",
@@ -3818,7 +3818,7 @@
    "record_time": "2026-09-12T22:10:00+03:00",
    "valid_time": "2026-09-12T22:10:00+03:00",
    "record_tick": 137,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «трансляция» изменена: прямой эфир в VK → запись потом. Прежняя больше не действует.",
    "source": "connect",
@@ -3854,7 +3854,7 @@
    "record_time": "2026-09-12T22:16:00+03:00",
    "valid_time": "2026-09-12T22:16:00+03:00",
    "record_tick": 138,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "спонсорский пакет — платиновый за 300k",
    "source": "user",
@@ -3880,7 +3880,7 @@
    "record_time": "2026-09-12T22:16:00+03:00",
    "valid_time": "2026-09-12T22:16:00+03:00",
    "record_tick": 139,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «спонсорский пакет» изменена: два золотых за 150k → платиновый за 300k. Прежняя больше не действует.",
    "source": "connect",
@@ -3919,7 +3919,7 @@
    "record_time": "2026-09-12T22:59:00+03:00",
    "valid_time": "2026-09-08T22:18:00+03:00",
    "record_tick": 140,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на этаж встречи по этапу 2 — офис на Садовой",
    "source": "user",
@@ -3945,7 +3945,7 @@
    "record_time": "2026-09-12T22:59:00+03:00",
    "valid_time": "2026-09-12T22:59:00+03:00",
    "record_tick": 141,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается этаж встречи по этапу 2 — офис на Садовой (зафиксировано в сообщении 22, 2026-09-08 22:18).",
    "source": "connect",
@@ -3979,7 +3979,7 @@
    "record_time": "2026-09-12T23:26:00+03:00",
    "valid_time": "2026-09-12T23:26:00+03:00",
    "record_tick": 142,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: запас на складе — 24 шт",
    "source": "repeat",
@@ -4009,7 +4009,7 @@
    "record_time": "2026-09-13T00:28:00+03:00",
    "valid_time": "2026-09-09T14:22:00+03:00",
    "record_tick": 143,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на длительность работ по этапу 4 — 4 часа",
    "source": "user",
@@ -4034,7 +4034,7 @@
    "record_time": "2026-09-13T00:28:00+03:00",
    "valid_time": "2026-09-13T00:28:00+03:00",
    "record_tick": 144,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается длительность работ по этапу 4 — 4 часа (зафиксировано в сообщении 60, 2026-09-09 14:22).",
    "source": "connect",
@@ -4068,7 +4068,7 @@
    "record_time": "2026-09-13T01:03:00+03:00",
    "valid_time": "2026-09-09T13:24:00+03:00",
    "record_tick": 145,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на объём партии №2 — 48 шт",
    "source": "user",
@@ -4094,7 +4094,7 @@
    "record_time": "2026-09-13T01:03:00+03:00",
    "valid_time": "2026-09-13T01:03:00+03:00",
    "record_tick": 146,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается объём партии №2 — 48 шт (зафиксировано в сообщении 58, 2026-09-09 13:24).",
    "source": "connect",
@@ -4128,7 +4128,7 @@
    "record_time": "2026-09-13T16:03:00+03:00",
    "valid_time": "2026-09-13T16:03:00+03:00",
    "record_tick": 147,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "раздатка — программка на бумаге",
    "source": "user",
@@ -4152,7 +4152,7 @@
    "record_time": "2026-09-13T16:03:00+03:00",
    "valid_time": "2026-09-13T16:03:00+03:00",
    "record_tick": 148,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «раздатка» изменена: бейджи с QR-программой → программка на бумаге. Прежняя больше не действует.",
    "source": "connect",
@@ -4188,7 +4188,7 @@
    "record_time": "2026-09-13T16:24:00+03:00",
    "valid_time": "2026-09-13T16:24:00+03:00",
    "record_tick": 149,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "способ регистрации — QR на входе",
    "source": "user",
@@ -4213,7 +4213,7 @@
    "record_time": "2026-09-13T16:24:00+03:00",
    "valid_time": "2026-09-13T16:24:00+03:00",
    "record_tick": 150,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «способ регистрации» изменена: Timepad → QR на входе. Прежняя больше не действует.",
    "source": "connect",
@@ -4248,7 +4248,7 @@
    "record_time": "2026-09-14T01:24:00+03:00",
    "valid_time": "2026-09-09T12:07:00+03:00",
    "record_tick": 151,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на брак в партии №3 — 20 %",
    "source": "user",
@@ -4275,7 +4275,7 @@
    "record_time": "2026-09-14T01:24:00+03:00",
    "valid_time": "2026-09-14T01:24:00+03:00",
    "record_tick": 152,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается брак в партии №3 — 20 % (зафиксировано в сообщении 54, 2026-09-09 12:07).",
    "source": "connect",
@@ -4311,7 +4311,7 @@
    "record_time": "2026-09-14T01:37:00+03:00",
    "valid_time": "2026-09-14T01:37:00+03:00",
    "record_tick": 153,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "формат докладов — 20-минутные доклады",
    "source": "user",
@@ -4337,7 +4337,7 @@
    "record_time": "2026-09-14T01:37:00+03:00",
    "valid_time": "2026-09-14T01:37:00+03:00",
    "record_tick": 154,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «формат докладов» изменена: PechaKucha → 20-минутные доклады. Прежняя больше не действует.",
    "source": "connect",
@@ -4374,7 +4374,7 @@
    "record_time": "2026-09-14T03:00:00+03:00",
    "valid_time": "2026-09-09T08:26:00+03:00",
    "record_tick": 155,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на переплата за срочность — 36 400 ₽",
    "source": "user",
@@ -4399,7 +4399,7 @@
    "record_time": "2026-09-14T03:00:00+03:00",
    "valid_time": "2026-09-14T03:00:00+03:00",
    "record_tick": 156,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается переплата за срочность — 36 400 ₽ (зафиксировано в сообщении 45, 2026-09-09 08:26).",
    "source": "connect",
@@ -4433,7 +4433,7 @@
    "record_time": "2026-09-14T03:23:00+03:00",
    "valid_time": "2026-09-07T22:01:00+03:00",
    "record_tick": 157,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на время начала работ на этапе 4 — 16:00",
    "source": "user",
@@ -4459,7 +4459,7 @@
    "record_time": "2026-09-14T03:23:00+03:00",
    "valid_time": "2026-09-14T03:23:00+03:00",
    "record_tick": 158,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается время начала работ на этапе 4 — 16:00 (зафиксировано в сообщении 8, 2026-09-07 22:01).",
    "source": "connect",
@@ -4495,7 +4495,7 @@
    "record_time": "2026-09-14T03:29:00+03:00",
    "valid_time": "2026-09-14T03:29:00+03:00",
    "record_tick": 159,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: ответственный за этап 4 — Николай",
    "source": "repeat",
@@ -4524,7 +4524,7 @@
    "record_time": "2026-09-14T03:34:00+03:00",
    "valid_time": "2026-09-14T03:34:00+03:00",
    "record_tick": 160,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "буфет — кофе + обед",
    "source": "user",
@@ -4548,7 +4548,7 @@
    "record_time": "2026-09-14T03:34:00+03:00",
    "valid_time": "2026-09-14T03:34:00+03:00",
    "record_tick": 161,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «буфет» изменена: фуршет в конце → кофе + обед. Прежняя больше не действует.",
    "source": "connect",
@@ -4583,7 +4583,7 @@
    "record_time": "2026-09-14T04:38:00+03:00",
    "valid_time": "2026-09-14T04:38:00+03:00",
    "record_tick": 162,
-   "layer": "beat",
+   "layer": "t1",
    "act": "repeat",
    "content": "Повтор: место встречи по этапу 3 — офис на Садовой",
    "source": "repeat",
@@ -4613,7 +4613,7 @@
    "record_time": "2026-09-14T04:42:00+03:00",
    "valid_time": "2026-09-09T04:13:00+03:00",
    "record_tick": 163,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на дата промежуточной приёмки этапа 2 — 2026-09-14",
    "source": "user",
@@ -4639,7 +4639,7 @@
    "record_time": "2026-09-14T04:42:00+03:00",
    "valid_time": "2026-09-14T04:42:00+03:00",
    "record_tick": 164,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается дата промежуточной приёмки этапа 2 — 2026-09-14 (зафиксировано в сообщении 36, 2026-09-09 04:13).",
    "source": "connect",
@@ -4673,7 +4673,7 @@
    "record_time": "2026-09-14T05:20:00+03:00",
    "valid_time": "2026-09-09T04:53:00+03:00",
    "record_tick": 165,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на доля предоплаты ООО «Гарант-Плюс» — 5 %",
    "source": "user",
@@ -4699,7 +4699,7 @@
    "record_time": "2026-09-14T05:20:00+03:00",
    "valid_time": "2026-09-14T05:20:00+03:00",
    "record_tick": 166,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается доля предоплаты ООО «Гарант-Плюс» — 5 % (зафиксировано в сообщении 37, 2026-09-09 04:53).",
    "source": "connect",
@@ -4734,7 +4734,7 @@
    "record_time": "2026-09-14T05:58:00+03:00",
    "valid_time": "2026-09-09T13:06:00+03:00",
    "record_tick": 167,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на номер заявки в ООО «Гарант-Плюс» №1 — №121/26",
    "source": "user",
@@ -4762,7 +4762,7 @@
    "record_time": "2026-09-14T05:58:00+03:00",
    "valid_time": "2026-09-14T05:58:00+03:00",
    "record_tick": 168,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается номер заявки в ООО «Гарант-Плюс» №1 — №121/26 (зафиксировано в сообщении 56, 2026-09-09 13:06).",
    "source": "connect",
@@ -4799,7 +4799,7 @@
    "record_time": "2026-09-14T06:06:00+03:00",
    "valid_time": "2026-09-09T07:52:00+03:00",
    "record_tick": 169,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на место встречи по этапу 1 — офис на Садовой",
    "source": "user",
@@ -4824,7 +4824,7 @@
    "record_time": "2026-09-14T06:06:00+03:00",
    "valid_time": "2026-09-14T06:06:00+03:00",
    "record_tick": 170,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается место встречи по этапу 1 — офис на Садовой (зафиксировано в сообщении 43, 2026-09-09 07:52).",
    "source": "connect",
@@ -4858,7 +4858,7 @@
    "record_time": "2026-09-14T06:39:00+03:00",
    "valid_time": "2026-09-14T06:39:00+03:00",
    "record_tick": 171,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет брендирования — графит + оранжевый",
    "source": "user",
@@ -4883,7 +4883,7 @@
    "record_time": "2026-09-14T06:39:00+03:00",
    "valid_time": "2026-09-14T06:39:00+03:00",
    "record_tick": 172,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «цвет брендирования»: чёрный + жёлтый (сообщение 141, 2026-09-12 15:34) и графит + оранжевый (сообщение 185, 2026-09-14 06:39). Несовместимы; следую позднейшему — графит + оранжевый.",
    "source": "connect",
@@ -4920,7 +4920,7 @@
    "record_time": "2026-09-14T07:06:00+03:00",
    "valid_time": "2026-09-09T12:42:00+03:00",
    "record_tick": 173,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на номер пропуска для координатор площадки — №518/26",
    "source": "user",
@@ -4947,7 +4947,7 @@
    "record_time": "2026-09-14T07:06:00+03:00",
    "valid_time": "2026-09-14T07:06:00+03:00",
    "record_tick": 174,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается номер пропуска для координатор площадки — №518/26 (зафиксировано в сообщении 55, 2026-09-09 12:42).",
    "source": "connect",
@@ -4983,7 +4983,7 @@
    "record_time": "2026-09-14T21:36:00+03:00",
    "valid_time": "2026-09-14T21:36:00+03:00",
    "record_tick": 175,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "время начала — 10:00",
    "source": "user",
@@ -5009,7 +5009,7 @@
    "record_time": "2026-09-14T21:36:00+03:00",
    "valid_time": "2026-09-14T21:36:00+03:00",
    "record_tick": 176,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «время начала»: 11:00 (сообщение 137, 2026-09-12 14:11) и 10:00 (сообщение 189, 2026-09-14 21:36). Несовместимы; следую позднейшему — 10:00.",
    "source": "connect",
@@ -5046,7 +5046,7 @@
    "record_time": "2026-09-14T22:17:00+03:00",
    "valid_time": "2026-09-08T23:54:00+03:00",
    "record_tick": 177,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на объём партии №3 — 48 шт",
    "source": "user",
@@ -5073,7 +5073,7 @@
    "record_time": "2026-09-14T22:17:00+03:00",
    "valid_time": "2026-09-14T22:17:00+03:00",
    "record_tick": 178,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается объём партии №3 — 48 шт (зафиксировано в сообщении 26, 2026-09-08 23:54).",
    "source": "connect",
@@ -5110,7 +5110,7 @@
    "record_time": "2026-09-14T23:43:00+03:00",
    "valid_time": "2026-09-09T02:56:00+03:00",
    "record_tick": 179,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на лимит расходов на этап 2 — 96 400 ₽",
    "source": "user",
@@ -5138,7 +5138,7 @@
    "record_time": "2026-09-14T23:43:00+03:00",
    "valid_time": "2026-09-14T23:43:00+03:00",
    "record_tick": 180,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается лимит расходов на этап 2 — 96 400 ₽ (зафиксировано в сообщении 32, 2026-09-09 02:56).",
    "source": "connect",
@@ -5175,7 +5175,7 @@
    "record_time": "2026-09-15T00:51:00+03:00",
    "valid_time": "2026-09-09T11:34:00+03:00",
    "record_tick": 181,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на контакт ответственного этапа 1 — +7 941 942-75-32",
    "source": "user",
@@ -5205,7 +5205,7 @@
    "record_time": "2026-09-15T00:51:00+03:00",
    "valid_time": "2026-09-15T00:51:00+03:00",
    "record_tick": 182,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается контакт ответственного этапа 1 — +7 941 942-75-32 (зафиксировано в сообщении 53, 2026-09-09 11:34).",
    "source": "connect",
@@ -5244,7 +5244,7 @@
    "record_time": "2026-09-15T00:01:00+03:00",
    "valid_time": "2026-09-15T00:01:00+03:00",
    "record_tick": 183,
-   "layer": "project",
+   "layer": "t4",
    "act": "reconcile",
    "content": "Сверка биографии: запись №39 («лимит расходов на этап 1 — 74 400 ₽») записана на тике 39, прожито 143 тиков, повторов 0; stamps записи подтверждены чтением.",
    "source": "reconcile",
@@ -5277,7 +5277,7 @@
    "record_time": "2026-09-12T17:51:00+03:00",
    "valid_time": "2026-09-12T17:51:00+03:00",
    "record_tick": 184,
-   "layer": "project",
+   "layer": "t4",
    "act": "reconcile",
    "content": "Сверка биографии: запись №104 («место встречи по этапу 3 — офис на Садовой») записана на тике 104, прожито 79 тиков, повторов 1; stamps записи подтверждены чтением.",
    "source": "reconcile",
@@ -5318,7 +5318,7 @@
        "act": "name",
        "content": "имя клиента — Анна Витальевна",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:00:00+03:00",
        "record_tick": 1,
        "refs": []
@@ -5327,7 +5327,7 @@
        "act": "name",
        "content": "проект — конференция «Данные и люди»",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:00:00+03:00",
        "record_tick": 2,
        "refs": []
@@ -5365,7 +5365,7 @@
        "act": "name",
        "content": "город — Москва",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:33:00+03:00",
        "record_tick": 3,
        "refs": []
@@ -5374,7 +5374,7 @@
        "act": "name",
        "content": "предпочтительный канал связи — текстовые сообщения, не звонки",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:33:00+03:00",
        "record_tick": 4,
        "refs": []
@@ -5456,7 +5456,7 @@
        "act": "name",
        "content": "сумма экономии по этапу 1 — 18 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-07T21:48:00+03:00",
        "record_tick": 5,
        "refs": []
@@ -5490,7 +5490,7 @@
        "act": "name",
        "content": "время начала работ на этапе 4 — 16:00",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-07T22:01:00+03:00",
        "record_tick": 6,
        "refs": []
@@ -5524,7 +5524,7 @@
        "act": "name",
        "content": "длительность работ по этапу 2 — 6 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-07T22:34:00+03:00",
        "record_tick": 7,
        "refs": []
@@ -5558,7 +5558,7 @@
        "act": "name",
        "content": "число докладчиков — 12",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:45:00+03:00",
        "record_tick": 8,
        "refs": []
@@ -5592,7 +5592,7 @@
        "act": "name",
        "content": "формат докладов — 15 минут + 5 вопросов",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:57:00+03:00",
        "record_tick": 9,
        "refs": []
@@ -5626,7 +5626,7 @@
        "act": "name",
        "content": "номер договора с ООО «Гарант-Плюс» №2 — №941/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T23:01:00+03:00",
        "record_tick": 10,
        "refs": []
@@ -5660,7 +5660,7 @@
        "act": "name",
        "content": "этаж встречи по этапу 1 — кабинет 404",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-08T10:01:00+03:00",
        "record_tick": 11,
        "refs": []
@@ -5694,7 +5694,7 @@
        "act": "name",
        "content": "дата постановки задачи №1 — 2026-09-26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-08T10:31:00+03:00",
        "record_tick": 12,
        "refs": []
@@ -5728,7 +5728,7 @@
        "act": "name",
        "content": "буфет — кофе-брейк дважды",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T10:42:00+03:00",
        "record_tick": 13,
        "refs": []
@@ -5762,7 +5762,7 @@
        "act": "name",
        "content": "время доставки образцов — 13:00",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-08T10:53:00+03:00",
        "record_tick": 14,
        "refs": []
@@ -5796,7 +5796,7 @@
        "act": "name",
        "content": "телефон координатор площадки — +7 921 543-77-84",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T11:38:00+03:00",
        "record_tick": 15,
        "refs": []
@@ -5830,7 +5830,7 @@
        "act": "name",
        "content": "спонсорский пакет — без спонсоров",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T12:04:00+03:00",
        "record_tick": 16,
        "refs": []
@@ -5864,7 +5864,7 @@
        "act": "name",
        "content": "цвет брендирования — чёрный + жёлтый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T12:13:00+03:00",
        "record_tick": 17,
        "refs": []
@@ -5898,7 +5898,7 @@
        "act": "name",
        "content": "время начала — 11:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T21:13:00+03:00",
        "record_tick": 18,
        "refs": []
@@ -5932,7 +5932,7 @@
        "act": "name",
        "content": "способ регистрации — свой лендинг + форма",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T21:48:00+03:00",
        "record_tick": 19,
        "refs": []
@@ -5966,7 +5966,7 @@
        "act": "name",
        "content": "этаж встречи по этапу 2 — офис на Садовой",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-08T22:18:00+03:00",
        "record_tick": 20,
        "refs": []
@@ -6000,7 +6000,7 @@
        "act": "name",
        "content": "исполнителей на этапе 2 — 2 человека",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-08T22:59:00+03:00",
        "record_tick": 21,
        "refs": []
@@ -6034,7 +6034,7 @@
        "act": "name",
        "content": "формат докладов — PechaKucha",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T23:03:00+03:00",
        "record_tick": 22,
        "refs": []
@@ -6043,7 +6043,7 @@
        "act": "connect",
        "content": "Позиция по «формат докладов» изменена: 15 минут + 5 вопросов → PechaKucha. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T23:03:00+03:00",
        "record_tick": 23,
        "refs": [
@@ -6084,7 +6084,7 @@
        "act": "name",
        "content": "исполнителей на этапе 3 — 5 человека",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-08T23:11:00+03:00",
        "record_tick": 24,
        "refs": []
@@ -6118,7 +6118,7 @@
        "act": "name",
        "content": "объём партии №3 — 48 шт",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-08T23:54:00+03:00",
        "record_tick": 25,
        "refs": []
@@ -6152,7 +6152,7 @@
        "act": "name",
        "content": "время звонка с координатор площадки — 18:30",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-08-31T00:30:00+03:00",
        "record_tick": 26,
        "refs": []
@@ -6186,7 +6186,7 @@
        "act": "name",
        "content": "трансляция — не ведём",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T00:58:00+03:00",
        "record_tick": 27,
        "refs": []
@@ -6220,7 +6220,7 @@
        "act": "name",
        "content": "срок поставки от ООО «Гарант-Плюс» — 2026-09-21",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-01T01:32:00+03:00",
        "record_tick": 28,
        "refs": []
@@ -6254,7 +6254,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Гарант-Плюс» №4 — 74 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T02:07:00+03:00",
        "record_tick": 29,
        "refs": []
@@ -6288,7 +6288,7 @@
        "act": "name",
        "content": "раздатка — только приложение",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T02:42:00+03:00",
        "record_tick": 30,
        "refs": []
@@ -6322,7 +6322,7 @@
        "act": "name",
        "content": "лимит расходов на этап 2 — 96 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T02:56:00+03:00",
        "record_tick": 31,
        "refs": []
@@ -6356,7 +6356,7 @@
        "act": "name",
        "content": "способ регистрации — Timepad",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T03:02:00+03:00",
        "record_tick": 32,
        "refs": []
@@ -6365,7 +6365,7 @@
        "act": "connect",
        "content": "Позиция по «способ регистрации» изменена: свой лендинг + форма → Timepad. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T03:02:00+03:00",
        "record_tick": 33,
        "refs": [
@@ -6406,7 +6406,7 @@
        "act": "name",
        "content": "номер счёта-фактуры №4 — №564/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T03:40:00+03:00",
        "record_tick": 34,
        "refs": []
@@ -6440,7 +6440,7 @@
        "act": "name",
        "content": "стоимость доставки партии №1 — 42 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T04:06:00+03:00",
        "record_tick": 35,
        "refs": []
@@ -6474,7 +6474,7 @@
        "act": "name",
        "content": "дата промежуточной приёмки этапа 2 — 2026-09-14",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T04:13:00+03:00",
        "record_tick": 36,
        "refs": []
@@ -6508,7 +6508,7 @@
        "act": "name",
        "content": "доля предоплаты ООО «Гарант-Плюс» — 5 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T04:53:00+03:00",
        "record_tick": 37,
        "refs": []
@@ -6542,7 +6542,7 @@
        "act": "name",
        "content": "дата промежуточной приёмки этапа 3 — 2026-09-22",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T05:37:00+03:00",
        "record_tick": 38,
        "refs": []
@@ -6586,7 +6586,7 @@
        {
         "id": 34,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "номер счёта-фактуры №4 — №564/26",
         "valid_time": "2026-09-09T03:40:00+03:00",
         "record_time": "2026-09-09T03:40:00+03:00",
@@ -6596,7 +6596,7 @@
        {
         "id": 35,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "стоимость доставки партии №1 — 42 400 ₽",
         "valid_time": "2026-09-09T04:06:00+03:00",
         "record_time": "2026-09-09T04:06:00+03:00",
@@ -6606,7 +6606,7 @@
        {
         "id": 36,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "дата промежуточной приёмки этапа 2 — 2026-09-14",
         "valid_time": "2026-09-09T04:13:00+03:00",
         "record_time": "2026-09-09T04:13:00+03:00",
@@ -6616,7 +6616,7 @@
        {
         "id": 37,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "доля предоплаты ООО «Гарант-Плюс» — 5 %",
         "valid_time": "2026-09-09T04:53:00+03:00",
         "record_time": "2026-09-09T04:53:00+03:00",
@@ -6626,7 +6626,7 @@
        {
         "id": 38,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "дата промежуточной приёмки этапа 3 — 2026-09-22",
         "valid_time": "2026-09-09T05:37:00+03:00",
         "record_time": "2026-09-09T05:37:00+03:00",
@@ -6656,7 +6656,7 @@
        "act": "name",
        "content": "лимит расходов на этап 1 — 74 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T06:23:00+03:00",
        "record_tick": 39,
        "refs": []
@@ -6690,7 +6690,7 @@
        "act": "name",
        "content": "длительность работ по этапу 5 — 2 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-02T06:53:00+03:00",
        "record_tick": 40,
        "refs": []
@@ -6734,7 +6734,7 @@
        {
         "id": 36,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "дата промежуточной приёмки этапа 2 — 2026-09-14",
         "valid_time": "2026-09-09T04:13:00+03:00",
         "record_time": "2026-09-09T04:13:00+03:00",
@@ -6744,7 +6744,7 @@
        {
         "id": 37,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "доля предоплаты ООО «Гарант-Плюс» — 5 %",
         "valid_time": "2026-09-09T04:53:00+03:00",
         "record_time": "2026-09-09T04:53:00+03:00",
@@ -6754,7 +6754,7 @@
        {
         "id": 38,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "дата промежуточной приёмки этапа 3 — 2026-09-22",
         "valid_time": "2026-09-09T05:37:00+03:00",
         "record_time": "2026-09-09T05:37:00+03:00",
@@ -6764,7 +6764,7 @@
        {
         "id": 39,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "лимит расходов на этап 1 — 74 400 ₽",
         "valid_time": "2026-09-09T06:23:00+03:00",
         "record_time": "2026-09-09T06:23:00+03:00",
@@ -6774,7 +6774,7 @@
        {
         "id": 40,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "длительность работ по этапу 5 — 2 часа",
         "valid_time": "2026-09-02T06:53:00+03:00",
         "record_time": "2026-09-09T06:53:00+03:00",
@@ -6804,7 +6804,7 @@
        "act": "name",
        "content": "место встречи по этапу 1 — офис на Садовой",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-09T07:52:00+03:00",
        "record_tick": 41,
        "refs": []
@@ -6849,7 +6849,7 @@
        "act": "name",
        "content": "переплата за срочность — 36 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T08:26:00+03:00",
        "record_tick": 42,
        "refs": []
@@ -6889,13 +6889,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 14,
+        "tick": 14,
+        "layer": "t1",
+        "weight": 0.0
+       }
+      ],
+      "tick": 184
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 14,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "время доставки образцов — 13:00",
         "valid_time": "2026-09-08T10:53:00+03:00",
         "record_time": "2026-09-08T10:53:00+03:00",
@@ -6910,6 +6935,27 @@
      "role": "assistant",
      "text": "В биографии проекта: время доставки образцов: 13:00, зафиксировано в сообщении 16 (2026-09-08 10:53).",
      "acts": []
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "audibility_floor": 0.005
+       },
+       "evidence": [
+        {
+         "metric": "died_too_early",
+         "tick": 14,
+         "record_id": 14,
+         "layer": "t1"
+        }
+       ],
+       "budget_used": 1
+      }
+     ]
     }
    ]
   },
@@ -6935,7 +6981,7 @@
        {
         "id": 38,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "дата промежуточной приёмки этапа 3 — 2026-09-22",
         "valid_time": "2026-09-09T05:37:00+03:00",
         "record_time": "2026-09-09T05:37:00+03:00",
@@ -6945,7 +6991,7 @@
        {
         "id": 39,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "лимит расходов на этап 1 — 74 400 ₽",
         "valid_time": "2026-09-09T06:23:00+03:00",
         "record_time": "2026-09-09T06:23:00+03:00",
@@ -6955,7 +7001,7 @@
        {
         "id": 40,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "длительность работ по этапу 5 — 2 часа",
         "valid_time": "2026-09-02T06:53:00+03:00",
         "record_time": "2026-09-09T06:53:00+03:00",
@@ -6965,7 +7011,7 @@
        {
         "id": 41,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "место встречи по этапу 1 — офис на Садовой",
         "valid_time": "2026-09-09T07:52:00+03:00",
         "record_time": "2026-09-09T07:52:00+03:00",
@@ -6975,7 +7021,7 @@
        {
         "id": 42,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "переплата за срочность — 36 400 ₽",
         "valid_time": "2026-09-09T08:26:00+03:00",
         "record_time": "2026-09-09T08:26:00+03:00",
@@ -7005,7 +7051,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на номер договора с ООО «Гарант-Плюс» №2 — №941/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T23:01:00+03:00",
        "record_tick": 43,
        "refs": []
@@ -7014,7 +7060,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается номер договора с ООО «Гарант-Плюс» №2 — №941/26 (зафиксировано в сообщении 12, 2026-09-07 23:01).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T09:50:00+03:00",
        "record_tick": 44,
        "refs": [
@@ -7061,13 +7107,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 14,
+        "tick": 14,
+        "layer": "t1",
+        "weight": 0.0
+       }
+      ],
+      "tick": 184
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 14,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "время доставки образцов — 13:00",
         "valid_time": "2026-09-08T10:53:00+03:00",
         "record_time": "2026-09-08T10:53:00+03:00",
@@ -7082,6 +7153,27 @@
      "role": "assistant",
      "text": "В биографии проекта: время доставки образцов: 13:00, зафиксировано в сообщении 16 (2026-09-08 10:53).",
      "acts": []
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "surfacing_cap": 10.0
+       },
+       "evidence": [
+        {
+         "metric": "wasted_surface",
+         "tick": 14,
+         "record_id": 14,
+         "layer": "t1"
+        }
+       ],
+       "budget_used": 1
+      }
+     ]
     }
    ]
   },
@@ -7110,7 +7202,7 @@
        {
         "id": 9,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "формат докладов — 15 минут + 5 вопросов",
         "valid_time": "2026-09-07T22:57:00+03:00",
         "record_time": "2026-09-07T22:57:00+03:00",
@@ -7120,7 +7212,7 @@
        {
         "id": 22,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "формат докладов — PechaKucha",
         "valid_time": "2026-09-08T23:03:00+03:00",
         "record_time": "2026-09-08T23:03:00+03:00",
@@ -7150,7 +7242,7 @@
        "act": "name",
        "content": "время звонка с координатор площадки — 10:15",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-09T11:02:00+03:00",
        "record_tick": 45,
        "refs": []
@@ -7184,7 +7276,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Гарант-Плюс» №1 — 18 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T11:27:00+03:00",
        "record_tick": 46,
        "refs": []
@@ -7218,7 +7310,7 @@
        "act": "name",
        "content": "контакт ответственного этапа 1 — +7 941 942-75-32",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T11:34:00+03:00",
        "record_tick": 47,
        "refs": []
@@ -7252,7 +7344,7 @@
        "act": "name",
        "content": "брак в партии №3 — 20 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T12:07:00+03:00",
        "record_tick": 48,
        "refs": []
@@ -7286,7 +7378,7 @@
        "act": "name",
        "content": "номер пропуска для координатор площадки — №518/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T12:42:00+03:00",
        "record_tick": 49,
        "refs": []
@@ -7320,7 +7412,7 @@
        "act": "name",
        "content": "номер заявки в ООО «Гарант-Плюс» №1 — №121/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T13:06:00+03:00",
        "record_tick": 50,
        "refs": []
@@ -7354,7 +7446,7 @@
        "act": "name",
        "content": "цвет брендирования — белый + синий",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T13:19:00+03:00",
        "record_tick": 51,
        "refs": []
@@ -7363,7 +7455,7 @@
        "act": "connect",
        "content": "Противоречие по «цвет брендирования»: чёрный + жёлтый (сообщение 19, 2026-09-08 12:13) и белый + синий (сообщение 57, 2026-09-09 13:19). Несовместимы; следую позднейшему — белый + синий.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T13:19:00+03:00",
        "record_tick": 52,
        "refs": [
@@ -7404,7 +7496,7 @@
        "act": "name",
        "content": "объём партии №2 — 48 шт",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T13:24:00+03:00",
        "record_tick": 53,
        "refs": []
@@ -7438,7 +7530,7 @@
        "act": "name",
        "content": "площадка — лофт Katerna",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T14:07:00+03:00",
        "record_tick": 54,
        "refs": []
@@ -7472,7 +7564,7 @@
        "act": "name",
        "content": "длительность работ по этапу 4 — 4 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T14:22:00+03:00",
        "record_tick": 55,
        "refs": []
@@ -7506,7 +7598,7 @@
        "act": "name",
        "content": "ответственный за этап 1 — Алексей",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T15:06:00+03:00",
        "record_tick": 56,
        "refs": []
@@ -7540,7 +7632,7 @@
        "act": "name",
        "content": "штраф ООО «Гарант-Плюс» за просрочку — 20 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T15:22:00+03:00",
        "record_tick": 57,
        "refs": []
@@ -7574,7 +7666,7 @@
        "act": "name",
        "content": "буфет — фуршет в конце",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T15:55:00+03:00",
        "record_tick": 58,
        "refs": []
@@ -7583,7 +7675,7 @@
        "act": "connect",
        "content": "Позиция по «буфет» изменена: кофе-брейк дважды → фуршет в конце. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T15:55:00+03:00",
        "record_tick": 59,
        "refs": [
@@ -7624,7 +7716,7 @@
        "act": "name",
        "content": "номер счёта-фактуры №2 — №706/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T16:23:00+03:00",
        "record_tick": 60,
        "refs": []
@@ -7658,7 +7750,7 @@
        "act": "name",
        "content": "дата проведения — 2026-11-21",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T16:51:00+03:00",
        "record_tick": 61,
        "refs": []
@@ -7702,7 +7794,7 @@
        {
         "id": 57,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "штраф ООО «Гарант-Плюс» за просрочку — 20 %",
         "valid_time": "2026-09-09T15:22:00+03:00",
         "record_time": "2026-09-09T15:22:00+03:00",
@@ -7712,7 +7804,7 @@
        {
         "id": 58,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "буфет — фуршет в конце",
         "valid_time": "2026-09-09T15:55:00+03:00",
         "record_time": "2026-09-09T15:55:00+03:00",
@@ -7722,7 +7814,7 @@
        {
         "id": 59,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «буфет» изменена: кофе-брейк дважды → фуршет в конце. Прежняя больше не действует.",
         "valid_time": "2026-09-09T15:55:00+03:00",
         "record_time": "2026-09-09T15:55:00+03:00",
@@ -7732,7 +7824,7 @@
        {
         "id": 60,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "номер счёта-фактуры №2 — №706/26",
         "valid_time": "2026-09-09T16:23:00+03:00",
         "record_time": "2026-09-09T16:23:00+03:00",
@@ -7742,7 +7834,7 @@
        {
         "id": 61,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "дата проведения — 2026-11-21",
         "valid_time": "2026-09-09T16:51:00+03:00",
         "record_time": "2026-09-09T16:51:00+03:00",
@@ -7772,7 +7864,7 @@
        "act": "name",
        "content": "место встречи по этапу 2 — зал на первом",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-09T17:31:00+03:00",
        "record_tick": 62,
        "refs": []
@@ -7806,7 +7898,7 @@
        "act": "name",
        "content": "время начала — 10:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T17:58:00+03:00",
        "record_tick": 63,
        "refs": []
@@ -7815,7 +7907,7 @@
        "act": "connect",
        "content": "Противоречие по «время начала»: 11:00 (сообщение 20, 2026-09-08 21:13) и 10:00 (сообщение 68, 2026-09-09 17:58). Несовместимы; следую позднейшему — 10:00.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T17:58:00+03:00",
        "record_tick": 64,
        "refs": [
@@ -7856,7 +7948,7 @@
        "act": "name",
        "content": "трансляция — прямой эфир в VK",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T02:58:00+03:00",
        "record_tick": 65,
        "refs": []
@@ -7865,7 +7957,7 @@
        "act": "connect",
        "content": "Позиция по «трансляция» изменена: не ведём → прямой эфир в VK. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T02:58:00+03:00",
        "record_tick": 66,
        "refs": [
@@ -7906,7 +7998,7 @@
        "act": "name",
        "content": "длительность работ по этапу 1 — 6 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-10T03:11:00+03:00",
        "record_tick": 67,
        "refs": []
@@ -7940,7 +8032,7 @@
        "act": "name",
        "content": "время начала — 12:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T03:20:00+03:00",
        "record_tick": 68,
        "refs": []
@@ -7974,7 +8066,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Гарант-Плюс» №3 — 58 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T04:00:00+03:00",
        "record_tick": 69,
        "refs": []
@@ -8008,7 +8100,7 @@
        "act": "name",
        "content": "лимит правок — 48 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T04:13:00+03:00",
        "record_tick": 70,
        "refs": []
@@ -8042,7 +8134,7 @@
        "act": "name",
        "content": "раздатка — бейджи с QR-программой",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T04:38:00+03:00",
        "record_tick": 71,
        "refs": []
@@ -8051,7 +8143,7 @@
        "act": "connect",
        "content": "Позиция по «раздатка» изменена: только приложение → бейджи с QR-программой. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T04:38:00+03:00",
        "record_tick": 72,
        "refs": [
@@ -8092,7 +8184,7 @@
        "act": "name",
        "content": "дата постановки задачи №2 — 2026-09-14",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T20:38:00+03:00",
        "record_tick": 73,
        "refs": []
@@ -8126,7 +8218,7 @@
        "act": "name",
        "content": "объём переделок по этапу 1 — 36 шт",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-10T20:47:00+03:00",
        "record_tick": 74,
        "refs": []
@@ -8170,7 +8262,7 @@
        {
         "id": 70,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "лимит правок — 48 шт",
         "valid_time": "2026-09-10T04:13:00+03:00",
         "record_time": "2026-09-10T04:13:00+03:00",
@@ -8180,7 +8272,7 @@
        {
         "id": 71,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "раздатка — бейджи с QR-программой",
         "valid_time": "2026-09-10T04:38:00+03:00",
         "record_time": "2026-09-10T04:38:00+03:00",
@@ -8190,7 +8282,7 @@
        {
         "id": 72,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «раздатка» изменена: только приложение → бейджи с QR-программой. Прежняя больше не действует.",
         "valid_time": "2026-09-10T04:38:00+03:00",
         "record_time": "2026-09-10T04:38:00+03:00",
@@ -8200,7 +8292,7 @@
        {
         "id": 73,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "дата постановки задачи №2 — 2026-09-14",
         "valid_time": "2026-09-10T20:38:00+03:00",
         "record_time": "2026-09-10T20:38:00+03:00",
@@ -8210,7 +8302,7 @@
        {
         "id": 74,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "объём переделок по этапу 1 — 36 шт",
         "valid_time": "2026-09-10T20:47:00+03:00",
         "record_time": "2026-09-10T20:47:00+03:00",
@@ -8240,7 +8332,7 @@
        "act": "name",
        "content": "номер заявки в ООО «Гарант-Плюс» №2 — №987/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T22:01:00+03:00",
        "record_tick": 75,
        "refs": []
@@ -8274,7 +8366,7 @@
        "act": "name",
        "content": "срок гарантии — 12 месяцев",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T22:22:00+03:00",
        "record_tick": 76,
        "refs": []
@@ -8308,7 +8400,7 @@
        "act": "name",
        "content": "спонсорский пакет — два золотых за 150k",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T23:02:00+03:00",
        "record_tick": 77,
        "refs": []
@@ -8317,7 +8409,7 @@
        "act": "connect",
        "content": "Позиция по «спонсорский пакет» изменена: без спонсоров → два золотых за 150k. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-10T23:02:00+03:00",
        "record_tick": 78,
        "refs": [
@@ -8358,7 +8450,7 @@
        "act": "name",
        "content": "ответственный за этап 3 — Дмитрий",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T23:40:00+03:00",
        "record_tick": 79,
        "refs": []
@@ -8392,7 +8484,7 @@
        "act": "name",
        "content": "доплата за ночные работы — 5 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T23:44:00+03:00",
        "record_tick": 80,
        "refs": []
@@ -8426,7 +8518,7 @@
        "act": "name",
        "content": "срок поставки от ООО «Гарант-Плюс» — 2026-09-28",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T00:10:00+03:00",
        "record_tick": 81,
        "refs": []
@@ -8460,7 +8552,7 @@
        "act": "name",
        "content": "исполнителей на этапе 1 — 4 человека",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T00:17:00+03:00",
        "record_tick": 82,
        "refs": []
@@ -8494,7 +8586,7 @@
        "act": "name",
        "content": "время начала работ на этапе 1 — 11:15",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-11T00:20:00+03:00",
        "record_tick": 83,
        "refs": []
@@ -8528,7 +8620,7 @@
        "act": "name",
        "content": "брак в партии №2 — 20 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T00:24:00+03:00",
        "record_tick": 84,
        "refs": []
@@ -8562,7 +8654,7 @@
        "act": "repeat",
        "content": "Повтор: лимит правок — 48 шт",
        "source": "repeat",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T00:30:00+03:00",
        "record_tick": 85,
        "refs": [
@@ -8598,7 +8690,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Гарант-Плюс» №2 — 24 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T00:34:00+03:00",
        "record_tick": 86,
        "refs": []
@@ -8632,7 +8724,7 @@
        "act": "name",
        "content": "время начала работ на этапе 2 — 14:45",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-11T01:10:00+03:00",
        "record_tick": 87,
        "refs": []
@@ -8676,7 +8768,7 @@
        {
         "id": 83,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "время начала работ на этапе 1 — 11:15",
         "valid_time": "2026-09-11T00:20:00+03:00",
         "record_time": "2026-09-11T00:20:00+03:00",
@@ -8686,7 +8778,7 @@
        {
         "id": 84,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "брак в партии №2 — 20 %",
         "valid_time": "2026-09-11T00:24:00+03:00",
         "record_time": "2026-09-11T00:24:00+03:00",
@@ -8696,7 +8788,7 @@
        {
         "id": 85,
         "act": "repeat",
-        "layer": "project",
+        "layer": "t4",
         "content": "Повтор: лимит правок — 48 шт",
         "valid_time": "2026-09-11T00:30:00+03:00",
         "record_time": "2026-09-11T00:30:00+03:00",
@@ -8706,7 +8798,7 @@
        {
         "id": 86,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "сумма счёта от ООО «Гарант-Плюс» №2 — 24 400 ₽",
         "valid_time": "2026-09-11T00:34:00+03:00",
         "record_time": "2026-09-11T00:34:00+03:00",
@@ -8716,7 +8808,7 @@
        {
         "id": 87,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "время начала работ на этапе 2 — 14:45",
         "valid_time": "2026-09-11T01:10:00+03:00",
         "record_time": "2026-09-11T01:10:00+03:00",
@@ -8746,7 +8838,7 @@
        "act": "name",
        "content": "время начала — 12:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T01:36:00+03:00",
        "record_tick": 88,
        "refs": []
@@ -8780,7 +8872,7 @@
        "act": "name",
        "content": "вместимость зала — 220 мест",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T02:09:00+03:00",
        "record_tick": 89,
        "refs": []
@@ -8814,7 +8906,7 @@
        "act": "name",
        "content": "дата промежуточной приёмки этапа 1 — 2026-09-27",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T02:12:00+03:00",
        "record_tick": 90,
        "refs": []
@@ -8848,7 +8940,7 @@
        "act": "name",
        "content": "ответственный за этап 2 — Алексей",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T02:31:00+03:00",
        "record_tick": 91,
        "refs": []
@@ -8882,7 +8974,7 @@
        "act": "name",
        "content": "длительность работ по этапу 3 — 4 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T02:37:00+03:00",
        "record_tick": 92,
        "refs": []
@@ -8922,13 +9014,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 45,
+        "tick": 45,
+        "layer": "t1",
+        "weight": 0.0
+       }
+      ],
+      "tick": 184
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 45,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "время звонка с координатор площадки — 10:15",
         "valid_time": "2026-09-09T11:02:00+03:00",
         "record_time": "2026-09-09T11:02:00+03:00",
@@ -8943,6 +9060,27 @@
      "role": "assistant",
      "text": "В биографии проекта: время звонка с координатор площадки: 10:15, зафиксировано в сообщении 51 (2026-09-09 11:02).",
      "acts": []
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "consolidation_ceiling": 6.0
+       },
+       "evidence": [
+        {
+         "metric": "loop_repeat",
+         "tick": 45,
+         "record_id": 45,
+         "layer": "t1"
+        }
+       ],
+       "budget_used": 1
+      }
+     ]
     }
    ]
   },
@@ -8968,7 +9106,7 @@
        {
         "id": 88,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 12:00",
         "valid_time": "2026-09-11T01:36:00+03:00",
         "record_time": "2026-09-11T01:36:00+03:00",
@@ -8978,7 +9116,7 @@
        {
         "id": 89,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "вместимость зала — 220 мест",
         "valid_time": "2026-09-11T02:09:00+03:00",
         "record_time": "2026-09-11T02:09:00+03:00",
@@ -8988,7 +9126,7 @@
        {
         "id": 90,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "дата промежуточной приёмки этапа 1 — 2026-09-27",
         "valid_time": "2026-09-11T02:12:00+03:00",
         "record_time": "2026-09-11T02:12:00+03:00",
@@ -8998,7 +9136,7 @@
        {
         "id": 91,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "ответственный за этап 2 — Алексей",
         "valid_time": "2026-09-11T02:31:00+03:00",
         "record_time": "2026-09-11T02:31:00+03:00",
@@ -9008,7 +9146,7 @@
        {
         "id": 92,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "длительность работ по этапу 3 — 4 часа",
         "valid_time": "2026-09-11T02:37:00+03:00",
         "record_time": "2026-09-11T02:37:00+03:00",
@@ -9038,7 +9176,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на длительность работ по этапу 4 — 4 часа",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T14:22:00+03:00",
        "record_tick": 93,
        "refs": []
@@ -9047,7 +9185,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается длительность работ по этапу 4 — 4 часа (зафиксировано в сообщении 60, 2026-09-09 14:22).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T03:29:00+03:00",
        "record_tick": 94,
        "refs": [
@@ -9101,7 +9239,7 @@
        {
         "id": 18,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-08T21:13:00+03:00",
         "record_time": "2026-09-08T21:13:00+03:00",
@@ -9111,7 +9249,7 @@
        {
         "id": 63,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 10:00",
         "valid_time": "2026-09-09T17:58:00+03:00",
         "record_time": "2026-09-09T17:58:00+03:00",
@@ -9154,7 +9292,7 @@
        {
         "id": 19,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "способ регистрации — свой лендинг + форма",
         "valid_time": "2026-09-08T21:48:00+03:00",
         "record_time": "2026-09-08T21:48:00+03:00",
@@ -9164,7 +9302,7 @@
        {
         "id": 32,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "способ регистрации — Timepad",
         "valid_time": "2026-09-09T03:02:00+03:00",
         "record_time": "2026-09-09T03:02:00+03:00",
@@ -9194,7 +9332,7 @@
        "act": "repeat",
        "content": "Повтор: время звонка с координатор площадки — 10:15",
        "source": "repeat",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-11T04:28:00+03:00",
        "record_tick": 95,
        "refs": [
@@ -9230,7 +9368,7 @@
        "act": "repeat",
        "content": "Повтор: дата постановки задачи №2 — 2026-09-14",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T16:28:00+03:00",
        "record_tick": 96,
        "refs": [
@@ -9266,7 +9404,7 @@
        "act": "repeat",
        "content": "Повтор: дата проведения — 2026-11-21",
        "source": "repeat",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T17:10:00+03:00",
        "record_tick": 97,
        "refs": [
@@ -9302,7 +9440,7 @@
        "act": "name",
        "content": "номер счёта-фактуры №1 — №409/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T17:46:00+03:00",
        "record_tick": 98,
        "refs": []
@@ -9336,7 +9474,7 @@
        "act": "repeat",
        "content": "Повтор: доплата за ночные работы — 5 %",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T17:57:00+03:00",
        "record_tick": 99,
        "refs": [
@@ -9405,7 +9543,7 @@
        "act": "repeat",
        "content": "Повтор: дата промежуточной приёмки этапа 1 — 2026-09-27",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T19:33:00+03:00",
        "record_tick": 100,
        "refs": [
@@ -9452,7 +9590,7 @@
        "act": "name",
        "content": "адрес склада ООО «Гарант-Плюс» — склад на Промышленной, 4",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T20:18:00+03:00",
        "record_tick": 101,
        "refs": []
@@ -9508,7 +9646,7 @@
        "act": "name",
        "content": "запас на складе — 24 шт",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T05:13:00+03:00",
        "record_tick": 102,
        "refs": []
@@ -9564,7 +9702,7 @@
        "act": "repeat",
        "content": "Повтор: номер счёта-фактуры №1 — №409/26",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T06:25:00+03:00",
        "record_tick": 103,
        "refs": [
@@ -9600,7 +9738,7 @@
        "act": "name",
        "content": "место встречи по этапу 3 — офис на Садовой",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-12T07:02:00+03:00",
        "record_tick": 104,
        "refs": []
@@ -9634,7 +9772,7 @@
        "act": "name",
        "content": "ответственный за этап 4 — Николай",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T07:12:00+03:00",
        "record_tick": 105,
        "refs": []
@@ -9668,7 +9806,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на номер договора с ООО «Гарант-Плюс» №2 — №941/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T23:01:00+03:00",
        "record_tick": 106,
        "refs": []
@@ -9677,7 +9815,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается номер договора с ООО «Гарант-Плюс» №2 — №941/26 (зафиксировано в сообщении 12, 2026-09-07 23:01).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T07:52:00+03:00",
        "record_tick": 107,
        "refs": [
@@ -9718,7 +9856,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на время доставки образцов — 13:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T10:53:00+03:00",
        "record_tick": 108,
        "refs": []
@@ -9727,7 +9865,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается время доставки образцов — 13:00 (зафиксировано в сообщении 16, 2026-09-08 10:53).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T08:02:00+03:00",
        "record_tick": 109,
        "refs": [
@@ -9801,7 +9939,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на контакт ответственного этапа 1 — +7 941 942-75-32",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T11:34:00+03:00",
        "record_tick": 110,
        "refs": []
@@ -9810,7 +9948,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается контакт ответственного этапа 1 — +7 941 942-75-32 (зафиксировано в сообщении 53, 2026-09-09 11:34).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T08:41:00+03:00",
        "record_tick": 111,
        "refs": [
@@ -9851,7 +9989,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Гарант-Плюс» №4 — 74 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T02:07:00+03:00",
        "record_tick": 112,
        "refs": []
@@ -9860,7 +9998,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается сумма счёта от ООО «Гарант-Плюс» №4 — 74 400 ₽ (зафиксировано в сообщении 30, 2026-09-09 02:07).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T09:10:00+03:00",
        "record_tick": 113,
        "refs": [
@@ -9912,7 +10050,7 @@
        "act": "name",
        "content": "время начала — 11:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T09:57:00+03:00",
        "record_tick": 114,
        "refs": []
@@ -9921,7 +10059,7 @@
        "act": "connect",
        "content": "Противоречие по «время начала»: 12:00 (сообщение 71, 2026-09-10 03:20) и 11:00 (сообщение 128, 2026-09-12 09:57). Несовместимы; следую позднейшему — 11:00.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T09:57:00+03:00",
        "record_tick": 115,
        "refs": [
@@ -9962,7 +10100,7 @@
        "act": "repeat",
        "content": "Повтор: ответственный за этап 2 — Алексей",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T10:32:00+03:00",
        "record_tick": 116,
        "refs": [
@@ -9998,7 +10136,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на дата постановки задачи №1 — 2026-09-26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T10:31:00+03:00",
        "record_tick": 117,
        "refs": []
@@ -10007,7 +10145,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается дата постановки задачи №1 — 2026-09-26 (зафиксировано в сообщении 14, 2026-09-08 10:31).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T11:09:00+03:00",
        "record_tick": 118,
        "refs": [
@@ -10048,7 +10186,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 2 — 6 часа",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:34:00+03:00",
        "record_tick": 119,
        "refs": []
@@ -10057,7 +10195,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается длительность работ по этапу 2 — 6 часа (зафиксировано в сообщении 9, 2026-09-07 22:34).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T11:30:00+03:00",
        "record_tick": 120,
        "refs": [
@@ -10098,7 +10236,7 @@
        "act": "repeat",
        "content": "Повтор: адрес склада ООО «Гарант-Плюс» — склад на Промышленной, 4",
        "source": "repeat",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T11:56:00+03:00",
        "record_tick": 121,
        "refs": [
@@ -10134,7 +10272,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на дата промежуточной приёмки этапа 3 — 2026-09-22",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T05:37:00+03:00",
        "record_tick": 122,
        "refs": []
@@ -10143,7 +10281,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается дата промежуточной приёмки этапа 3 — 2026-09-22 (зафиксировано в сообщении 38, 2026-09-09 05:37).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T12:23:00+03:00",
        "record_tick": 123,
        "refs": [
@@ -10206,7 +10344,7 @@
        "act": "name",
        "content": "время начала — 11:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T13:33:00+03:00",
        "record_tick": 124,
        "refs": []
@@ -10215,7 +10353,7 @@
        "act": "connect",
        "content": "Противоречие по «время начала»: 12:00 (сообщение 91, 2026-09-11 01:36) и 11:00 (сообщение 136, 2026-09-12 13:33). Несовместимы; следую позднейшему — 11:00.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T13:33:00+03:00",
        "record_tick": 125,
        "refs": [
@@ -10256,7 +10394,7 @@
        "act": "name",
        "content": "время начала — 11:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T14:11:00+03:00",
        "record_tick": 126,
        "refs": []
@@ -10290,7 +10428,7 @@
        "act": "repeat",
        "content": "Повтор: срок гарантии — 12 месяцев",
        "source": "repeat",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T14:34:00+03:00",
        "record_tick": 127,
        "refs": [
@@ -10336,7 +10474,7 @@
        {
         "id": 123,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается дата промежуточной приёмки этапа 3 — 2026-09-22 (зафиксировано в сообщении 38, 2026-09-09 05:37).",
         "valid_time": "2026-09-12T12:23:00+03:00",
         "record_time": "2026-09-12T12:23:00+03:00",
@@ -10346,7 +10484,7 @@
        {
         "id": 124,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-12T13:33:00+03:00",
         "record_time": "2026-09-12T13:33:00+03:00",
@@ -10356,7 +10494,7 @@
        {
         "id": 125,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Противоречие по «время начала»: 12:00 (сообщение 91, 2026-09-11 01:36) и 11:00 (сообщение 136, 2026-09-12 13:33). Несовместимы; следую позднейшему — 11:00.",
         "valid_time": "2026-09-12T13:33:00+03:00",
         "record_time": "2026-09-12T13:33:00+03:00",
@@ -10366,7 +10504,7 @@
        {
         "id": 126,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-12T14:11:00+03:00",
         "record_time": "2026-09-12T14:11:00+03:00",
@@ -10376,7 +10514,7 @@
        {
         "id": 127,
         "act": "repeat",
-        "layer": "project",
+        "layer": "t4",
         "content": "Повтор: срок гарантии — 12 месяцев",
         "valid_time": "2026-09-12T14:34:00+03:00",
         "record_time": "2026-09-12T14:34:00+03:00",
@@ -10417,7 +10555,7 @@
        "act": "name",
        "content": "цвет брендирования — чёрный + жёлтый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T15:34:00+03:00",
        "record_tick": 128,
        "refs": []
@@ -10451,7 +10589,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на число докладчиков — 12",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:45:00+03:00",
        "record_tick": 129,
        "refs": []
@@ -10460,7 +10598,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается число докладчиков — 12 (зафиксировано в сообщении 10, 2026-09-07 22:45).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T15:46:00+03:00",
        "record_tick": 130,
        "refs": [
@@ -10522,7 +10660,7 @@
        {
         "id": 126,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-12T14:11:00+03:00",
         "record_time": "2026-09-12T14:11:00+03:00",
@@ -10532,7 +10670,7 @@
        {
         "id": 127,
         "act": "repeat",
-        "layer": "project",
+        "layer": "t4",
         "content": "Повтор: срок гарантии — 12 месяцев",
         "valid_time": "2026-09-12T14:34:00+03:00",
         "record_time": "2026-09-12T14:34:00+03:00",
@@ -10542,7 +10680,7 @@
        {
         "id": 128,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет брендирования — чёрный + жёлтый",
         "valid_time": "2026-09-12T15:34:00+03:00",
         "record_time": "2026-09-12T15:34:00+03:00",
@@ -10552,7 +10690,7 @@
        {
         "id": 129,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «списке закупок»: опираемся на число докладчиков — 12",
         "valid_time": "2026-09-07T22:45:00+03:00",
         "record_time": "2026-09-12T15:46:00+03:00",
@@ -10562,7 +10700,7 @@
        {
         "id": 130,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается число докладчиков — 12 (зафиксировано в сообщении 10, 2026-09-07 22:45).",
         "valid_time": "2026-09-12T15:46:00+03:00",
         "record_time": "2026-09-12T15:46:00+03:00",
@@ -10602,7 +10740,7 @@
        {
         "id": 126,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-12T14:11:00+03:00",
         "record_time": "2026-09-12T14:11:00+03:00",
@@ -10612,7 +10750,7 @@
        {
         "id": 127,
         "act": "repeat",
-        "layer": "project",
+        "layer": "t4",
         "content": "Повтор: срок гарантии — 12 месяцев",
         "valid_time": "2026-09-12T14:34:00+03:00",
         "record_time": "2026-09-12T14:34:00+03:00",
@@ -10622,7 +10760,7 @@
        {
         "id": 128,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет брендирования — чёрный + жёлтый",
         "valid_time": "2026-09-12T15:34:00+03:00",
         "record_time": "2026-09-12T15:34:00+03:00",
@@ -10632,7 +10770,7 @@
        {
         "id": 129,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «списке закупок»: опираемся на число докладчиков — 12",
         "valid_time": "2026-09-07T22:45:00+03:00",
         "record_time": "2026-09-12T15:46:00+03:00",
@@ -10642,7 +10780,7 @@
        {
         "id": 130,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается число докладчиков — 12 (зафиксировано в сообщении 10, 2026-09-07 22:45).",
         "valid_time": "2026-09-12T15:46:00+03:00",
         "record_time": "2026-09-12T15:46:00+03:00",
@@ -10678,13 +10816,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 104,
+        "tick": 104,
+        "layer": "t1",
+        "weight": 0.001
+       }
+      ],
+      "tick": 184
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 104,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "место встречи по этапу 3 — офис на Садовой",
         "valid_time": "2026-09-12T07:02:00+03:00",
         "record_time": "2026-09-12T07:02:00+03:00",
@@ -10703,12 +10866,33 @@
        "act": "reconcile",
        "content": "Сверка биографии: запись №104 («место встречи по этапу 3 — офис на Садовой») записана на тике 104, прожито 79 тиков, повторов 1; stamps записи подтверждены чтением.",
        "source": "reconcile",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T17:51:00+03:00",
        "record_tick": 184,
        "refs": [
         104
        ]
+      }
+     ]
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "tau_multiplier.t3": 1.4
+       },
+       "evidence": [
+        {
+         "metric": "stale_win",
+         "tick": 104,
+         "record_id": 104,
+         "layer": "t1"
+        }
+       ],
+       "budget_used": 1
       }
      ]
     }
@@ -10736,7 +10920,7 @@
        {
         "id": 126,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-12T14:11:00+03:00",
         "record_time": "2026-09-12T14:11:00+03:00",
@@ -10746,7 +10930,7 @@
        {
         "id": 127,
         "act": "repeat",
-        "layer": "project",
+        "layer": "t4",
         "content": "Повтор: срок гарантии — 12 месяцев",
         "valid_time": "2026-09-12T14:34:00+03:00",
         "record_time": "2026-09-12T14:34:00+03:00",
@@ -10756,7 +10940,7 @@
        {
         "id": 128,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет брендирования — чёрный + жёлтый",
         "valid_time": "2026-09-12T15:34:00+03:00",
         "record_time": "2026-09-12T15:34:00+03:00",
@@ -10766,7 +10950,7 @@
        {
         "id": 129,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «списке закупок»: опираемся на число докладчиков — 12",
         "valid_time": "2026-09-07T22:45:00+03:00",
         "record_time": "2026-09-12T15:46:00+03:00",
@@ -10776,7 +10960,7 @@
        {
         "id": 130,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается число докладчиков — 12 (зафиксировано в сообщении 10, 2026-09-07 22:45).",
         "valid_time": "2026-09-12T15:46:00+03:00",
         "record_time": "2026-09-12T15:46:00+03:00",
@@ -10806,7 +10990,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на время начала работ на этапе 4 — 16:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:01:00+03:00",
        "record_tick": 131,
        "refs": []
@@ -10815,7 +10999,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается время начала работ на этапе 4 — 16:00 (зафиксировано в сообщении 8, 2026-09-07 22:01).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T18:30:00+03:00",
        "record_tick": 132,
        "refs": [
@@ -10869,7 +11053,7 @@
        {
         "id": 88,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 12:00",
         "valid_time": "2026-09-11T01:36:00+03:00",
         "record_time": "2026-09-11T01:36:00+03:00",
@@ -10879,7 +11063,7 @@
        {
         "id": 124,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "время начала — 11:00",
         "valid_time": "2026-09-12T13:33:00+03:00",
         "record_time": "2026-09-12T13:33:00+03:00",
@@ -10922,7 +11106,7 @@
        {
         "id": 30,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "раздатка — только приложение",
         "valid_time": "2026-09-09T02:42:00+03:00",
         "record_time": "2026-09-09T02:42:00+03:00",
@@ -10932,7 +11116,7 @@
        {
         "id": 71,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "раздатка — бейджи с QR-программой",
         "valid_time": "2026-09-10T04:38:00+03:00",
         "record_time": "2026-09-10T04:38:00+03:00",
@@ -10962,7 +11146,7 @@
        "act": "repeat",
        "content": "Повтор: длительность работ по этапу 3 — 4 часа",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T19:15:00+03:00",
        "record_tick": 133,
        "refs": [
@@ -10998,7 +11182,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на телефон координатор площадки — +7 921 543-77-84",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T11:38:00+03:00",
        "record_tick": 134,
        "refs": []
@@ -11007,7 +11191,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается телефон координатор площадки — +7 921 543-77-84 (зафиксировано в сообщении 17, 2026-09-08 11:38).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T19:28:00+03:00",
        "record_tick": 135,
        "refs": [
@@ -11081,7 +11265,7 @@
        "act": "name",
        "content": "трансляция — запись потом",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T22:10:00+03:00",
        "record_tick": 136,
        "refs": []
@@ -11090,7 +11274,7 @@
        "act": "connect",
        "content": "Позиция по «трансляция» изменена: прямой эфир в VK → запись потом. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T22:10:00+03:00",
        "record_tick": 137,
        "refs": [
@@ -11131,7 +11315,7 @@
        "act": "name",
        "content": "спонсорский пакет — платиновый за 300k",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T22:16:00+03:00",
        "record_tick": 138,
        "refs": []
@@ -11140,7 +11324,7 @@
        "act": "connect",
        "content": "Позиция по «спонсорский пакет» изменена: два золотых за 150k → платиновый за 300k. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T22:16:00+03:00",
        "record_tick": 139,
        "refs": [
@@ -11181,7 +11365,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на этаж встречи по этапу 2 — офис на Садовой",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T22:18:00+03:00",
        "record_tick": 140,
        "refs": []
@@ -11190,7 +11374,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается этаж встречи по этапу 2 — офис на Садовой (зафиксировано в сообщении 22, 2026-09-08 22:18).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T22:59:00+03:00",
        "record_tick": 141,
        "refs": [
@@ -11231,7 +11415,7 @@
        "act": "repeat",
        "content": "Повтор: запас на складе — 24 шт",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T23:26:00+03:00",
        "record_tick": 142,
        "refs": [
@@ -11288,7 +11472,7 @@
        {
         "id": 138,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "спонсорский пакет — платиновый за 300k",
         "valid_time": "2026-09-12T22:16:00+03:00",
         "record_time": "2026-09-12T22:16:00+03:00",
@@ -11298,7 +11482,7 @@
        {
         "id": 139,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «спонсорский пакет» изменена: два золотых за 150k → платиновый за 300k. Прежняя больше не действует.",
         "valid_time": "2026-09-12T22:16:00+03:00",
         "record_time": "2026-09-12T22:16:00+03:00",
@@ -11308,7 +11492,7 @@
        {
         "id": 140,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «финальной смете»: опираемся на этаж встречи по этапу 2 — офис на Садовой",
         "valid_time": "2026-09-08T22:18:00+03:00",
         "record_time": "2026-09-12T22:59:00+03:00",
@@ -11318,7 +11502,7 @@
        {
         "id": 141,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«финальной смете»: учитывается этаж встречи по этапу 2 — офис на Садовой (зафиксировано в сообщении 22, 2026-09-08 22:18).",
         "valid_time": "2026-09-12T22:59:00+03:00",
         "record_time": "2026-09-12T22:59:00+03:00",
@@ -11328,7 +11512,7 @@
        {
         "id": 142,
         "act": "repeat",
-        "layer": "episode",
+        "layer": "t2",
         "content": "Повтор: запас на складе — 24 шт",
         "valid_time": "2026-09-12T23:26:00+03:00",
         "record_time": "2026-09-12T23:26:00+03:00",
@@ -11358,7 +11542,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на длительность работ по этапу 4 — 4 часа",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T14:22:00+03:00",
        "record_tick": 143,
        "refs": []
@@ -11367,7 +11551,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается длительность работ по этапу 4 — 4 часа (зафиксировано в сообщении 60, 2026-09-09 14:22).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T00:28:00+03:00",
        "record_tick": 144,
        "refs": [
@@ -11408,7 +11592,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на объём партии №2 — 48 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T13:24:00+03:00",
        "record_tick": 145,
        "refs": []
@@ -11417,7 +11601,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается объём партии №2 — 48 шт (зафиксировано в сообщении 58, 2026-09-09 13:24).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T01:03:00+03:00",
        "record_tick": 146,
        "refs": [
@@ -11458,7 +11642,7 @@
        "act": "name",
        "content": "раздатка — программка на бумаге",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T16:03:00+03:00",
        "record_tick": 147,
        "refs": []
@@ -11467,7 +11651,7 @@
        "act": "connect",
        "content": "Позиция по «раздатка» изменена: бейджи с QR-программой → программка на бумаге. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T16:03:00+03:00",
        "record_tick": 148,
        "refs": [
@@ -11508,7 +11692,7 @@
        "act": "name",
        "content": "способ регистрации — QR на входе",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T16:24:00+03:00",
        "record_tick": 149,
        "refs": []
@@ -11517,7 +11701,7 @@
        "act": "connect",
        "content": "Позиция по «способ регистрации» изменена: Timepad → QR на входе. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T16:24:00+03:00",
        "record_tick": 150,
        "refs": [
@@ -11558,7 +11742,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на брак в партии №3 — 20 %",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T12:07:00+03:00",
        "record_tick": 151,
        "refs": []
@@ -11567,7 +11751,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается брак в партии №3 — 20 % (зафиксировано в сообщении 54, 2026-09-09 12:07).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T01:24:00+03:00",
        "record_tick": 152,
        "refs": [
@@ -11608,7 +11792,7 @@
        "act": "name",
        "content": "формат докладов — 20-минутные доклады",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T01:37:00+03:00",
        "record_tick": 153,
        "refs": []
@@ -11617,7 +11801,7 @@
        "act": "connect",
        "content": "Позиция по «формат докладов» изменена: PechaKucha → 20-минутные доклады. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T01:37:00+03:00",
        "record_tick": 154,
        "refs": [
@@ -11680,7 +11864,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на переплата за срочность — 36 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T08:26:00+03:00",
        "record_tick": 155,
        "refs": []
@@ -11689,7 +11873,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается переплата за срочность — 36 400 ₽ (зафиксировано в сообщении 45, 2026-09-09 08:26).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T03:00:00+03:00",
        "record_tick": 156,
        "refs": [
@@ -11730,7 +11914,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на время начала работ на этапе 4 — 16:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:01:00+03:00",
        "record_tick": 157,
        "refs": []
@@ -11739,7 +11923,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается время начала работ на этапе 4 — 16:00 (зафиксировано в сообщении 8, 2026-09-07 22:01).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T03:23:00+03:00",
        "record_tick": 158,
        "refs": [
@@ -11780,7 +11964,7 @@
        "act": "repeat",
        "content": "Повтор: ответственный за этап 4 — Николай",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-14T03:29:00+03:00",
        "record_tick": 159,
        "refs": [
@@ -11816,7 +12000,7 @@
        "act": "name",
        "content": "буфет — кофе + обед",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T03:34:00+03:00",
        "record_tick": 160,
        "refs": []
@@ -11825,7 +12009,7 @@
        "act": "connect",
        "content": "Позиция по «буфет» изменена: фуршет в конце → кофе + обед. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T03:34:00+03:00",
        "record_tick": 161,
        "refs": [
@@ -11876,7 +12060,7 @@
        {
         "id": 157,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «плане на следующий этап»: опираемся на время начала работ на этапе 4 — 16:00",
         "valid_time": "2026-09-07T22:01:00+03:00",
         "record_time": "2026-09-14T03:23:00+03:00",
@@ -11886,7 +12070,7 @@
        {
         "id": 158,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«плане на следующий этап»: учитывается время начала работ на этапе 4 — 16:00 (зафиксировано в сообщении 8, 2026-09-07 22:01).",
         "valid_time": "2026-09-14T03:23:00+03:00",
         "record_time": "2026-09-14T03:23:00+03:00",
@@ -11896,7 +12080,7 @@
        {
         "id": 159,
         "act": "repeat",
-        "layer": "episode",
+        "layer": "t2",
         "content": "Повтор: ответственный за этап 4 — Николай",
         "valid_time": "2026-09-14T03:29:00+03:00",
         "record_time": "2026-09-14T03:29:00+03:00",
@@ -11906,7 +12090,7 @@
        {
         "id": 160,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "буфет — кофе + обед",
         "valid_time": "2026-09-14T03:34:00+03:00",
         "record_time": "2026-09-14T03:34:00+03:00",
@@ -11916,7 +12100,7 @@
        {
         "id": 161,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «буфет» изменена: фуршет в конце → кофе + обед. Прежняя больше не действует.",
         "valid_time": "2026-09-14T03:34:00+03:00",
         "record_time": "2026-09-14T03:34:00+03:00",
@@ -11957,7 +12141,7 @@
        "act": "repeat",
        "content": "Повтор: место встречи по этапу 3 — офис на Садовой",
        "source": "repeat",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-14T04:38:00+03:00",
        "record_tick": 162,
        "refs": [
@@ -11993,7 +12177,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на дата промежуточной приёмки этапа 2 — 2026-09-14",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T04:13:00+03:00",
        "record_tick": 163,
        "refs": []
@@ -12002,7 +12186,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается дата промежуточной приёмки этапа 2 — 2026-09-14 (зафиксировано в сообщении 36, 2026-09-09 04:13).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T04:42:00+03:00",
        "record_tick": 164,
        "refs": [
@@ -12043,7 +12227,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на доля предоплаты ООО «Гарант-Плюс» — 5 %",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T04:53:00+03:00",
        "record_tick": 165,
        "refs": []
@@ -12052,7 +12236,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается доля предоплаты ООО «Гарант-Плюс» — 5 % (зафиксировано в сообщении 37, 2026-09-09 04:53).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T05:20:00+03:00",
        "record_tick": 166,
        "refs": [
@@ -12126,7 +12310,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на номер заявки в ООО «Гарант-Плюс» №1 — №121/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T13:06:00+03:00",
        "record_tick": 167,
        "refs": []
@@ -12135,7 +12319,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается номер заявки в ООО «Гарант-Плюс» №1 — №121/26 (зафиксировано в сообщении 56, 2026-09-09 13:06).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T05:58:00+03:00",
        "record_tick": 168,
        "refs": [
@@ -12176,7 +12360,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на место встречи по этапу 1 — офис на Садовой",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T07:52:00+03:00",
        "record_tick": 169,
        "refs": []
@@ -12185,7 +12369,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается место встречи по этапу 1 — офис на Садовой (зафиксировано в сообщении 43, 2026-09-09 07:52).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T06:06:00+03:00",
        "record_tick": 170,
        "refs": [
@@ -12237,7 +12421,7 @@
        "act": "name",
        "content": "цвет брендирования — графит + оранжевый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T06:39:00+03:00",
        "record_tick": 171,
        "refs": []
@@ -12246,7 +12430,7 @@
        "act": "connect",
        "content": "Противоречие по «цвет брендирования»: чёрный + жёлтый (сообщение 141, 2026-09-12 15:34) и графит + оранжевый (сообщение 185, 2026-09-14 06:39). Несовместимы; следую позднейшему — графит + оранжевый.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T06:39:00+03:00",
        "record_tick": 172,
        "refs": [
@@ -12287,7 +12471,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на номер пропуска для координатор площадки — №518/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T12:42:00+03:00",
        "record_tick": 173,
        "refs": []
@@ -12296,7 +12480,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается номер пропуска для координатор площадки — №518/26 (зафиксировано в сообщении 55, 2026-09-09 12:42).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T07:06:00+03:00",
        "record_tick": 174,
        "refs": [
@@ -12359,7 +12543,7 @@
        "act": "name",
        "content": "время начала — 10:00",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T21:36:00+03:00",
        "record_tick": 175,
        "refs": []
@@ -12368,7 +12552,7 @@
        "act": "connect",
        "content": "Противоречие по «время начала»: 11:00 (сообщение 137, 2026-09-12 14:11) и 10:00 (сообщение 189, 2026-09-14 21:36). Несовместимы; следую позднейшему — 10:00.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T21:36:00+03:00",
        "record_tick": 176,
        "refs": [
@@ -12420,7 +12604,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на объём партии №3 — 48 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T23:54:00+03:00",
        "record_tick": 177,
        "refs": []
@@ -12429,7 +12613,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается объём партии №3 — 48 шт (зафиксировано в сообщении 26, 2026-09-08 23:54).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T22:17:00+03:00",
        "record_tick": 178,
        "refs": [
@@ -12503,7 +12687,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на лимит расходов на этап 2 — 96 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T02:56:00+03:00",
        "record_tick": 179,
        "refs": []
@@ -12512,7 +12696,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается лимит расходов на этап 2 — 96 400 ₽ (зафиксировано в сообщении 32, 2026-09-09 02:56).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T23:43:00+03:00",
        "record_tick": 180,
        "refs": [
@@ -12559,13 +12743,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 39,
+        "tick": 39,
+        "layer": "t3",
+        "weight": 0.484
+       }
+      ],
+      "tick": 184
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 39,
         "act": "name",
-        "layer": "day",
+        "layer": "t3",
         "content": "лимит расходов на этап 1 — 74 400 ₽",
         "valid_time": "2026-09-09T06:23:00+03:00",
         "record_time": "2026-09-09T06:23:00+03:00",
@@ -12584,12 +12793,33 @@
        "act": "reconcile",
        "content": "Сверка биографии: запись №39 («лимит расходов на этап 1 — 74 400 ₽») записана на тике 39, прожито 143 тиков, повторов 0; stamps записи подтверждены чтением.",
        "source": "reconcile",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T00:01:00+03:00",
        "record_tick": 183,
        "refs": [
         39
        ]
+      }
+     ]
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "audibility_floor": 0.007
+       },
+       "evidence": [
+        {
+         "metric": "died_too_early",
+         "tick": 39,
+         "record_id": 39,
+         "layer": "t3"
+        }
+       ],
+       "budget_used": 1
       }
      ]
     }
@@ -12617,7 +12847,7 @@
        {
         "id": 176,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Противоречие по «время начала»: 11:00 (сообщение 137, 2026-09-12 14:11) и 10:00 (сообщение 189, 2026-09-14 21:36). Несовместимы; следую позднейшему — 10:00.",
         "valid_time": "2026-09-14T21:36:00+03:00",
         "record_time": "2026-09-14T21:36:00+03:00",
@@ -12627,7 +12857,7 @@
        {
         "id": 177,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на объём партии №3 — 48 шт",
         "valid_time": "2026-09-08T23:54:00+03:00",
         "record_time": "2026-09-14T22:17:00+03:00",
@@ -12637,7 +12867,7 @@
        {
         "id": 178,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается объём партии №3 — 48 шт (зафиксировано в сообщении 26, 2026-09-08 23:54).",
         "valid_time": "2026-09-14T22:17:00+03:00",
         "record_time": "2026-09-14T22:17:00+03:00",
@@ -12647,7 +12877,7 @@
        {
         "id": 179,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «итоговом отчёте»: опираемся на лимит расходов на этап 2 — 96 400 ₽",
         "valid_time": "2026-09-09T02:56:00+03:00",
         "record_time": "2026-09-14T23:43:00+03:00",
@@ -12657,7 +12887,7 @@
        {
         "id": 180,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«итоговом отчёте»: учитывается лимит расходов на этап 2 — 96 400 ₽ (зафиксировано в сообщении 32, 2026-09-09 02:56).",
         "valid_time": "2026-09-14T23:43:00+03:00",
         "record_time": "2026-09-14T23:43:00+03:00",
@@ -12687,7 +12917,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на контакт ответственного этапа 1 — +7 941 942-75-32",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T11:34:00+03:00",
        "record_tick": 181,
        "refs": []
@@ -12696,7 +12926,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается контакт ответственного этапа 1 — +7 941 942-75-32 (зафиксировано в сообщении 53, 2026-09-09 11:34).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T00:51:00+03:00",
        "record_tick": 182,
        "refs": [
@@ -12750,7 +12980,7 @@
        {
         "id": 128,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет брендирования — чёрный + жёлтый",
         "valid_time": "2026-09-12T15:34:00+03:00",
         "record_time": "2026-09-12T15:34:00+03:00",
@@ -12760,7 +12990,7 @@
        {
         "id": 171,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет брендирования — графит + оранжевый",
         "valid_time": "2026-09-14T06:39:00+03:00",
         "record_time": "2026-09-14T06:39:00+03:00",
@@ -12804,7 +13034,7 @@
        {
         "id": 9,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "формат докладов — 15 минут + 5 вопросов",
         "valid_time": "2026-09-07T22:57:00+03:00",
         "record_time": "2026-09-07T22:57:00+03:00",
@@ -12814,7 +13044,7 @@
        {
         "id": 22,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "формат докладов — PechaKucha",
         "valid_time": "2026-09-08T23:03:00+03:00",
         "record_time": "2026-09-08T23:03:00+03:00",
@@ -12824,7 +13054,7 @@
        {
         "id": 153,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "формат докладов — 20-минутные доклады",
         "valid_time": "2026-09-14T01:37:00+03:00",
         "record_time": "2026-09-14T01:37:00+03:00",

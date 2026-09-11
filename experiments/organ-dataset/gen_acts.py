@@ -28,9 +28,8 @@ import math
 import re
 from pathlib import Path
 
-LAYERS = ["beat", "episode", "day", "project", "life"]
-TAU_TICKS = {"beat": 10, "episode": 50, "day": 200,
-             "project": 1000, "life": 5000}  # environment defaults, SPEC 3.2
+LAYERS = ["t1", "t2", "t3", "t4", "t5"]
+TAU_TICKS = {"t1": 10, "t2": 50, "t3": 200, "t4": 1000, "t5": 5000}  # environment defaults, SPEC 3.2
 
 T_READ_LEAD = [
     "Сейчас проверю по памяти.",
@@ -141,7 +140,7 @@ class BioActs:
     def act_reconcile(self, content, refs, world_time, fact_ids=None,
                       record_ids=None, extra_nums=None):
         rid = self._append(
-            act="reconcile", content=content, layer="project",
+            act="reconcile", content=content, layer="t4",
             valid_time=world_time, record_time=world_time,
             source="reconcile", refs=list(refs),
             fact_ids=list(fact_ids or []),
@@ -236,12 +235,12 @@ class BioActs:
                 old_rec = self.lid2rec[ex["old_lid"]]
                 new_rec = self.act_name(
                     subject=ex["position_subject"], value=ex["new"],
-                    layer="project", ledger_e=self.ledger[ex["new_lid"]],
+                    layer="t4", ledger_e=self.ledger[ex["new_lid"]],
                     message_no=s, world_time=world_time)
                 conn = self.act_connect(
                     content=(f"Позиция по «{ex['position_subject']}» изменена: "
                              f"{ex['old']} → {ex['new']}. Прежняя больше не действует."),
-                    layer="project", refs=[old_rec, new_rec],
+                    layer="t4", refs=[old_rec, new_rec],
                     message_no=s, world_time=world_time,
                     fact_ids=[ex["old_lid"], ex["new_lid"]])
                 acts = [self.call_view(self.records[new_rec - 1]),
@@ -255,7 +254,7 @@ class BioActs:
                 e1 = self.ledger[fid]
                 a_rec = self.lid2rec[fid]
                 b_rec = self.act_name(
-                    subject=cd["subject"], value=cd["v2"], layer="project",
+                    subject=cd["subject"], value=cd["v2"], layer="t4",
                     ledger_e=self.ledger["C2:" + fid],
                     message_no=s, world_time=world_time)
                 conn = self.act_connect(
@@ -264,7 +263,7 @@ class BioActs:
                              f"{e1['world_time'][:16].replace('T', ' ')}) и {cd['v2']} "
                              f"(сообщение {s}, {world_time[:16].replace('T', ' ')}). "
                              f"Несовместимы; следую позднейшему — {cd['v2']}."),
-                    layer="project", refs=[a_rec, b_rec],
+                    layer="t4", refs=[a_rec, b_rec],
                     message_no=s, world_time=world_time,
                     fact_ids=[fid, "C2:" + fid])
                 acts = [self.call_view(self.records[b_rec - 1]),
@@ -280,7 +279,7 @@ class BioActs:
                 dec_rec = self.act_name(
                     subject=f"решение по «{cr['decision']}»",
                     value=f"{ex['subject']} — {ex['value']}",
-                    layer="project", ledger_e=e, message_no=s,
+                    layer="t4", ledger_e=e, message_no=s,
                     world_time=world_time,
                     extra_content=(f"решение по «{cr['decision']}»: опираемся на "
                                    f"{ex['subject']} — {ex['value']}"))
@@ -288,7 +287,7 @@ class BioActs:
                     content=(f"«{cr['decision']}»: учитывается {ex['subject']} — "
                              f"{ex['value']} (зафиксировано в сообщении "
                              f"{e['message_no']}, {e['world_time'][:16].replace('T', ' ')})."),
-                    layer="project", refs=[early_rec, dec_rec],
+                    layer="t4", refs=[early_rec, dec_rec],
                     message_no=s, world_time=world_time,
                     fact_ids=[ex["crossref_fid"]])
                 acts = [self.call_view(self.records[dec_rec - 1]),
@@ -374,7 +373,57 @@ class BioActs:
                                                    dn, reps})
             tl["phases"][2]["acts"] = [self.call_view(self.records[rid - 1])]
 
+        # ---- scan / calibrate: смотрим физику и предлагаем правку ручек ----
+        # Демонстрации по act-grammar v0.2.0 §1.6-1.7: scan ничего не пишет и
+        # тики не двигает; calibrate — предложение правки в границах, с
+        # обоснованием только ссылками на числа физики. Числа НАСТОЯЩИЕ:
+        # берутся из записи, а не выдумываются.
+        sc_targets = [tl for tl in self.timeline
+                      if tl["kind"] == "probe_recall" and len(tl["phases"]) == 3]
+        diag = [
+            ("died_too_early", 0.004, "audibility_floor", 0.005),
+            ("wasted_surface", 40.0, "surfacing_cap", 10.0),
+            ("loop_repeat", 9.0, "consolidation_ceiling", 6.0),
+            ("stale_win", 0.30, "tau_multiplier.t3", 1.4),
+            ("died_too_early", 0.006, "audibility_floor", 0.007),
+            ("wasted_surface", 30.0, "prefix_depth", 9.0),
+            ("loop_repeat", 7.0, "consolidation_ceiling", 5.0),
+            ("stale_win", 0.25, "tau_multiplier.t4", 0.8),
+            ("died_too_early", 0.008, "audibility_floor", 0.008),
+            ("wasted_surface", 20.0, "residency_horizon", 8.0),
+            ("loop_repeat", 6.0, "consolidation_ceiling", 4.0),
+            ("stale_win", 0.20, "tau_multiplier.t2", 1.2),
+        ]
+        for n, tl in enumerate(sc_targets[:12]):
+            recs = tl["phases"][1]["payload"]["records"]
+            if not recs:
+                continue
+            rec = recs[n % len(recs)]
+            mname, mval, knob, newval = diag[n % len(diag)]
+            # scan: акт МОДЕЛИ (read-класс), затем среда возвращает числа.
+            scan_act = {"act": "scan", "mode": "amplitudes"}
+            payload = self.scan_payload([rec])
+            tl["phases"].insert(1, {"role": "assistant",
+                                    "text": "Смотрю физику своей памяти.",
+                                    "acts": [scan_act]})
+            tl["phases"].insert(2, {"role": "environment", "payload": payload})
+            # calibrate: акт модели — правка в границах, обоснование из чисел
+            prop = {"act": "calibrate",
+                    "proposal": {knob: newval},
+                    "evidence": [{"metric": mname, "tick": rec["record_tick"],
+                                  "record_id": rec["id"], "layer": rec["layer"]}],
+                    "budget_used": 1}
+            tl["phases"].append({"role": "assistant", "text":
+                "По числам физики предлагаю одну правку в границах.",
+                "acts": [prop]})
+
         return self
+
+    def scan_payload(self, recs):
+        """Настоящие числа физики: амплитуды, тики, слои. Ничего не пишет."""
+        return {"scan": True, "records": [
+            {"id": r["id"], "tick": r["record_tick"], "layer": r["layer"],
+             "weight": self.weight(r)} for r in recs], "tick": self.tick}
 
     # ---------------- validation ----------------
     def validate(self):
@@ -430,7 +479,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     all_ok = True
-    totals = {"name": 0, "repeat": 0, "connect": 0, "reconcile": 0, "read": 0}
+    totals = {"name": 0, "repeat": 0, "connect": 0, "reconcile": 0, "read": 0, "scan": 0, "calibrate": 0}
     layer_totals = {l: 0 for l in LAYERS}
     for p in sorted(bios_dir.glob("bio-*.json")):
         bio = json.loads(p.read_text(encoding="utf-8"))

@@ -6,7 +6,7 @@
    "record_time": "2026-09-07T10:00:00+03:00",
    "valid_time": "2026-09-07T10:00:00+03:00",
    "record_tick": 1,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "имя клиента — Павел Андреевич",
    "source": "user",
@@ -30,7 +30,7 @@
    "record_time": "2026-09-07T10:00:00+03:00",
    "valid_time": "2026-09-07T10:00:00+03:00",
    "record_tick": 2,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "проект — запуск магазина «Гора» (товары для походов)",
    "source": "user",
@@ -54,7 +54,7 @@
    "record_time": "2026-09-07T10:21:00+03:00",
    "valid_time": "2026-09-07T10:21:00+03:00",
    "record_tick": 3,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "город — Санкт-Петербург",
    "source": "user",
@@ -79,7 +79,7 @@
    "record_time": "2026-09-07T10:21:00+03:00",
    "valid_time": "2026-09-07T10:21:00+03:00",
    "record_tick": 4,
-   "layer": "life",
+   "layer": "t5",
    "act": "name",
    "content": "предпочтительный канал связи — текстовые сообщения, не звонки",
    "source": "user",
@@ -104,7 +104,7 @@
    "record_time": "2026-09-07T11:56:00+03:00",
    "valid_time": "2026-09-07T11:56:00+03:00",
    "record_tick": 5,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "срок гарантии — 12 месяцев",
    "source": "user",
@@ -130,7 +130,7 @@
    "record_time": "2026-09-07T12:31:00+03:00",
    "valid_time": "2026-09-07T12:31:00+03:00",
    "record_tick": 6,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "исполнителей на этапе 3 — 4 человека",
    "source": "user",
@@ -157,7 +157,7 @@
    "record_time": "2026-09-07T12:49:00+03:00",
    "valid_time": "2026-09-07T12:49:00+03:00",
    "record_tick": 7,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма возврата от ООО «Проф-Лайн» — 74 400 ₽",
    "source": "user",
@@ -184,7 +184,7 @@
    "record_time": "2026-09-07T13:34:00+03:00",
    "valid_time": "2026-09-07T13:34:00+03:00",
    "record_tick": 8,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер счёта-фактуры №3 — №521/26",
    "source": "user",
@@ -212,7 +212,7 @@
    "record_time": "2026-09-07T14:05:00+03:00",
    "valid_time": "2026-09-07T14:05:00+03:00",
    "record_tick": 9,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "штраф ООО «Проф-Лайн» за просрочку — 10 %",
    "source": "user",
@@ -238,7 +238,7 @@
    "record_time": "2026-09-07T14:42:00+03:00",
    "valid_time": "2026-09-07T14:42:00+03:00",
    "record_tick": 10,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "срок хранения на складе — 30 дней",
    "source": "user",
@@ -264,7 +264,7 @@
    "record_time": "2026-09-07T14:50:00+03:00",
    "valid_time": "2026-09-07T14:50:00+03:00",
    "record_tick": 11,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "объём партии №1 — 60 шт",
    "source": "user",
@@ -291,7 +291,7 @@
    "record_time": "2026-09-07T15:00:00+03:00",
    "valid_time": "2026-09-07T15:00:00+03:00",
    "record_tick": 12,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "система учёта — МойСклад",
    "source": "user",
@@ -315,7 +315,7 @@
    "record_time": "2026-09-07T15:09:00+03:00",
    "valid_time": "2026-09-07T15:09:00+03:00",
    "record_tick": 13,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время звонка с оператор склада — 13:30",
    "source": "user",
@@ -341,7 +341,7 @@
    "record_time": "2026-09-07T15:15:00+03:00",
    "valid_time": "2026-09-07T15:15:00+03:00",
    "record_tick": 14,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "служба доставки — свой курьер по городу",
    "source": "user",
@@ -365,7 +365,7 @@
    "record_time": "2026-09-07T15:47:00+03:00",
    "valid_time": "2026-09-07T15:47:00+03:00",
    "record_tick": 15,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 5 — 3 часа",
    "source": "user",
@@ -392,7 +392,7 @@
    "record_time": "2026-09-07T15:53:00+03:00",
    "valid_time": "2026-09-07T15:53:00+03:00",
    "record_tick": 16,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — без минималки",
    "source": "user",
@@ -417,7 +417,7 @@
    "record_time": "2026-09-07T16:36:00+03:00",
    "valid_time": "2026-09-07T16:36:00+03:00",
    "record_tick": 17,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "дата запуска — 2026-10-05",
    "source": "user",
@@ -444,7 +444,7 @@
    "record_time": "2026-09-07T17:15:00+03:00",
    "valid_time": "2026-09-07T17:15:00+03:00",
    "record_tick": 18,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер заявки в ООО «Проф-Лайн» №3 — №352/26",
    "source": "user",
@@ -472,7 +472,7 @@
    "record_time": "2026-09-07T17:25:00+03:00",
    "valid_time": "2026-09-07T17:25:00+03:00",
    "record_tick": 19,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время начала работ на этапе 3 — 14:30",
    "source": "user",
@@ -500,7 +500,7 @@
    "record_time": "2026-09-07T17:56:00+03:00",
    "valid_time": "2026-09-07T17:56:00+03:00",
    "record_tick": 20,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "лимит расходов на этап 4 — 74 400 ₽",
    "source": "user",
@@ -528,7 +528,7 @@
    "record_time": "2026-09-07T18:15:00+03:00",
    "valid_time": "2026-09-07T18:15:00+03:00",
    "record_tick": 21,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Проф-Лайн» №2 — 74 400 ₽",
    "source": "user",
@@ -556,7 +556,7 @@
    "record_time": "2026-09-07T18:51:00+03:00",
    "valid_time": "2026-09-07T18:51:00+03:00",
    "record_tick": 22,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "ценовая стратегия — паритет с WB",
    "source": "user",
@@ -581,7 +581,7 @@
    "record_time": "2026-09-07T19:18:00+03:00",
    "valid_time": "2026-09-07T19:18:00+03:00",
    "record_tick": 23,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "брак в партии №3 — 15 %",
    "source": "user",
@@ -608,7 +608,7 @@
    "record_time": "2026-09-07T19:57:00+03:00",
    "valid_time": "2026-09-07T19:57:00+03:00",
    "record_tick": 24,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "брендирование упаковки — фирменный крафт",
    "source": "user",
@@ -633,7 +633,7 @@
    "record_time": "2026-09-07T20:32:00+03:00",
    "valid_time": "2026-09-07T20:32:00+03:00",
    "record_tick": 25,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "дата промежуточной приёмки этапа 2 — 2026-09-22",
    "source": "user",
@@ -660,7 +660,7 @@
    "record_time": "2026-09-07T21:36:00+03:00",
    "valid_time": "2026-09-07T21:36:00+03:00",
    "record_tick": 26,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "лимит правок — 36 шт",
    "source": "user",
@@ -685,7 +685,7 @@
    "record_time": "2026-09-07T21:50:00+03:00",
    "valid_time": "2026-09-07T21:50:00+03:00",
    "record_tick": 27,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "возвраты — только через маркетплейс",
    "source": "user",
@@ -710,7 +710,7 @@
    "record_time": "2026-09-07T22:23:00+03:00",
    "valid_time": "2026-09-07T22:23:00+03:00",
    "record_tick": 28,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "фото товаров — студийная съёмка",
    "source": "user",
@@ -735,7 +735,7 @@
    "record_time": "2026-09-07T22:41:00+03:00",
    "valid_time": "2026-09-07T22:41:00+03:00",
    "record_tick": 29,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 4 — Ксения",
    "source": "user",
@@ -761,7 +761,7 @@
    "record_time": "2026-09-07T23:26:00+03:00",
    "valid_time": "2026-09-07T23:26:00+03:00",
    "record_tick": 30,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет логотипа — терракотовый",
    "source": "user",
@@ -786,7 +786,7 @@
    "record_time": "2026-09-08T09:26:00+03:00",
    "valid_time": "2026-09-08T09:26:00+03:00",
    "record_tick": 31,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "лимит расходов на этап 1 — 58 400 ₽",
    "source": "user",
@@ -813,7 +813,7 @@
    "record_time": "2026-09-08T09:59:00+03:00",
    "valid_time": "2026-09-08T09:59:00+03:00",
    "record_tick": 32,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "служба доставки — Boxberry",
    "source": "user",
@@ -837,7 +837,7 @@
    "record_time": "2026-09-08T09:59:00+03:00",
    "valid_time": "2026-09-08T09:59:00+03:00",
    "record_tick": 33,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «служба доставки» изменена: свой курьер по городу → Boxberry. Прежняя больше не действует.",
    "source": "connect",
@@ -872,7 +872,7 @@
    "record_time": "2026-09-08T10:42:00+03:00",
    "valid_time": "2026-09-08T10:42:00+03:00",
    "record_tick": 34,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер счёта-фактуры №2 — №459/26",
    "source": "user",
@@ -900,7 +900,7 @@
    "record_time": "2026-09-08T10:58:00+03:00",
    "valid_time": "2026-09-08T10:58:00+03:00",
    "record_tick": 35,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽",
    "source": "user",
@@ -927,7 +927,7 @@
    "record_time": "2026-09-08T11:15:00+03:00",
    "valid_time": "2026-09-08T11:15:00+03:00",
    "record_tick": 36,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "место встречи по этапу 3 — переговорка",
    "source": "user",
@@ -953,7 +953,7 @@
    "record_time": "2026-09-08T11:54:00+03:00",
    "valid_time": "2026-09-08T11:54:00+03:00",
    "record_tick": 37,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "объём переделок по этапу 2 — 12 шт",
    "source": "user",
@@ -980,7 +980,7 @@
    "record_time": "2026-09-09T02:54:00+03:00",
    "valid_time": "2026-09-09T02:54:00+03:00",
    "record_tick": 38,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "контакт ответственного этапа 2 — +7 994 234-66-46",
    "source": "user",
@@ -1010,7 +1010,7 @@
    "record_time": "2026-09-09T03:30:00+03:00",
    "valid_time": "2026-09-09T03:30:00+03:00",
    "record_tick": 39,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "лимит расходов на этап 3 — 18 400 ₽",
    "source": "user",
@@ -1036,7 +1036,7 @@
    "record_time": "2026-09-09T04:11:00+03:00",
    "valid_time": "2026-09-09T04:11:00+03:00",
    "record_tick": 40,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "ценовая стратегия — минус 5% к WB",
    "source": "user",
@@ -1061,7 +1061,7 @@
    "record_time": "2026-09-09T04:11:00+03:00",
    "valid_time": "2026-09-09T04:11:00+03:00",
    "record_tick": 41,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «ценовая стратегия» изменена: паритет с WB → минус 5% к WB. Прежняя больше не действует.",
    "source": "connect",
@@ -1098,7 +1098,7 @@
    "record_time": "2026-09-09T04:35:00+03:00",
    "valid_time": "2026-09-09T04:35:00+03:00",
    "record_tick": 42,
-   "layer": "project",
+   "layer": "t4",
    "act": "repeat",
    "content": "Повтор: срок гарантии — 12 месяцев",
    "source": "repeat",
@@ -1127,7 +1127,7 @@
    "record_time": "2026-09-09T04:52:00+03:00",
    "valid_time": "2026-09-02T04:52:00+03:00",
    "record_tick": 43,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "доплата за ночные работы — 15 %",
    "source": "user",
@@ -1152,7 +1152,7 @@
    "record_time": "2026-09-09T05:14:00+03:00",
    "valid_time": "2026-09-09T05:14:00+03:00",
    "record_tick": 44,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер договора с ООО «Проф-Лайн» №1 — №492/26",
    "source": "user",
@@ -1179,7 +1179,7 @@
    "record_time": "2026-09-09T06:16:00+03:00",
    "valid_time": "2026-09-07T13:34:00+03:00",
    "record_tick": 45,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на номер счёта-фактуры №3 — №521/26",
    "source": "user",
@@ -1206,7 +1206,7 @@
    "record_time": "2026-09-09T06:16:00+03:00",
    "valid_time": "2026-09-09T06:16:00+03:00",
    "record_tick": 46,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается номер счёта-фактуры №3 — №521/26 (зафиксировано в сообщении 10, 2026-09-07 13:34).",
    "source": "connect",
@@ -1243,7 +1243,7 @@
    "record_time": "2026-09-09T07:27:00+03:00",
    "valid_time": "2026-09-09T07:27:00+03:00",
    "record_tick": 47,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 3 — 4 часа",
    "source": "user",
@@ -1269,7 +1269,7 @@
    "record_time": "2026-09-09T07:44:00+03:00",
    "valid_time": "2026-09-09T07:44:00+03:00",
    "record_tick": 48,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "исполнителей на этапе 2 — 5 человека",
    "source": "user",
@@ -1295,7 +1295,7 @@
    "record_time": "2026-09-09T08:24:00+03:00",
    "valid_time": "2026-09-09T08:24:00+03:00",
    "record_tick": 49,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "система учёта — Google-таблицы",
    "source": "user",
@@ -1319,7 +1319,7 @@
    "record_time": "2026-09-09T08:24:00+03:00",
    "valid_time": "2026-09-09T08:24:00+03:00",
    "record_tick": 50,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «система учёта» изменена: МойСклад → Google-таблицы. Прежняя больше не действует.",
    "source": "connect",
@@ -1354,7 +1354,7 @@
    "record_time": "2026-09-09T08:41:00+03:00",
    "valid_time": "2026-09-09T08:41:00+03:00",
    "record_tick": 51,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер заявки в ООО «Проф-Лайн» №1 — №426/26",
    "source": "user",
@@ -1381,7 +1381,7 @@
    "record_time": "2026-09-09T09:04:00+03:00",
    "valid_time": "2026-09-09T09:04:00+03:00",
    "record_tick": 52,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер заявки в ООО «Проф-Лайн» №2 — №133/26",
    "source": "user",
@@ -1407,7 +1407,7 @@
    "record_time": "2026-09-09T09:11:00+03:00",
    "valid_time": "2026-09-09T09:11:00+03:00",
    "record_tick": 53,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "возвраты — курьер забирает",
    "source": "user",
@@ -1430,7 +1430,7 @@
    "record_time": "2026-09-09T09:11:00+03:00",
    "valid_time": "2026-09-09T09:11:00+03:00",
    "record_tick": 54,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «возвраты» изменена: только через маркетплейс → курьер забирает. Прежняя больше не действует.",
    "source": "connect",
@@ -1465,7 +1465,7 @@
    "record_time": "2026-09-09T09:34:00+03:00",
    "valid_time": "2026-09-09T09:34:00+03:00",
    "record_tick": 55,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 2 — Ксения",
    "source": "user",
@@ -1489,7 +1489,7 @@
    "record_time": "2026-09-09T10:40:00+03:00",
    "valid_time": "2026-09-09T10:40:00+03:00",
    "record_tick": 56,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽",
    "source": "user",
@@ -1516,7 +1516,7 @@
    "record_time": "2026-09-09T10:54:00+03:00",
    "valid_time": "2026-09-09T10:54:00+03:00",
    "record_tick": 57,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — 1 500 ₽",
    "source": "user",
@@ -1542,7 +1542,7 @@
    "record_time": "2026-09-09T11:21:00+03:00",
    "valid_time": "2026-09-09T11:21:00+03:00",
    "record_tick": 58,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время начала работ на этапе 2 — 12:30",
    "source": "user",
@@ -1569,7 +1569,7 @@
    "record_time": "2026-09-10T01:21:00+03:00",
    "valid_time": "2026-09-10T01:21:00+03:00",
    "record_tick": 59,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "дата постановки задачи №3 — 2026-09-17",
    "source": "user",
@@ -1596,7 +1596,7 @@
    "record_time": "2026-09-10T02:00:00+03:00",
    "valid_time": "2026-09-03T02:00:00+03:00",
    "record_tick": 60,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "адрес склада ООО «Проф-Лайн» — база на Южной, 11",
    "source": "user",
@@ -1621,7 +1621,7 @@
    "record_time": "2026-09-10T02:37:00+03:00",
    "valid_time": "2026-09-10T02:37:00+03:00",
    "record_tick": 61,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "объём партии №2 — 48 шт",
    "source": "user",
@@ -1648,7 +1648,7 @@
    "record_time": "2026-09-10T03:02:00+03:00",
    "valid_time": "2026-09-10T03:02:00+03:00",
    "record_tick": 62,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "переплата за срочность — 36 400 ₽",
    "source": "user",
@@ -1674,7 +1674,7 @@
    "record_time": "2026-09-10T03:44:00+03:00",
    "valid_time": "2026-09-10T03:44:00+03:00",
    "record_tick": 63,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: срок хранения на складе — 30 дней",
    "source": "repeat",
@@ -1703,7 +1703,7 @@
    "record_time": "2026-09-10T19:44:00+03:00",
    "valid_time": "2026-09-10T19:44:00+03:00",
    "record_tick": 64,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "брак в партии №4 — 20 %",
    "source": "user",
@@ -1730,7 +1730,7 @@
    "record_time": "2026-09-11T10:44:00+03:00",
    "valid_time": "2026-09-11T10:44:00+03:00",
    "record_tick": 65,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет логотипа — графитовый",
    "source": "user",
@@ -1755,7 +1755,7 @@
    "record_time": "2026-09-11T10:44:00+03:00",
    "valid_time": "2026-09-11T10:44:00+03:00",
    "record_tick": 66,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «цвет логотипа»: терракотовый (сообщение 33, 2026-09-07 23:26) и графитовый (сообщение 69, 2026-09-11 10:44). Несовместимы; следую позднейшему — графитовый.",
    "source": "connect",
@@ -1792,7 +1792,7 @@
    "record_time": "2026-09-11T11:14:00+03:00",
    "valid_time": "2026-09-11T11:14:00+03:00",
    "record_tick": 67,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "дата промежуточной приёмки этапа 1 — 2026-09-27",
    "source": "user",
@@ -1818,7 +1818,7 @@
    "record_time": "2026-09-11T11:54:00+03:00",
    "valid_time": "2026-09-11T11:54:00+03:00",
    "record_tick": 68,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "срок поставки от ООО «Проф-Лайн» — 2026-09-21",
    "source": "user",
@@ -1843,7 +1843,7 @@
    "record_time": "2026-09-11T21:39:00+03:00",
    "valid_time": "2026-09-11T21:39:00+03:00",
    "record_tick": 69,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "стоимость доставки партии №1 — 18 400 ₽",
    "source": "user",
@@ -1871,7 +1871,7 @@
    "record_time": "2026-09-11T21:55:00+03:00",
    "valid_time": "2026-09-11T21:55:00+03:00",
    "record_tick": 70,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "стартовый бюджет на закупку — 1 020 000 ₽",
    "source": "user",
@@ -1899,7 +1899,7 @@
    "record_time": "2026-09-11T22:15:00+03:00",
    "valid_time": "2026-09-11T22:15:00+03:00",
    "record_tick": 71,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "брендирование упаковки — нейтральный пакет",
    "source": "user",
@@ -1924,7 +1924,7 @@
    "record_time": "2026-09-11T22:15:00+03:00",
    "valid_time": "2026-09-11T22:15:00+03:00",
    "record_tick": 72,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «брендирование упаковки» изменена: фирменный крафт → нейтральный пакет. Прежняя больше не действует.",
    "source": "connect",
@@ -1961,7 +1961,7 @@
    "record_time": "2026-09-11T22:36:00+03:00",
    "valid_time": "2026-09-11T22:36:00+03:00",
    "record_tick": 73,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — 2 000 ₽",
    "source": "user",
@@ -1988,7 +1988,7 @@
    "record_time": "2026-09-11T22:40:00+03:00",
    "valid_time": "2026-09-11T22:40:00+03:00",
    "record_tick": 74,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "дата постановки задачи №2 — 2026-09-19",
    "source": "user",
@@ -2015,7 +2015,7 @@
    "record_time": "2026-09-11T23:21:00+03:00",
    "valid_time": "2026-09-11T23:21:00+03:00",
    "record_tick": 75,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "скидка ООО «Проф-Лайн» за объём — 15 %",
    "source": "user",
@@ -2041,7 +2041,7 @@
    "record_time": "2026-09-11T23:26:00+03:00",
    "valid_time": "2026-09-11T23:26:00+03:00",
    "record_tick": 76,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "этаж встречи по этапу 2 — переговорка",
    "source": "user",
@@ -2067,7 +2067,7 @@
    "record_time": "2026-09-12T00:27:00+03:00",
    "valid_time": "2026-09-12T00:27:00+03:00",
    "record_tick": 77,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "ответственный за этап 3 — Дмитрий",
    "source": "user",
@@ -2092,7 +2092,7 @@
    "record_time": "2026-09-12T00:42:00+03:00",
    "valid_time": "2026-09-12T00:42:00+03:00",
    "record_tick": 78,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "дата постановки задачи №1 — 2026-09-24",
    "source": "user",
@@ -2118,7 +2118,7 @@
    "record_time": "2026-09-12T01:01:00+03:00",
    "valid_time": "2026-09-12T01:01:00+03:00",
    "record_tick": 79,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "исполнителей на этапе 1 — 5 человека",
    "source": "user",
@@ -2144,7 +2144,7 @@
    "record_time": "2026-09-12T01:37:00+03:00",
    "valid_time": "2026-09-12T01:37:00+03:00",
    "record_tick": 80,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "фото товаров — предметная съёмка на белом",
    "source": "user",
@@ -2169,7 +2169,7 @@
    "record_time": "2026-09-12T01:37:00+03:00",
    "valid_time": "2026-09-12T01:37:00+03:00",
    "record_tick": 81,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «фото товаров» изменена: студийная съёмка → предметная съёмка на белом. Прежняя больше не действует.",
    "source": "connect",
@@ -2206,7 +2206,7 @@
    "record_time": "2026-09-12T01:48:00+03:00",
    "valid_time": "2026-09-12T01:48:00+03:00",
    "record_tick": 82,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время звонка с оператор склада — 13:30",
    "source": "user",
@@ -2233,7 +2233,7 @@
    "record_time": "2026-09-12T02:06:00+03:00",
    "valid_time": "2026-09-12T02:06:00+03:00",
    "record_tick": 83,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "место встречи по этапу 1 — зал на первом",
    "source": "user",
@@ -2259,7 +2259,7 @@
    "record_time": "2026-09-12T02:12:00+03:00",
    "valid_time": "2026-09-12T02:12:00+03:00",
    "record_tick": 84,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 4 — 3 часа",
    "source": "user",
@@ -2285,7 +2285,7 @@
    "record_time": "2026-09-12T02:46:00+03:00",
    "valid_time": "2026-09-12T02:46:00+03:00",
    "record_tick": 85,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: срок поставки от ООО «Проф-Лайн» — 2026-09-21",
    "source": "repeat",
@@ -2315,7 +2315,7 @@
    "record_time": "2026-09-12T03:10:00+03:00",
    "valid_time": "2026-09-12T03:10:00+03:00",
    "record_tick": 86,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — 2 000 ₽",
    "source": "user",
@@ -2341,7 +2341,7 @@
    "record_time": "2026-09-12T03:10:00+03:00",
    "valid_time": "2026-09-12T03:10:00+03:00",
    "record_tick": 87,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «минимальная сумма заказа»: без минималки (сообщение 18, 2026-09-07 15:53) и 2 000 ₽ (сообщение 89, 2026-09-12 03:10). Несовместимы; следую позднейшему — 2 000 ₽.",
    "source": "connect",
@@ -2379,7 +2379,7 @@
    "record_time": "2026-09-12T04:01:00+03:00",
    "valid_time": "2026-09-12T04:01:00+03:00",
    "record_tick": 88,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — 1 500 ₽",
    "source": "user",
@@ -2406,7 +2406,7 @@
    "record_time": "2026-09-12T04:31:00+03:00",
    "valid_time": "2026-09-12T04:31:00+03:00",
    "record_tick": 89,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: переплата за срочность — 36 400 ₽",
    "source": "repeat",
@@ -2437,7 +2437,7 @@
    "record_time": "2026-09-12T04:43:00+03:00",
    "valid_time": "2026-09-12T04:43:00+03:00",
    "record_tick": 90,
-   "layer": "beat",
+   "layer": "t1",
    "act": "repeat",
    "content": "Повтор: время начала работ на этапе 2 — 12:30",
    "source": "repeat",
@@ -2468,7 +2468,7 @@
    "record_time": "2026-09-12T04:49:00+03:00",
    "valid_time": "2026-09-12T04:49:00+03:00",
    "record_tick": 91,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "запас на складе — 12 шт",
    "source": "user",
@@ -2493,7 +2493,7 @@
    "record_time": "2026-09-12T05:04:00+03:00",
    "valid_time": "2026-09-12T05:04:00+03:00",
    "record_tick": 92,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "брак в партии №1 — 10 %",
    "source": "user",
@@ -2520,7 +2520,7 @@
    "record_time": "2026-09-12T06:22:00+03:00",
    "valid_time": "2026-09-07T15:47:00+03:00",
    "record_tick": 93,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 5 — 3 часа",
    "source": "user",
@@ -2547,7 +2547,7 @@
    "record_time": "2026-09-12T06:22:00+03:00",
    "valid_time": "2026-09-12T06:22:00+03:00",
    "record_tick": 94,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается длительность работ по этапу 5 — 3 часа (зафиксировано в сообщении 17, 2026-09-07 15:47).",
    "source": "connect",
@@ -2584,7 +2584,7 @@
    "record_time": "2026-09-12T07:45:00+03:00",
    "valid_time": "2026-09-12T07:45:00+03:00",
    "record_tick": 95,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "сумма экономии по этапу 1 — 36 400 ₽",
    "source": "user",
@@ -2612,7 +2612,7 @@
    "record_time": "2026-09-12T08:18:00+03:00",
    "valid_time": "2026-09-12T08:18:00+03:00",
    "record_tick": 96,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "срок поставки от ООО «Проф-Лайн» — 2026-09-15",
    "source": "user",
@@ -2638,7 +2638,7 @@
    "record_time": "2026-09-12T08:47:00+03:00",
    "valid_time": "2026-09-12T08:47:00+03:00",
    "record_tick": 97,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время начала работ на этапе 1 — 11:00",
    "source": "user",
@@ -2665,7 +2665,7 @@
    "record_time": "2026-09-12T09:19:00+03:00",
    "valid_time": "2026-09-12T09:19:00+03:00",
    "record_tick": 98,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: объём партии №2 — 48 шт",
    "source": "repeat",
@@ -2695,7 +2695,7 @@
    "record_time": "2026-09-12T09:58:00+03:00",
    "valid_time": "2026-09-12T09:58:00+03:00",
    "record_tick": 99,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "число SKU на старте — 120",
    "source": "user",
@@ -2720,7 +2720,7 @@
    "record_time": "2026-09-12T10:05:00+03:00",
    "valid_time": "2026-09-12T10:05:00+03:00",
    "record_tick": 100,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "лимит расходов на этап 2 — 58 400 ₽",
    "source": "user",
@@ -2748,7 +2748,7 @@
    "record_time": "2026-09-12T10:29:00+03:00",
    "valid_time": "2026-09-12T10:29:00+03:00",
    "record_tick": 101,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "маркетплейс — Wildberries",
    "source": "user",
@@ -2773,7 +2773,7 @@
    "record_time": "2026-09-12T10:35:00+03:00",
    "valid_time": "2026-09-12T10:35:00+03:00",
    "record_tick": 102,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — 1 500 ₽",
    "source": "user",
@@ -2800,7 +2800,7 @@
    "record_time": "2026-09-12T10:35:00+03:00",
    "valid_time": "2026-09-12T10:35:00+03:00",
    "record_tick": 103,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «минимальная сумма заказа»: 2 000 ₽ (сообщение 76, 2026-09-11 22:36) и 1 500 ₽ (сообщение 108, 2026-09-12 10:35). Несовместимы; следую позднейшему — 1 500 ₽.",
    "source": "connect",
@@ -2841,7 +2841,7 @@
    "record_time": "2026-09-12T11:04:00+03:00",
    "valid_time": "2026-09-12T11:04:00+03:00",
    "record_tick": 104,
-   "layer": "day",
+   "layer": "t3",
    "act": "name",
    "content": "длительность работ по этапу 1 — 3 часа",
    "source": "user",
@@ -2868,7 +2868,7 @@
    "record_time": "2026-09-12T11:27:00+03:00",
    "valid_time": "2026-09-12T11:27:00+03:00",
    "record_tick": 105,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет логотипа — хаки",
    "source": "user",
@@ -2893,7 +2893,7 @@
    "record_time": "2026-09-12T12:03:00+03:00",
    "valid_time": "2026-09-12T12:03:00+03:00",
    "record_tick": 106,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет логотипа — графитовый",
    "source": "user",
@@ -2916,7 +2916,7 @@
    "record_time": "2026-09-12T20:29:00+03:00",
    "valid_time": "2026-09-12T20:29:00+03:00",
    "record_tick": 107,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "дата постановки задачи №4 — 2026-09-27",
    "source": "user",
@@ -2943,7 +2943,7 @@
    "record_time": "2026-09-12T21:05:00+03:00",
    "valid_time": "2026-09-12T21:05:00+03:00",
    "record_tick": 108,
-   "layer": "episode",
+   "layer": "t2",
    "act": "name",
    "content": "номер счёта-фактуры №4 — №245/26",
    "source": "user",
@@ -2971,7 +2971,7 @@
    "record_time": "2026-09-12T21:16:00+03:00",
    "valid_time": "2026-09-12T21:16:00+03:00",
    "record_tick": 109,
-   "layer": "beat",
+   "layer": "t1",
    "act": "name",
    "content": "время звонка с оператор склада — 16:15",
    "source": "user",
@@ -2997,7 +2997,7 @@
    "record_time": "2026-09-12T21:47:00+03:00",
    "valid_time": "2026-09-12T21:47:00+03:00",
    "record_tick": 110,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: длительность работ по этапу 4 — 3 часа",
    "source": "repeat",
@@ -3028,7 +3028,7 @@
    "record_time": "2026-09-12T22:38:00+03:00",
    "valid_time": "2026-09-07T17:25:00+03:00",
    "record_tick": 111,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на время начала работ на этапе 3 — 14:30",
    "source": "user",
@@ -3056,7 +3056,7 @@
    "record_time": "2026-09-12T22:38:00+03:00",
    "valid_time": "2026-09-12T22:38:00+03:00",
    "record_tick": 112,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается время начала работ на этапе 3 — 14:30 (зафиксировано в сообщении 21, 2026-09-07 17:25).",
    "source": "connect",
@@ -3094,7 +3094,7 @@
    "record_time": "2026-09-12T23:07:00+03:00",
    "valid_time": "2026-09-09T08:41:00+03:00",
    "record_tick": 113,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на номер заявки в ООО «Проф-Лайн» №1 — №426/26",
    "source": "user",
@@ -3122,7 +3122,7 @@
    "record_time": "2026-09-12T23:07:00+03:00",
    "valid_time": "2026-09-12T23:07:00+03:00",
    "record_tick": 114,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается номер заявки в ООО «Проф-Лайн» №1 — №426/26 (зафиксировано в сообщении 55, 2026-09-09 08:41).",
    "source": "connect",
@@ -3159,7 +3159,7 @@
    "record_time": "2026-09-12T23:49:00+03:00",
    "valid_time": "2026-09-09T09:04:00+03:00",
    "record_tick": 115,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на номер заявки в ООО «Проф-Лайн» №2 — №133/26",
    "source": "user",
@@ -3187,7 +3187,7 @@
    "record_time": "2026-09-12T23:49:00+03:00",
    "valid_time": "2026-09-12T23:49:00+03:00",
    "record_tick": 116,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается номер заявки в ООО «Проф-Лайн» №2 — №133/26 (зафиксировано в сообщении 56, 2026-09-09 09:04).",
    "source": "connect",
@@ -3223,7 +3223,7 @@
    "record_time": "2026-09-13T00:42:00+03:00",
    "valid_time": "2026-09-13T00:42:00+03:00",
    "record_tick": 117,
-   "layer": "project",
+   "layer": "t4",
    "act": "repeat",
    "content": "Повтор: стартовый бюджет на закупку — 1 020 000 ₽",
    "source": "repeat",
@@ -3254,7 +3254,7 @@
    "record_time": "2026-09-13T01:27:00+03:00",
    "valid_time": "2026-09-07T14:05:00+03:00",
    "record_tick": 118,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на штраф ООО «Проф-Лайн» за просрочку — 10 %",
    "source": "user",
@@ -3280,7 +3280,7 @@
    "record_time": "2026-09-13T01:27:00+03:00",
    "valid_time": "2026-09-13T01:27:00+03:00",
    "record_tick": 119,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается штраф ООО «Проф-Лайн» за просрочку — 10 % (зафиксировано в сообщении 11, 2026-09-07 14:05).",
    "source": "connect",
@@ -3316,7 +3316,7 @@
    "record_time": "2026-09-13T01:57:00+03:00",
    "valid_time": "2026-09-07T13:34:00+03:00",
    "record_tick": 120,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на номер счёта-фактуры №3 — №521/26",
    "source": "user",
@@ -3344,7 +3344,7 @@
    "record_time": "2026-09-13T01:57:00+03:00",
    "valid_time": "2026-09-13T01:57:00+03:00",
    "record_tick": 121,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается номер счёта-фактуры №3 — №521/26 (зафиксировано в сообщении 10, 2026-09-07 13:34).",
    "source": "connect",
@@ -3381,7 +3381,7 @@
    "record_time": "2026-09-13T02:02:00+03:00",
    "valid_time": "2026-09-07T21:36:00+03:00",
    "record_tick": 122,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
    "source": "user",
@@ -3406,7 +3406,7 @@
    "record_time": "2026-09-13T02:02:00+03:00",
    "valid_time": "2026-09-13T02:02:00+03:00",
    "record_tick": 123,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
    "source": "connect",
@@ -3440,7 +3440,7 @@
    "record_time": "2026-09-13T02:36:00+03:00",
    "valid_time": "2026-09-09T07:44:00+03:00",
    "record_tick": 124,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на исполнителей на этапе 2 — 5 человека",
    "source": "user",
@@ -3467,7 +3467,7 @@
    "record_time": "2026-09-13T02:36:00+03:00",
    "valid_time": "2026-09-13T02:36:00+03:00",
    "record_tick": 125,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается исполнителей на этапе 2 — 5 человека (зафиксировано в сообщении 53, 2026-09-09 07:44).",
    "source": "connect",
@@ -3503,7 +3503,7 @@
    "record_time": "2026-09-13T17:19:00+03:00",
    "valid_time": "2026-09-09T09:34:00+03:00",
    "record_tick": 126,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на ответственный за этап 2 — Ксения",
    "source": "user",
@@ -3529,7 +3529,7 @@
    "record_time": "2026-09-13T17:19:00+03:00",
    "valid_time": "2026-09-13T17:19:00+03:00",
    "record_tick": 127,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается ответственный за этап 2 — Ксения (зафиксировано в сообщении 58, 2026-09-09 09:34).",
    "source": "connect",
@@ -3563,7 +3563,7 @@
    "record_time": "2026-09-13T18:01:00+03:00",
    "valid_time": "2026-09-07T16:36:00+03:00",
    "record_tick": 128,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на дата запуска — 2026-10-05",
    "source": "user",
@@ -3590,7 +3590,7 @@
    "record_time": "2026-09-13T18:01:00+03:00",
    "valid_time": "2026-09-13T18:01:00+03:00",
    "record_tick": 129,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается дата запуска — 2026-10-05 (зафиксировано в сообщении 19, 2026-09-07 16:36).",
    "source": "connect",
@@ -3627,7 +3627,7 @@
    "record_time": "2026-09-13T18:18:00+03:00",
    "valid_time": "2026-09-09T02:54:00+03:00",
    "record_tick": 130,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на контакт ответственного этапа 2 — +7 994 234-66-46",
    "source": "user",
@@ -3657,7 +3657,7 @@
    "record_time": "2026-09-13T18:18:00+03:00",
    "valid_time": "2026-09-13T18:18:00+03:00",
    "record_tick": 131,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается контакт ответственного этапа 2 — +7 994 234-66-46 (зафиксировано в сообщении 40, 2026-09-09 02:54).",
    "source": "connect",
@@ -3696,7 +3696,7 @@
    "record_time": "2026-09-13T18:32:00+03:00",
    "valid_time": "2026-09-13T18:32:00+03:00",
    "record_tick": 132,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "минимальная сумма заказа — 2 000 ₽",
    "source": "user",
@@ -3723,7 +3723,7 @@
    "record_time": "2026-09-13T18:32:00+03:00",
    "valid_time": "2026-09-13T18:32:00+03:00",
    "record_tick": 133,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «минимальная сумма заказа»: 1 500 ₽ (сообщение 91, 2026-09-12 04:01) и 2 000 ₽ (сообщение 138, 2026-09-13 18:32). Несовместимы; следую позднейшему — 2 000 ₽.",
    "source": "connect",
@@ -3764,7 +3764,7 @@
    "record_time": "2026-09-13T18:48:00+03:00",
    "valid_time": "2026-09-07T12:49:00+03:00",
    "record_tick": 134,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на сумма возврата от ООО «Проф-Лайн» — 74 400 ₽",
    "source": "user",
@@ -3791,7 +3791,7 @@
    "record_time": "2026-09-13T18:48:00+03:00",
    "valid_time": "2026-09-13T18:48:00+03:00",
    "record_tick": 135,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается сумма возврата от ООО «Проф-Лайн» — 74 400 ₽ (зафиксировано в сообщении 9, 2026-09-07 12:49).",
    "source": "connect",
@@ -3828,7 +3828,7 @@
    "record_time": "2026-09-13T19:02:00+03:00",
    "valid_time": "2026-09-13T19:02:00+03:00",
    "record_tick": 136,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: сумма экономии по этапу 1 — 36 400 ₽",
    "source": "repeat",
@@ -3860,7 +3860,7 @@
    "record_time": "2026-09-13T19:30:00+03:00",
    "valid_time": "2026-09-08T10:42:00+03:00",
    "record_tick": 137,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на номер счёта-фактуры №2 — №459/26",
    "source": "user",
@@ -3888,7 +3888,7 @@
    "record_time": "2026-09-13T19:30:00+03:00",
    "valid_time": "2026-09-13T19:30:00+03:00",
    "record_tick": 138,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается номер счёта-фактуры №2 — №459/26 (зафиксировано в сообщении 36, 2026-09-08 10:42).",
    "source": "connect",
@@ -3926,7 +3926,7 @@
    "record_time": "2026-09-14T14:30:00+03:00",
    "valid_time": "2026-09-14T14:30:00+03:00",
    "record_tick": 139,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: длительность работ по этапу 1 — 3 часа",
    "source": "repeat",
@@ -3956,7 +3956,7 @@
    "record_time": "2026-09-14T15:21:00+03:00",
    "valid_time": "2026-09-14T15:21:00+03:00",
    "record_tick": 140,
-   "layer": "beat",
+   "layer": "t1",
    "act": "repeat",
    "content": "Повтор: время звонка с оператор склада — 16:15",
    "source": "repeat",
@@ -3986,7 +3986,7 @@
    "record_time": "2026-09-14T16:58:00+03:00",
    "valid_time": "2026-09-07T21:36:00+03:00",
    "record_tick": 141,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
    "source": "user",
@@ -4012,7 +4012,7 @@
    "record_time": "2026-09-14T16:58:00+03:00",
    "valid_time": "2026-09-14T16:58:00+03:00",
    "record_tick": 142,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
    "source": "connect",
@@ -4047,7 +4047,7 @@
    "record_time": "2026-09-15T08:30:00+03:00",
    "valid_time": "2026-09-07T17:15:00+03:00",
    "record_tick": 143,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «итоговом отчёте»: опираемся на номер заявки в ООО «Проф-Лайн» №3 — №352/26",
    "source": "user",
@@ -4075,7 +4075,7 @@
    "record_time": "2026-09-15T08:30:00+03:00",
    "valid_time": "2026-09-15T08:30:00+03:00",
    "record_tick": 144,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«итоговом отчёте»: учитывается номер заявки в ООО «Проф-Лайн» №3 — №352/26 (зафиксировано в сообщении 20, 2026-09-07 17:15).",
    "source": "connect",
@@ -4112,7 +4112,7 @@
    "record_time": "2026-09-15T08:39:00+03:00",
    "valid_time": "2026-09-15T08:39:00+03:00",
    "record_tick": 145,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: номер счёта-фактуры №4 — №245/26",
    "source": "repeat",
@@ -4144,7 +4144,7 @@
    "record_time": "2026-09-15T09:20:00+03:00",
    "valid_time": "2026-09-15T09:20:00+03:00",
    "record_tick": 146,
-   "layer": "episode",
+   "layer": "t2",
    "act": "repeat",
    "content": "Повтор: дата постановки задачи №4 — 2026-09-27",
    "source": "repeat",
@@ -4174,7 +4174,7 @@
    "record_time": "2026-09-15T09:57:00+03:00",
    "valid_time": "2026-09-07T22:41:00+03:00",
    "record_tick": 147,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на ответственный за этап 4 — Ксения",
    "source": "user",
@@ -4199,7 +4199,7 @@
    "record_time": "2026-09-15T09:57:00+03:00",
    "valid_time": "2026-09-15T09:57:00+03:00",
    "record_tick": 148,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается ответственный за этап 4 — Ксения (зафиксировано в сообщении 32, 2026-09-07 22:41).",
    "source": "connect",
@@ -4234,7 +4234,7 @@
    "record_time": "2026-09-15T10:29:00+03:00",
    "valid_time": "2026-09-15T10:29:00+03:00",
    "record_tick": 149,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "возвраты — приём в точке",
    "source": "user",
@@ -4259,7 +4259,7 @@
    "record_time": "2026-09-15T10:29:00+03:00",
    "valid_time": "2026-09-15T10:29:00+03:00",
    "record_tick": 150,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «возвраты» изменена: курьер забирает → приём в точке. Прежняя больше не действует.",
    "source": "connect",
@@ -4294,7 +4294,7 @@
    "record_time": "2026-09-15T11:02:00+03:00",
    "valid_time": "2026-09-15T11:02:00+03:00",
    "record_tick": 151,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "служба доставки — СДЭК",
    "source": "user",
@@ -4319,7 +4319,7 @@
    "record_time": "2026-09-15T11:02:00+03:00",
    "valid_time": "2026-09-15T11:02:00+03:00",
    "record_tick": 152,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «служба доставки» изменена: Boxberry → СДЭК. Прежняя больше не действует.",
    "source": "connect",
@@ -4355,7 +4355,7 @@
    "record_time": "2026-09-15T11:21:00+03:00",
    "valid_time": "2026-09-09T10:40:00+03:00",
    "record_tick": 153,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽",
    "source": "user",
@@ -4383,7 +4383,7 @@
    "record_time": "2026-09-15T11:21:00+03:00",
    "valid_time": "2026-09-15T11:21:00+03:00",
    "record_tick": 154,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽ (зафиксировано в сообщении 60, 2026-09-09 10:40).",
    "source": "connect",
@@ -4420,7 +4420,7 @@
    "record_time": "2026-09-15T11:59:00+03:00",
    "valid_time": "2026-09-15T11:59:00+03:00",
    "record_tick": 155,
-   "layer": "day",
+   "layer": "t3",
    "act": "repeat",
    "content": "Повтор: срок поставки от ООО «Проф-Лайн» — 2026-09-15",
    "source": "repeat",
@@ -4449,7 +4449,7 @@
    "record_time": "2026-09-15T12:20:00+03:00",
    "valid_time": "2026-09-15T12:20:00+03:00",
    "record_tick": 156,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "фото товаров — фото поставщика + ретушь",
    "source": "user",
@@ -4474,7 +4474,7 @@
    "record_time": "2026-09-15T12:20:00+03:00",
    "valid_time": "2026-09-15T12:20:00+03:00",
    "record_tick": 157,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «фото товаров» изменена: предметная съёмка на белом → фото поставщика + ретушь. Прежняя больше не действует.",
    "source": "connect",
@@ -4510,7 +4510,7 @@
    "record_time": "2026-09-15T13:04:00+03:00",
    "valid_time": "2026-09-15T13:04:00+03:00",
    "record_tick": 158,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "ценовая стратегия — плюс 10% к WB, но подарок",
    "source": "user",
@@ -4536,7 +4536,7 @@
    "record_time": "2026-09-15T13:04:00+03:00",
    "valid_time": "2026-09-15T13:04:00+03:00",
    "record_tick": 159,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «ценовая стратегия» изменена: минус 5% к WB → плюс 10% к WB, но подарок. Прежняя больше не действует.",
    "source": "connect",
@@ -4573,7 +4573,7 @@
    "record_time": "2026-09-16T01:57:00+03:00",
    "valid_time": "2026-09-16T01:57:00+03:00",
    "record_tick": 160,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "система учёта — 1С:Розница",
    "source": "user",
@@ -4599,7 +4599,7 @@
    "record_time": "2026-09-16T01:57:00+03:00",
    "valid_time": "2026-09-16T01:57:00+03:00",
    "record_tick": 161,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «система учёта» изменена: Google-таблицы → 1С:Розница. Прежняя больше не действует.",
    "source": "connect",
@@ -4636,7 +4636,7 @@
    "record_time": "2026-09-16T02:24:00+03:00",
    "valid_time": "2026-09-07T15:47:00+03:00",
    "record_tick": 162,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 5 — 3 часа",
    "source": "user",
@@ -4663,7 +4663,7 @@
    "record_time": "2026-09-16T02:24:00+03:00",
    "valid_time": "2026-09-16T02:24:00+03:00",
    "record_tick": 163,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается длительность работ по этапу 5 — 3 часа (зафиксировано в сообщении 17, 2026-09-07 15:47).",
    "source": "connect",
@@ -4700,7 +4700,7 @@
    "record_time": "2026-09-16T03:05:00+03:00",
    "valid_time": "2026-09-16T03:05:00+03:00",
    "record_tick": 164,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "брендирование упаковки — пакет с принтом карты",
    "source": "user",
@@ -4724,7 +4724,7 @@
    "record_time": "2026-09-16T03:05:00+03:00",
    "valid_time": "2026-09-16T03:05:00+03:00",
    "record_tick": 165,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Позиция по «брендирование упаковки» изменена: нейтральный пакет → пакет с принтом карты. Прежняя больше не действует.",
    "source": "connect",
@@ -4760,7 +4760,7 @@
    "record_time": "2026-09-16T04:42:00+03:00",
    "valid_time": "2026-09-09T05:14:00+03:00",
    "record_tick": 166,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на номер договора с ООО «Проф-Лайн» №1 — №492/26",
    "source": "user",
@@ -4788,7 +4788,7 @@
    "record_time": "2026-09-16T04:42:00+03:00",
    "valid_time": "2026-09-16T04:42:00+03:00",
    "record_tick": 167,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается номер договора с ООО «Проф-Лайн» №1 — №492/26 (зафиксировано в сообщении 45, 2026-09-09 05:14).",
    "source": "connect",
@@ -4825,7 +4825,7 @@
    "record_time": "2026-09-16T05:10:00+03:00",
    "valid_time": "2026-09-08T09:26:00+03:00",
    "record_tick": 168,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «плане на следующий этап»: опираемся на лимит расходов на этап 1 — 58 400 ₽",
    "source": "user",
@@ -4853,7 +4853,7 @@
    "record_time": "2026-09-16T05:10:00+03:00",
    "valid_time": "2026-09-16T05:10:00+03:00",
    "record_tick": 169,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«плане на следующий этап»: учитывается лимит расходов на этап 1 — 58 400 ₽ (зафиксировано в сообщении 34, 2026-09-08 09:26).",
    "source": "connect",
@@ -4890,7 +4890,7 @@
    "record_time": "2026-09-16T16:13:00+03:00",
    "valid_time": "2026-09-08T10:58:00+03:00",
    "record_tick": 170,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽",
    "source": "user",
@@ -4917,7 +4917,7 @@
    "record_time": "2026-09-16T16:13:00+03:00",
    "valid_time": "2026-09-16T16:13:00+03:00",
    "record_tick": 171,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽ (зафиксировано в сообщении 37, 2026-09-08 10:58).",
    "source": "connect",
@@ -4953,7 +4953,7 @@
    "record_time": "2026-09-16T17:10:00+03:00",
    "valid_time": "2026-09-16T17:10:00+03:00",
    "record_tick": 172,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет логотипа — хаки",
    "source": "user",
@@ -4978,7 +4978,7 @@
    "record_time": "2026-09-16T17:10:00+03:00",
    "valid_time": "2026-09-16T17:10:00+03:00",
    "record_tick": 173,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «цвет логотипа»: графитовый (сообщение 111, 2026-09-12 12:03) и хаки (сообщение 184, 2026-09-16 17:10). Несовместимы; следую позднейшему — хаки.",
    "source": "connect",
@@ -5013,7 +5013,7 @@
    "record_time": "2026-09-16T17:59:00+03:00",
    "valid_time": "2026-09-16T17:59:00+03:00",
    "record_tick": 174,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "цвет логотипа — терракотовый",
    "source": "user",
@@ -5038,7 +5038,7 @@
    "record_time": "2026-09-16T17:59:00+03:00",
    "valid_time": "2026-09-16T17:59:00+03:00",
    "record_tick": 175,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "Противоречие по «цвет логотипа»: хаки (сообщение 110, 2026-09-12 11:27) и терракотовый (сообщение 186, 2026-09-16 17:59). Несовместимы; следую позднейшему — терракотовый.",
    "source": "connect",
@@ -5075,7 +5075,7 @@
    "record_time": "2026-09-16T20:13:00+03:00",
    "valid_time": "2026-09-09T03:30:00+03:00",
    "record_tick": 176,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «графике запуска»: опираемся на лимит расходов на этап 3 — 18 400 ₽",
    "source": "user",
@@ -5103,7 +5103,7 @@
    "record_time": "2026-09-16T20:13:00+03:00",
    "valid_time": "2026-09-16T20:13:00+03:00",
    "record_tick": 177,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«графике запуска»: учитывается лимит расходов на этап 3 — 18 400 ₽ (зафиксировано в сообщении 41, 2026-09-09 03:30).",
    "source": "connect",
@@ -5139,7 +5139,7 @@
    "record_time": "2026-09-16T20:51:00+03:00",
    "valid_time": "2026-09-07T14:50:00+03:00",
    "record_tick": 178,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на объём партии №1 — 60 шт",
    "source": "user",
@@ -5166,7 +5166,7 @@
    "record_time": "2026-09-16T20:51:00+03:00",
    "valid_time": "2026-09-16T20:51:00+03:00",
    "record_tick": 179,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается объём партии №1 — 60 шт (зафиксировано в сообщении 13, 2026-09-07 14:50).",
    "source": "connect",
@@ -5203,7 +5203,7 @@
    "record_time": "2026-09-16T21:15:00+03:00",
    "valid_time": "2026-09-07T17:56:00+03:00",
    "record_tick": 180,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «списке закупок»: опираемся на лимит расходов на этап 4 — 74 400 ₽",
    "source": "user",
@@ -5231,7 +5231,7 @@
    "record_time": "2026-09-16T21:15:00+03:00",
    "valid_time": "2026-09-16T21:15:00+03:00",
    "record_tick": 181,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«списке закупок»: учитывается лимит расходов на этап 4 — 74 400 ₽ (зафиксировано в сообщении 22, 2026-09-07 17:56).",
    "source": "connect",
@@ -5269,7 +5269,7 @@
    "record_time": "2026-09-16T22:10:00+03:00",
    "valid_time": "2026-09-09T10:40:00+03:00",
    "record_tick": 182,
-   "layer": "project",
+   "layer": "t4",
    "act": "name",
    "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽",
    "source": "user",
@@ -5297,7 +5297,7 @@
    "record_time": "2026-09-16T22:10:00+03:00",
    "valid_time": "2026-09-16T22:10:00+03:00",
    "record_tick": 183,
-   "layer": "project",
+   "layer": "t4",
    "act": "connect",
    "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽ (зафиксировано в сообщении 60, 2026-09-09 10:40).",
    "source": "connect",
@@ -5333,7 +5333,7 @@
    "record_time": "2026-09-16T21:53:00+03:00",
    "valid_time": "2026-09-16T21:53:00+03:00",
    "record_tick": 184,
-   "layer": "project",
+   "layer": "t4",
    "act": "reconcile",
    "content": "Сверка биографии: запись №115 («решение по «плане на следующий этап»: опираемся на номер заявки в ООО «Проф-Лайн» №2 — №133/26») записана на тике 115, прожито 68 тиков, повторов 0; stamps записи подтверждены чтением.",
    "source": "reconcile",
@@ -5367,7 +5367,7 @@
    "record_time": "2026-09-14T16:00:00+03:00",
    "valid_time": "2026-09-14T16:00:00+03:00",
    "record_tick": 185,
-   "layer": "project",
+   "layer": "t4",
    "act": "reconcile",
    "content": "Сверка биографии: запись №58 («время начала работ на этапе 2 — 12:30») записана на тике 58, прожито 126 тиков, повторов 1; stamps записи подтверждены чтением.",
    "source": "reconcile",
@@ -5409,7 +5409,7 @@
        "act": "name",
        "content": "имя клиента — Павел Андреевич",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:00:00+03:00",
        "record_tick": 1,
        "refs": []
@@ -5418,7 +5418,7 @@
        "act": "name",
        "content": "проект — запуск магазина «Гора» (товары для походов)",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:00:00+03:00",
        "record_tick": 2,
        "refs": []
@@ -5456,7 +5456,7 @@
        "act": "name",
        "content": "город — Санкт-Петербург",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:21:00+03:00",
        "record_tick": 3,
        "refs": []
@@ -5465,7 +5465,7 @@
        "act": "name",
        "content": "предпочтительный канал связи — текстовые сообщения, не звонки",
        "source": "user",
-       "layer": "life",
+       "layer": "t5",
        "valid_time": "2026-09-07T10:21:00+03:00",
        "record_tick": 4,
        "refs": []
@@ -5547,7 +5547,7 @@
        "act": "name",
        "content": "срок гарантии — 12 месяцев",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T11:56:00+03:00",
        "record_tick": 5,
        "refs": []
@@ -5581,7 +5581,7 @@
        "act": "name",
        "content": "исполнителей на этапе 3 — 4 человека",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-07T12:31:00+03:00",
        "record_tick": 6,
        "refs": []
@@ -5615,7 +5615,7 @@
        "act": "name",
        "content": "сумма возврата от ООО «Проф-Лайн» — 74 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T12:49:00+03:00",
        "record_tick": 7,
        "refs": []
@@ -5649,7 +5649,7 @@
        "act": "name",
        "content": "номер счёта-фактуры №3 — №521/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T13:34:00+03:00",
        "record_tick": 8,
        "refs": []
@@ -5683,7 +5683,7 @@
        "act": "name",
        "content": "штраф ООО «Проф-Лайн» за просрочку — 10 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T14:05:00+03:00",
        "record_tick": 9,
        "refs": []
@@ -5717,7 +5717,7 @@
        "act": "name",
        "content": "срок хранения на складе — 30 дней",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T14:42:00+03:00",
        "record_tick": 10,
        "refs": []
@@ -5751,7 +5751,7 @@
        "act": "name",
        "content": "объём партии №1 — 60 шт",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T14:50:00+03:00",
        "record_tick": 11,
        "refs": []
@@ -5785,7 +5785,7 @@
        "act": "name",
        "content": "система учёта — МойСклад",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T15:00:00+03:00",
        "record_tick": 12,
        "refs": []
@@ -5819,7 +5819,7 @@
        "act": "name",
        "content": "время звонка с оператор склада — 13:30",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-07T15:09:00+03:00",
        "record_tick": 13,
        "refs": []
@@ -5853,7 +5853,7 @@
        "act": "name",
        "content": "служба доставки — свой курьер по городу",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T15:15:00+03:00",
        "record_tick": 14,
        "refs": []
@@ -5887,7 +5887,7 @@
        "act": "name",
        "content": "длительность работ по этапу 5 — 3 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-07T15:47:00+03:00",
        "record_tick": 15,
        "refs": []
@@ -5921,7 +5921,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — без минималки",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T15:53:00+03:00",
        "record_tick": 16,
        "refs": []
@@ -5955,7 +5955,7 @@
        "act": "name",
        "content": "дата запуска — 2026-10-05",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T16:36:00+03:00",
        "record_tick": 17,
        "refs": []
@@ -5989,7 +5989,7 @@
        "act": "name",
        "content": "номер заявки в ООО «Проф-Лайн» №3 — №352/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T17:15:00+03:00",
        "record_tick": 18,
        "refs": []
@@ -6023,7 +6023,7 @@
        "act": "name",
        "content": "время начала работ на этапе 3 — 14:30",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-07T17:25:00+03:00",
        "record_tick": 19,
        "refs": []
@@ -6057,7 +6057,7 @@
        "act": "name",
        "content": "лимит расходов на этап 4 — 74 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-07T17:56:00+03:00",
        "record_tick": 20,
        "refs": []
@@ -6091,7 +6091,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Проф-Лайн» №2 — 74 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T18:15:00+03:00",
        "record_tick": 21,
        "refs": []
@@ -6125,7 +6125,7 @@
        "act": "name",
        "content": "ценовая стратегия — паритет с WB",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T18:51:00+03:00",
        "record_tick": 22,
        "refs": []
@@ -6159,7 +6159,7 @@
        "act": "name",
        "content": "брак в партии №3 — 15 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T19:18:00+03:00",
        "record_tick": 23,
        "refs": []
@@ -6193,7 +6193,7 @@
        "act": "name",
        "content": "брендирование упаковки — фирменный крафт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T19:57:00+03:00",
        "record_tick": 24,
        "refs": []
@@ -6227,7 +6227,7 @@
        "act": "name",
        "content": "дата промежуточной приёмки этапа 2 — 2026-09-22",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-07T20:32:00+03:00",
        "record_tick": 25,
        "refs": []
@@ -6272,7 +6272,7 @@
        "act": "name",
        "content": "лимит правок — 36 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T21:36:00+03:00",
        "record_tick": 26,
        "refs": []
@@ -6306,7 +6306,7 @@
        "act": "name",
        "content": "возвраты — только через маркетплейс",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T21:50:00+03:00",
        "record_tick": 27,
        "refs": []
@@ -6340,7 +6340,7 @@
        "act": "name",
        "content": "фото товаров — студийная съёмка",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:23:00+03:00",
        "record_tick": 28,
        "refs": []
@@ -6374,7 +6374,7 @@
        "act": "name",
        "content": "ответственный за этап 4 — Ксения",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-07T22:41:00+03:00",
        "record_tick": 29,
        "refs": []
@@ -6408,7 +6408,7 @@
        "act": "name",
        "content": "цвет логотипа — терракотовый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T23:26:00+03:00",
        "record_tick": 30,
        "refs": []
@@ -6442,7 +6442,7 @@
        "act": "name",
        "content": "лимит расходов на этап 1 — 58 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-08T09:26:00+03:00",
        "record_tick": 31,
        "refs": []
@@ -6476,7 +6476,7 @@
        "act": "name",
        "content": "служба доставки — Boxberry",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T09:59:00+03:00",
        "record_tick": 32,
        "refs": []
@@ -6485,7 +6485,7 @@
        "act": "connect",
        "content": "Позиция по «служба доставки» изменена: свой курьер по городу → Boxberry. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T09:59:00+03:00",
        "record_tick": 33,
        "refs": [
@@ -6526,7 +6526,7 @@
        "act": "name",
        "content": "номер счёта-фактуры №2 — №459/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-08T10:42:00+03:00",
        "record_tick": 34,
        "refs": []
@@ -6560,7 +6560,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-08T10:58:00+03:00",
        "record_tick": 35,
        "refs": []
@@ -6594,7 +6594,7 @@
        "act": "name",
        "content": "место встречи по этапу 3 — переговорка",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-08T11:15:00+03:00",
        "record_tick": 36,
        "refs": []
@@ -6628,7 +6628,7 @@
        "act": "name",
        "content": "объём переделок по этапу 2 — 12 шт",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-08T11:54:00+03:00",
        "record_tick": 37,
        "refs": []
@@ -6662,7 +6662,7 @@
        "act": "name",
        "content": "контакт ответственного этапа 2 — +7 994 234-66-46",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T02:54:00+03:00",
        "record_tick": 38,
        "refs": []
@@ -6696,7 +6696,7 @@
        "act": "name",
        "content": "лимит расходов на этап 3 — 18 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T03:30:00+03:00",
        "record_tick": 39,
        "refs": []
@@ -6730,7 +6730,7 @@
        "act": "name",
        "content": "ценовая стратегия — минус 5% к WB",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T04:11:00+03:00",
        "record_tick": 40,
        "refs": []
@@ -6739,7 +6739,7 @@
        "act": "connect",
        "content": "Позиция по «ценовая стратегия» изменена: паритет с WB → минус 5% к WB. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T04:11:00+03:00",
        "record_tick": 41,
        "refs": [
@@ -6780,7 +6780,7 @@
        "act": "repeat",
        "content": "Повтор: срок гарантии — 12 месяцев",
        "source": "repeat",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T04:35:00+03:00",
        "record_tick": 42,
        "refs": [
@@ -6816,7 +6816,7 @@
        "act": "name",
        "content": "доплата за ночные работы — 15 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-02T04:52:00+03:00",
        "record_tick": 43,
        "refs": []
@@ -6850,7 +6850,7 @@
        "act": "name",
        "content": "номер договора с ООО «Проф-Лайн» №1 — №492/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T05:14:00+03:00",
        "record_tick": 44,
        "refs": []
@@ -6890,13 +6890,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 12,
+        "tick": 12,
+        "layer": "t4",
+        "weight": 0.841
+       }
+      ],
+      "tick": 185
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 12,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "система учёта — МойСклад",
         "valid_time": "2026-09-07T15:00:00+03:00",
         "record_time": "2026-09-07T15:00:00+03:00",
@@ -6911,6 +6936,27 @@
      "role": "assistant",
      "text": "По нашей истории: система учёта — МойСклад (сообщение 14, 2026-09-07 15:00).",
      "acts": []
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "audibility_floor": 0.005
+       },
+       "evidence": [
+        {
+         "metric": "died_too_early",
+         "tick": 12,
+         "record_id": 12,
+         "layer": "t4"
+        }
+       ],
+       "budget_used": 1
+      }
+     ]
     }
    ]
   },
@@ -6936,7 +6982,7 @@
        {
         "id": 40,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "ценовая стратегия — минус 5% к WB",
         "valid_time": "2026-09-09T04:11:00+03:00",
         "record_time": "2026-09-09T04:11:00+03:00",
@@ -6946,7 +6992,7 @@
        {
         "id": 41,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «ценовая стратегия» изменена: паритет с WB → минус 5% к WB. Прежняя больше не действует.",
         "valid_time": "2026-09-09T04:11:00+03:00",
         "record_time": "2026-09-09T04:11:00+03:00",
@@ -6956,7 +7002,7 @@
        {
         "id": 42,
         "act": "repeat",
-        "layer": "project",
+        "layer": "t4",
         "content": "Повтор: срок гарантии — 12 месяцев",
         "valid_time": "2026-09-09T04:35:00+03:00",
         "record_time": "2026-09-09T04:35:00+03:00",
@@ -6966,7 +7012,7 @@
        {
         "id": 43,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "доплата за ночные работы — 15 %",
         "valid_time": "2026-09-02T04:52:00+03:00",
         "record_time": "2026-09-09T04:52:00+03:00",
@@ -6976,7 +7022,7 @@
        {
         "id": 44,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "номер договора с ООО «Проф-Лайн» №1 — №492/26",
         "valid_time": "2026-09-09T05:14:00+03:00",
         "record_time": "2026-09-09T05:14:00+03:00",
@@ -7006,7 +7052,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на номер счёта-фактуры №3 — №521/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T13:34:00+03:00",
        "record_tick": 45,
        "refs": []
@@ -7015,7 +7061,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается номер счёта-фактуры №3 — №521/26 (зафиксировано в сообщении 10, 2026-09-07 13:34).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T06:16:00+03:00",
        "record_tick": 46,
        "refs": [
@@ -7062,13 +7108,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 7,
+        "tick": 7,
+        "layer": "t2",
+        "weight": 0.028
+       }
+      ],
+      "tick": 185
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 7,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "сумма возврата от ООО «Проф-Лайн» — 74 400 ₽",
         "valid_time": "2026-09-07T12:49:00+03:00",
         "record_time": "2026-09-07T12:49:00+03:00",
@@ -7083,6 +7154,27 @@
      "role": "assistant",
      "text": "По нашей истории: сумма возврата от ООО «Проф-Лайн» — 74 400 ₽ (сообщение 9, 2026-09-07 12:49).",
      "acts": []
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "surfacing_cap": 10.0
+       },
+       "evidence": [
+        {
+         "metric": "wasted_surface",
+         "tick": 7,
+         "record_id": 7,
+         "layer": "t2"
+        }
+       ],
+       "budget_used": 1
+      }
+     ]
     }
    ]
   },
@@ -7111,7 +7203,7 @@
        {
         "id": 22,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "ценовая стратегия — паритет с WB",
         "valid_time": "2026-09-07T18:51:00+03:00",
         "record_time": "2026-09-07T18:51:00+03:00",
@@ -7121,7 +7213,7 @@
        {
         "id": 40,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "ценовая стратегия — минус 5% к WB",
         "valid_time": "2026-09-09T04:11:00+03:00",
         "record_time": "2026-09-09T04:11:00+03:00",
@@ -7162,7 +7254,7 @@
        "act": "name",
        "content": "длительность работ по этапу 3 — 4 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T07:27:00+03:00",
        "record_tick": 47,
        "refs": []
@@ -7196,7 +7288,7 @@
        "act": "name",
        "content": "исполнителей на этапе 2 — 5 человека",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-09T07:44:00+03:00",
        "record_tick": 48,
        "refs": []
@@ -7230,7 +7322,7 @@
        "act": "name",
        "content": "система учёта — Google-таблицы",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T08:24:00+03:00",
        "record_tick": 49,
        "refs": []
@@ -7239,7 +7331,7 @@
        "act": "connect",
        "content": "Позиция по «система учёта» изменена: МойСклад → Google-таблицы. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T08:24:00+03:00",
        "record_tick": 50,
        "refs": [
@@ -7280,7 +7372,7 @@
        "act": "name",
        "content": "номер заявки в ООО «Проф-Лайн» №1 — №426/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T08:41:00+03:00",
        "record_tick": 51,
        "refs": []
@@ -7314,7 +7406,7 @@
        "act": "name",
        "content": "номер заявки в ООО «Проф-Лайн» №2 — №133/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T09:04:00+03:00",
        "record_tick": 52,
        "refs": []
@@ -7348,7 +7440,7 @@
        "act": "name",
        "content": "возвраты — курьер забирает",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T09:11:00+03:00",
        "record_tick": 53,
        "refs": []
@@ -7357,7 +7449,7 @@
        "act": "connect",
        "content": "Позиция по «возвраты» изменена: только через маркетплейс → курьер забирает. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T09:11:00+03:00",
        "record_tick": 54,
        "refs": [
@@ -7398,7 +7490,7 @@
        "act": "name",
        "content": "ответственный за этап 2 — Ксения",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T09:34:00+03:00",
        "record_tick": 55,
        "refs": []
@@ -7442,7 +7534,7 @@
        {
         "id": 51,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "номер заявки в ООО «Проф-Лайн» №1 — №426/26",
         "valid_time": "2026-09-09T08:41:00+03:00",
         "record_time": "2026-09-09T08:41:00+03:00",
@@ -7452,7 +7544,7 @@
        {
         "id": 52,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "номер заявки в ООО «Проф-Лайн» №2 — №133/26",
         "valid_time": "2026-09-09T09:04:00+03:00",
         "record_time": "2026-09-09T09:04:00+03:00",
@@ -7462,7 +7554,7 @@
        {
         "id": 53,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "возвраты — курьер забирает",
         "valid_time": "2026-09-09T09:11:00+03:00",
         "record_time": "2026-09-09T09:11:00+03:00",
@@ -7472,7 +7564,7 @@
        {
         "id": 54,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «возвраты» изменена: только через маркетплейс → курьер забирает. Прежняя больше не действует.",
         "valid_time": "2026-09-09T09:11:00+03:00",
         "record_time": "2026-09-09T09:11:00+03:00",
@@ -7482,7 +7574,7 @@
        {
         "id": 55,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "ответственный за этап 2 — Ксения",
         "valid_time": "2026-09-09T09:34:00+03:00",
         "record_time": "2026-09-09T09:34:00+03:00",
@@ -7512,7 +7604,7 @@
        "act": "name",
        "content": "сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-09T10:40:00+03:00",
        "record_tick": 56,
        "refs": []
@@ -7546,7 +7638,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — 1 500 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T10:54:00+03:00",
        "record_tick": 57,
        "refs": []
@@ -7580,7 +7672,7 @@
        "act": "name",
        "content": "время начала работ на этапе 2 — 12:30",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-09T11:21:00+03:00",
        "record_tick": 58,
        "refs": []
@@ -7614,7 +7706,7 @@
        "act": "name",
        "content": "дата постановки задачи №3 — 2026-09-17",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T01:21:00+03:00",
        "record_tick": 59,
        "refs": []
@@ -7648,7 +7740,7 @@
        "act": "name",
        "content": "адрес склада ООО «Проф-Лайн» — база на Южной, 11",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-03T02:00:00+03:00",
        "record_tick": 60,
        "refs": []
@@ -7682,7 +7774,7 @@
        "act": "name",
        "content": "объём партии №2 — 48 шт",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T02:37:00+03:00",
        "record_tick": 61,
        "refs": []
@@ -7716,7 +7808,7 @@
        "act": "name",
        "content": "переплата за срочность — 36 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T03:02:00+03:00",
        "record_tick": 62,
        "refs": []
@@ -7750,7 +7842,7 @@
        "act": "repeat",
        "content": "Повтор: срок хранения на складе — 30 дней",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T03:44:00+03:00",
        "record_tick": 63,
        "refs": [
@@ -7786,7 +7878,7 @@
        "act": "name",
        "content": "брак в партии №4 — 20 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-10T19:44:00+03:00",
        "record_tick": 64,
        "refs": []
@@ -7820,7 +7912,7 @@
        "act": "name",
        "content": "цвет логотипа — графитовый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T10:44:00+03:00",
        "record_tick": 65,
        "refs": []
@@ -7829,7 +7921,7 @@
        "act": "connect",
        "content": "Противоречие по «цвет логотипа»: терракотовый (сообщение 33, 2026-09-07 23:26) и графитовый (сообщение 69, 2026-09-11 10:44). Несовместимы; следую позднейшему — графитовый.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T10:44:00+03:00",
        "record_tick": 66,
        "refs": [
@@ -7870,7 +7962,7 @@
        "act": "name",
        "content": "дата промежуточной приёмки этапа 1 — 2026-09-27",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T11:14:00+03:00",
        "record_tick": 67,
        "refs": []
@@ -7904,7 +7996,7 @@
        "act": "name",
        "content": "срок поставки от ООО «Проф-Лайн» — 2026-09-21",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-11T11:54:00+03:00",
        "record_tick": 68,
        "refs": []
@@ -7949,7 +8041,7 @@
        "act": "name",
        "content": "стоимость доставки партии №1 — 18 400 ₽",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T21:39:00+03:00",
        "record_tick": 69,
        "refs": []
@@ -7983,7 +8075,7 @@
        "act": "name",
        "content": "стартовый бюджет на закупку — 1 020 000 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T21:55:00+03:00",
        "record_tick": 70,
        "refs": []
@@ -8017,7 +8109,7 @@
        "act": "name",
        "content": "брендирование упаковки — нейтральный пакет",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T22:15:00+03:00",
        "record_tick": 71,
        "refs": []
@@ -8026,7 +8118,7 @@
        "act": "connect",
        "content": "Позиция по «брендирование упаковки» изменена: фирменный крафт → нейтральный пакет. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T22:15:00+03:00",
        "record_tick": 72,
        "refs": [
@@ -8067,7 +8159,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — 2 000 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-11T22:36:00+03:00",
        "record_tick": 73,
        "refs": []
@@ -8101,7 +8193,7 @@
        "act": "name",
        "content": "дата постановки задачи №2 — 2026-09-19",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T22:40:00+03:00",
        "record_tick": 74,
        "refs": []
@@ -8135,7 +8227,7 @@
        "act": "name",
        "content": "скидка ООО «Проф-Лайн» за объём — 15 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-11T23:21:00+03:00",
        "record_tick": 75,
        "refs": []
@@ -8169,7 +8261,7 @@
        "act": "name",
        "content": "этаж встречи по этапу 2 — переговорка",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-11T23:26:00+03:00",
        "record_tick": 76,
        "refs": []
@@ -8213,7 +8305,7 @@
        {
         "id": 72,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «брендирование упаковки» изменена: фирменный крафт → нейтральный пакет. Прежняя больше не действует.",
         "valid_time": "2026-09-11T22:15:00+03:00",
         "record_time": "2026-09-11T22:15:00+03:00",
@@ -8223,7 +8315,7 @@
        {
         "id": 73,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "минимальная сумма заказа — 2 000 ₽",
         "valid_time": "2026-09-11T22:36:00+03:00",
         "record_time": "2026-09-11T22:36:00+03:00",
@@ -8233,7 +8325,7 @@
        {
         "id": 74,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "дата постановки задачи №2 — 2026-09-19",
         "valid_time": "2026-09-11T22:40:00+03:00",
         "record_time": "2026-09-11T22:40:00+03:00",
@@ -8243,7 +8335,7 @@
        {
         "id": 75,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "скидка ООО «Проф-Лайн» за объём — 15 %",
         "valid_time": "2026-09-11T23:21:00+03:00",
         "record_time": "2026-09-11T23:21:00+03:00",
@@ -8253,7 +8345,7 @@
        {
         "id": 76,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "этаж встречи по этапу 2 — переговорка",
         "valid_time": "2026-09-11T23:26:00+03:00",
         "record_time": "2026-09-11T23:26:00+03:00",
@@ -8283,7 +8375,7 @@
        "act": "name",
        "content": "ответственный за этап 3 — Дмитрий",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T00:27:00+03:00",
        "record_tick": 77,
        "refs": []
@@ -8317,7 +8409,7 @@
        "act": "name",
        "content": "дата постановки задачи №1 — 2026-09-24",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T00:42:00+03:00",
        "record_tick": 78,
        "refs": []
@@ -8351,7 +8443,7 @@
        "act": "name",
        "content": "исполнителей на этапе 1 — 5 человека",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T01:01:00+03:00",
        "record_tick": 79,
        "refs": []
@@ -8385,7 +8477,7 @@
        "act": "name",
        "content": "фото товаров — предметная съёмка на белом",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T01:37:00+03:00",
        "record_tick": 80,
        "refs": []
@@ -8394,7 +8486,7 @@
        "act": "connect",
        "content": "Позиция по «фото товаров» изменена: студийная съёмка → предметная съёмка на белом. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T01:37:00+03:00",
        "record_tick": 81,
        "refs": [
@@ -8435,7 +8527,7 @@
        "act": "name",
        "content": "время звонка с оператор склада — 13:30",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-12T01:48:00+03:00",
        "record_tick": 82,
        "refs": []
@@ -8469,7 +8561,7 @@
        "act": "name",
        "content": "место встречи по этапу 1 — зал на первом",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-12T02:06:00+03:00",
        "record_tick": 83,
        "refs": []
@@ -8503,7 +8595,7 @@
        "act": "name",
        "content": "длительность работ по этапу 4 — 3 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T02:12:00+03:00",
        "record_tick": 84,
        "refs": []
@@ -8537,7 +8629,7 @@
        "act": "repeat",
        "content": "Повтор: срок поставки от ООО «Проф-Лайн» — 2026-09-21",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T02:46:00+03:00",
        "record_tick": 85,
        "refs": [
@@ -8573,7 +8665,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — 2 000 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T03:10:00+03:00",
        "record_tick": 86,
        "refs": []
@@ -8582,7 +8674,7 @@
        "act": "connect",
        "content": "Противоречие по «минимальная сумма заказа»: без минималки (сообщение 18, 2026-09-07 15:53) и 2 000 ₽ (сообщение 89, 2026-09-12 03:10). Несовместимы; следую позднейшему — 2 000 ₽.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T03:10:00+03:00",
        "record_tick": 87,
        "refs": [
@@ -8634,7 +8726,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — 1 500 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T04:01:00+03:00",
        "record_tick": 88,
        "refs": []
@@ -8668,7 +8760,7 @@
        "act": "repeat",
        "content": "Повтор: переплата за срочность — 36 400 ₽",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T04:31:00+03:00",
        "record_tick": 89,
        "refs": [
@@ -8704,7 +8796,7 @@
        "act": "repeat",
        "content": "Повтор: время начала работ на этапе 2 — 12:30",
        "source": "repeat",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-12T04:43:00+03:00",
        "record_tick": 90,
        "refs": [
@@ -8740,7 +8832,7 @@
        "act": "name",
        "content": "запас на складе — 12 шт",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T04:49:00+03:00",
        "record_tick": 91,
        "refs": []
@@ -8774,7 +8866,7 @@
        "act": "name",
        "content": "брак в партии №1 — 10 %",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T05:04:00+03:00",
        "record_tick": 92,
        "refs": []
@@ -8814,13 +8906,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 36,
+        "tick": 36,
+        "layer": "t1",
+        "weight": 0.0
+       }
+      ],
+      "tick": 185
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 36,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "место встречи по этапу 3 — переговорка",
         "valid_time": "2026-09-08T11:15:00+03:00",
         "record_time": "2026-09-08T11:15:00+03:00",
@@ -8835,6 +8952,27 @@
      "role": "assistant",
      "text": "По нашей истории: место встречи по этапу 3 — переговорка (сообщение 38, 2026-09-08 11:15).",
      "acts": []
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "consolidation_ceiling": 6.0
+       },
+       "evidence": [
+        {
+         "metric": "loop_repeat",
+         "tick": 36,
+         "record_id": 36,
+         "layer": "t1"
+        }
+       ],
+       "budget_used": 1
+      }
+     ]
     }
    ]
   },
@@ -8860,7 +8998,7 @@
        {
         "id": 88,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "минимальная сумма заказа — 1 500 ₽",
         "valid_time": "2026-09-12T04:01:00+03:00",
         "record_time": "2026-09-12T04:01:00+03:00",
@@ -8870,7 +9008,7 @@
        {
         "id": 89,
         "act": "repeat",
-        "layer": "episode",
+        "layer": "t2",
         "content": "Повтор: переплата за срочность — 36 400 ₽",
         "valid_time": "2026-09-12T04:31:00+03:00",
         "record_time": "2026-09-12T04:31:00+03:00",
@@ -8880,7 +9018,7 @@
        {
         "id": 90,
         "act": "repeat",
-        "layer": "beat",
+        "layer": "t1",
         "content": "Повтор: время начала работ на этапе 2 — 12:30",
         "valid_time": "2026-09-12T04:43:00+03:00",
         "record_time": "2026-09-12T04:43:00+03:00",
@@ -8890,7 +9028,7 @@
        {
         "id": 91,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "запас на складе — 12 шт",
         "valid_time": "2026-09-12T04:49:00+03:00",
         "record_time": "2026-09-12T04:49:00+03:00",
@@ -8900,7 +9038,7 @@
        {
         "id": 92,
         "act": "name",
-        "layer": "episode",
+        "layer": "t2",
         "content": "брак в партии №1 — 10 %",
         "valid_time": "2026-09-12T05:04:00+03:00",
         "record_time": "2026-09-12T05:04:00+03:00",
@@ -8930,7 +9068,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 5 — 3 часа",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T15:47:00+03:00",
        "record_tick": 93,
        "refs": []
@@ -8939,7 +9077,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается длительность работ по этапу 5 — 3 часа (зафиксировано в сообщении 17, 2026-09-07 15:47).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T06:22:00+03:00",
        "record_tick": 94,
        "refs": [
@@ -8993,7 +9131,7 @@
        {
         "id": 16,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "минимальная сумма заказа — без минималки",
         "valid_time": "2026-09-07T15:53:00+03:00",
         "record_time": "2026-09-07T15:53:00+03:00",
@@ -9003,7 +9141,7 @@
        {
         "id": 86,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "минимальная сумма заказа — 2 000 ₽",
         "valid_time": "2026-09-12T03:10:00+03:00",
         "record_time": "2026-09-12T03:10:00+03:00",
@@ -9046,7 +9184,7 @@
        {
         "id": 27,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "возвраты — только через маркетплейс",
         "valid_time": "2026-09-07T21:50:00+03:00",
         "record_time": "2026-09-07T21:50:00+03:00",
@@ -9056,7 +9194,7 @@
        {
         "id": 53,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "возвраты — курьер забирает",
         "valid_time": "2026-09-09T09:11:00+03:00",
         "record_time": "2026-09-09T09:11:00+03:00",
@@ -9086,7 +9224,7 @@
        "act": "name",
        "content": "сумма экономии по этапу 1 — 36 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T07:45:00+03:00",
        "record_tick": 95,
        "refs": []
@@ -9120,7 +9258,7 @@
        "act": "name",
        "content": "срок поставки от ООО «Проф-Лайн» — 2026-09-15",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T08:18:00+03:00",
        "record_tick": 96,
        "refs": []
@@ -9154,7 +9292,7 @@
        "act": "name",
        "content": "время начала работ на этапе 1 — 11:00",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-12T08:47:00+03:00",
        "record_tick": 97,
        "refs": []
@@ -9188,7 +9326,7 @@
        "act": "repeat",
        "content": "Повтор: объём партии №2 — 48 шт",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T09:19:00+03:00",
        "record_tick": 98,
        "refs": [
@@ -9224,7 +9362,7 @@
        "act": "name",
        "content": "число SKU на старте — 120",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T09:58:00+03:00",
        "record_tick": 99,
        "refs": []
@@ -9258,7 +9396,7 @@
        "act": "name",
        "content": "лимит расходов на этап 2 — 58 400 ₽",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T10:05:00+03:00",
        "record_tick": 100,
        "refs": []
@@ -9292,7 +9430,7 @@
        "act": "name",
        "content": "маркетплейс — Wildberries",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T10:29:00+03:00",
        "record_tick": 101,
        "refs": []
@@ -9326,7 +9464,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — 1 500 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T10:35:00+03:00",
        "record_tick": 102,
        "refs": []
@@ -9335,7 +9473,7 @@
        "act": "connect",
        "content": "Противоречие по «минимальная сумма заказа»: 2 000 ₽ (сообщение 76, 2026-09-11 22:36) и 1 500 ₽ (сообщение 108, 2026-09-12 10:35). Несовместимы; следую позднейшему — 1 500 ₽.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T10:35:00+03:00",
        "record_tick": 103,
        "refs": [
@@ -9376,7 +9514,7 @@
        "act": "name",
        "content": "длительность работ по этапу 1 — 3 часа",
        "source": "user",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T11:04:00+03:00",
        "record_tick": 104,
        "refs": []
@@ -9410,7 +9548,7 @@
        "act": "name",
        "content": "цвет логотипа — хаки",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T11:27:00+03:00",
        "record_tick": 105,
        "refs": []
@@ -9444,7 +9582,7 @@
        "act": "name",
        "content": "цвет логотипа — графитовый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T12:03:00+03:00",
        "record_tick": 106,
        "refs": []
@@ -9489,7 +9627,7 @@
        "act": "name",
        "content": "дата постановки задачи №4 — 2026-09-27",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T20:29:00+03:00",
        "record_tick": 107,
        "refs": []
@@ -9534,7 +9672,7 @@
        "act": "name",
        "content": "номер счёта-фактуры №4 — №245/26",
        "source": "user",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-12T21:05:00+03:00",
        "record_tick": 108,
        "refs": []
@@ -9568,7 +9706,7 @@
        "act": "name",
        "content": "время звонка с оператор склада — 16:15",
        "source": "user",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-12T21:16:00+03:00",
        "record_tick": 109,
        "refs": []
@@ -9613,7 +9751,7 @@
        "act": "repeat",
        "content": "Повтор: длительность работ по этапу 4 — 3 часа",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-12T21:47:00+03:00",
        "record_tick": 110,
        "refs": [
@@ -9660,7 +9798,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на время начала работ на этапе 3 — 14:30",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T17:25:00+03:00",
        "record_tick": 111,
        "refs": []
@@ -9669,7 +9807,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается время начала работ на этапе 3 — 14:30 (зафиксировано в сообщении 21, 2026-09-07 17:25).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T22:38:00+03:00",
        "record_tick": 112,
        "refs": [
@@ -9710,7 +9848,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на номер заявки в ООО «Проф-Лайн» №1 — №426/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T08:41:00+03:00",
        "record_tick": 113,
        "refs": []
@@ -9719,7 +9857,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается номер заявки в ООО «Проф-Лайн» №1 — №426/26 (зафиксировано в сообщении 55, 2026-09-09 08:41).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T23:07:00+03:00",
        "record_tick": 114,
        "refs": [
@@ -9771,7 +9909,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на номер заявки в ООО «Проф-Лайн» №2 — №133/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T09:04:00+03:00",
        "record_tick": 115,
        "refs": []
@@ -9780,7 +9918,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается номер заявки в ООО «Проф-Лайн» №2 — №133/26 (зафиксировано в сообщении 56, 2026-09-09 09:04).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-12T23:49:00+03:00",
        "record_tick": 116,
        "refs": [
@@ -9832,7 +9970,7 @@
        "act": "repeat",
        "content": "Повтор: стартовый бюджет на закупку — 1 020 000 ₽",
        "source": "repeat",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T00:42:00+03:00",
        "record_tick": 117,
        "refs": [
@@ -9868,7 +10006,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на штраф ООО «Проф-Лайн» за просрочку — 10 %",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T14:05:00+03:00",
        "record_tick": 118,
        "refs": []
@@ -9877,7 +10015,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается штраф ООО «Проф-Лайн» за просрочку — 10 % (зафиксировано в сообщении 11, 2026-09-07 14:05).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T01:27:00+03:00",
        "record_tick": 119,
        "refs": [
@@ -9929,7 +10067,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на номер счёта-фактуры №3 — №521/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T13:34:00+03:00",
        "record_tick": 120,
        "refs": []
@@ -9938,7 +10076,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается номер счёта-фактуры №3 — №521/26 (зафиксировано в сообщении 10, 2026-09-07 13:34).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T01:57:00+03:00",
        "record_tick": 121,
        "refs": [
@@ -9979,7 +10117,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T21:36:00+03:00",
        "record_tick": 122,
        "refs": []
@@ -9988,7 +10126,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T02:02:00+03:00",
        "record_tick": 123,
        "refs": [
@@ -10029,7 +10167,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на исполнителей на этапе 2 — 5 человека",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T07:44:00+03:00",
        "record_tick": 124,
        "refs": []
@@ -10038,7 +10176,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается исполнителей на этапе 2 — 5 человека (зафиксировано в сообщении 53, 2026-09-09 07:44).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T02:36:00+03:00",
        "record_tick": 125,
        "refs": [
@@ -10100,7 +10238,7 @@
        {
         "id": 121,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается номер счёта-фактуры №3 — №521/26 (зафиксировано в сообщении 10, 2026-09-07 13:34).",
         "valid_time": "2026-09-13T01:57:00+03:00",
         "record_time": "2026-09-13T01:57:00+03:00",
@@ -10110,7 +10248,7 @@
        {
         "id": 122,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
         "valid_time": "2026-09-07T21:36:00+03:00",
         "record_time": "2026-09-13T02:02:00+03:00",
@@ -10120,7 +10258,7 @@
        {
         "id": 123,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
         "valid_time": "2026-09-13T02:02:00+03:00",
         "record_time": "2026-09-13T02:02:00+03:00",
@@ -10130,7 +10268,7 @@
        {
         "id": 124,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на исполнителей на этапе 2 — 5 человека",
         "valid_time": "2026-09-09T07:44:00+03:00",
         "record_time": "2026-09-13T02:36:00+03:00",
@@ -10140,7 +10278,7 @@
        {
         "id": 125,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается исполнителей на этапе 2 — 5 человека (зафиксировано в сообщении 53, 2026-09-09 07:44).",
         "valid_time": "2026-09-13T02:36:00+03:00",
         "record_time": "2026-09-13T02:36:00+03:00",
@@ -10191,7 +10329,7 @@
        {
         "id": 121,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается номер счёта-фактуры №3 — №521/26 (зафиксировано в сообщении 10, 2026-09-07 13:34).",
         "valid_time": "2026-09-13T01:57:00+03:00",
         "record_time": "2026-09-13T01:57:00+03:00",
@@ -10201,7 +10339,7 @@
        {
         "id": 122,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
         "valid_time": "2026-09-07T21:36:00+03:00",
         "record_time": "2026-09-13T02:02:00+03:00",
@@ -10211,7 +10349,7 @@
        {
         "id": 123,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
         "valid_time": "2026-09-13T02:02:00+03:00",
         "record_time": "2026-09-13T02:02:00+03:00",
@@ -10221,7 +10359,7 @@
        {
         "id": 124,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на исполнителей на этапе 2 — 5 человека",
         "valid_time": "2026-09-09T07:44:00+03:00",
         "record_time": "2026-09-13T02:36:00+03:00",
@@ -10231,7 +10369,7 @@
        {
         "id": 125,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается исполнителей на этапе 2 — 5 человека (зафиксировано в сообщении 53, 2026-09-09 07:44).",
         "valid_time": "2026-09-13T02:36:00+03:00",
         "record_time": "2026-09-13T02:36:00+03:00",
@@ -10261,7 +10399,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на ответственный за этап 2 — Ксения",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T09:34:00+03:00",
        "record_tick": 126,
        "refs": []
@@ -10270,7 +10408,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается ответственный за этап 2 — Ксения (зафиксировано в сообщении 58, 2026-09-09 09:34).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T17:19:00+03:00",
        "record_tick": 127,
        "refs": [
@@ -10311,7 +10449,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на дата запуска — 2026-10-05",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T16:36:00+03:00",
        "record_tick": 128,
        "refs": []
@@ -10320,7 +10458,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается дата запуска — 2026-10-05 (зафиксировано в сообщении 19, 2026-09-07 16:36).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T18:01:00+03:00",
        "record_tick": 129,
        "refs": [
@@ -10361,7 +10499,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на контакт ответственного этапа 2 — +7 994 234-66-46",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T02:54:00+03:00",
        "record_tick": 130,
        "refs": []
@@ -10370,7 +10508,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается контакт ответственного этапа 2 — +7 994 234-66-46 (зафиксировано в сообщении 40, 2026-09-09 02:54).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T18:18:00+03:00",
        "record_tick": 131,
        "refs": [
@@ -10411,7 +10549,7 @@
        "act": "name",
        "content": "минимальная сумма заказа — 2 000 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T18:32:00+03:00",
        "record_tick": 132,
        "refs": []
@@ -10420,7 +10558,7 @@
        "act": "connect",
        "content": "Противоречие по «минимальная сумма заказа»: 1 500 ₽ (сообщение 91, 2026-09-12 04:01) и 2 000 ₽ (сообщение 138, 2026-09-13 18:32). Несовместимы; следую позднейшему — 2 000 ₽.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T18:32:00+03:00",
        "record_tick": 133,
        "refs": [
@@ -10461,7 +10599,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на сумма возврата от ООО «Проф-Лайн» — 74 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T12:49:00+03:00",
        "record_tick": 134,
        "refs": []
@@ -10470,7 +10608,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается сумма возврата от ООО «Проф-Лайн» — 74 400 ₽ (зафиксировано в сообщении 9, 2026-09-07 12:49).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T18:48:00+03:00",
        "record_tick": 135,
        "refs": [
@@ -10511,7 +10649,7 @@
        "act": "repeat",
        "content": "Повтор: сумма экономии по этапу 1 — 36 400 ₽",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-13T19:02:00+03:00",
        "record_tick": 136,
        "refs": [
@@ -10547,7 +10685,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на номер счёта-фактуры №2 — №459/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T10:42:00+03:00",
        "record_tick": 137,
        "refs": []
@@ -10556,7 +10694,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается номер счёта-фактуры №2 — №459/26 (зафиксировано в сообщении 36, 2026-09-08 10:42).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-13T19:30:00+03:00",
        "record_tick": 138,
        "refs": [
@@ -10607,7 +10745,7 @@
        {
         "id": 134,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на сумма возврата от ООО «Проф-Лайн» — 74 400 ₽",
         "valid_time": "2026-09-07T12:49:00+03:00",
         "record_time": "2026-09-13T18:48:00+03:00",
@@ -10617,7 +10755,7 @@
        {
         "id": 135,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается сумма возврата от ООО «Проф-Лайн» — 74 400 ₽ (зафиксировано в сообщении 9, 2026-09-07 12:49).",
         "valid_time": "2026-09-13T18:48:00+03:00",
         "record_time": "2026-09-13T18:48:00+03:00",
@@ -10627,7 +10765,7 @@
        {
         "id": 136,
         "act": "repeat",
-        "layer": "day",
+        "layer": "t3",
         "content": "Повтор: сумма экономии по этапу 1 — 36 400 ₽",
         "valid_time": "2026-09-13T19:02:00+03:00",
         "record_time": "2026-09-13T19:02:00+03:00",
@@ -10637,7 +10775,7 @@
        {
         "id": 137,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на номер счёта-фактуры №2 — №459/26",
         "valid_time": "2026-09-08T10:42:00+03:00",
         "record_time": "2026-09-13T19:30:00+03:00",
@@ -10647,7 +10785,7 @@
        {
         "id": 138,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается номер счёта-фактуры №2 — №459/26 (зафиксировано в сообщении 36, 2026-09-08 10:42).",
         "valid_time": "2026-09-13T19:30:00+03:00",
         "record_time": "2026-09-13T19:30:00+03:00",
@@ -10677,7 +10815,7 @@
        "act": "repeat",
        "content": "Повтор: длительность работ по этапу 1 — 3 часа",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-14T14:30:00+03:00",
        "record_tick": 139,
        "refs": [
@@ -10724,7 +10862,7 @@
        "act": "repeat",
        "content": "Повтор: время звонка с оператор склада — 16:15",
        "source": "repeat",
-       "layer": "beat",
+       "layer": "t1",
        "valid_time": "2026-09-14T15:21:00+03:00",
        "record_tick": 140,
        "refs": [
@@ -10766,13 +10904,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 58,
+        "tick": 58,
+        "layer": "t1",
+        "weight": 0.0
+       }
+      ],
+      "tick": 185
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 58,
         "act": "name",
-        "layer": "beat",
+        "layer": "t1",
         "content": "время начала работ на этапе 2 — 12:30",
         "valid_time": "2026-09-09T11:21:00+03:00",
         "record_time": "2026-09-09T11:21:00+03:00",
@@ -10791,12 +10954,33 @@
        "act": "reconcile",
        "content": "Сверка биографии: запись №58 («время начала работ на этапе 2 — 12:30») записана на тике 58, прожито 126 тиков, повторов 1; stamps записи подтверждены чтением.",
        "source": "reconcile",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T16:00:00+03:00",
        "record_tick": 185,
        "refs": [
         58
        ]
+      }
+     ]
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "tau_multiplier.t3": 1.4
+       },
+       "evidence": [
+        {
+         "metric": "stale_win",
+         "tick": 58,
+         "record_id": 58,
+         "layer": "t1"
+        }
+       ],
+       "budget_used": 1
       }
      ]
     }
@@ -10824,7 +11008,7 @@
        {
         "id": 136,
         "act": "repeat",
-        "layer": "day",
+        "layer": "t3",
         "content": "Повтор: сумма экономии по этапу 1 — 36 400 ₽",
         "valid_time": "2026-09-13T19:02:00+03:00",
         "record_time": "2026-09-13T19:02:00+03:00",
@@ -10834,7 +11018,7 @@
        {
         "id": 137,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на номер счёта-фактуры №2 — №459/26",
         "valid_time": "2026-09-08T10:42:00+03:00",
         "record_time": "2026-09-13T19:30:00+03:00",
@@ -10844,7 +11028,7 @@
        {
         "id": 138,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается номер счёта-фактуры №2 — №459/26 (зафиксировано в сообщении 36, 2026-09-08 10:42).",
         "valid_time": "2026-09-13T19:30:00+03:00",
         "record_time": "2026-09-13T19:30:00+03:00",
@@ -10854,7 +11038,7 @@
        {
         "id": 139,
         "act": "repeat",
-        "layer": "day",
+        "layer": "t3",
         "content": "Повтор: длительность работ по этапу 1 — 3 часа",
         "valid_time": "2026-09-14T14:30:00+03:00",
         "record_time": "2026-09-14T14:30:00+03:00",
@@ -10864,7 +11048,7 @@
        {
         "id": 140,
         "act": "repeat",
-        "layer": "beat",
+        "layer": "t1",
         "content": "Повтор: время звонка с оператор склада — 16:15",
         "valid_time": "2026-09-14T15:21:00+03:00",
         "record_time": "2026-09-14T15:21:00+03:00",
@@ -10894,7 +11078,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T21:36:00+03:00",
        "record_tick": 141,
        "refs": []
@@ -10903,7 +11087,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-14T16:58:00+03:00",
        "record_tick": 142,
        "refs": [
@@ -10957,7 +11141,7 @@
        {
         "id": 73,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "минимальная сумма заказа — 2 000 ₽",
         "valid_time": "2026-09-11T22:36:00+03:00",
         "record_time": "2026-09-11T22:36:00+03:00",
@@ -10967,7 +11151,7 @@
        {
         "id": 102,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "минимальная сумма заказа — 1 500 ₽",
         "valid_time": "2026-09-12T10:35:00+03:00",
         "record_time": "2026-09-12T10:35:00+03:00",
@@ -11010,7 +11194,7 @@
        {
         "id": 28,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "фото товаров — студийная съёмка",
         "valid_time": "2026-09-07T22:23:00+03:00",
         "record_time": "2026-09-07T22:23:00+03:00",
@@ -11020,7 +11204,7 @@
        {
         "id": 80,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "фото товаров — предметная съёмка на белом",
         "valid_time": "2026-09-12T01:37:00+03:00",
         "record_time": "2026-09-12T01:37:00+03:00",
@@ -11082,7 +11266,7 @@
        {
         "id": 138,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается номер счёта-фактуры №2 — №459/26 (зафиксировано в сообщении 36, 2026-09-08 10:42).",
         "valid_time": "2026-09-13T19:30:00+03:00",
         "record_time": "2026-09-13T19:30:00+03:00",
@@ -11092,7 +11276,7 @@
        {
         "id": 139,
         "act": "repeat",
-        "layer": "day",
+        "layer": "t3",
         "content": "Повтор: длительность работ по этапу 1 — 3 часа",
         "valid_time": "2026-09-14T14:30:00+03:00",
         "record_time": "2026-09-14T14:30:00+03:00",
@@ -11102,7 +11286,7 @@
        {
         "id": 140,
         "act": "repeat",
-        "layer": "beat",
+        "layer": "t1",
         "content": "Повтор: время звонка с оператор склада — 16:15",
         "valid_time": "2026-09-14T15:21:00+03:00",
         "record_time": "2026-09-14T15:21:00+03:00",
@@ -11112,7 +11296,7 @@
        {
         "id": 141,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «итоговом отчёте»: опираемся на лимит правок — 36 шт",
         "valid_time": "2026-09-07T21:36:00+03:00",
         "record_time": "2026-09-14T16:58:00+03:00",
@@ -11122,7 +11306,7 @@
        {
         "id": 142,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«итоговом отчёте»: учитывается лимит правок — 36 шт (зафиксировано в сообщении 29, 2026-09-07 21:36).",
         "valid_time": "2026-09-14T16:58:00+03:00",
         "record_time": "2026-09-14T16:58:00+03:00",
@@ -11152,7 +11336,7 @@
        "act": "name",
        "content": "решение по «итоговом отчёте»: опираемся на номер заявки в ООО «Проф-Лайн» №3 — №352/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T17:15:00+03:00",
        "record_tick": 143,
        "refs": []
@@ -11161,7 +11345,7 @@
        "act": "connect",
        "content": "«итоговом отчёте»: учитывается номер заявки в ООО «Проф-Лайн» №3 — №352/26 (зафиксировано в сообщении 20, 2026-09-07 17:15).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T08:30:00+03:00",
        "record_tick": 144,
        "refs": [
@@ -11202,7 +11386,7 @@
        "act": "repeat",
        "content": "Повтор: номер счёта-фактуры №4 — №245/26",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-15T08:39:00+03:00",
        "record_tick": 145,
        "refs": [
@@ -11238,7 +11422,7 @@
        "act": "repeat",
        "content": "Повтор: дата постановки задачи №4 — 2026-09-27",
        "source": "repeat",
-       "layer": "episode",
+       "layer": "t2",
        "valid_time": "2026-09-15T09:20:00+03:00",
        "record_tick": 146,
        "refs": [
@@ -11285,7 +11469,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на ответственный за этап 4 — Ксения",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T22:41:00+03:00",
        "record_tick": 147,
        "refs": []
@@ -11294,7 +11478,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается ответственный за этап 4 — Ксения (зафиксировано в сообщении 32, 2026-09-07 22:41).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T09:57:00+03:00",
        "record_tick": 148,
        "refs": [
@@ -11335,7 +11519,7 @@
        "act": "name",
        "content": "возвраты — приём в точке",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T10:29:00+03:00",
        "record_tick": 149,
        "refs": []
@@ -11344,7 +11528,7 @@
        "act": "connect",
        "content": "Позиция по «возвраты» изменена: курьер забирает → приём в точке. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T10:29:00+03:00",
        "record_tick": 150,
        "refs": [
@@ -11385,7 +11569,7 @@
        "act": "name",
        "content": "служба доставки — СДЭК",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T11:02:00+03:00",
        "record_tick": 151,
        "refs": []
@@ -11394,7 +11578,7 @@
        "act": "connect",
        "content": "Позиция по «служба доставки» изменена: Boxberry → СДЭК. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T11:02:00+03:00",
        "record_tick": 152,
        "refs": [
@@ -11435,7 +11619,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T10:40:00+03:00",
        "record_tick": 153,
        "refs": []
@@ -11444,7 +11628,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽ (зафиксировано в сообщении 60, 2026-09-09 10:40).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T11:21:00+03:00",
        "record_tick": 154,
        "refs": [
@@ -11485,7 +11669,7 @@
        "act": "repeat",
        "content": "Повтор: срок поставки от ООО «Проф-Лайн» — 2026-09-15",
        "source": "repeat",
-       "layer": "day",
+       "layer": "t3",
        "valid_time": "2026-09-15T11:59:00+03:00",
        "record_tick": 155,
        "refs": [
@@ -11532,7 +11716,7 @@
        "act": "name",
        "content": "фото товаров — фото поставщика + ретушь",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T12:20:00+03:00",
        "record_tick": 156,
        "refs": []
@@ -11541,7 +11725,7 @@
        "act": "connect",
        "content": "Позиция по «фото товаров» изменена: предметная съёмка на белом → фото поставщика + ретушь. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T12:20:00+03:00",
        "record_tick": 157,
        "refs": [
@@ -11593,7 +11777,7 @@
        "act": "name",
        "content": "ценовая стратегия — плюс 10% к WB, но подарок",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T13:04:00+03:00",
        "record_tick": 158,
        "refs": []
@@ -11602,7 +11786,7 @@
        "act": "connect",
        "content": "Позиция по «ценовая стратегия» изменена: минус 5% к WB → плюс 10% к WB, но подарок. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-15T13:04:00+03:00",
        "record_tick": 159,
        "refs": [
@@ -11665,7 +11849,7 @@
        "act": "name",
        "content": "система учёта — 1С:Розница",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T01:57:00+03:00",
        "record_tick": 160,
        "refs": []
@@ -11674,7 +11858,7 @@
        "act": "connect",
        "content": "Позиция по «система учёта» изменена: Google-таблицы → 1С:Розница. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T01:57:00+03:00",
        "record_tick": 161,
        "refs": [
@@ -11715,7 +11899,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 5 — 3 часа",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T15:47:00+03:00",
        "record_tick": 162,
        "refs": []
@@ -11724,7 +11908,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается длительность работ по этапу 5 — 3 часа (зафиксировано в сообщении 17, 2026-09-07 15:47).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T02:24:00+03:00",
        "record_tick": 163,
        "refs": [
@@ -11765,7 +11949,7 @@
        "act": "name",
        "content": "брендирование упаковки — пакет с принтом карты",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T03:05:00+03:00",
        "record_tick": 164,
        "refs": []
@@ -11774,7 +11958,7 @@
        "act": "connect",
        "content": "Позиция по «брендирование упаковки» изменена: нейтральный пакет → пакет с принтом карты. Прежняя больше не действует.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T03:05:00+03:00",
        "record_tick": 165,
        "refs": [
@@ -11869,7 +12053,7 @@
        {
         "id": 161,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «система учёта» изменена: Google-таблицы → 1С:Розница. Прежняя больше не действует.",
         "valid_time": "2026-09-16T01:57:00+03:00",
         "record_time": "2026-09-16T01:57:00+03:00",
@@ -11879,7 +12063,7 @@
        {
         "id": 162,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на длительность работ по этапу 5 — 3 часа",
         "valid_time": "2026-09-07T15:47:00+03:00",
         "record_time": "2026-09-16T02:24:00+03:00",
@@ -11889,7 +12073,7 @@
        {
         "id": 163,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается длительность работ по этапу 5 — 3 часа (зафиксировано в сообщении 17, 2026-09-07 15:47).",
         "valid_time": "2026-09-16T02:24:00+03:00",
         "record_time": "2026-09-16T02:24:00+03:00",
@@ -11899,7 +12083,7 @@
        {
         "id": 164,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "брендирование упаковки — пакет с принтом карты",
         "valid_time": "2026-09-16T03:05:00+03:00",
         "record_time": "2026-09-16T03:05:00+03:00",
@@ -11909,7 +12093,7 @@
        {
         "id": 165,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Позиция по «брендирование упаковки» изменена: нейтральный пакет → пакет с принтом карты. Прежняя больше не действует.",
         "valid_time": "2026-09-16T03:05:00+03:00",
         "record_time": "2026-09-16T03:05:00+03:00",
@@ -11939,7 +12123,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на номер договора с ООО «Проф-Лайн» №1 — №492/26",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T05:14:00+03:00",
        "record_tick": 166,
        "refs": []
@@ -11948,7 +12132,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается номер договора с ООО «Проф-Лайн» №1 — №492/26 (зафиксировано в сообщении 45, 2026-09-09 05:14).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T04:42:00+03:00",
        "record_tick": 167,
        "refs": [
@@ -12000,7 +12184,7 @@
        "act": "name",
        "content": "решение по «плане на следующий этап»: опираемся на лимит расходов на этап 1 — 58 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T09:26:00+03:00",
        "record_tick": 168,
        "refs": []
@@ -12009,7 +12193,7 @@
        "act": "connect",
        "content": "«плане на следующий этап»: учитывается лимит расходов на этап 1 — 58 400 ₽ (зафиксировано в сообщении 34, 2026-09-08 09:26).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T05:10:00+03:00",
        "record_tick": 169,
        "refs": [
@@ -12072,7 +12256,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-08T10:58:00+03:00",
        "record_tick": 170,
        "refs": []
@@ -12081,7 +12265,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽ (зафиксировано в сообщении 37, 2026-09-08 10:58).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T16:13:00+03:00",
        "record_tick": 171,
        "refs": [
@@ -12132,7 +12316,7 @@
        {
         "id": 167,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«плане на следующий этап»: учитывается номер договора с ООО «Проф-Лайн» №1 — №492/26 (зафиксировано в сообщении 45, 2026-09-09 05:14).",
         "valid_time": "2026-09-16T04:42:00+03:00",
         "record_time": "2026-09-16T04:42:00+03:00",
@@ -12142,7 +12326,7 @@
        {
         "id": 168,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «плане на следующий этап»: опираемся на лимит расходов на этап 1 — 58 400 ₽",
         "valid_time": "2026-09-08T09:26:00+03:00",
         "record_time": "2026-09-16T05:10:00+03:00",
@@ -12152,7 +12336,7 @@
        {
         "id": 169,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«плане на следующий этап»: учитывается лимит расходов на этап 1 — 58 400 ₽ (зафиксировано в сообщении 34, 2026-09-08 09:26).",
         "valid_time": "2026-09-16T05:10:00+03:00",
         "record_time": "2026-09-16T05:10:00+03:00",
@@ -12162,7 +12346,7 @@
        {
         "id": 170,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽",
         "valid_time": "2026-09-08T10:58:00+03:00",
         "record_time": "2026-09-16T16:13:00+03:00",
@@ -12172,7 +12356,7 @@
        {
         "id": 171,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽ (зафиксировано в сообщении 37, 2026-09-08 10:58).",
         "valid_time": "2026-09-16T16:13:00+03:00",
         "record_time": "2026-09-16T16:13:00+03:00",
@@ -12202,7 +12386,7 @@
        "act": "name",
        "content": "цвет логотипа — хаки",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T17:10:00+03:00",
        "record_tick": 172,
        "refs": []
@@ -12211,7 +12395,7 @@
        "act": "connect",
        "content": "Противоречие по «цвет логотипа»: графитовый (сообщение 111, 2026-09-12 12:03) и хаки (сообщение 184, 2026-09-16 17:10). Несовместимы; следую позднейшему — хаки.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T17:10:00+03:00",
        "record_tick": 173,
        "refs": [
@@ -12262,7 +12446,7 @@
        {
         "id": 169,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«плане на следующий этап»: учитывается лимит расходов на этап 1 — 58 400 ₽ (зафиксировано в сообщении 34, 2026-09-08 09:26).",
         "valid_time": "2026-09-16T05:10:00+03:00",
         "record_time": "2026-09-16T05:10:00+03:00",
@@ -12272,7 +12456,7 @@
        {
         "id": 170,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽",
         "valid_time": "2026-09-08T10:58:00+03:00",
         "record_time": "2026-09-16T16:13:00+03:00",
@@ -12282,7 +12466,7 @@
        {
         "id": 171,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №3 — 58 400 ₽ (зафиксировано в сообщении 37, 2026-09-08 10:58).",
         "valid_time": "2026-09-16T16:13:00+03:00",
         "record_time": "2026-09-16T16:13:00+03:00",
@@ -12292,7 +12476,7 @@
        {
         "id": 172,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет логотипа — хаки",
         "valid_time": "2026-09-16T17:10:00+03:00",
         "record_time": "2026-09-16T17:10:00+03:00",
@@ -12302,7 +12486,7 @@
        {
         "id": 173,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Противоречие по «цвет логотипа»: графитовый (сообщение 111, 2026-09-12 12:03) и хаки (сообщение 184, 2026-09-16 17:10). Несовместимы; следую позднейшему — хаки.",
         "valid_time": "2026-09-16T17:10:00+03:00",
         "record_time": "2026-09-16T17:10:00+03:00",
@@ -12332,7 +12516,7 @@
        "act": "name",
        "content": "цвет логотипа — терракотовый",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T17:59:00+03:00",
        "record_tick": 174,
        "refs": []
@@ -12341,7 +12525,7 @@
        "act": "connect",
        "content": "Противоречие по «цвет логотипа»: хаки (сообщение 110, 2026-09-12 11:27) и терракотовый (сообщение 186, 2026-09-16 17:59). Несовместимы; следую позднейшему — терракотовый.",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T17:59:00+03:00",
        "record_tick": 175,
        "refs": [
@@ -12437,7 +12621,7 @@
        "act": "name",
        "content": "решение по «графике запуска»: опираемся на лимит расходов на этап 3 — 18 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T03:30:00+03:00",
        "record_tick": 176,
        "refs": []
@@ -12446,7 +12630,7 @@
        "act": "connect",
        "content": "«графике запуска»: учитывается лимит расходов на этап 3 — 18 400 ₽ (зафиксировано в сообщении 41, 2026-09-09 03:30).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T20:13:00+03:00",
        "record_tick": 177,
        "refs": [
@@ -12487,7 +12671,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на объём партии №1 — 60 шт",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T14:50:00+03:00",
        "record_tick": 178,
        "refs": []
@@ -12496,7 +12680,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается объём партии №1 — 60 шт (зафиксировано в сообщении 13, 2026-09-07 14:50).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T20:51:00+03:00",
        "record_tick": 179,
        "refs": [
@@ -12547,7 +12731,7 @@
        {
         "id": 175,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "Противоречие по «цвет логотипа»: хаки (сообщение 110, 2026-09-12 11:27) и терракотовый (сообщение 186, 2026-09-16 17:59). Несовместимы; следую позднейшему — терракотовый.",
         "valid_time": "2026-09-16T17:59:00+03:00",
         "record_time": "2026-09-16T17:59:00+03:00",
@@ -12557,7 +12741,7 @@
        {
         "id": 176,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «графике запуска»: опираемся на лимит расходов на этап 3 — 18 400 ₽",
         "valid_time": "2026-09-09T03:30:00+03:00",
         "record_time": "2026-09-16T20:13:00+03:00",
@@ -12567,7 +12751,7 @@
        {
         "id": 177,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается лимит расходов на этап 3 — 18 400 ₽ (зафиксировано в сообщении 41, 2026-09-09 03:30).",
         "valid_time": "2026-09-16T20:13:00+03:00",
         "record_time": "2026-09-16T20:13:00+03:00",
@@ -12577,7 +12761,7 @@
        {
         "id": 178,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «списке закупок»: опираемся на объём партии №1 — 60 шт",
         "valid_time": "2026-09-07T14:50:00+03:00",
         "record_time": "2026-09-16T20:51:00+03:00",
@@ -12587,7 +12771,7 @@
        {
         "id": 179,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается объём партии №1 — 60 шт (зафиксировано в сообщении 13, 2026-09-07 14:50).",
         "valid_time": "2026-09-16T20:51:00+03:00",
         "record_time": "2026-09-16T20:51:00+03:00",
@@ -12617,7 +12801,7 @@
        "act": "name",
        "content": "решение по «списке закупок»: опираемся на лимит расходов на этап 4 — 74 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-07T17:56:00+03:00",
        "record_tick": 180,
        "refs": []
@@ -12626,7 +12810,7 @@
        "act": "connect",
        "content": "«списке закупок»: учитывается лимит расходов на этап 4 — 74 400 ₽ (зафиксировано в сообщении 22, 2026-09-07 17:56).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T21:15:00+03:00",
        "record_tick": 181,
        "refs": [
@@ -12673,13 +12857,38 @@
      ]
     },
     {
+     "role": "assistant",
+     "text": "Смотрю физику своей памяти.",
+     "acts": [
+      {
+       "act": "scan",
+       "mode": "amplitudes"
+      }
+     ]
+    },
+    {
+     "role": "environment",
+     "payload": {
+      "scan": true,
+      "records": [
+       {
+        "id": 115,
+        "tick": 115,
+        "layer": "t4",
+        "weight": 0.932
+       }
+      ],
+      "tick": 185
+     }
+    },
+    {
      "role": "environment",
      "payload": {
       "records": [
        {
         "id": 115,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «плане на следующий этап»: опираемся на номер заявки в ООО «Проф-Лайн» №2 — №133/26",
         "valid_time": "2026-09-09T09:04:00+03:00",
         "record_time": "2026-09-12T23:49:00+03:00",
@@ -12698,12 +12907,33 @@
        "act": "reconcile",
        "content": "Сверка биографии: запись №115 («решение по «плане на следующий этап»: опираемся на номер заявки в ООО «Проф-Лайн» №2 — №133/26») записана на тике 115, прожито 68 тиков, повторов 0; stamps записи подтверждены чтением.",
        "source": "reconcile",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T21:53:00+03:00",
        "record_tick": 184,
        "refs": [
         115
        ]
+      }
+     ]
+    },
+    {
+     "role": "assistant",
+     "text": "По числам физики предлагаю одну правку в границах.",
+     "acts": [
+      {
+       "act": "calibrate",
+       "proposal": {
+        "audibility_floor": 0.007
+       },
+       "evidence": [
+        {
+         "metric": "died_too_early",
+         "tick": 115,
+         "record_id": 115,
+         "layer": "t4"
+        }
+       ],
+       "budget_used": 1
       }
      ]
     }
@@ -12731,7 +12961,7 @@
        {
         "id": 177,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«графике запуска»: учитывается лимит расходов на этап 3 — 18 400 ₽ (зафиксировано в сообщении 41, 2026-09-09 03:30).",
         "valid_time": "2026-09-16T20:13:00+03:00",
         "record_time": "2026-09-16T20:13:00+03:00",
@@ -12741,7 +12971,7 @@
        {
         "id": 178,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «списке закупок»: опираемся на объём партии №1 — 60 шт",
         "valid_time": "2026-09-07T14:50:00+03:00",
         "record_time": "2026-09-16T20:51:00+03:00",
@@ -12751,7 +12981,7 @@
        {
         "id": 179,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается объём партии №1 — 60 шт (зафиксировано в сообщении 13, 2026-09-07 14:50).",
         "valid_time": "2026-09-16T20:51:00+03:00",
         "record_time": "2026-09-16T20:51:00+03:00",
@@ -12761,7 +12991,7 @@
        {
         "id": 180,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "решение по «списке закупок»: опираемся на лимит расходов на этап 4 — 74 400 ₽",
         "valid_time": "2026-09-07T17:56:00+03:00",
         "record_time": "2026-09-16T21:15:00+03:00",
@@ -12771,7 +13001,7 @@
        {
         "id": 181,
         "act": "connect",
-        "layer": "project",
+        "layer": "t4",
         "content": "«списке закупок»: учитывается лимит расходов на этап 4 — 74 400 ₽ (зафиксировано в сообщении 22, 2026-09-07 17:56).",
         "valid_time": "2026-09-16T21:15:00+03:00",
         "record_time": "2026-09-16T21:15:00+03:00",
@@ -12801,7 +13031,7 @@
        "act": "name",
        "content": "решение по «финальной смете»: опираемся на сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽",
        "source": "user",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-09T10:40:00+03:00",
        "record_tick": 182,
        "refs": []
@@ -12810,7 +13040,7 @@
        "act": "connect",
        "content": "«финальной смете»: учитывается сумма счёта от ООО «Проф-Лайн» №5 — 74 400 ₽ (зафиксировано в сообщении 60, 2026-09-09 10:40).",
        "source": "connect",
-       "layer": "project",
+       "layer": "t4",
        "valid_time": "2026-09-16T22:10:00+03:00",
        "record_tick": 183,
        "refs": [
@@ -12864,7 +13094,7 @@
        {
         "id": 106,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет логотипа — графитовый",
         "valid_time": "2026-09-12T12:03:00+03:00",
         "record_time": "2026-09-12T12:03:00+03:00",
@@ -12874,7 +13104,7 @@
        {
         "id": 172,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "цвет логотипа — хаки",
         "valid_time": "2026-09-16T17:10:00+03:00",
         "record_time": "2026-09-16T17:10:00+03:00",
@@ -12918,7 +13148,7 @@
        {
         "id": 12,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "система учёта — МойСклад",
         "valid_time": "2026-09-07T15:00:00+03:00",
         "record_time": "2026-09-07T15:00:00+03:00",
@@ -12928,7 +13158,7 @@
        {
         "id": 49,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "система учёта — Google-таблицы",
         "valid_time": "2026-09-09T08:24:00+03:00",
         "record_time": "2026-09-09T08:24:00+03:00",
@@ -12938,7 +13168,7 @@
        {
         "id": 160,
         "act": "name",
-        "layer": "project",
+        "layer": "t4",
         "content": "система учёта — 1С:Розница",
         "valid_time": "2026-09-16T01:57:00+03:00",
         "record_time": "2026-09-16T01:57:00+03:00",

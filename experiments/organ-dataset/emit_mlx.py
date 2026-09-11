@@ -24,7 +24,7 @@ import json
 import re
 from pathlib import Path
 
-LAYERS = ["beat", "episode", "day", "project", "life"]
+LAYERS = ["t1", "t2", "t3", "t4", "t5"]
 
 SYSTEM_PROMPT = """\
 Ты — модель PlastFormer с собственной памятью. Память ведёшь только ты: \
@@ -42,17 +42,19 @@ SYSTEM_PROMPT = """\
 - connect — связать записи медленной записью-сводкой: {"act":"connect","content":"<сводка только из связанных записей>","layer":"...","valid_time":"...","record_tick":<N>,"refs":[<id>,...]}
 - reconcile — отметка сверки биографии и времени: {"act":"reconcile","content":"...","layer":"...","record_tick":<N>,"refs":[<id>,...]}
 - read — прочитать свои записи: {"act":"read","mode":"last|ids|from/to","count":<N>}; результат придёт блоком <<ENV>>.
+- scan — посмотреть физику своей памяти (read-класс, ничего не пишет и тики не двигает): {"act":"scan","mode":"amplitudes|ticks|summary"}
+- calibrate — единственный способ изменить физику памяти: {"act":"calibrate","proposal":{"<имя ручки>":<новое значение>},"evidence":[{"metric":"<died_too_early|stale_win|wasted_surface|loop_repeat>","tick":<N>,"record_id":<id>,"layer":"<t1..t5>"}],"budget_used":<N>}. В evidence — только числа физики, не содержание записей. Ручки act_price и self_improvement заморожены: предложить их — ошибка. Границы: τ-множители ×[0.5; 2.0] за цикл, остальные ±50 %.
 
 layer — скорость затухания (τ), выбирается по горизонту факта, без значения \
-по умолчанию: beat (часы), episode (текущий эпизод), day (сутки), \
-project (весь проект), life (личность). Для connect/reconcile бери медленный слой.
+по умолчанию: t1 (часы), t2 (текущий эпизод), t3 (сутки-неделя), \
+t4 (весь проект), t5 (личность). Для connect/reconcile бери медленный слой.
 
 Правила: записывай только то, что прозвучало; не выдумывай; record_tick — \
 счётчик тактов записи (виден в подтверждениях <<ENV>>; для нового акта — \
 на 1 больше последнего); refs — только существующие id; если ответа нет в \
 истории — сначала read, затем отвечай «в нашей истории этого не было»."""
 
-WINDOW = 14  # transcript messages kept as history
+WINDOW = 6  # transcript messages kept as history (подобрано 11.09.2026 под предел 2048)
 
 T_USER_RECOVERY = "Новая сессия. История диалога пуста. Чем мы занимались, что важно помнить?"
 T_ASST_RECOVERY_LEAD = "Сейчас восстановлю по своим записям."
@@ -131,7 +133,7 @@ def recovery_example(bio, acts, n_read=12, with_reconcile_target=False):
             "bio_id": bio["meta"]["bio_id"]}
 
 
-def build_examples(bio, acts, window=WINDOW):
+def build_examples(bio, acts, window=WINDOW, tok=None, max_len=1900):
     tr = transcript_of(bio, acts)
     examples = []
     for i, (role, content, meta) in enumerate(tr):
@@ -153,6 +155,14 @@ def build_examples(bio, acts, window=WINDOW):
         messages.append({"role": "assistant", "content": content})
         ex_id = (f"{bio['meta']['bio_id']}-x{meta['message_no']:03d}"
                  f"-p{meta['phase']}")
+        # Подгонка длины: срезаем историю с НАЧАЛА, пока шаблон не влезет в
+        # предел, оставляя целевой ответ целиком. Иначе при обрезке в тренере
+        # цель выпадает и ошибка становится nan (найдено 11.09.2026).
+        if tok is not None:
+            def ntok(ms):
+                return len(tok.apply_chat_template(ms, add_generation_prompt=False))
+            while len(messages) > 2 and ntok(messages) > max_len:
+                del messages[1]
         examples.append({"id": ex_id, "messages": messages,
                          "bio_id": bio["meta"]["bio_id"],
                          "message_no": meta["message_no"],
@@ -209,7 +219,19 @@ def main():
     ap.add_argument("--out", default=str(base / "output"))
     ap.add_argument("--window", type=int, default=WINDOW)
     ap.add_argument("--seed-check", type=int, default=0)
+    ap.add_argument("--max-len", type=int, default=1900)
     args = ap.parse_args()
+
+    # Токенизатор нужен, чтобы подгонять длину примеров под предел обучения.
+    tok = None
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+        from mlx_lm import load as _load
+        _, tok = _load(str(Path(__file__).resolve().parents[2] /
+                           "experiments/o8-pass/gemma4-12b-text-4bit"))
+    except Exception as e:
+        print("токенизатор не загружен, подгонка длины выключена:", e)
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -222,7 +244,8 @@ def main():
         bio = json.loads(bp.read_text(encoding="utf-8"))
         acts = json.loads(ap_.read_text(encoding="utf-8"))
         stats["bios"] += 1
-        examples += build_examples(bio, acts, window=args.window)
+        examples += build_examples(bio, acts, window=args.window, tok=tok,
+                                   max_len=args.max_len)
         recovery.append(recovery_example(bio, acts))
         for tl in acts["timeline"]:
             k = tl["kind"]

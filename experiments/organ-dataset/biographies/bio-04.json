@@ -3830,14 +3830,14 @@
      "fact_id": "F001",
      "subject": "имя клиента",
      "value": "Павел Андреевич",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     },
     {
      "fact_id": "F002",
      "subject": "проект",
      "value": "запуск магазина «Гора» (товары для походов)",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     }
    ],
@@ -3851,14 +3851,14 @@
      "fact_id": "F003",
      "subject": "город",
      "value": "Санкт-Петербург",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     },
     {
      "fact_id": "F004",
      "subject": "предпочтительный канал связи",
      "value": "текстовые сообщения, не звонки",
-     "horizon": "life",
+     "horizon": "t5",
      "backdated": false
     }
    ],
@@ -3896,7 +3896,7 @@
      "fact_id": "F052",
      "subject": "срок гарантии",
      "value": "12 месяцев",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -3910,7 +3910,7 @@
      "fact_id": "F053",
      "subject": "исполнителей на этапе 3",
      "value": "4 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -3924,7 +3924,7 @@
      "fact_id": "F025",
      "subject": "сумма возврата от ООО «Проф-Лайн»",
      "value": "74 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3938,7 +3938,7 @@
      "fact_id": "F035",
      "subject": "номер счёта-фактуры №3",
      "value": "№521/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3952,7 +3952,7 @@
      "fact_id": "F020",
      "subject": "штраф ООО «Проф-Лайн» за просрочку",
      "value": "10 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3966,7 +3966,7 @@
      "fact_id": "F046",
      "subject": "срок хранения на складе",
      "value": "30 дней",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3980,7 +3980,7 @@
      "fact_id": "F031",
      "subject": "объём партии №1",
      "value": "60 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -3994,7 +3994,7 @@
      "fact_id": "F006",
      "subject": "система учёта",
      "value": "МойСклад",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4008,7 +4008,7 @@
      "fact_id": "F054",
      "subject": "время звонка с оператор склада",
      "value": "13:30",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4022,7 +4022,7 @@
      "fact_id": "F005",
      "subject": "служба доставки",
      "value": "свой курьер по городу",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4036,7 +4036,7 @@
      "fact_id": "F018",
      "subject": "длительность работ по этапу 5",
      "value": "3 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4050,7 +4050,7 @@
      "fact_id": "F012",
      "subject": "минимальная сумма заказа",
      "value": "без минималки",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4064,7 +4064,7 @@
      "fact_id": "F036",
      "subject": "дата запуска",
      "value": "2026-10-05",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4078,7 +4078,7 @@
      "fact_id": "F032",
      "subject": "номер заявки в ООО «Проф-Лайн» №3",
      "value": "№352/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4092,7 +4092,7 @@
      "fact_id": "F024",
      "subject": "время начала работ на этапе 3",
      "value": "14:30",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4106,7 +4106,7 @@
      "fact_id": "F029",
      "subject": "лимит расходов на этап 4",
      "value": "74 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4120,7 +4120,7 @@
      "fact_id": "F055",
      "subject": "сумма счёта от ООО «Проф-Лайн» №2",
      "value": "74 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4134,7 +4134,7 @@
      "fact_id": "F008",
      "subject": "ценовая стратегия",
      "value": "паритет с WB",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4148,7 +4148,7 @@
      "fact_id": "F056",
      "subject": "брак в партии №3",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4162,7 +4162,7 @@
      "fact_id": "F007",
      "subject": "брендирование упаковки",
      "value": "фирменный крафт",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4176,7 +4176,7 @@
      "fact_id": "F057",
      "subject": "дата промежуточной приёмки этапа 2",
      "value": "2026-09-22",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4196,7 +4196,7 @@
      "fact_id": "F037",
      "subject": "лимит правок",
      "value": "36 шт",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4210,7 +4210,7 @@
      "fact_id": "F010",
      "subject": "возвраты",
      "value": "только через маркетплейс",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4224,7 +4224,7 @@
      "fact_id": "F009",
      "subject": "фото товаров",
      "value": "студийная съёмка",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4238,7 +4238,7 @@
      "fact_id": "F022",
      "subject": "ответственный за этап 4",
      "value": "Ксения",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4252,7 +4252,7 @@
      "fact_id": "F011",
      "subject": "цвет логотипа",
      "value": "терракотовый",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4266,7 +4266,7 @@
      "fact_id": "F019",
      "subject": "лимит расходов на этап 1",
      "value": "58 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4292,7 +4292,7 @@
      "fact_id": "F026",
      "subject": "номер счёта-фактуры №2",
      "value": "№459/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4306,7 +4306,7 @@
      "fact_id": "F023",
      "subject": "сумма счёта от ООО «Проф-Лайн» №3",
      "value": "58 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4320,7 +4320,7 @@
      "fact_id": "F059",
      "subject": "место встречи по этапу 3",
      "value": "переговорка",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4334,7 +4334,7 @@
      "fact_id": "F060",
      "subject": "объём переделок по этапу 2",
      "value": "12 шт",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4348,7 +4348,7 @@
      "fact_id": "F038",
      "subject": "контакт ответственного этапа 2",
      "value": "+7 994 234-66-46",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4362,7 +4362,7 @@
      "fact_id": "F033",
      "subject": "лимит расходов на этап 3",
      "value": "18 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4398,7 +4398,7 @@
      "fact_id": "F063",
      "subject": "доплата за ночные работы",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": true
     }
    ],
@@ -4412,7 +4412,7 @@
      "fact_id": "F034",
      "subject": "номер договора с ООО «Проф-Лайн» №1",
      "value": "№492/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4493,7 +4493,7 @@
      "fact_id": "F069",
      "subject": "длительность работ по этапу 3",
      "value": "4 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4507,7 +4507,7 @@
      "fact_id": "F030",
      "subject": "исполнителей на этапе 2",
      "value": "5 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4533,7 +4533,7 @@
      "fact_id": "F028",
      "subject": "номер заявки в ООО «Проф-Лайн» №1",
      "value": "№426/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4547,7 +4547,7 @@
      "fact_id": "F017",
      "subject": "номер заявки в ООО «Проф-Лайн» №2",
      "value": "№133/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4573,7 +4573,7 @@
      "fact_id": "F021",
      "subject": "ответственный за этап 2",
      "value": "Ксения",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4595,7 +4595,7 @@
      "fact_id": "F027",
      "subject": "сумма счёта от ООО «Проф-Лайн» №5",
      "value": "74 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4609,7 +4609,7 @@
      "fact_id": "F073",
      "subject": "минимальная сумма заказа",
      "value": "1 500 ₽",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4623,7 +4623,7 @@
      "fact_id": "F042",
      "subject": "время начала работ на этапе 2",
      "value": "12:30",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4637,7 +4637,7 @@
      "fact_id": "F074",
      "subject": "дата постановки задачи №3",
      "value": "2026-09-17",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4651,7 +4651,7 @@
      "fact_id": "F075",
      "subject": "адрес склада ООО «Проф-Лайн»",
      "value": "база на Южной, 11",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": true
     }
    ],
@@ -4665,7 +4665,7 @@
      "fact_id": "F049",
      "subject": "объём партии №2",
      "value": "48 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4679,7 +4679,7 @@
      "fact_id": "F044",
      "subject": "переплата за срочность",
      "value": "36 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4703,7 +4703,7 @@
      "fact_id": "F077",
      "subject": "брак в партии №4",
      "value": "20 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4733,7 +4733,7 @@
      "fact_id": "F079",
      "subject": "дата промежуточной приёмки этапа 1",
      "value": "2026-09-27",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4747,7 +4747,7 @@
      "fact_id": "F051",
      "subject": "срок поставки от ООО «Проф-Лайн»",
      "value": "2026-09-21",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4767,7 +4767,7 @@
      "fact_id": "F080",
      "subject": "стоимость доставки партии №1",
      "value": "18 400 ₽",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4781,7 +4781,7 @@
      "fact_id": "F043",
      "subject": "стартовый бюджет на закупку",
      "value": "1 020 000 ₽",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4807,7 +4807,7 @@
      "fact_id": "F014",
      "subject": "минимальная сумма заказа",
      "value": "2 000 ₽",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -4821,7 +4821,7 @@
      "fact_id": "F082",
      "subject": "дата постановки задачи №2",
      "value": "2026-09-19",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4835,7 +4835,7 @@
      "fact_id": "F083",
      "subject": "скидка ООО «Проф-Лайн» за объём",
      "value": "15 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4849,7 +4849,7 @@
      "fact_id": "F084",
      "subject": "этаж встречи по этапу 2",
      "value": "переговорка",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4871,7 +4871,7 @@
      "fact_id": "F086",
      "subject": "ответственный за этап 3",
      "value": "Дмитрий",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4885,7 +4885,7 @@
      "fact_id": "F087",
      "subject": "дата постановки задачи №1",
      "value": "2026-09-24",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -4899,7 +4899,7 @@
      "fact_id": "F088",
      "subject": "исполнителей на этапе 1",
      "value": "5 человека",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4925,7 +4925,7 @@
      "fact_id": "F090",
      "subject": "время звонка с оператор склада",
      "value": "13:30",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4939,7 +4939,7 @@
      "fact_id": "F091",
      "subject": "место встречи по этапу 1",
      "value": "зал на первом",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -4953,7 +4953,7 @@
      "fact_id": "F045",
      "subject": "длительность работ по этапу 4",
      "value": "3 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -4999,7 +4999,7 @@
      "fact_id": "F013",
      "subject": "минимальная сумма заказа",
      "value": "1 500 ₽",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5033,7 +5033,7 @@
      "fact_id": "F096",
      "subject": "запас на складе",
      "value": "12 шт",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5047,7 +5047,7 @@
      "fact_id": "F097",
      "subject": "брак в партии №1",
      "value": "10 %",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5129,7 +5129,7 @@
      "fact_id": "F047",
      "subject": "сумма экономии по этапу 1",
      "value": "36 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5143,7 +5143,7 @@
      "fact_id": "F050",
      "subject": "срок поставки от ООО «Проф-Лайн»",
      "value": "2026-09-15",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5157,7 +5157,7 @@
      "fact_id": "F103",
      "subject": "время начала работ на этапе 1",
      "value": "11:00",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
@@ -5181,7 +5181,7 @@
      "fact_id": "F105",
      "subject": "число SKU на старте",
      "value": "120",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5195,7 +5195,7 @@
      "fact_id": "F106",
      "subject": "лимит расходов на этап 2",
      "value": "58 400 ₽",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5209,7 +5209,7 @@
      "fact_id": "F107",
      "subject": "маркетплейс",
      "value": "Wildberries",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5239,7 +5239,7 @@
      "fact_id": "F041",
      "subject": "длительность работ по этапу 1",
      "value": "3 часа",
-     "horizon": "day",
+     "horizon": "t3",
      "backdated": false
     }
    ],
@@ -5253,7 +5253,7 @@
      "fact_id": "F016",
      "subject": "цвет логотипа",
      "value": "хаки",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5267,7 +5267,7 @@
      "fact_id": "F015",
      "subject": "цвет логотипа",
      "value": "графитовый",
-     "horizon": "project",
+     "horizon": "t4",
      "backdated": false
     }
    ],
@@ -5287,7 +5287,7 @@
      "fact_id": "F039",
      "subject": "дата постановки задачи №4",
      "value": "2026-09-27",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5307,7 +5307,7 @@
      "fact_id": "F048",
      "subject": "номер счёта-фактуры №4",
      "value": "№245/26",
-     "horizon": "episode",
+     "horizon": "t2",
      "backdated": false
     }
    ],
@@ -5321,7 +5321,7 @@
      "fact_id": "F040",
      "subject": "время звонка с оператор склада",
      "value": "16:15",
-     "horizon": "beat",
+     "horizon": "t1",
      "backdated": false
     }
    ],
