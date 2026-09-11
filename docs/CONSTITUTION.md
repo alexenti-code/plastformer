@@ -15,7 +15,7 @@ What to record, what to repeat, what to link, what to surface, and when to look 
 Interpretation, importance, contradiction, connection, reconciliation — acts of the model. The environment supplies physics: volume, persistence, decay constants, a tick counter, dials fixed before a run.
 
 ### O-3. Memory is part of the model.
-The substrate Φ holds the autobiographical content of this instance. Life does not change the core K. The artifact has no separate operations for copying, rolling back or deleting a biography (owner decision 2026-09-11): that is not a task of this project.
+Φ holds the autobiographical content of this instance. Life does not change the core K. The artifact has no separate operations for copying, rolling back or deleting a biography (owner decision 2026-09-11): that is not a task of this project.
 
 ### O-4. Lived time.
 The instance's time is its ticks and accumulated trace mass. Wall-clock stamps exist for audit only and never enter the physics of memory. Dormancy is zero lived time.

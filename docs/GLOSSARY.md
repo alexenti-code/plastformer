@@ -47,10 +47,10 @@ The substrate's own time: a trace's age is its amplitude profile; an interval's 
 Bi-temporal stamps on every trace. Precise and verifiable; in this description they have no effect on amplitude.
 
 ### Trace amplitude [амплитуда следа]
-A vector with one component per decay time constant τ_1 < τ_2 < … < τ_k: a_i(n) = a_i(0)·e^(−Δn/τ_i), Δn in lived ticks. Content is immutable in this description; amplitude decays by substrate dynamics.
+A vector with one component per decay time constant τ_1 < τ_2 < … < τ_k: a_i(n) = a_i(0)·e^(−Δn/τ_i), Δn in lived ticks. Content is immutable in this description; amplitude decays by the physics of Φ.
 
 ### Stand [стенд] (RETIRED)
-Historical term for the external implementation of PlastFormer outside the model, used in drafts before the vector substrate was built. No live component of the architecture carries this name. Forbidden as a live actor in any current document.
+Historical term for an external implementation of PlastFormer outside the model, used in drafts before Φ was built. No live component carries this name. Forbidden as a live actor in any current document.
 
 ### Adapter [адаптер] / LoRA-adapter / base+adapter (RETIRED — forbidden)
 The Instruction is a competency layer embedded once into the core; "adapter", "LoRA-adapter", and the split form "base+adapter" describe a temporary storage state of development, not an architecture entity. The artifact is ONE weight file. The split form is FORBIDDEN by the owner (2026-09-09) as a state, result, or "working pair".

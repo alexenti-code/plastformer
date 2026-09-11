@@ -24,6 +24,7 @@ The single source of norms is [`docs/CONSTITUTION.md`](docs/CONSTITUTION.md) (wi
 4. `docs/ARCHITECTURE-FIXED-BRAIN-v1.md` — the assembly architecture of A = (K, Φ) (parts of the file, pipeline, open questions).
 5. `docs/ADR-005-registers-phi1-phi2.md` — Φ1/Φ2 registers inside one Φ (approved).
 6. `docs/THEORY.md`, `docs/GLOSSARY.md`, `docs/MANIFEST.md` — mechanisms, dictionary, declaration.
+7. `docs/ASSEMBLY-PLAN.ru.md` — the work plan (two parts: setup and assembly). Supporting: `docs/ASSEMBLY-GUIDE.ru.md` (how the size of Φ is chosen) and, for the setup part, `docs/JSPACE-ANALYSIS.ru.md` plus `docs/VERIFICATION-vs-JSPACE.ru.md` (what the J-space findings mean for our Φ, and the check of our design against the source paper).
 
 Everything else — ADR-001/002/003, `docs/RESEARCH-LOG`, `docs/AGENT-POISON-AUDIT-2026-09-11.md`, `preprint.md`, `experiments/e1-protocol.md`, `drafts/` — is history marked `LINEAGE-ONLY` or `SUPERSEDED`. It is not in the read order, it is not a source of ТЗ, and nothing in it is a live component.
 
