@@ -19,7 +19,7 @@
 
 | Component | Value |
 |---|---|
-| substrate | parametric (records live in the Φ section of the single file A = (K, Φ); no external bank) |
+| where the trace lives | parametric (records live in the Φ section of the single file A = (K, Φ); no external bank) |
 | topology | co-located |
 | act state | instructed (act grammar embedded once) |
 

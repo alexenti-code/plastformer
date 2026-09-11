@@ -11,7 +11,7 @@
 ## Glossary (English, with Russian term in brackets)
 
 ### PlastFormer [ПластФормер]
-A transformer architecture with an unchanged core and a plastic per-instance module, organized in layers by timescale. One architecture with three configuration axes — substrate, topology, act state (see THEORY.md §3). Target form: parametric × co-located × instructed.
+A transformer architecture with an unchanged core and a plastic per-instance module, organized in layers by timescale. One architecture with three configuration axes — where the trace lives, topology, act state (see THEORY.md §3). Target form: parametric × co-located × instructed.
 
 ### Idiographic memory [идиографическая память]
 After Windelband's nomothetic/idiographic distinction: a frozen nomothetic core (general laws) plus a plastic per-instance biography (the singular case).
@@ -35,13 +35,13 @@ The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one c
 Property of a Φ record: event time (when it was true in the world) and learning time (when the instance learned it). Training weights carry no stream-time marks; memory records carry both.
 
 ### Rollback [откат] — REMOVED from the project
-Owner decision 2026-09-11: there is no rollback, copy or delete operation for a biography in the artifact. This is not a task of the project. If data must be removed, the carrier is removed. Records remain append-only and decay is physics (O-5).
+Owner decision 2026-09-11: there is no rollback, copy or delete operation for a biography in the artifact. This is not a task of the project. If data must be removed, the file is removed. Records remain append-only and decay is physics (O-5).
 
 ### Tick [тик]
-One inference step (one generation batch). The substrate counts ticks; one executed storing act = +1 tick (sparse sampling of abstract ticks; counter rule in CONSTITUTION C5). The tick rate is a property of the substrate and is finite.
+One inference step (one generation batch). The code counts ticks; one executed storing act = +1 tick (sparse sampling of abstract ticks; counter rule in CONSTITUTION C5). The tick rate is fixed by the physics and is finite.
 
 ### Lived time [прожитое время]
-The substrate's own time: a trace's age is its amplitude profile; an interval's length is its tick count plus the accumulated trace mass. A year of dormancy is zero lived time in this description.
+Lived time is the record's own time: a trace's age is its amplitude profile; an interval's length is its tick count plus the accumulated trace mass. A year of dormancy is zero lived time in this description.
 
 ### Audited time [аудируемое время]
 Bi-temporal stamps on every trace. Precise and verifiable; in this description they have no effect on amplitude.
@@ -56,7 +56,7 @@ Historical term for an external implementation of PlastFormer outside the model,
 The Instruction is a competency layer embedded once into the core; "adapter", "LoRA-adapter", and the split form "base+adapter" describe a temporary storage state of development, not an architecture entity. The artifact is ONE weight file. The split form is FORBIDDEN by the owner (2026-09-09) as a state, result, or "working pair".
 
 ### Harness / жгут (RETIRED — forbidden)
-No such entity exists in the architecture. Development code that runs the physics during experiments is instrumentation ("инструментарий разработки") and is never part of the artifact. Roles are only: model / environment / carrier (CONSTITUTION, ADR-003).
+No such entity exists in the architecture. Development code that runs the physics during experiments is instrumentation ("инструментарий разработки") and is never part of the artifact. Roles are only: model and environment (CONSTITUTION, ADR-003).
 
 ### PMI / MMI (RETIRED — lineage only)
 Split-topology interface from early drafts. The split topology is retired from the architecture; the interface of the co-located configuration has no separate name. Historical mentions must carry a LINEAGE/RETIRED mark.

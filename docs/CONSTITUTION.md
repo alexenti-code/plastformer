@@ -2,7 +2,7 @@
 
 **Status:** NORMATIVE — owner's edition, 2026-09-06. On any conflict this document governs over ADRs, preprint, protocols, specifications, and code.
 
-PlastFormer is one transformer. Its weights are a single file with one frozen part and one plastic part of the same body: the frozen part K carries general competence, shared by all instances; the plastic part Φ, in the same file, carries the biography of one instance. Traces in Φ carry amplitudes that decay on a set of speeds τ; the age of a memory is a property of that plastic part, measured in lived ticks. The model reads and writes its Φ by its own acts; the environment supplies physics and decides nothing about meaning.
+PlastFormer is one transformer. Its weights are a single file with one frozen part and one plastic part of the same body: the frozen part K carries general competence, shared by all instances; the plastic part Φ, in the same file, carries the biography of one instance. Traces in Φ carry amplitudes that decay on a set of speeds τ; the age of a memory is a property of that plastic part, measured in lived ticks. The model reads and writes its Φ by its own acts; physics is supplied by code, and nothing decides about meaning outside K.
 
 ---
 
@@ -12,7 +12,7 @@ PlastFormer is one transformer. Its weights are a single file with one frozen pa
 What to record, what to repeat, what to link, what to surface, and when to look — the model decides itself. Keeping memory is the model's own activity.
 
 ### O-2. Semantics inside; physics outside.
-Interpretation, importance, contradiction, connection, reconciliation — acts of the model. The environment supplies physics: volume, persistence, decay constants, a tick counter, dials fixed before a run.
+Interpretation, importance, contradiction, connection, reconciliation — acts of the model. Physics — volume, persistence, decay constants, the tick counter, the dials — is supplied by code and frozen before a run.
 
 ### O-3. Memory is part of the model.
 Φ holds the autobiographical content of this instance. Life does not change the core K. The artifact has no separate operations for copying, rolling back or deleting a biography (owner decision 2026-09-11): that is not a task of this project.
@@ -27,7 +27,7 @@ A recorded trace is never rewritten or deleted by the model; a change of positio
 Decay is the condition of generalization: what the model does not re-amplify fades. Keeping and amplifying is the model's act. Forgetting is compression.
 
 ### O-7. Continuity is the memory line.
-The instance exists while its substrate persists. Continuity is a property of the Φ line, not of an uninterrupted physical process.
+The instance exists while its file persists. Continuity is a property of the Φ line, not of an uninterrupted physical process.
 
 ### O-8. The memory-keeping skill is set in one pass.
 One pass bakes into the core the skill of keeping its own memory: the act grammar (`name / repeat / connect / reconcile / read`), the rules for applying the acts, and the choice of moments. After this pass the core is frozen. The content of a live biography is built by the model in life.
@@ -39,7 +39,7 @@ The context window, RAG, graphs, external tooling remain in place. PlastFormer a
 A layer names a decay time constant τ, never a container, mailbox, or permission zone. One write deposits across the speed spectrum; nothing routes, hides, or prices by layer-as-location. The amplitude of a trace obeys `weight=(1+repeats)·exp(−Δn/τ)`, Δn in lived ticks.
 
 ### O-11. Personal data is the model's own content.
-Personal data lives only in the substrate and never in the core. Erasure of the biography = deletion of the substrate (or of its subject's section); the core survives. No cryptographic-erasure mechanism is part of the architecture.
+Personal records live only in Φ and never in the core. Removing the biography means removing the file. No cryptographic-erasure mechanism is part of the architecture.
 
 ---
 

@@ -63,7 +63,7 @@ Work is split into **two parts**, and they are different things:
 
 Assembly material lives under `experiments/o8-pass/` and `experiments/act-grammar/`; it is not part of the artifact.
 
-**What is NOT in this project:** copying, rolling back or deleting a biography; the journal; a blind judge or any external scorer; renting machines. Records are append-only, decay is physics, and if data must be removed the carrier is removed.
+**What is NOT in this project:** copying, rolling back or deleting a biography; the journal; a blind judge or any external scorer; renting machines. Records are append-only, decay is physics, and if data must be removed the file is removed.
 ## 6. Commit discipline
 
 - Version control is the agent's responsibility: commit and push the project's own work without asking. The owner does not track commit hashes, versions or CHANGELOG details.
