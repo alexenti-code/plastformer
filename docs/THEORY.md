@@ -12,14 +12,14 @@
 
 ---
 
-## 1. Starting description: model coupled to its own memory substrate
+## 1. Starting description: a model that writes into its own memory
 
 PlastFormer describes one transformer whose weights are a single file: an unchanged part K and a plastic part Φ of the same body. The model reads and writes its own Φ by its own acts. In this description:
 
 1. **Memory write is described as an act in the model's action space**, in the same class as saying, answering, or opening a file — analogous to a person writing a note.
 2. **Remembering is described as a competence of the model itself.** In an open model, the memory act rules are embedded once — by a one-time instruction pass (the act grammar) — after which the core is frozen.
 3. **Granularity of a record** (a paragraph, an event, a decision, a conclusion) is described as the model's output — the record content comes from the model's stream.
-4. **The write command arrives as an act in the model's output stream; the substrate executes it.** The mapping of removed normative sentences to enforceable tests is recorded in ADR-002 (entries T1–T4 → CONSTITUTION C2/C4).
+4. **The write command arrives as an act in the model's output stream; the physics executes it.** The mapping of removed normative sentences to enforceable tests is recorded in ADR-002 (entries T1–T4 → CONSTITUTION C2/C4).
 
 ## 2. Experience levels: tact → episode → day → project → life
 
@@ -44,11 +44,11 @@ Resulting series: **tact → episode → day → project → life**.
 
 **Why five entries.** The draft started from conversation and lost the innermost level — the present. The fifth level (tact) is the point where experience is not yet a form but live work. A sixth level ("life band", "chapter") is treated as a section of biography, not a separate store, unless it shows a separate timescale and a separate role.
 
-**Status of the levels in v4.0.** The five levels are an *interpretation of the amplitude profile*, not containers. A fresh trace is strong in fast components — it is read as "in the tact"; hours later the fast part has faded and the middle part holds — the trace reads as "in the day"; weeks later only the slow part remains — the trace reads as "in the life". Nesting is how the substrate reads, not where records are moved.
+**Status of the levels in v4.0.** The five levels are an *interpretation of the amplitude profile*, not containers. A fresh trace is strong in fast components — it is read as "in the tact"; hours later the fast part has faded and the middle part holds — the trace reads as "in the day"; weeks later only the slow part remains — the trace reads as "in the life". Nesting is how the physics reads, not where records are moved.
 
 ## 2.1. Organization of layers: speed, not place
 
-**Mechanism: a layer is a speed.** Layers are decay time constants of one and the same trace. One write deposits a trace into all temporal components of the plastic substrate at once — fast, middle, slow; the components decay continuously with different τ:
+**Mechanism: a layer is a speed.** Layers are decay time constants of one and the same trace. One write deposits a trace into all temporal components of the plastic part Φ at once — fast, middle, slow; the components decay continuously with different τ:
 
 - a fresh trace: the fast component is strong — the trace reads as "in the tact";
 - hours later: the fast part is gone, the middle part holds — the trace reads as "in the day";
@@ -60,18 +60,18 @@ Resulting series: **tact → episode → day → project → life**.
 
 **Scientific anchors.** The mechanism follows cascade consolidation: Fusi, Drew & Abbott (2005), Benna & Fusi (Nature Neuroscience, 2016) — a multi-speed synapse without a selection mechanism; unlike classical CLS theory, where consolidation is driven by a separate module.
 
-**Φ substrate (parametric).** Each Φ region holds fast and slow matrices. One write deposits into both. Friction per tick multiplies by e^(−Δn/τ), τ_fast ≪ τ_slow. Reading sums the components — recent and old arrive together, and the mixture reports age to the core. Fast components free capacity by continuous decay.
+**Φ memory (parametric).** Each Φ region holds fast and slow matrices. One write deposits into both. Friction per tick multiplies by e^(−Δn/τ), τ_fast ≪ τ_slow. Reading sums the components — recent and old arrive together, and the mixture reports age to the core. Fast components free capacity by continuous decay.
 
 ## 2.2. Memory parameters: physical dials in the temperature class
 
-A transformer already has a class of settings — continuous physics of generation and substrate: temperature, top_p, top_k, repetition_penalty, rope_scaling, n_ctx. Memory parameters are described as entering the same class; they are stored where physics is stored: model metadata and substrate header.
+A transformer already has a class of settings — continuous physics of generation and of memory writing: temperature, top_p, top_k, repetition_penalty, rope_scaling, n_ctx. Memory parameters are described as entering the same class; they are stored where physics is stored: model metadata and the Φ header.
 
 | Parameter | Analog among existing ones | Meaning |
 |---|---|---|
 | forgetting_tempo | rope_scaling | multiplier of τ of all trace components; 2.0 — decays twice as fast |
 | write_gain | temperature | how much trace one unit of experience leaves |
 | curiosity_gain | frequency_penalty | how much prediction error amplifies the trace |
-| memory_volume | n_ctx | substrate capacity |
+| memory_volume | n_ctx | memory capacity |
 | recall_sharpness | top_k | sharpness of key-proximity sampling |
 | repeat_gain | repetition_penalty (mirror) | how much `repeat` re-amplifies the trace |
 
@@ -104,25 +104,25 @@ Ownership description: the frozen core K is shared weights; the plastic Φ belon
 
 Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
-- **Tick.** One tick = one inference step (one generation batch). The tick rate is a property of the substrate and is finite. Counter mapping: 1 executed storing act = +1 tick (sparse sampling of abstract ticks); see CONSTITUTION C5 for the enforceable counter rule.
+- **Tick.** One tick = one inference step (one generation batch). The tick rate is a property of the physics and is finite. Counter mapping: 1 executed storing act = +1 tick (sparse sampling of abstract ticks); see CONSTITUTION C5 for the enforceable counter rule.
 - **Decay law.** a_i(n) = a_i(0)·e^(−Δn/τ_i), Δn in lived ticks; all τ_i therefore in ticks.
 - **Audited time** is record-kept: bi-temporal stamps on every trace (event time + learning time). A stamp reading "two years ago" carries no felt age and has no effect on amplitude in this description.
-- **Lived (felt) time** is the substrate's own: a trace's age is its amplitude profile; an interval's length is its tick count plus the accumulated trace mass. A year of dormancy is zero lived time in this description.
+- **Lived (felt) time** is the physics's own: a trace's age is its amplitude profile; an interval's length is its tick count plus the accumulated trace mass. A year of dormancy is zero lived time in this description.
 - **Two-clock gap as prediction error (physics):** a gap between audited stamps and the amplitude profile is described as a prediction error for the core that fires the surprise gate — the gap itself becomes an event of the biography.
 - **`reconcile` (act):** read stamps, compare with felt age, deposit an explicit correction trace ("client data may be stale; confirm before acting") into a slow component. Felt time is not modified; a belief about its relation to world time is added beside it.
 
 The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) is the experience of this instance at tick t.
 
-**Background tick (mechanism — DEFERRED, Fork 8).** The background tick (the core running with no user input; nothing external executes work — there is no such executor in the architecture) — described for completeness: the core running with no user input at a substrate-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (DESIGN §13, Fork 8; owner decision 2026-09). A substrate process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7; ADR-002 entry T11).
+**Background tick (mechanism — DEFERRED, Fork 8).** The background tick (the core running with no user input; nothing external executes work — there is no such executor in the architecture) — described for completeness: the core running with no user input at a memory-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (DESIGN §13, Fork 8; owner decision 2026-09). A memory process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7; ADR-002 entry T11).
 
 ## 5. Acts: name / repeat / connect / reconcile (+ write / read)
 
-- **TICK is counted by the substrate**, not issued by the model.
+- **TICK is counted by the physics**, not issued by the model.
 - **`name`** — fix source, time, boundaries; turns a drifting trace into an episode.
 - **`repeat`** — re-amplify a trace, paying the write cost.
 - **`connect`** — deposit a summary or rule into slow components as a *new* trace; sources untouched.
 - **`reconcile`** — record the relation between felt time and audited time as a new trace (see §4 above).
-- **Physical `write (unconscious)`** — described as: the substrate writes a low-amplitude fast trace when the core's own prediction error (next-token perplexity, read from the same forward pass in the parametric co-located configuration) exceeds a frozen, content-blind threshold; nothing writes below it. The embedding-distance surrogate is an external classifier and stays forbidden in every configuration (C2; ADR-002 entry T9). Surprise traces are enabled in the main run of the parametric assembly with provenance `source=surprise` (owner decision 2026-09-07; e1-protocol v1.6).
+- **Physical `write (unconscious)`** — described as: the physics writes a low-amplitude fast trace when the core's own prediction error (next-token perplexity, read from the same forward pass in the parametric co-located configuration) exceeds a frozen, content-blind threshold; nothing writes below it. The embedding-distance surrogate is an external classifier and stays forbidden in every configuration (C2; ADR-002 entry T9). Surprise traces are enabled in the main run of the parametric assembly with provenance `source=surprise` (owner decision 2026-09-07; e1-protocol v1.6).
 - **Physical `read`** — surfacing from the model's own Φ section (`read last N / ids / range`): the N loudest traces by amplitude — no relevance, no embeddings. (Enforceable trigger/rank rules: CONSTITUTION C2; ADR-002 entries T7–T8.)
 
 ## 6. Bi-temporality and instance continuity (description)
@@ -136,7 +136,7 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Review point | Mechanism description |
 |---|---|
 | Where write competence comes from | Remembering is described as the model's own competence; in an open model — embedded once by the instruction pass, core frozen after (§1, §5) |
-| Write gates | Writing is described as the model's act; Φ only stores state (C1); decay by τ, ticks, and volume are the substrate's dynamics — they happen, and nobody executes them (§5; enforceable test in CONSTITUTION C2/C4) |
+| Write gates | Writing is described as the model's act; Φ only stores state (C1); decay by τ, ticks, and volume are the physics's dynamics — they happen, and nobody executes them (§5; enforceable test in CONSTITUTION C2/C4) |
 | Bi-temporality in parameters | Stamps are described as a property of the memory act (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Copying | Copying is described as duplication; identity = memory line (§6; CONSTITUTION O-3) |
@@ -146,15 +146,15 @@ Continuity of an instance is described as following from preservation of Φ: the
 ## 8. Open questions
 
 - How to embed the memory act rules in an open model without destroying core competence; how the instruction anchors `repeat` without suppressing legitimate repetition.
-- Φ portability between core versions (K replacement; re-embedding the act rules for a parametric substrate).
+- Φ portability between core versions (K replacement; re-embedding the act rules for a parametric memory).
 - Which tests distinguish PlastFormer memory from ordinary storage (description-level criterion: commands arrive from the model; enforceable test in CONSTITUTION C2/C4).
-- How bi-temporal stamps are represented in a parametric substrate.
+- How bi-temporal stamps are represented in a parametric memory.
 
 ## 9. Honest boundary: what is built and what is not (state of 2026-09-09)
 
 - Built as development instrumentation (not part of the artifact): a working model of the Φ physics, the write and read paths (deterministic, native input-embeddings path), the act grammar **v0.2.0** (owner-approved 2026-09-09; seven acts — `name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate`; layer names t1–t5).
 - Not built: the single weight file A = (K, Φ) with the Instruction inside K; reading the Φ section of that file at run time; the autonomous act trigger without prompt scaffolding. The Instruction exists today as a separate text (the pass material) — that is assembly material, not a second entity of the architecture: the artifact is ONE file.
-- Memory registers Φ1/Φ2 (ADR-005, owner-approved 2026-09-09): two provenance registers of one substrate — Φ1 (involuntary layout of perception, written by physics only: surprise, gap-after-dormancy; visible in `scan`, never in the prefix) and Φ2 (personality; explicit acts only; only Φ2 enters the prefix). Φ1/Φ2 volume is unlimited; decay is the only limiter.
+- Memory registers Φ1/Φ2 (ADR-005, owner-approved 2026-09-09): two provenance registers of one memory — Φ1 (involuntary layout of perception, written by physics only: surprise, gap-after-dormancy; visible in `scan`, never in the prefix) and Φ2 (personality; explicit acts only; only Φ2 enters the prefix). Φ1/Φ2 volume is unlimited; decay is the only limiter.
 - There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md`, version in the file header, and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
 - P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
