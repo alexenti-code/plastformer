@@ -140,7 +140,6 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Bi-temporality in parameters | Stamps are described as a property of the memory act (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
 | Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; CONSTITUTION O-7) |
-| Personal data / deletion | Personal data live in Φ as its own content; erasure = deletion of the Φ section (the core survives); a `connect` summary is an ordinary trace of Φ and is erased with it |
 
 ## 8. Open questions
 
