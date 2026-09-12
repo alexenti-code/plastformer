@@ -8,7 +8,7 @@
     "grad_accumulation_steps": 1,
     "grad_checkpoint": true,
     "iters": 300,
-    "learning_rate": 1e-05,
+    "learning_rate": 5e-06,
     "lora_parameters": {
         "rank": 8,
         "dropout": 0.0,
@@ -16,7 +16,7 @@
     },
     "lr_schedule": null,
     "mask_prompt": true,
-    "max_seq_length": 2048,
+    "max_seq_length": 1280,
     "model": "experiments/o8-pass/gemma4-12b-text-4bit",
     "num_layers": 8,
     "optimizer": "adam",
@@ -32,10 +32,10 @@
     "resume_adapter_file": null,
     "save_every": 100,
     "seed": 42,
-    "steps_per_eval": 100,
+    "steps_per_eval": 50,
     "steps_per_report": 25,
     "test": false,
     "test_batches": 500,
     "train": true,
-    "val_batches": 4
+    "val_batches": 2
 }

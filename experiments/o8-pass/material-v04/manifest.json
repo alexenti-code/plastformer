@@ -10,8 +10,7 @@
  ],
  "counts": {
   "train": 1064,
-  "valid": 119,
-  "unique_train": 1064
+  "valid": 119
  },
  "layers": {
   "t1": 66,
@@ -30,6 +29,6 @@
   "calibrate": 12
  },
  "grammar_source": "experiments/act-grammar/act-grammar-v0.2-ru.md",
- "note_len": "история подрезана с начала под предел 2048; длиннее предела осталось 4 записи из 1064",
+ "note_len": "окно истории 4 сообщения, подгонка под предел 1280; медиана 1020 токенов, длиннее предела 4 записи из 1064",
  "mask_prompt": true
 }
