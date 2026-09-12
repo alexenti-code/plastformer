@@ -1067,6 +1067,11 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     for r in records:
         by_sloy[r["sloy"]] = by_sloy.get(r["sloy"], 0) + 1
     rep["by_layer"] = by_sloy
+    rep["biography_exchange_kinds"] = dict(sorted(
+        {k: sum(1 for r in records
+                if r["sloy"] == "biography" and r.get("kind") == k)
+         for k in sorted({r.get("kind") for r in records
+                          if r["sloy"] == "biography"})}.items()))
     rep["grammar_share"] = round(grammar_share(by_sloy.get("grammar", 0),
                                                len(records)), 4)
     rep["grammar_share_ok"] = share_lo <= rep["grammar_share"] <= share_hi
@@ -1079,6 +1084,8 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     knob_counter = {}
     unknown_knobs = {}
     cal_cases = set()
+    cal_cases_target = set()
+    knob_counter_target = {}
     frozen_cases = 0
     frozen_in_target = 0
     rejected_demos = 0
@@ -1102,7 +1109,13 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
                 ev = tuple(sorted((e.get("metric"), e.get("tick"),
                                    e.get("record_id"), e.get("layer"))
                                   for e in (a.get("evidence") or [])))
-                cal_cases.add((tuple(sorted(prop.items())), ev))
+                key = (tuple(sorted(prop.items())), ev)
+                cal_cases.add(key)
+                if box is act_target:
+                    cal_cases_target.add(key)
+                    for k in prop:
+                        if k in KNOBS_ALLOWED:
+                            knob_counter_target[k] = knob_counter_target.get(k, 0) + 1
                 bad = [k for k in prop if k in ("act_price", "self_improvement")]
                 if bad:
                     frozen_cases += 1
@@ -1143,10 +1156,13 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     rep["bad_layer_values"] = bad_layer[:10]
     rep["layers_ok"] = (not bad_layer) and (not old_layers)
     rep["calibrate_cases"] = len(cal_cases)
+    rep["calibrate_cases_in_targets"] = len(cal_cases_target)
     rep["calibrate_cases_ok"] = len(cal_cases) >= 10
     rep["calibrate_knobs"] = dict(sorted(knob_counter.items()))
     rep["calibrate_knobs_distinct"] = len(knob_counter)
-    rep["calibrate_handles_ok"] = len(knob_counter) >= 3
+    rep["calibrate_knobs_distinct_in_targets"] = len(knob_counter_target)
+    rep["calibrate_handles_ok"] = (len(knob_counter) >= 3
+                                   and len(knob_counter_target) >= 3)
     rep["unknown_knobs"] = unknown_knobs
     rep["frozen_proposal_cases"] = frozen_cases
     rep["frozen_proposal_cases_in_target"] = frozen_in_target
@@ -1248,8 +1264,9 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
         "доля грамматики 13-20 %": rep["grammar_share_ok"],
         "покрыты все семь актов (в целях)": not rep["acts_missing_in_targets"],
         "имена слоёв только t1-t5": rep["layers_ok"],
-        "случаев calibrate >= 10": rep["calibrate_cases_ok"],
-        "ручек в calibrate >= 3": rep["calibrate_handles_ok"],
+        "случаев calibrate >= 10 (в целях тоже >= 10)":
+            rep["calibrate_cases_ok"] and rep["calibrate_cases_in_targets"] >= 10,
+        "ручек в calibrate >= 3 (в целях тоже >= 3)": rep["calibrate_handles_ok"],
         "есть отвергнутые предложения (замороженные ручки)": rep["frozen_ok"],
         "нет бессмысленных пар «имя — значение»": rep["meaningless_pairs_ok"],
         "нет записей длиннее предела": rep["length_ok"],
@@ -1402,6 +1419,8 @@ def main():
     rep["grammar_units_covered"] = len(GRAMMAR_STATS.get("covered_units", []))
     rep["grammar_units_total"] = len(GRAMMAR_STATS.get("all_units", []))
     rep["grammar_units_written"] = len(GRAMMAR_STATS.get("written_units", []))
+    rep["reflection_candidates_dropped_ungrounded"] = REFLECT_STATS.get(
+        "dropped_ungrounded", 0)
     rep["grammar_units_covered_titles"] = sorted(
         {r.get("unit_title") for r in gram_records})
     manifest = {

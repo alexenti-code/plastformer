@@ -20,6 +20,20 @@
    "biography": 3566,
    "reflection": 1001
   },
+  "biography_exchange_kinds": {
+   "chatter": 635,
+   "contradiction": 96,
+   "crossref_use": 345,
+   "fact": 1185,
+   "position_change": 191,
+   "probe_abstain": 81,
+   "probe_contradiction": 55,
+   "probe_crossref": 96,
+   "probe_position": 132,
+   "probe_recall": 385,
+   "repeat": 212,
+   "unanswerable": 153
+  },
   "grammar_share": 0.172,
   "grammar_share_ok": true,
   "act_calls_in_targets": {
@@ -61,6 +75,7 @@
   "bad_layer_values": [],
   "layers_ok": true,
   "calibrate_cases": 186,
+  "calibrate_cases_in_targets": 107,
   "calibrate_cases_ok": true,
   "calibrate_knobs": {
    "audibility_floor": 122,
@@ -76,6 +91,7 @@
    "tau_multiplier.t5": 29
   },
   "calibrate_knobs_distinct": 11,
+  "calibrate_knobs_distinct_in_targets": 11,
   "calibrate_handles_ok": true,
   "unknown_knobs": {},
   "frozen_proposal_cases": 262,
@@ -157,8 +173,8 @@
    "доля грамматики 13-20 %": true,
    "покрыты все семь актов (в целях)": true,
    "имена слоёв только t1-t5": true,
-   "случаев calibrate >= 10": true,
-   "ручек в calibrate >= 3": true,
+   "случаев calibrate >= 10 (в целях тоже >= 10)": true,
+   "ручек в calibrate >= 3 (в целях тоже >= 3)": true,
    "есть отвергнутые предложения (замороженные ручки)": true,
    "нет бессмысленных пар «имя — значение»": true,
    "нет записей длиннее предела": true,
@@ -171,6 +187,7 @@
   "grammar_units_covered": 11,
   "grammar_units_total": 11,
   "grammar_units_written": 11,
+  "reflection_candidates_dropped_ungrounded": 139,
   "grammar_units_covered_titles": [
    "0. Как устроена твоя память",
    "1. Семь актов",
