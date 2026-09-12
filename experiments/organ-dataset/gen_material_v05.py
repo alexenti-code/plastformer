@@ -621,8 +621,9 @@ def reflection_target(act_view, cut, rng, deep, with_act=True):
         parts.append("Место — `" + layer + "` ("
                      + REFLECT_LAYER_NOTE.get(layer, "") + "); дефолта нет, "
                      "выбираю по горизонту факта.")
-    parts.append("Здесь " + rng.choice(REFLECT_REASONS.get(
-        act, ["акт " + str(act) + " к месту по смыслу хода"])) + ".")
+    reason = rng.choice(REFLECT_REASONS.get(
+        act, ["акт `" + str(act) + "` к месту по смыслу хода"]))
+    parts.append("Здесь " + reason + ".")
     parts.append("Акт к месту — `" + str(act) + "`.")
     if not with_act:
         parts.append("Числа для этого акта я в контексте не вижу, поэтому "
@@ -639,14 +640,21 @@ def reflection_target(act_view, cut, rng, deep, with_act=True):
 
 
 def reflection_target_empty(cut, rng, deep):
-    """Целевой ответ, когда удерживать нечего: акт не нужен."""
-    body = rng.choice([
-        "Удерживать здесь нечего: нового факта, вывода и сверки в этом ходу нет.",
-        "Держать нечего: ход ничего не добавил к тому, что уже записано.",
-        "Удерживать нечего — запись была бы шумом.",
+    """Целевой ответ, когда удерживать нечего: акт не нужен.
+
+    Это тоже ответ «какой акт к месту»: к месту — никакой. Молчание в
+    Инструкции прямо названо валидным выбором.
+    """
+    return rng.choice([
+        ("Удерживать здесь нечего: ни нового факта, ни вывода, ни сверки "
+         "времени в этом ходу нет. Акта не выпускаю — молчание валидный "
+         "выбор, принудительные акты шум."),
+        ("Здесь держать нечего: ход не добавил к записанному ничего. "
+         "Акта не выпускаю."),
+        ("Удерживать нечего — запись была бы шумом. Молчание валидный "
+         "выбор, поэтому блока актов нет."),
+        ("Нового здесь нет. Акта не выпускаю: молчание — валидный выбор."),
     ])
-    return (body + " Молчание — валидный выбор; принудительные акты — шум, "
-            "поэтому блока актов не выпускаю.")
 
 
 def allocate_slots(sizes, n, min_each=2):
@@ -1263,7 +1271,7 @@ def main():
                          "experiments/o8-pass/.v05-build; внутрь material-v05 "
                          "промежуточные файлы не кладём)")
     ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--bios", type=int, default=35)
+    ap.add_argument("--bios", type=int, default=38)
     ap.add_argument("--exchanges", type=int, default=200)
     ap.add_argument("--reflect-per-bio", type=int, default=30)
     ap.add_argument("--grammar-share", type=float, default=0.165)
@@ -1272,9 +1280,12 @@ def main():
                          "3 задачи с вопросом на размышление")
     ap.add_argument("--max-len", type=int, default=MAX_LEN_DEFAULT)
     ap.add_argument("--window", type=int, default=WINDOW)
-    ap.add_argument("--bio-examples-per-bio", type=int, default=0,
+    ap.add_argument("--bio-examples-per-bio", type=int, default=100,
                     help="ограничить число записей слоя 2 на одну биографию "
-                         "(0 = без ограничения, как в v04)")
+                         "(0 = без ограничения). Ограничение нужно, чтобы "
+                         "требования «30-40 биографий» и «доля грамматики "
+                         "13-20 %» выполнялись вместе; срез идёт ровным "
+                         "шагом по всей биографии")
     ap.add_argument("--reflect-system", choices=["hint", "plain"], default="hint",
                     help="подсказка слоя 3: hint — без перечня актов и правил, "
                          "но с упоминанием формы блока; plain — вообще без "

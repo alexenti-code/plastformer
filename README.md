@@ -9,7 +9,7 @@
 - **Assembly architecture:** [`docs/ARCHITECTURE-FIXED-BRAIN-v1.md`](docs/ARCHITECTURE-FIXED-BRAIN-v1.md)
 - **Author:** Alexey Voronin, Aurum Estate LLC
 - **License:** Apache 2.0 (code), CC BY 4.0 (text)
-- **Status:** architecture; the artifact is not yet assembled — no measured results exist
+- **Status:** the artifact is assembled (2026-09-12): ONE weight file A = (K, Φ), 8.20 GB, loads, answers, writes and reads its own Φ. **No quality results are reported** — the artifact does not score itself (owner decision 2026-09-11).
 
 ## The artifact
 
@@ -35,7 +35,13 @@ Anchored in LongMemEval (S/M) and LoCoMo (external benchmarks; the owner decides
 
 ## Current work
 
-Two parts: (1) **setup** — build the Jacobian lens for our own core and measure the workspace band, which settles where Φ is injected and in what form; the instrument is used once and is not part of the artifact; (2) **assembly** — material v04, the one instruction pass, fusion into one file, the Φ region, the Φ code, and handover. Full plan: `docs/ASSEMBLY-PLAN.ru.md`. Band analysis: `docs/JSPACE-ANALYSIS.ru.md`.
+**Both parts are done.** (1) **Setup** — the Jacobian lens was built and the band measured on our own core; the instrument is not part of the artifact. (2) **Assembly** — material v04, the one instruction pass, fusion into one file, the Φ region and the Φ code are complete; the artifact is handed over.
+
+**What works (verified 2026-09-12):** the file loads (3.5 s, 6701 MB) and answers; Φ writes and reads; the 14 knobs live in the Φ header and survive a restart; the act skill fires; the return loop (`plastformer/loop.py`) executes the model's acts and returns the `<<ENV>>` confirmation, so the model reads its own memory — with an empty history it requests `read` by itself and restores records.
+
+**Honest boundary:** the Φ-state is fed as text from the pointer, not as the projection of a record vector onto the working-band basis (the basis is not built; the lens is noisy); record text is not stored in Φ (only a 1920-number vector, with the text in `phi-content.jsonl` beside it); the model loops on `read`; the act skill still needs the training system prompt supplied from outside, while by O-8 it should live in the weights.
+
+Full plan: `docs/ASSEMBLY-PLAN.ru.md`. Band analysis: `docs/JSPACE-ANALYSIS.ru.md`. Loop report: `docs/LOOP-2026-09-12.ru.md`.
 
 ## Naming and lineage
 
