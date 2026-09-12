@@ -31,7 +31,7 @@ PlastFormer has ONE configuration: **parametric × co-located × instructed** �
 
 ## Evaluation
 
-Anchored in LongMemEval (S/M) and LoCoMo (external benchmarks; the owner decides what to run). The artifact does **not** score itself and the project does not measure "better or worse": any external grader is just another model with an opinion. The historical evaluation draft under `experiments/e1-protocol.md` is SUPERSEDED — history, not a plan of work, not to be executed or cited as active.
+Anchored in LongMemEval (S/M) and LoCoMo (external benchmarks; the owner decides what to run). The artifact does **not** score itself. The historical evaluation draft under `experiments/e1-protocol.md` is SUPERSEDED — history, not a plan of work, not to be executed or cited as active.
 
 ## Current work
 

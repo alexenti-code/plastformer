@@ -139,7 +139,6 @@ Continuity of an instance is described as following from preservation of Φ: the
 | Write gates | Writing is described as the model's act; Φ only stores state (C1); decay by τ, ticks, and volume are the physics's dynamics — they happen, and nobody executes them (§5; enforceable test in CONSTITUTION C2/C4) |
 | Bi-temporality in parameters | Stamps are described as a property of the memory act (§6) |
 | Layers without mechanism | Layers are speeds: multi-τ decay of one trace (Fusi/Benna); five levels interpret the amplitude profile (§2–§2.1) |
-| Copying | Outside the project (owner decision 2026-09-11). Identity = the memory line (§6; CONSTITUTION O-3) |
 | Continuity vs. snapshots | Continuity is described as a property of the Φ line (§6; CONSTITUTION O-7) |
 | Personal data / deletion | Personal data live in Φ as its own content; erasure = deletion of the Φ section (the core survives); a `connect` summary is an ordinary trace of Φ and is erased with it |
 

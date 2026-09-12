@@ -10,7 +10,6 @@ ONE MLX 4-bit weight file: **A = (K, Φ)**.
 
 - **K** — the frozen core: 4-bit weights with the Instruction (the act grammar) embedded once. After the embedding pass K never changes.
 - **Φ** — the plastic part of the same body, living as a section inside the same file. Φ1 and Φ2 are two origins of records within one Φ — not separate stores, not separate files, not separate entities.
-- The instance state lives inside the file. The file moves between machines and the instance travels with it.
 
 ## 2. Source of norms
 
@@ -28,20 +27,15 @@ The single source of norms is [`docs/CONSTITUTION.md`](docs/CONSTITUTION.md) (wi
 
 Everything else — ADR-001/002/003, `docs/RESEARCH-LOG`, `docs/AGENT-POISON-AUDIT-2026-09-11.md`, `preprint.md`, `experiments/e1-protocol.md`, `drafts/` — is history marked `LINEAGE-ONLY` or `SUPERSEDED`. It is not in the read order, it is not a source of ТЗ, and nothing in it is a live component.
 
-## 4. One artifact — nothing beside it
+## 4. One artifact
 
-The artifact is ONE file: **A = (K, Φ)**. K and Φ are parts of the same body in the same file, never two entities, never a model plus something next to it.
+The artifact is ONE file: **A = (K, Φ)** — one body in one file. Plan and state: `docs/BUILD-PLAN.ru.md`.
 
-The rule for any agent, in one sentence: **the model is one and lives in one file; there is nothing beside it.**
+- memory is a section of that file;
+- the act grammar is carried inside K;
+- the file is the whole of the instance: what it holds is what it is.
 
-What follows from this rule:
-
-- memory is a section of that file — not a bank, not a folder, not a sidecar store, not a state directory;
-- the Instruction is carried inside K — it is not a separate entity of the architecture, and the artifact is never a pair;
-- if you meet a leftover of the former split scheme, do not repair, restore, port, rename or modernize it: classify it as removable legacy, delete it, keep it only in git history, and report the deletion;
-- do not give a name to an intermediate thing and then fill the name with an entity. A name creates a place; a place demands content. This is how the split scheme was born three times over.
-- do not turn one task into a choice between named options. Where there is one artifact, there is no set of "candidates";
-- history is kept only in git history and in files headed `LINEAGE-ONLY` / `SUPERSEDED`. Those files are outside the read order and are never a source of ТЗ.
+When a leftover of a former design appears in a document or in code, the agent deletes it, keeps the entry in git history, and reports the deletion.
 
 ## 5. Current work
 
@@ -65,7 +59,6 @@ What follows from this rule:
 
 Assembly material lives under `experiments/o8-pass/` and `experiments/act-grammar/`; it is not part of the artifact.
 
-**Out of scope:** the journal; a blind judge or any external scorer; renting machines. Records are append-only, decay is physics, and when data must be removed the file is removed.
 ## 6. Commit discipline
 
 - Version control is the agent's responsibility: commit and push the project's own work without asking. The owner does not track commit hashes, versions or CHANGELOG details.

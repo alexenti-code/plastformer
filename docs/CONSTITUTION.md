@@ -94,7 +94,7 @@ On conflict: this Constitution > ADRs > preprint/protocol/specs/code. **A direct
 - **O-8:** the act list aligned with the ratified seven (`scan`, `calibrate` added).
 - **C3:** the dial list, which lived only in that article and shared no name with the project, replaced by a reference to the list in the Φ header; recorded that the code applies the change.
 - **O-10:** the single-τ formula replaced by the spectrum, as in Theory 2.1.
-- **O-3:** the decision on copying/deleting operations stays in the project (AGENTS.md, README, THEORY) but moved out of the Foundations article; the register split per ADR-005 added.
+- **O-3:** the register split per ADR-005 added.
 - **Preamble:** "nothing decides about meaning outside K" clarified — the code decides nothing about meaning.
 - **C7:** "the acts pass" became "the instruction pass (O-8)".
 - Owner decision 2026-09-12: edits were permitted to be proposed; they were applied on the owner's instruction to proceed in order.

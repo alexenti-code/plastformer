@@ -34,8 +34,6 @@ The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one c
 ### Bi-temporality [би-темпоральность]
 Property of a Φ record: event time (when it was true in the world) and learning time (when the instance learned it). Training weights carry no stream-time marks; memory records carry both.
 
-### Rollback [откат] — REMOVED from the project
-Owner decision 2026-09-11: there is no rollback, copy or delete operation for a biography in the artifact. This is not a task of the project. If data must be removed, the file is removed. Records remain append-only and decay is physics (O-5).
 
 ### Tick [тик]
 One inference step (one generation batch). The code counts ticks; one executed storing act = +1 tick (sparse sampling of abstract ticks; counter rule in CONSTITUTION C5). The tick rate is fixed by the physics and is finite.
