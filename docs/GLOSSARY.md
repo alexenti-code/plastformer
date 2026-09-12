@@ -56,7 +56,7 @@ Historical term for an external implementation of PlastFormer outside the model,
 The Instruction is a competency layer embedded once into the core; "adapter", "LoRA-adapter", and the split form "base+adapter" describe a temporary storage state of development, not an architecture entity. The artifact is ONE weight file. The split form is FORBIDDEN by the owner (2026-09-09) as a state, result, or "working pair".
 
 ### Harness / жгут (RETIRED — forbidden)
-No such entity exists in the architecture. Development code that runs the physics during experiments is instrumentation ("инструментарий разработки") and is never part of the artifact. Roles are only: model and environment (CONSTITUTION, ADR-003).
+Development code that runs the physics during experiments is instrumentation ("инструментарий разработки") and lives outside the artifact. The role is the model's own; the physics is code (CONSTITUTION, ADR-003).
 
 ### PMI / MMI (RETIRED — lineage only)
 Split-topology interface from early drafts. The split topology is retired from the architecture; the interface of the co-located configuration has no separate name. Historical mentions must carry a LINEAGE/RETIRED mark.
@@ -65,7 +65,7 @@ Split-topology interface from early drafts. The split topology is retired from t
 The canonical act-state value is **instructed** (one instruction pass, then frozen — O-8). "Trained" misdescribes the one-time embedding as ongoing training.
 
 ### Journal [журнал] — out of scope
-An external append-only log with a hash chain, kept by the environment at deployment time. Not part of PlastFormer: the architecture neither includes nor claims a journal (ADR-004). A deployment may add one for its own audit purposes.
+An external append-only log with a hash chain, kept by a deployment for its own audit purposes (ADR-004). Audit belongs to deployment; PlastFormer neither includes nor claims a journal.
 
 ### Instruction [Инструкция]
 A frozen competency layer carrying the act grammar — the rules by which the model operates its own memory: when to emit memory acts, how to write, how to read. Embedded once into the core by a single instruction pass, after which the core is frozen. The act of handing the model the rules of memory work is the Instruction; the core itself is never modified afterwards (except by that one embedding).

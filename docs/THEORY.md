@@ -113,7 +113,7 @@ Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
 The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) is the experience of this instance at tick t.
 
-**Background tick (mechanism — DEFERRED, Fork 8).** The background tick (the core running with no user input; nothing external executes work — there is no such executor in the architecture) — described for completeness: the core running with no user input at a memory-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (DESIGN §13, Fork 8; owner decision 2026-09). A memory process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7; ADR-002 entry T11).
+**Background tick (mechanism — DEFERRED, Fork 8).** The background tick (the core running with no user input; the work belongs to the core itself) — described for completeness: the core running with no user input at a memory-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (DESIGN §13, Fork 8; owner decision 2026-09). A memory process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7; ADR-002 entry T11).
 
 ## 5. Acts: name / repeat / connect / reconcile (+ write / read)
 

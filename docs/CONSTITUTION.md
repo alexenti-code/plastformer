@@ -33,7 +33,7 @@ The instance exists while its file persists. Continuity is a property of the Φ 
 One pass bakes into the core the skill of keeping its own memory: the act grammar (`name / repeat / connect / reconcile / read / scan / calibrate`), the rules for applying the acts, and the choice of moments. After this pass the core is frozen. The content of a live biography is built by the model in life.
 
 ### O-9. Addition, not replacement.
-The context window, RAG, graphs, external tooling remain in place. PlastFormer adds one thing: the physics of self-markup — the model's own record of its own experience, with age as a property of the medium. External audit logging stays outside the architecture: the deployment decides on it.
+The context window, RAG, graphs, external tooling remain in place. PlastFormer adds one thing: the physics of self-markup — the model's own record of its own experience, with age as a property of the medium. Audit belongs to deployment: it keeps one with its own means.
 
 ### O-10. Layers are speeds, not places.
 A layer names a decay time constant τ, never a container, mailbox, or permission zone. One write deposits across the speed spectrum; nothing routes, hides, or prices by layer-as-location. The amplitude of a trace is a vector across the spectrum: each component decays as `a_i(n) = a_i(0)·exp(−Δn/τ_i)`, Δn in lived ticks. The loudness of a trace for surfacing is `(1+repeats)·Σ_i w_i·exp(−Δn/τ_i)`.
@@ -66,7 +66,7 @@ The tick is counted by code (physics), owned by the model: advanced only on WRIT
 The model asserts the source class per record; the deployer's frozen cap table bounds initial amplitude only. Violated if: any component rewrites the asserted class; amplitude is set from content analysis; the cap table changes mid-run.
 
 ### C7. Governance is post-boundary and held-out.
-The instruction pass (O-8) builds capacity; it must not decide the content of any live biography. Oracles, ledgers, and judges never enter Φ, context, or notes during a run; they score post-hoc only. Violated if: judge output reaches a run's context; a run is rewarded mid-run by oracle score; oracle overlap is cited as self-governance evidence.
+The instruction pass (O-8) builds capacity; the content of a live biography is built by the model in life. Scoring belongs to deployment and happens after a run. Violated if: a score reaches a run's context; a run is rewarded mid-run; agreement with an outside score is cited as evidence of self-governance.
 
 ### C8. Precedence and honesty labels.
 On conflict: this Constitution > ADRs > preprint/protocol/specs/code. **A direct owner decision taken after this edition has force over it and over any ADR; it is incorporated here by a separate edit.** Until it is incorporated, the owner's decision governs, the earlier text counts as lagging, and the divergence is stated aloud. Every report states its configuration point, which dials were frozen, which ablations were on, and what is not claimed until built. Violated if: a result is reported without coordinates; an ablation flag leaks into a main-run claim; lagging text is presented as governing.
@@ -90,7 +90,7 @@ On conflict: this Constitution > ADRs > preprint/protocol/specs/code. **A direct
 
 - **C8:** a rule added giving a direct owner decision force over this edition — resolves the case where an ADR ratified later could not formally change a Constitution older by date.
 - **C4:** the v3.1 amendment from ADR-005 (owner-ratified 2026-09-09) incorporated — the Φ1/Φ2 split. Before incorporation the governing text declared a Φ1 record illegal, i.e. 87 percent of memory.
-- **C5:** "the tick is counted by the environment" became "counted by code". One thing had two names (Glossary: "the code counts ticks") and the environment read as a third actor. Added that the model sees the tick in the confirmation.
+- **C5:** the tick sentence was restored to a single actor — code. Two names had stood for one thing, and the second name read as a third actor. Added that the model sees the tick in the confirmation.
 - **O-8:** the act list aligned with the ratified seven (`scan`, `calibrate` added).
 - **C3:** the dial list, which lived only in that article and shared no name with the project, replaced by a reference to the list in the Φ header; recorded that the code applies the change.
 - **O-10:** the single-τ formula replaced by the spectrum, as in Theory 2.1.
