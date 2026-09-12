@@ -129,3 +129,37 @@ def capture_centered(model, tok, text, layer=DEFAULT_LAYER):
     v = capture(model, tok, text, layer)
     b = baseline(model, tok, layer)
     return (v - b).astype(np.float32)
+
+
+# ------------------------------------------------------------------ подача
+def embed_text(model, tok, text):
+    """Эмбеддинги текста для подстановки вместо токенов."""
+    import mlx.core as mx
+    ids = tok.encode(text)
+    if not ids:
+        ids = [tok.bos_token_id or 0]
+    inner = model.model
+    return inner.embed_tokens(mx.array([ids])) * inner.embed_scale
+
+
+def inject_embeddings(model, tok, text, vectors, layer=None):
+    """Собрать вход, в котором ПЕРЕД текстом стоят векторы записей Φ.
+
+    Место подачи: на вход, до внимания (docs/DESIGN-PARAMETRIC-PHI.md §4).
+    Скрытый префикс: [векторы Φ] + [эмбеддинги вопроса].
+
+    Вектор записи возвращается как есть — без проекции: он снят с того же
+    ядра и слоя (решение владельца 12.09.2026). Амплитуда (громкость) задаёт
+    вес: тихая запись подаётся ослабленной, громкая — полной. Так затухание
+    влияет на восприятие, а не только на отбор.
+    """
+    import mlx.core as mx
+    if not vectors:
+        return embed_text(model, tok, text)
+    rows = []
+    for v, loud in vectors:
+        # громкость подмешиваем как масштаб: тихий след приходит слабее
+        rows.append(mx.array(v) * mx.array([loud], dtype=mx.float32))
+    pref = mx.stack(rows)[None, :, :]
+    q = embed_text(model, tok, text)
+    return mx.concatenate([pref, q], axis=1)
