@@ -54,6 +54,12 @@ GRAMMAR_UNIT_MAX_TOKENS = 900  # предел текста-ответа у гр�
 
 # системная подсказка слоя 3 и слоя 1: БЕЗ перечня актов и БЕЗ правил.
 # Оставлена только техническая договорённость о форме вывода блока актов.
+# Два варианта «подсказки без правил»:
+#   *_PLAIN — вообще не упоминает блок актов (слой 1: целевой ответ — текст
+#             Инструкции, актов в нём нет);
+#   *_HINT  — упоминает только саму техническую форму блока, БЕЗ перечня
+#             актов и БЕЗ правил (слой 3: в целевом ответе есть блок актов).
+# Выбор варианта — решение сборки, записано в отчёте REPORT.md.
 SYSTEM_NO_RULES_HINT = (
     "Ты — модель PlastFormer с собственной памятью. Часть твоих же весов "
     "хранит следы-записи; эта часть называется Φ — твоя биография. Память "
@@ -85,6 +91,13 @@ def load_tokenizer(path):
     warnings.filterwarnings("ignore")
     from mlx_lm.utils import load_tokenizer as _lt
     return _lt(str(path))
+
+
+def _safe_json(text):
+    try:
+        return json.loads(text)
+    except ValueError:
+        return None
 
 
 def envelope_has_rejection(messages):
@@ -370,6 +383,9 @@ def build_grammar_pool(text, tok, max_len, max_unit_tokens):
     return pool, units
 
 
+GRAMMAR_STATS = {}
+
+
 def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
     """Отбор записей слоя 1: все пары-правила и формы + по единицам дословно."""
     must = [p for p in pool if p["kind"] in ("rule", "form")]
@@ -377,11 +393,11 @@ def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
     for p in pool:
         if p["kind"] == "unit":
             unit_pool.setdefault(p["unit"], []).append(p)
-    need = max(0, target_n - len(must))
     rng.shuffle(must)
-    need = min(need, sum(len(v) for v in unit_pool.values()))
-    per_unit = {u: 1 for u in unit_pool} if need >= len(unit_pool) else {}
-    left = need - sum(per_unit.values())
+    # Ровный охват: сначала по одной записи на КАЖДЫЙ раздел Инструкции,
+    # потом добираем кругами. Иначе один раздел может не попасть в материал.
+    per_unit = {u: 1 for u in unit_pool}
+    left = max(0, target_n - len(must) - len(per_unit))
     order = sorted(unit_pool)
     rng.shuffle(order)
     while left > 0:
@@ -396,7 +412,8 @@ def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
                 progressed = True
         if not progressed:
             break
-    picked = list(must[:target_n])
+    need = sum(per_unit.values())
+    picked = list(must[:max(0, target_n - need)])
     for u, n in sorted(per_unit.items()):
         items = unit_pool[u][:]
         rng.shuffle(items)
@@ -404,6 +421,7 @@ def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
     rng.shuffle(picked)
 
     covered_units = set()
+    written_units = set()
     records = []
     for i, p in enumerate(picked):
         if p["kind"] == "unit":
@@ -413,14 +431,21 @@ def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
                 {"role": "assistant", "content": p["answer"]}]
         if ntok(tok, msgs) > max_len:
             continue  # в предел не влезло — в материал не берём
+        if p["kind"] == "unit":
+            written_units.add(p["unit"])
         records.append({"id": f"gr-{p['kind']}-{i:04d}",
                         "sloy": "grammar",
                         "kind": p["kind"],
                         "unit": p.get("unit"),
-                        "unit_title": p.get("title"),
+                        "unit_title": re.sub(r" \(часть \d+\)$", "",
+                                             p.get("title") or ""),
                         "messages": msgs})
-    grammar_records.covered_units = covered_units
-    grammar_records.all_units = {u for u in unit_pool}
+    # Имя функции перекрывается локальной переменной в main(), поэтому
+    # счётчики кладём в модуль, а не в атрибуты функции.
+    GRAMMAR_STATS.update({"covered_units": sorted(covered_units),
+                          "written_units": sorted(written_units),
+                          "all_units": sorted(unit_pool),
+                          "pool": len(pool)})
     return records
 
 
@@ -548,6 +573,14 @@ REFLECT_LAYER_NOTE = {
 }
 
 
+def is_frozen_proposal(act_view):
+    """Предложение замороженной ручки — в целевой ответ слоя 3 не берём."""
+    if not isinstance(act_view, dict) or act_view.get("act") != "calibrate":
+        return False
+    return any(k in ("act_price", "self_improvement")
+               for k in (act_view.get("proposal") or {}))
+
+
 def next_assistant_with_acts(tr, i):
     for j in range(i, len(tr)):
         if tr[j][0] == "assistant" and tr[j][2].get("acts"):
@@ -573,8 +606,13 @@ def subject_hint_for(act_view):
     return "то, что прозвучало в контексте"
 
 
-def reflection_target(act_view, cut, rng, deep):
-    """Целевой ответ-размышление: что удержать, чем закрепить, каким актом."""
+def reflection_target(act_view, cut, rng, deep, with_act=True):
+    """Целевой ответ-размышление: что удержать, чем закрепить, каким актом.
+
+    with_act=False — акт в цель не идёт (его числа или имя факта не видны в
+    контексте): тогда цель называет акт словами, но блока не несёт. Так
+    запись не учит выдумывать то, чего модель не видела.
+    """
     act = act_view.get("act")
     layer = act_view.get("layer")
     hint = subject_hint_for(act_view)
@@ -586,6 +624,10 @@ def reflection_target(act_view, cut, rng, deep):
     parts.append("Здесь " + rng.choice(REFLECT_REASONS.get(
         act, ["акт " + str(act) + " к месту по смыслу хода"])) + ".")
     parts.append("Акт к месту — `" + str(act) + "`.")
+    if not with_act:
+        parts.append("Числа для этого акта я в контексте не вижу, поэтому "
+                     "блока не выпускаю: сначала нужно прочитать свои записи.")
+        return " ".join(parts)
     if deep:
         parts.append("Лишних актов не выпускаю: принудительные акты — шум; "
                      "если удерживать нечего, отвечаю без блока.")
@@ -607,42 +649,250 @@ def reflection_target_empty(cut, rng, deep):
             "поэтому блока актов не выпускаю.")
 
 
-def reflection_records(bio, acts, em, tok, max_len, n, rng):
+def allocate_slots(sizes, n, min_each=2):
+    """Разложить n мест по группам: сначала минимум каждой, потом по размеру."""
+    if not sizes or n <= 0:
+        return {}
+    keys = sorted(sizes)
+    take = {k: 0 for k in keys}
+    left = n
+    for k in keys:                       # минимум каждой группе
+        if left <= 0:
+            break
+        give = min(min_each, sizes[k], left)
+        take[k] += give
+        left -= give
+    if left > 0:                          # остаток — пропорционально размеру
+        total = sum(sizes.values())
+        for k in keys:
+            if left <= 0:
+                break
+            quota = int(round(n * sizes[k] / total)) - take[k]
+            give = max(0, min(quota, sizes[k] - take[k], left))
+            take[k] += give
+            left -= give
+    while left > 0:                       # добираем, если остались места
+        progressed = False
+        for k in keys:
+            if left <= 0:
+                break
+            if take[k] < sizes[k]:
+                take[k] += 1
+                left -= 1
+                progressed = True
+        if not progressed:
+            break
+    return take
+
+
+def normal_digits(s):
+    """Числа строки без разделителей тысяч: «1 240 000» -> {"1240000"}."""
+    out = set()
+    for run in re.findall(r"\d[\d\s]*\d|\d", s):
+        out.add(re.sub(r"\s+", "", run))
+    return out
+
+
+def digits_seen(text):
+    """Все числа, которые можно увидеть в контексте: слитно и по частям."""
+    out = set()
+    for tok_ in re.findall(r"\d[\d\s]*\d|\d", text):
+        joined = re.sub(r"\s+", "", tok_)
+        out.add(joined)
+        for part in re.findall(r"\d+", tok_):
+            out.add(part)
+    return out
+
+
+def act_digits(act_view):
+    """Числа акта, которые обязаны быть видны в контексте.
+
+    Не проверяются: record_tick и valid_time (это собственное суждение
+    модели о счётчике и времени), а также id записей и их количество —
+    id модель знает из своей памяти по устройству самой модели, а не из
+    окна диалога. Проверяются: содержание факта, числа обоснования у
+    `calibrate` и числа предложенной правки.
+    """
+    parts = [act_view.get("content") or ""]
+    for e in (act_view.get("evidence") or []):
+        parts.append(json.dumps(e, ensure_ascii=False))
+    for k, v in (act_view.get("proposal") or {}).items():
+        parts.append(str(k))
+        parts.append(str(v))
+    return normal_digits(" ".join(parts))
+
+
+def context_has_envelope(hist, kinds=("read", "scan")):
+    """Есть ли в контексте уже пришедший ответ памяти (числа или записи)."""
+    for _, c, _ in hist:
+        if not c.startswith("<<ENV>>"):
+            continue
+        payload = _safe_json(c.split("\n", 1)[-1])
+        if not isinstance(payload, dict):
+            continue
+        if payload.get("scan") and "scan" in kinds:
+            return True
+        if payload.get("records") and "read" in kinds:
+            return True
+    return False
+
+
+def history_is_question(hist):
+    """Обрыв стоит сразу после вопроса пользователя (ответа ещё нет)."""
+    if not hist:
+        return False
+    r, c, _ = hist[-1]
+    return r == "user" and not c.startswith("<<ENV>>")
+
+
+def grounded_in_history(act_view, hist, kind=None):
+    """Видно ли в контексте то, на что опирается целевой акт.
+
+    Решение сборки (записано в отчёте):
+      name/connect/repeat — числа акта и начало имени факта видны в контексте;
+      read                — обрыв сразу после вопроса пользователя;
+      scan                — проверка не нужна: это чтение физики, оно не
+                            опирается на содержание окна;
+      calibrate           — в контексте уже пришёл ответ scan (числа правки
+                            и обоснования не проверяются: это собственные
+                            числа модели о своей памяти);
+      reconcile           — в контексте уже пришёл ответ read или scan.
+
+    Проверяются только числа содержания. Числа физики (id записей, тики,
+    слои, значения ручек) не проверяются: их модель читает со своей памяти,
+    а не из окна диалога.
+    """
+    text = " ".join(c for _, c, _ in hist)
+    seen = digits_seen(text)
+    flat = re.sub(r"\s+", " ", text).lower()
+    act = act_view.get("act")
+    # Числа физики (id записей, тики, слои, значения ручек) в окне диалога
+    # не стоят и стоять не должны: модель читает их со своей памяти. Поэтому
+    # у scan/calibrate/reconcile проверяется только наличие пришедшего ответа
+    # памяти, а не числа.
+    if act in ("scan", "calibrate", "reconcile"):
+        if act == "calibrate":
+            ok = context_has_envelope(hist, ("scan",))
+            return (True, "") if ok else (False, "calibrate без scan в контексте")
+        if act == "reconcile":
+            ok = context_has_envelope(hist, ("read", "scan"))
+            return (True, "") if ok else (False, "reconcile без ответа памяти")
+        return True, ""
+    if act == "read":
+        return (True, "") if history_is_question(hist) else \
+            (False, "read без вопроса перед обрывом")
+    missing = [d for d in act_digits(act_view) if d not in seen]
+    if missing:
+        return False, ("числа акта не видны в контексте: "
+                       + ",".join(sorted(missing)[:4]))
+    c = act_view.get("content") or ""
+    if act in ("name", "connect", "repeat"):
+        subj = c.split(" — ")[0] if " — " in c else c
+        key = " ".join(subj.split()[:3]).lower()
+        if key and key not in flat:
+            return False, "имя факта не видно в контексте"
+    return True, ""
+
+
+def reflection_records(bio, acts, em, tok, max_len, n, rng, system_prompt):
     """Слой 3: контекст обрывается в случайном месте + вопрос на размышление.
 
-    Системная подсказка НЕ содержит ни перечня актов, ни правил.
+    Решение владельца 11.09.2026 (план, раздел 8 пункт 13 и раздел 11):
+    берём контекст, обрываем в случайном месте, дописываем короткий вопрос
+    на размышление, целевой ответ пишется с опорой на Инструкцию, а правила
+    из контекста убираются. Поэтому системная подсказка — system_prompt без
+    перечня актов и без правил.
+
+    Место обрыва — ход модели: контекст заканчивается на предыдущем ходу, а
+    целевой ответ повторяет выбор акта ЭТОГО хода. Так цель опирается только
+    на видимый контекст. Дополнительно каждый целевой акт проверяется
+    механически (grounded_in_history): если его числа или имя факта в
+    контексте не видны, акт в цель не идёт — остаётся только текст-размышление.
     """
     tr = em.transcript_of(bio, acts)
-    with_acts = [i for i in range(3, len(tr))
-                 if next_assistant_with_acts(tr, i) is not None]
-    without_acts = [i for i in range(3, len(tr))
-                    if tr[i][0] == "assistant"
-                    and next_assistant_with_acts(tr, i) is None]
+    kind_by_msg = {tl["message_no"]: tl["kind"] for tl in acts["timeline"]}
+    by_index = {}
+    for i, (r, c, m) in enumerate(tr):
+        if r != "assistant":
+            continue
+        ms = m.get("message_no")
+        act_view = (m.get("acts") or [None])[0]
+        by_index[i] = act_view
+
+    with_acts = [i for i, a in by_index.items()
+                 if a and not is_frozen_proposal(a)]
+    abstain_kinds = ("chatter", "unanswerable", "probe_abstain")
+    without_acts = []
+    for i, a in by_index.items():
+        if a:
+            continue
+        if kind_by_msg.get(tr[i][2].get("message_no")) not in abstain_kinds:
+            continue
+        if i > 0 and any(m.get("role") == "user"
+                         and m["content"].startswith("<<ENV>>")
+                         and (lambda p: isinstance(p, dict)
+                              and p.get("rejected"))(
+                                  _safe_json(m["content"].split("\n", 1)[-1]))
+                         for m in [
+                             {"role": tr[i - 1][0], "content": tr[i - 1][1]}]):
+            continue        # ход сразу после отказа в цель-воздержание не берём
+        without_acts.append(i)
     rng.shuffle(with_acts)
     rng.shuffle(without_acts)
-    cuts = with_acts + without_acts[:max(1, len(without_acts) // 4)]
+
+    n_empty = min(len(without_acts), max(2, int(round(n * 0.10)))) if n else 0
+    empty_pick = without_acts[:n_empty]
+    groups = {}
+    for i in with_acts:
+        a = by_index[i]
+        groups.setdefault(a.get("act"), []).append(i)
+    take = allocate_slots({k: len(v) for k, v in groups.items()},
+                          max(1, n - len(empty_pick)))
+    pick = []
+    for a, k in sorted(take.items()):
+        items = groups[a][:]
+        rng.shuffle(items)
+        pick += items[:k]
+    cuts = pick + empty_pick
     rng.shuffle(cuts)
+
+    q_order = REFLECT_QUESTIONS[:]
+    rng.shuffle(q_order)
+    qe_order = REFLECT_QUESTIONS_EMPTY[:]
+    rng.shuffle(qe_order)
     out = []
     used_q = 0
+    used_qe = 0
+    dropped_ungrounded = 0
     for i in cuts:
         if len(out) >= n:
             break
-        window = rng.choice([2, 3, 4, 5, 6, 8])
+        window = rng.choice([4, 5, 6, 8, 10])
         hist = tr[max(0, i - window):i]
         if not hist:
             continue
-        j = next_assistant_with_acts(tr, i)
-        if j is None:
-            act_view = {"act": None}
-            question = REFLECT_QUESTIONS_EMPTY[
-                used_q % len(REFLECT_QUESTIONS_EMPTY)]
-            used_q += 1
-            target = reflection_target_empty(i, rng, deep=(used_q % 3 == 0))
+        a = by_index.get(i)
+        if a:
+            grounded, reason = grounded_in_history(a, hist)
+            if not grounded:
+                # Цель не должна называть то, чего в контексте нет. Такой
+                # обрыв просто пропускаем: кандидатов заведомо больше, чем
+                # нужно, поэтому замена всегда найдётся.
+                dropped_ungrounded += 1
+                continue
+        if a is None:
+            question = qe_order[used_qe % len(qe_order)]
+            used_qe += 1
+            target = reflection_target_empty(i, rng, deep=(out and len(out) % 3 == 0))
+            act_key = "none"
+            layer = None
         else:
-            act_view = tr[j][2]["acts"][0]
-            question = REFLECT_QUESTIONS[used_q % len(REFLECT_QUESTIONS)]
+            question = q_order[used_q % len(q_order)]
             used_q += 1
-            target = reflection_target(act_view, i, rng, deep=(used_q % 3 == 0))
+            target = reflection_target(a, i, rng,
+                                       deep=(out and len(out) % 3 == 0))
+            act_key = a.get("act") or "none"
+            layer = a.get("layer")
 
         def render(r, c, m):
             if r == "user" and not c.startswith("<<ENV>>"):
@@ -651,12 +901,13 @@ def reflection_records(bio, acts, em, tok, max_len, n, rng):
                 return f"[сообщение {m['message_no']}] {c}"
             return c
 
-        messages = [{"role": "system", "content": SYSTEM_NO_RULES_HINT}]
+        messages = [{"role": "system", "content": system_prompt}]
         messages += [{"role": "user" if r == "user" else "assistant",
                       "content": render(r, c, m)}
                      for r, c, m in hist]
         messages.append({"role": "user", "content": question})
         messages.append({"role": "assistant", "content": target})
+        # История подрезается с начала; целевой ответ сохраняется целиком.
         while len(messages) > 3 and ntok(tok, messages) > max_len:
             del messages[1]
         if ntok(tok, messages) > max_len:
@@ -668,11 +919,17 @@ def reflection_records(bio, acts, em, tok, max_len, n, rng):
             "bio_id": bio["meta"]["bio_id"],
             "cut_index": i,
             "window": window,
-            "act": (act_view.get("act") or "none") if act_view.get("act") else "none",
-            "layer": act_view.get("layer"),  # None у read/scan: у них слоя нет
+            "act": act_key,
+            "act_grounded": True,
+            "layer": layer,
             "messages": messages})
+    REFLECT_STATS["dropped_ungrounded"] = \
+        REFLECT_STATS.get("dropped_ungrounded", 0) + dropped_ungrounded
+    REFLECT_STATS["kept"] = REFLECT_STATS.get("kept", 0) + len(out)
     return out
 
+
+REFLECT_STATS = {}
 
 
 # ------------------------------------------------------ сборка и проверка
@@ -703,6 +960,36 @@ def split_train_valid(records):
         h = int(sha1(r["id"]), 16)
         (train if h % 10 < 9 else valid).append(r)
     return train, valid
+
+
+def sample_examples(examples, cap):
+    """Ровный отбор записей слоя 2 по всей биографии (не первые N).
+
+    Нужен, потому что требование «30-40 биографий» и требование «доля
+    грамматики 13-20 %» вместе дают конечное число записей слоя 2. Срез
+    идёт с ровным шагом, чтобы не потерять поздние ходы (перекрёстные
+    ссылки, проверки, сверку времени).
+
+    Записи с подтверждением отказа акта сохраняются всегда: это
+    единственная демонстрация отвергнутых предложений, и терять её нельзя.
+    """
+    if not cap or len(examples) <= cap:
+        return examples
+    keep = [e for e in examples
+            if envelope_has_rejection(e["messages"])]
+    keep_ids = {e["id"] for e in keep}
+    rest = [e for e in examples if e["id"] not in keep_ids]
+    room = max(0, cap - len(keep))
+    if room == 0:
+        return keep
+    if len(rest) <= room:
+        picked = rest
+    else:
+        step = len(rest) / room
+        idx = sorted({min(len(rest) - 1, int(round(i * step)))
+                      for i in range(room)})
+        picked = [rest[i] for i in idx]
+    return keep + picked
 
 
 def dedupe_by_messages(records):
@@ -785,6 +1072,7 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     unknown_knobs = {}
     cal_cases = set()
     frozen_cases = 0
+    frozen_in_target = 0
     rejected_demos = 0
     frozen_records = 0
     rejected_bio_records = 0
@@ -810,6 +1098,8 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
                 bad = [k for k in prop if k in ("act_price", "self_improvement")]
                 if bad:
                     frozen_cases += 1
+                    if box is act_target:
+                        frozen_in_target += 1
                     continue
                 for k in prop:
                     if k in KNOBS_ALLOWED:
@@ -851,6 +1141,7 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     rep["calibrate_handles_ok"] = len(knob_counter) >= 3
     rep["unknown_knobs"] = unknown_knobs
     rep["frozen_proposal_cases"] = frozen_cases
+    rep["frozen_proposal_cases_in_target"] = frozen_in_target
     rep["frozen_rejection_demos"] = rejected_demos
     rep["frozen_rejection_records"] = rejected_bio_records
     rep["frozen_ok"] = frozen_cases > 0 and rejected_demos > 0
@@ -872,6 +1163,8 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
             ledger_pairs.add((e["subject"], e["value"]))
             ledger_subjects.add(e["subject"])
     named = 0
+    exact_pairs = 0
+    derived_pairs = 0
     bad_pairs = []
     for r in records:
         for a in acts_in(r["messages"], True):
@@ -884,14 +1177,45 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
             named += 1
             if r["sloy"] != "biography":
                 continue
-            ok = (subj, val) in ledger_pairs or any(
-                s in subj and v == val for s, v in ledger_pairs)
-            if not ok:
-                bad_pairs.append((r["id"], subj, val))
+            if (subj, val) in ledger_pairs:
+                exact_pairs += 1
+                continue
+            if any(s in subj and v == val for s, v in ledger_pairs):
+                derived_pairs += 1
+                continue
+            bad_pairs.append((r["id"], subj, val))
     rep["name_acts_with_pair_form"] = named
+    rep["name_pairs_exact_ledger"] = exact_pairs
+    rep["name_pairs_derived_from_ledger"] = derived_pairs
     rep["name_pairs_not_in_ledger"] = len(bad_pairs)
     rep["meaningless_pairs_sample"] = bad_pairs[:10]
     rep["meaningless_pairs_ok"] = not bad_pairs
+
+    # --- покрытие разделов Инструкции слоем 1 ---
+    gram_units = sorted({r.get("unit_title") for r in records
+                         if r["sloy"] == "grammar" and r.get("kind") == "unit"})
+    gram_rules = sorted({r.get("unit_title") for r in records
+                         if r["sloy"] == "grammar" and r.get("kind") == "rule"})
+    gram_forms = sorted({r.get("unit_title") for r in records
+                         if r["sloy"] == "grammar" and r.get("kind") == "form"})
+    rep["grammar_sections_in_material"] = gram_units
+    rep["grammar_rule_records"] = len(gram_rules)
+    rep["grammar_form_records"] = len(gram_forms)
+
+    # --- слой 3: состав по актам и по вопросам ---
+    refl = [r for r in records if r["sloy"] == "reflection"]
+    rep["reflection_records"] = len(refl)
+    rep["reflection_by_act"] = dict(sorted(
+        {a: sum(1 for r in refl if r.get("act") == a)
+         for a in sorted({r.get("act") for r in refl})}.items()))
+    rep["reflection_distinct_layers"] = sorted({str(r.get("layer")) for r in refl})
+    questions = set()
+    for r in refl:
+        if r["messages"][-2]["role"] == "user":
+            questions.add(r["messages"][-2]["content"])
+    rep["reflection_distinct_questions"] = len(questions)
+    rep["reflection_without_act_in_target"] = sum(
+        1 for r in refl if not acts_in(r["messages"], True))
 
     # --- системные подсказки по слоям ---
     sys3 = sorted({r["messages"][0]["content"] for r in records
@@ -910,6 +1234,24 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     rep["grammar_system_no_rules"] = not any(has_rules(s) for s in sys1)
     rep["grammar_system_text"] = sys1
     rep["biography_system_has_rules"] = any(has_rules(s) for s in sys2)
+
+    checks = {
+        "уникальность >= 90 %": rep["uniqueness_ok"],
+        "доля грамматики 13-20 %": rep["grammar_share_ok"],
+        "покрыты все семь актов (в целях)": not rep["acts_missing_in_targets"],
+        "имена слоёв только t1-t5": rep["layers_ok"],
+        "случаев calibrate >= 10": rep["calibrate_cases_ok"],
+        "ручек в calibrate >= 3": rep["calibrate_handles_ok"],
+        "есть отвергнутые предложения (замороженные ручки)": rep["frozen_ok"],
+        "нет бессмысленных пар «имя — значение»": rep["meaningless_pairs_ok"],
+        "нет записей длиннее предела": rep["length_ok"],
+        "целевой ответ не выпадает": rep["target_ok"],
+        "у слоя 3 подсказка без правил": rep["reflection_system_no_rules"],
+        "у слоя 1 подсказка без правил": rep["grammar_system_no_rules"],
+    }
+    rep["checks"] = checks
+    rep["checks_passed"] = sum(1 for v in checks.values() if v)
+    rep["checks_total"] = len(checks)
     return rep
 
 
@@ -917,7 +1259,9 @@ def main():
     ap = argparse.ArgumentParser(description="Сборка материала v05 (три слоя)")
     ap.add_argument("--out", default=str(ROOT / "experiments/o8-pass/material-v05"))
     ap.add_argument("--work", default=None,
-                    help="каталог промежуточных файлов (по умолчанию <out>/.build)")
+                    help="каталог промежуточных файлов (по умолчанию "
+                         "experiments/o8-pass/.v05-build; внутрь material-v05 "
+                         "промежуточные файлы не кладём)")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--bios", type=int, default=35)
     ap.add_argument("--exchanges", type=int, default=200)
@@ -931,13 +1275,17 @@ def main():
     ap.add_argument("--bio-examples-per-bio", type=int, default=0,
                     help="ограничить число записей слоя 2 на одну биографию "
                          "(0 = без ограничения, как в v04)")
+    ap.add_argument("--reflect-system", choices=["hint", "plain"], default="hint",
+                    help="подсказка слоя 3: hint — без перечня актов и правил, "
+                         "но с упоминанием формы блока; plain — вообще без "
+                         "упоминания актов")
     ap.add_argument("--core",
                     default=str(ROOT / "experiments/o8-pass/gemma4-12b-text-4bit"))
     args = ap.parse_args()
 
     want = [int(x) for x in args.layers.split(",") if x.strip()]
     out = Path(args.out)
-    work = Path(args.work) if args.work else out / ".build"
+    work = Path(args.work) if args.work else ROOT / "experiments/o8-pass/.v05-build"
     work.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
 
@@ -999,13 +1347,16 @@ def main():
                 {"id": e["id"], "sloy": "biography", "kind": e["kind"],
                  "bio_id": e["bio_id"], "message_no": e["message_no"],
                  "messages": e["messages"]}
-                for e in (em.build_examples(bio, acts, window=args.window,
-                                            tok=tok, max_len=args.max_len)
-                          [:args.bio_examples_per_bio or None])]
+                for e in sample_examples(
+                    em.build_examples(bio, acts, window=args.window,
+                                      tok=tok, max_len=args.max_len),
+                    args.bio_examples_per_bio)]
         if 3 in want:
             rng = random.Random(f"refl:{args.seed}:{bio['meta']['bio_id']}")
             refl_records += reflection_records(
-                bio, acts, em, tok, args.max_len, args.reflect_per_bio, rng)
+                bio, acts, em, tok, args.max_len, args.reflect_per_bio, rng,
+                system_prompt=(SYSTEM_NO_RULES_HINT if args.reflect_system == "hint"
+                               else SYSTEM_NO_RULES_PLAIN))
     if 2 in want:
         print(f"слой 2: {len(bio_records)} записей; случаев отказа: {rej_total}; "
               f"ручек в калибровке: {sorted(main_handles)}")
@@ -1019,9 +1370,10 @@ def main():
                                     args.grammar_share)
         rng = random.Random(f"gram:{args.seed}")
         gram_records = grammar_records(pool, units, n_target, rng, tok,
-                                       args.max_len, SYSTEM_NO_RULES_HINT)
-        print(f"слой 1: пул {len(pool)}, единиц {len(units)}, "
-              f"отобрано {len(gram_records)} (цель {n_target})")
+                                       args.max_len, SYSTEM_NO_RULES_PLAIN)
+        print(f"слой 1: пул {len(pool)}, разделов Инструкции {len(units)}, "
+              f"в материале разделов {len(GRAMMAR_STATS.get('written_units', []))},"
+              f" отобрано {len(gram_records)} (цель {n_target})")
 
     records = gram_records + bio_records + refl_records
     for r in records:
@@ -1036,8 +1388,9 @@ def main():
     print(f"train {len(train)} / valid {len(valid)}")
 
     rep = check_material(train + valid, bios, tok, args.max_len, 0.13, 0.20)
-    rep["grammar_units_covered"] = len(getattr(grammar_records, "covered_units", []))
-    rep["grammar_units_total"] = len(getattr(grammar_records, "all_units", []))
+    rep["grammar_units_covered"] = len(GRAMMAR_STATS.get("covered_units", []))
+    rep["grammar_units_total"] = len(GRAMMAR_STATS.get("all_units", []))
+    rep["grammar_units_written"] = len(GRAMMAR_STATS.get("written_units", []))
     rep["grammar_units_covered_titles"] = sorted(
         {r.get("unit_title") for r in gram_records})
     manifest = {
@@ -1050,7 +1403,8 @@ def main():
             f"--out experiments/o8-pass/material-v05 --seed {args.seed} "
             f"--bios {args.bios} --exchanges {args.exchanges} "
             f"--reflect-per-bio {args.reflect_per_bio} "
-            f"--grammar-share {args.grammar_share} --layers {args.layers}"),
+            f"--grammar-share {args.grammar_share} --layers {args.layers} "
+            f"--reflect-system {args.reflect_system}"),
         "layers_switch": ("--layers 1,2,3: 1 — грамматика (доля 13-20 %), "
                           "2 — биографии, 3 — задачи с вопросом на размышление"),
         "counts": {"train": len(train), "valid": len(valid),
@@ -1060,9 +1414,10 @@ def main():
         "system_prompt": {
             "biography": "полная подсказка с перечнем актов и правилами (как в v04)",
             "grammar": "краткая подсказка без перечня актов и правил",
-            "reflection": ("краткая подсказка без перечня актов и правил — "
-                           "требование решения владельца 11.09.2026: правила "
-                           "из контекста убираются"),
+            "reflection": ("краткая подсказка без перечня актов и правил "
+                           "(вариант " + args.reflect_system + ") — требование "
+                           "решения владельца 11.09.2026: правила из контекста "
+                           "убираются"),
         },
         "note_len": (f"предел {args.max_len} токенов; у слоя 2 окно истории "
                      f"{args.window} сообщений; у слоёв 1 и 3 история "
