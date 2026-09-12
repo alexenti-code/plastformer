@@ -38,8 +38,8 @@ The context window, RAG, graphs, external tooling remain in place. PlastFormer a
 ### O-10. Layers are speeds, not places.
 A layer names a decay time constant τ, never a container, mailbox, or permission zone. One write deposits across the speed spectrum; nothing routes, hides, or prices by layer-as-location. The amplitude of a trace is a vector across the spectrum: each component decays as `a_i(n) = a_i(0)·exp(−Δn/τ_i)`, Δn in lived ticks. The loudness of a trace for surfacing is `(1+repeats)·Σ_i w_i·exp(−Δn/τ_i)`.
 
-### O-11. The content of the instance.
-Everything the instance lives through lives in Φ, as records the model itself creates. The core K carries general competence and holds no instance content of its own.
+### O-11. REMOVED (owner decision 2026-09-11).
+The article was about personal data and removal operations. That subject is out of the project: deleting a biography is not a task of the artifact. The claim that personal records live in Φ and not in the core is already stated in O-3 and tested by C1, so it needs no separate article. The number is kept so that references to the numbering stay correct.
 
 ---
 
@@ -83,7 +83,7 @@ On conflict: this Constitution > ADRs > preprint/protocol/specs/code. **A direct
 - O-8: replaces "Training builds capacity" (v2.1 O-8) per owner directive 2026-09-06: one instruction pass, not retraining.
 - O-9: SPEC ("addition, not a replacement"); owner directive 2026-09-05.
 - O-10: promoted from Compliance P3 per owner directive 2026-09-06 (a foundational postulate, not a test); THEORY §2.1; GLOSSARY Ax.6.
-- O-11: O-3 and ADR-005; the substantive part of the former O-11 is kept, the erasure and deletion mechanisms are removed by the owner decision of 2026-09-11.
+- O-11: the article is removed by the owner decision of 2026-09-11 (its subject — personal data and removal operations — is out of the project). The claim that records live in Φ stands in O-3 and C1.
 - C1–C8: v2.1 P1–P9 condensed.
 
 ## Origin of the 2026-09-12 revision
