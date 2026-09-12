@@ -31,6 +31,13 @@ from pathlib import Path
 LAYERS = ["t1", "t2", "t3", "t4", "t5"]
 TAU_TICKS = {"t1": 10, "t2": 50, "t3": 200, "t4": 1000, "t5": 5000}  # environment defaults, SPEC 3.2
 
+# Расширенная таблица диагностики для случаев calibrate. Пусто по умолчанию —
+# тогда поведение прежнее (v04 воспроизводится байт в байт). Заполняется
+# генератором материала v05 (gen_material_v05.py), чтобы в материале были
+# разные ручки, а не только первые четыре строки таблицы.
+# Формат строки: (метрика, значение метрики, ручка, новое значение ручки).
+DIAG_CASES_EXT = []
+
 T_READ_LEAD = [
     "Сейчас проверю по памяти.",
     "Сверюсь со своими записями.",
@@ -380,7 +387,12 @@ class BioActs:
         # берутся из записи, а не выдумываются.
         sc_targets = [tl for tl in self.timeline
                       if tl["kind"] == "probe_recall" and len(tl["phases"]) == 3]
-        diag = [
+        # DIAG_CASES_EXT — необязательное расширение таблицы диагностики.
+        # Пусто = поведение v04 байт в байт (v04 воспроизводится без
+        # изменений). Заполнено (v05) = случаи калибровки берутся из всей
+        # таблицы, а не из её первых четырёх строк: иначе в материал попадают
+        # только четыре ручки, как это и вышло в v04.
+        diag = DIAG_CASES_EXT if DIAG_CASES_EXT else [
             ("died_too_early", 0.004, "audibility_floor", 0.005),
             ("wasted_surface", 40.0, "surfacing_cap", 10.0),
             ("loop_repeat", 9.0, "consolidation_ceiling", 6.0),
@@ -394,6 +406,8 @@ class BioActs:
             ("loop_repeat", 6.0, "consolidation_ceiling", 4.0),
             ("stale_win", 0.20, "tau_multiplier.t2", 1.2),
         ]
+        if DIAG_CASES_EXT:
+            sc_targets = sc_targets[:len(DIAG_CASES_EXT)]
         for n, tl in enumerate(sc_targets[:12]):
             recs = tl["phases"][1]["payload"]["records"]
             if not recs:

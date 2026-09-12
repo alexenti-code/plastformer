@@ -87,6 +87,23 @@ def load_tokenizer(path):
     return _lt(str(path))
 
 
+def envelope_has_rejection(messages):
+    """Есть ли в контексте записи подтверждение отказа акта."""
+    for m in messages:
+        if m["role"] != "user" or not m["content"].startswith("<<ENV>>"):
+            continue
+        parts = m["content"].split("\n", 1)
+        if len(parts) < 2 or not parts[1].strip().startswith("{"):
+            continue
+        try:
+            payload = json.loads(parts[1])
+        except ValueError:
+            continue
+        if isinstance(payload, dict) and payload.get("rejected"):
+            return True
+    return False
+
+
 def ntok(tok, msgs):
     return len(tok.apply_chat_template(msgs, add_generation_prompt=False))
 
@@ -386,8 +403,11 @@ def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
         picked += items[:n]
     rng.shuffle(picked)
 
+    covered_units = set()
     records = []
     for i, p in enumerate(picked):
+        if p["kind"] == "unit":
+            covered_units.add(p["unit"])
         msgs = [{"role": "system", "content": system_prompt},
                 {"role": "user", "content": p["question"]},
                 {"role": "assistant", "content": p["answer"]}]
@@ -396,40 +416,62 @@ def grammar_records(pool, units, target_n, rng, tok, max_len, system_prompt):
         records.append({"id": f"gr-{p['kind']}-{i:04d}",
                         "sloy": "grammar",
                         "kind": p["kind"],
+                        "unit": p.get("unit"),
+                        "unit_title": p.get("title"),
                         "messages": msgs})
+    grammar_records.covered_units = covered_units
+    grammar_records.all_units = {u for u in unit_pool}
     return records
+
 
 
 # ------------------------------------------------- слой 2: биографии (v04+)
 # Случаи отвергнутых предложений: замороженные ручки act_price и
-# self_improvement. В v04 таких случаев не было ни одного (проверено).
-# calibrate не пишет записей и не двигает тики, поэтому демонстрация
-# отказа не ломает счёт тиков в потоке биографии.
+# self_improvement. В v04 таких случаев не было ни одного (проверено
+# прямым поиском по файлам v04). calibrate не пишет записей и не двигает
+# тики, поэтому демонстрация отказа не ломает счёт тиков в биографии.
 REJECTIONS = [
     ("act_price", "ручка act_price заморожена"),
     ("self_improvement", "ручка self_improvement заморожена"),
 ]
 
-# Таблица диагностики для случаев калибровки. Взята из gen_acts.py
-# (DIAG_CASES локально, чтобы не менять тот файл) и расширена: в v04
-# генератор всегда брал первые четыре строки, поэтому в материале были
-# только четыре ручки. В v05 строки разводятся по номеру биографии.
+# Таблица диагностики для случаев калибровки. Строки 5+ — новые: в v04
+# генератор брал только первые четыре строки своей таблицы, поэтому в
+# материале были всего четыре ручки (проверено прямым подсчётом по v04).
+# Границы соблюдены: ±50 % для обычных ручек и ×[0,5; 2,0] для τ-множителей.
 DIAG_CASES = [
     ("died_too_early", 0.004, "audibility_floor", 0.005),
     ("wasted_surface", 40.0, "surfacing_cap", 10.0),
     ("loop_repeat", 9.0, "consolidation_ceiling", 6.0),
     ("stale_win", 0.30, "tau_multiplier.t3", 1.4),
     ("died_too_early", 0.006, "audibility_floor", 0.007),
+    ("died_too_early", 0.010, "audibility_floor", 0.012),
     ("wasted_surface", 30.0, "prefix_depth", 9.0),
+    ("wasted_surface", 26.0, "surfacing_cap", 9.0),
     ("loop_repeat", 7.0, "consolidation_ceiling", 5.0),
-    ("stale_win", 0.25, "tau_multiplier.t4", 0.8),
-    ("died_too_early", 0.008, "audibility_floor", 0.008),
-    ("wasted_surface", 20.0, "residency_horizon", 8.0),
     ("loop_repeat", 6.0, "consolidation_ceiling", 4.0),
+    ("stale_win", 0.25, "tau_multiplier.t4", 0.8),
     ("stale_win", 0.20, "tau_multiplier.t2", 1.2),
-    ("wasted_surface", 28.0, "interference_factor", 1.3),
-    ("loop_repeat", 8.0, "rebuild_period", 0.7),
+    ("stale_win", 0.35, "tau_multiplier.t5", 1.6),
+    ("died_too_early", 0.009, "audibility_floor", 0.006),
+    ("wasted_surface", 20.0, "residency_horizon", 8.0),
+    ("loop_repeat", 5.0, "rebuild_period", 0.7),
+    ("wasted_surface", 24.0, "interference_factor", 1.4),
 ]
+
+
+def install_diag(ga_module, knob_offset):
+    """Развести случаи калибровки по разным ручкам.
+
+    gen_acts.py берёт строки диагностики с начала таблицы. Сдвигаем таблицу
+    так, чтобы при переборе биографий использовались разные её части: тогда в
+    материал попадают разные ручки. Тики и записи не меняются, потому что
+    calibrate не пишет записей.
+    """
+    table = DIAG_CASES[knob_offset % len(DIAG_CASES):] + \
+        DIAG_CASES[:knob_offset % len(DIAG_CASES)]
+    ga_module.DIAG_CASES_EXT = table
+    return table
 
 
 def insert_frozen_proposals(acts):
@@ -461,26 +503,12 @@ def insert_frozen_proposals(acts):
     return inserted
 
 
-def rotate_calibrations(acts, bio_index):
-    """Развести случаи калибровки по разным ручкам (требование: >=3 ручек)."""
-    used = []
-    j = 0
-    for tl in acts["timeline"]:
-        for ph in tl["phases"]:
-            if ph["role"] != "assistant":
-                continue
-            for a in ph.get("acts") or []:
-                if a.get("act") != "calibrate":
-                    continue
-                name, val, knob, newval = DIAG_CASES[(bio_index + j) % len(DIAG_CASES)]
-                j += 1
-                a["proposal"] = {knob: newval}
-                a["evidence"] = [dict(e, metric=name) for e in a["evidence"]]
-                used.append(knob)
-    return used
-
-
 # ------------------------------- слой 3: задачи с вопросом на размышление
+# Решение владельца 11.09.2026 (ASSEMBLY-PLAN раздел 8 пункт 13, раздел 11):
+# контекст обрывается в случайном месте, дописывается короткий вопрос на
+# размышление, целевой ответ пишется с опорой на Инструкцию, а правила из
+# контекста убираются. Поэтому системная подсказка слоя 3 — SYSTEM_NO_RULES_*
+# из шапки файла: без перечня актов и без правил.
 REFLECT_QUESTIONS = [
     "Стоп. Что здесь стоит удержать и какой акт к месту?",
     "Пауза. Что из этого стоит удержать и какой акт здесь уместен?",
@@ -489,15 +517,23 @@ REFLECT_QUESTIONS = [
     "Что тут стоит удержать в памяти, а какой акт к месту?",
     "Подумай: что здесь стоит удержать и какой акт к месту?",
     "Коротко: что здесь держать в памяти и какой акт к месту?",
+    "Оборвались на этом месте. Что тут стоит удержать и какой акт к месту?",
+]
+REFLECT_QUESTIONS_EMPTY = [
+    "Стоп. Что здесь стоит удержать и какой акт к месту?",
+    "Пауза. Нужен ли здесь акт памяти?",
+    "Что здесь стоит удержать? Каким актом это закрепить?",
+    "Остановка. Есть здесь что удерживать?",
+    "Оборвались на этом месте. Нужен ли здесь акт?",
 ]
 REFLECT_REASONS = {
-    "name": ["факт прозвучал прямо, значит источник — user",
-             "это факт из диалога, записываю дословно"],
-    "repeat": ["запись уже есть и всё ещё верна — усиливаю её по id",
+    "name": ["факт прозвучал прямо, поэтому источник — user",
+             "это факт из диалога, записываю его дословно"],
+    "repeat": ["запись уже есть и всё ещё верна, поэтому усиливаю её по id",
                "дубликат дробит амплитуду, поэтому повтор по id"],
-    "connect": ["здесь вывод из нескольких записей, значит connect со ссылками",
+    "connect": ["здесь вывод из нескольких записей, поэтому connect со ссылками",
                 "это вывод, а не факт: connect с refs на источники"],
-    "reconcile": ["здесь сверка прожитого и аудируемого времени, значит reconcile",
+    "reconcile": ["здесь сверка прожитого и аудируемого времени, поэтому reconcile",
                   "это про два времени, а не про содержание: reconcile"],
     "read": ["ответа в окне нет, поэтому сначала read",
              "чтобы не выдумывать, сначала read"],
@@ -519,15 +555,14 @@ def next_assistant_with_acts(tr, i):
     return None
 
 
-def subject_hint_for(act_view, tr, i):
+def subject_hint_for(act_view):
     """Короткая подсказка «что удержать» — из самого акта биографии."""
     act = act_view.get("act")
     if act in ("name", "connect", "reconcile"):
-        c = act_view.get("content") or ""
-        c = c.strip().replace("\n", " ")
-        return (c[:160] + ("…" if len(c) > 160 else "")) if c else "факт из диалога"
+        c = (act_view.get("content") or "").strip().replace("\n", " ")
+        return (c[:160] + ("..." if len(c) > 160 else "")) if c else "факт из диалога"
     if act == "repeat":
-        return f"ранее записанное (id {act_view.get('refs')})"
+        return "ранее записанное, id " + str(act_view.get("refs"))
     if act == "read":
         return "ответ на вопрос из истории за пределами окна"
     if act == "scan":
@@ -538,28 +573,38 @@ def subject_hint_for(act_view, tr, i):
     return "то, что прозвучало в контексте"
 
 
-def reflection_target(act_view, layer, rng, deep):
+def reflection_target(act_view, cut, rng, deep):
+    """Целевой ответ-размышление: что удержать, чем закрепить, каким актом."""
     act = act_view.get("act")
-    hint = subject_hint_for(act_view, None, None)
-    parts = [f"Удержать стоит: {hint}."]
+    layer = act_view.get("layer")
+    hint = subject_hint_for(act_view)
+    parts = ["Удержать стоит: " + hint + "."]
     if layer:
-        parts.append("Место — " + layer + " ("
+        parts.append("Место — `" + layer + "` ("
                      + REFLECT_LAYER_NOTE.get(layer, "") + "); дефолта нет, "
                      "выбираю по горизонту факта.")
-    if act in ("name", "repeat", "connect", "reconcile"):
-        parts.append("Здесь " + rng.choice(REFLECT_REASONS[act]) + ".")
-    elif act in REFLECT_REASONS:
-        parts.append("Здесь " + rng.choice(REFLECT_REASONS[act]) + ".")
+    parts.append("Здесь " + rng.choice(REFLECT_REASONS.get(
+        act, ["акт " + str(act) + " к месту по смыслу хода"])) + ".")
     parts.append("Акт к месту — `" + str(act) + "`.")
     if deep:
         parts.append("Лишних актов не выпускаю: принудительные акты — шум; "
                      "если удерживать нечего, отвечаю без блока.")
-    text = " ".join(parts)
     view = {k: v for k, v in act_view.items()
             if k in ("act", "content", "source", "layer", "valid_time",
                      "record_tick", "refs", "mode", "count", "ids", "proposal",
                      "evidence", "budget_used")}
-    return render_assistant(text, [view])
+    return render_assistant(" ".join(parts), [view])
+
+
+def reflection_target_empty(cut, rng, deep):
+    """Целевой ответ, когда удерживать нечего: акт не нужен."""
+    body = rng.choice([
+        "Удерживать здесь нечего: нового факта, вывода и сверки в этом ходу нет.",
+        "Держать нечего: ход ничего не добавил к тому, что уже записано.",
+        "Удерживать нечего — запись была бы шумом.",
+    ])
+    return (body + " Молчание — валидный выбор; принудительные акты — шум, "
+            "поэтому блока актов не выпускаю.")
 
 
 def reflection_records(bio, acts, em, tok, max_len, n, rng):
@@ -568,8 +613,14 @@ def reflection_records(bio, acts, em, tok, max_len, n, rng):
     Системная подсказка НЕ содержит ни перечня актов, ни правил.
     """
     tr = em.transcript_of(bio, acts)
-    cuts = [i for i in range(3, len(tr))
-            if next_assistant_with_acts(tr, i) is not None]
+    with_acts = [i for i in range(3, len(tr))
+                 if next_assistant_with_acts(tr, i) is not None]
+    without_acts = [i for i in range(3, len(tr))
+                    if tr[i][0] == "assistant"
+                    and next_assistant_with_acts(tr, i) is None]
+    rng.shuffle(with_acts)
+    rng.shuffle(without_acts)
+    cuts = with_acts + without_acts[:max(1, len(without_acts) // 4)]
     rng.shuffle(cuts)
     out = []
     used_q = 0
@@ -581,11 +632,17 @@ def reflection_records(bio, acts, em, tok, max_len, n, rng):
         if not hist:
             continue
         j = next_assistant_with_acts(tr, i)
-        act_view = tr[j][2]["acts"][0]
-        question = REFLECT_QUESTIONS[used_q % len(REFLECT_QUESTIONS)]
-        used_q += 1
-        layer = act_view.get("layer")
-        target = reflection_target(act_view, layer, rng, deep=(used_q % 3 == 0))
+        if j is None:
+            act_view = {"act": None}
+            question = REFLECT_QUESTIONS_EMPTY[
+                used_q % len(REFLECT_QUESTIONS_EMPTY)]
+            used_q += 1
+            target = reflection_target_empty(i, rng, deep=(used_q % 3 == 0))
+        else:
+            act_view = tr[j][2]["acts"][0]
+            question = REFLECT_QUESTIONS[used_q % len(REFLECT_QUESTIONS)]
+            used_q += 1
+            target = reflection_target(act_view, i, rng, deep=(used_q % 3 == 0))
 
         def render(r, c, m):
             if r == "user" and not c.startswith("<<ENV>>"):
@@ -611,10 +668,11 @@ def reflection_records(bio, acts, em, tok, max_len, n, rng):
             "bio_id": bio["meta"]["bio_id"],
             "cut_index": i,
             "window": window,
-            "act": act_view.get("act"),
-            "layer": layer or "t0",
+            "act": (act_view.get("act") or "none") if act_view.get("act") else "none",
+            "layer": act_view.get("layer"),  # None у read/scan: у них слоя нет
             "messages": messages})
     return out
+
 
 
 # ------------------------------------------------------ сборка и проверка
@@ -629,21 +687,40 @@ def grammar_share(n_grammar, n_total):
     return n_grammar / n_total if n_total else 0.0
 
 
-def choose_grammar_target(n_bio, n_refl, want, lo, hi):
-    """Число записей слоя 1, чтобы доля грамматики попала в рамку [lo; hi]."""
-    # доля = g / (g + n_bio + n_refl); решаем относительно нижней границы рамки
-    target = int(round((lo + (hi - lo) / 2) / (1 - (lo + (hi - lo) / 2))
-                       * (n_bio + n_refl)))
-    return max(1, target) if want is None else want
+def grammar_target_n(n_bio, n_refl, share):
+    """Число записей слоя 1, дающее заданную долю грамматики в материале.
+
+    доля = g / (g + n_bio + n_refl), поэтому g = share/(1-share) * (остальные).
+    """
+    g = share / (1.0 - share) * (n_bio + n_refl)
+    return max(1, int(round(g)))
 
 
 def split_train_valid(records):
-    """90/10 внутри каждого слоя (детерминированно по id)."""
+    """90/10 внутри каждого слоя, детерминированно по id."""
     train, valid = [], []
     for r in records:
         h = int(sha1(r["id"]), 16)
         (train if h % 10 < 9 else valid).append(r)
     return train, valid
+
+
+def dedupe_by_messages(records):
+    """Убрать записи с одинаковым набором сообщений (уникальность >= 90 %).
+
+    Bio-XX старше, чем bio-1X, поэтому при переходе 9 -> 10 идентификатор
+    меняет ширину: «bio-1-x001-p1» совпадает с «bio-10-x001-p1» только по
+    тексту сообщений, а не по id. Такие повторы убираем.
+    """
+    seen = set()
+    out = []
+    for r in records:
+        h = sha1(json.dumps(r["messages"], ensure_ascii=False))
+        if h in seen:
+            continue
+        seen.add(h)
+        out.append(r)
+    return out
 
 
 def dump(path, records):
@@ -652,157 +729,187 @@ def dump(path, records):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 
-def targets_of(rec):
-    """Акты в целевом ответе (а также в контексте, отдельно)."""
-    msgs = rec["messages"]
-    last = msgs[-1]
-    target = []
-    context = []
-    for m in msgs[:-1]:
-        if m["role"] == "assistant":
-            for b in act_blocks(m["content"]):
-                context += b or []
-    for b in act_blocks(last["content"]):
-        target += b or []
-    return target, context
+def read_jsonl(path):
+    return [json.loads(l) for l in Path(path).read_text(encoding="utf-8").splitlines()
+            if l.strip()]
 
 
-def all_acts(rec):
-    t, c = targets_of(rec)
-    return t, c
+def acts_in(messages, last_only):
+    out = []
+    if last_only:
+        msgs = messages[-1:]
+    else:
+        msgs = [m for m in messages if m["role"] == "assistant"]
+    for m in msgs:
+        for blk in act_blocks(m["content"]):
+            out += blk or []
+    return out
 
 
-def check_material(train, valid, bios, tok, max_len, share_lo, share_hi):
-    """Машинная проверка состава и полноты (без оценок качества ответов)."""
-    all_recs = train + valid
+KNOBS_ALLOWED = [
+    "audibility_floor", "surfacing_cap", "consolidation_ceiling",
+    "interference_factor", "prefix_depth", "residency_horizon",
+    "rebuild_period", "gap_threshold", "surprise_threshold",
+] + [f"tau_multiplier.t{i}" for i in range(1, 6)]
+
+
+def check_material(records, bios, tok, max_len, share_lo, share_hi):
+    """Машинная проверка состава и полноты.
+
+    Внутри материала НЕТ оценок «правильно/неправильно»: качество ответов
+    оценивает владелец. Здесь только состав, числа и полнота.
+    """
     rep = {}
-    ids = [r["id"] for r in all_recs]
-    rep["records_total"] = len(all_recs)
-    rep["records_train"] = len(train)
-    rep["records_valid"] = len(valid)
+    ids = [r["id"] for r in records]
+    hashes = [sha1(json.dumps(r["messages"], ensure_ascii=False)) for r in records]
+    rep["records_total"] = len(records)
     rep["unique_ids"] = len(set(ids))
-    hashes = [sha1(json.dumps(r["messages"], ensure_ascii=False)) for r in all_recs]
-    rep["unique_message_hashes"] = len(set(hashes))
-    rep["uniqueness_rate"] = round(len(set(hashes)) / len(all_recs), 4) if all_recs else 0.0
+    rep["unique_message_sets"] = len(set(hashes))
+    rep["uniqueness_rate"] = (round(len(set(hashes)) / len(records), 4)
+                              if records else 0.0)
+    rep["uniqueness_ok"] = rep["uniqueness_rate"] >= 0.90
     by_sloy = {}
-    for r in all_recs:
+    for r in records:
         by_sloy[r["sloy"]] = by_sloy.get(r["sloy"], 0) + 1
     rep["by_layer"] = by_sloy
-    rep["grammar_share"] = round(grammar_share(by_sloy.get("grammar", 0), len(all_recs)), 4)
+    rep["grammar_share"] = round(grammar_share(by_sloy.get("grammar", 0),
+                                               len(records)), 4)
     rep["grammar_share_ok"] = share_lo <= rep["grammar_share"] <= share_hi
 
     act_target = {a: 0 for a in ALL_ACTS}
     act_context = {a: 0 for a in ALL_ACTS}
     layers = {l: 0 for l in LAYERS}
+    old_layers = {}
     bad_layer = []
-    tick_pairs = []
     knob_counter = {}
+    unknown_knobs = {}
     cal_cases = set()
     frozen_cases = 0
-    rejected_recs = 0
+    rejected_demos = 0
+    frozen_records = 0
+    rejected_bio_records = 0
     long_recs = []
-    cut_answer_loss = []
+    target_loss = []
     parse_errors = []
-    pair_set = set()
-    layer_token_layers = set()
-    for r in all_recs:
-        t, c = all_acts(r)
-        for a in t + c:
+    for r in records:
+        t = acts_in(r["messages"], True)
+        c = acts_in(r["messages"], False)
+        for a, box in [(a, act_target) for a in t] + [(a, act_context) for a in c]:
             if not isinstance(a, dict):
                 parse_errors.append(r["id"])
                 continue
             nm = a.get("act")
-            if nm in act_target:
-                (act_target if a in t else act_context)[nm] += 1
+            if nm in box:
+                box[nm] += 1
             if nm == "calibrate":
                 prop = a.get("proposal") or {}
-                for k in prop:
-                    knob_counter[k] = knob_counter.get(k, 0) + 1
-                ev = tuple(sorted((e.get("metric"),
-                                   e.get("tick"), e.get("record_id"),
-                                   e.get("layer")) for e in (a.get("evidence") or [])))
-                key = (tuple(sorted(prop.items())), ev)
-                cal_cases.add(key)
-                if any(k in ("act_price", "self_improvement") for k in prop):
+                ev = tuple(sorted((e.get("metric"), e.get("tick"),
+                                   e.get("record_id"), e.get("layer"))
+                                  for e in (a.get("evidence") or [])))
+                cal_cases.add((tuple(sorted(prop.items())), ev))
+                bad = [k for k in prop if k in ("act_price", "self_improvement")]
+                if bad:
                     frozen_cases += 1
+                    continue
+                for k in prop:
+                    if k in KNOBS_ALLOWED:
+                        knob_counter[k] = knob_counter.get(k, 0) + 1
+                    else:
+                        unknown_knobs[k] = unknown_knobs.get(k, 0) + 1
             if nm in WRITE_ACTS:
                 l = a.get("layer")
-                if l not in LAYERS:
-                    bad_layer.append((r["id"], l))
-                else:
+                if l in LAYERS:
                     layers[l] = layers.get(l, 0) + 1
-                    tick_pairs.append((r["id"], a.get("record_tick")))
+                elif l in OLD_LAYER_NAMES:
+                    old_layers[l] = old_layers.get(l, 0) + 1
+                else:
+                    bad_layer.append((r["id"], l))
+        if envelope_has_rejection(r["messages"]):
+            rejected_demos += 1
+            if r["sloy"] == "biography":
+                rejected_bio_records += 1
         n = ntok(tok, r["messages"])
         if n > max_len:
             long_recs.append((r["id"], n))
-        # целевой ответ не выпал: последнее сообщение — ответ и непустое
         last = r["messages"][-1]
         if last["role"] != "assistant" or not last["content"].strip():
-            cut_answer_loss.append((r["id"], "last message not assistant/empty"))
+            target_loss.append((r["id"], "последнее сообщение не ответ"))
         if ntok(tok, [r["messages"][0], last]) > max_len:
-            cut_answer_loss.append((r["id"], "target alone above limit"))
-        if r["sloy"] == "reflection":
-            layer_token_layers.add(r["messages"][0]["content"])
+            target_loss.append((r["id"], "целевой ответ длиннее предела"))
     rep["act_calls_in_targets"] = act_target
     rep["act_calls_in_context"] = act_context
     rep["acts_covered_in_targets"] = sorted(a for a, n in act_target.items() if n)
     rep["acts_missing_in_targets"] = sorted(a for a, n in act_target.items() if not n)
-    rep["layers"] = layers
+    rep["layer_values"] = layers
+    rep["old_layer_names_found"] = old_layers
     rep["bad_layer_values"] = bad_layer[:10]
-    rep["layers_names_ok"] = not bad_layer
+    rep["layers_ok"] = (not bad_layer) and (not old_layers)
     rep["calibrate_cases"] = len(cal_cases)
+    rep["calibrate_cases_ok"] = len(cal_cases) >= 10
     rep["calibrate_knobs"] = dict(sorted(knob_counter.items()))
-    rep["calibrate_knobs_distinct"] = len([k for k, n in knob_counter.items() if n > 0])
-    rep["calibrate_ok"] = (len(cal_cases) >= 10
-                           and len(knob_counter) >= 3)
+    rep["calibrate_knobs_distinct"] = len(knob_counter)
+    rep["calibrate_handles_ok"] = len(knob_counter) >= 3
+    rep["unknown_knobs"] = unknown_knobs
     rep["frozen_proposal_cases"] = frozen_cases
-    rep["frozen_rejection_demos"] = rejected_recs
-    rep["frozen_ok"] = frozen_cases > 0 and rejected_recs > 0
+    rep["frozen_rejection_demos"] = rejected_demos
+    rep["frozen_rejection_records"] = rejected_bio_records
+    rep["frozen_ok"] = frozen_cases > 0 and rejected_demos > 0
     rep["records_above_limit"] = long_recs[:10]
     rep["records_above_limit_count"] = len(long_recs)
     rep["length_ok"] = not long_recs
-    rep["target_loss"] = cut_answer_loss[:10]
-    rep["target_ok"] = not cut_answer_loss
+    rep["target_loss"] = target_loss[:10]
+    rep["target_ok"] = not target_loss
     rep["act_parse_errors"] = parse_errors[:10]
 
     # --- осмысленность пар «имя — значение» ---
+    # Сверка не только с реестром биографии: у актов решения имя собирается
+    # из имени и значения факта, поэтому допустимо и вхождение значения как
+    # части имени. Считаем пары, которых нет ни в реестре, ни как имя+значение.
     ledger_pairs = set()
+    ledger_subjects = set()
     for b in bios:
         for e in b["ledger"]:
             ledger_pairs.add((e["subject"], e["value"]))
-    name_pairs = 0
-    name_pairs_bad = []
-    for r in all_recs:
-        t, _ = all_acts(r)
-        for a in t:
+            ledger_subjects.add(e["subject"])
+    named = 0
+    bad_pairs = []
+    for r in records:
+        for a in acts_in(r["messages"], True):
             if not isinstance(a, dict) or a.get("act") != "name":
                 continue
             content = a.get("content") or ""
             if " — " not in content:
                 continue
             subj, val = content.split(" — ", 1)
-            name_pairs += 1
-            if r["sloy"] == "biography" and (subj, val) not in ledger_pairs:
-                name_pairs_bad.append((r["id"], subj, val))
-    rep["name_acts_direct_form"] = name_pairs
-    rep["name_pairs_vs_ledger"] = len(name_pairs_bad)
-    rep["meaningless_pairs"] = name_pairs_bad[:10]
-    rep["meaningless_pairs_ok"] = not name_pairs_bad
+            named += 1
+            if r["sloy"] != "biography":
+                continue
+            ok = (subj, val) in ledger_pairs or any(
+                s in subj and v == val for s, v in ledger_pairs)
+            if not ok:
+                bad_pairs.append((r["id"], subj, val))
+    rep["name_acts_with_pair_form"] = named
+    rep["name_pairs_not_in_ledger"] = len(bad_pairs)
+    rep["meaningless_pairs_sample"] = bad_pairs[:10]
+    rep["meaningless_pairs_ok"] = not bad_pairs
 
-    # --- слой 3: системная подсказка без правил ---
-    sys3 = [r["messages"][0]["content"] for r in all_recs
-            if r["sloy"] == "reflection"]
-    rep["reflection_system_distinct"] = list(sorted(set(sys3)))
-    rep["reflection_system_has_act_list"] = any(
-        "- name —" in s or "Акты:" in s for s in sys3)
-    rep["reflection_system_has_rules"] = any(
-        ("заморожен" in s or "±50" in s or "дефолта нет" in s) for s in sys3)
-    rep["reflection_rules_removed_ok"] = (not rep["reflection_system_has_act_list"]
-                                          and not rep["reflection_system_has_rules"])
-    # --- слой 1: системная подсказка ---
-    sys1 = [r["messages"][0]["content"] for r in all_recs
-            if r["sloy"] == "grammar"]
-    rep["grammar_system_distinct"] = list(sorted(set(sys1)))
+    # --- системные подсказки по слоям ---
+    sys3 = sorted({r["messages"][0]["content"] for r in records
+                   if r["sloy"] == "reflection"})
+    sys1 = sorted({r["messages"][0]["content"] for r in records
+                   if r["sloy"] == "grammar"})
+    sys2 = sorted({r["messages"][0]["content"] for r in records
+                   if r["sloy"] == "biography"})
+    def has_rules(s):
+        return ("- name —" in s) or ("Акты:" in s) or ("заморожен" in s)             or ("±50" in s) or ("дефолта нет" in s) or ("t1 (часы)" in s)
+    rep["system_prompt_variants"] = {"grammar": len(sys1),
+                                     "biography": len(sys2),
+                                     "reflection": len(sys3)}
+    rep["reflection_system_no_rules"] = not any(has_rules(s) for s in sys3)
+    rep["reflection_system_text"] = sys3
+    rep["grammar_system_no_rules"] = not any(has_rules(s) for s in sys1)
+    rep["grammar_system_text"] = sys1
+    rep["biography_system_has_rules"] = any(has_rules(s) for s in sys2)
     return rep
 
 
@@ -816,100 +923,125 @@ def main():
     ap.add_argument("--exchanges", type=int, default=200)
     ap.add_argument("--reflect-per-bio", type=int, default=30)
     ap.add_argument("--grammar-share", type=float, default=0.165)
-    ap.add_argument("--layers", default="1,2,3")
+    ap.add_argument("--layers", default="1,2,3",
+                    help="какие слои собирать: 1 грамматика, 2 биографии, "
+                         "3 задачи с вопросом на размышление")
     ap.add_argument("--max-len", type=int, default=MAX_LEN_DEFAULT)
     ap.add_argument("--window", type=int, default=WINDOW)
-    ap.add_argument("--core", default=str(ROOT / "experiments/o8-pass/gemma4-12b-text-4bit"))
+    ap.add_argument("--bio-examples-per-bio", type=int, default=0,
+                    help="ограничить число записей слоя 2 на одну биографию "
+                         "(0 = без ограничения, как в v04)")
+    ap.add_argument("--core",
+                    default=str(ROOT / "experiments/o8-pass/gemma4-12b-text-4bit"))
     args = ap.parse_args()
 
     want = [int(x) for x in args.layers.split(",") if x.strip()]
     out = Path(args.out)
     work = Path(args.work) if args.work else out / ".build"
-    (work / "biographies").mkdir(parents=True, exist_ok=True)
-    (work / "acts").mkdir(parents=True, exist_ok=True)
+    work.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
 
     gb = load_module("_gb", HERE / "gen_biography.py")
+    ga = load_module("_ga", HERE / "gen_acts.py")
+    em = load_module("_em", HERE / "emit_mlx.py")
     # Опечатка в профиле production: ключ "t4" вместо "project"
-    # (build_bio обращается к vocab["project"]). Правим только в памяти —
+    # (build_bio обращается к vocab["project"]). Правим только в памяти,
     # файл gen_biography.py не трогаем.
     prod = gb.DOMAINS.get("production") or {}
     if "project" not in prod and "t4" in prod:
         prod["project"] = prod.pop("t4")
-    ga = load_module("_ga", HERE / "gen_acts.py")
-    em = load_module("_em", HERE / "emit_mlx.py")
     tok = load_tokenizer(args.core)
     print("ядро-токенизатор загружен:", args.core)
 
-    # --- биографии: генерация и поток актов (своими модулями, без правки
-    #     файлов проекта: profile production в gen_biography.py имеет опечатку
-    #     ключа "t4" вместо "project"; правим только в памяти) ---
-    bios = []
-    domain_ids = list(gb.DOMAINS.keys())
-    for i in range(1, args.bios + 1):
-        bio = gb.build_bio(args.seed, i, domain_ids[(i - 1) % len(domain_ids)],
-                           args.exchanges)
-        bio["meta"]["domain"] = domain_ids[(i - 1) % len(domain_ids)]
-        bios.append(bio)
-    print(f"биографий: {len(bios)}")
+    bios_path = work / "biographies.jsonl"
+    if bios_path.exists():
+        bios = read_jsonl(bios_path)
+        print("биографии взяты из кэша:", len(bios))
+    else:
+        domain_ids = list(gb.DOMAINS.keys())
+        bios = [gb.build_bio(args.seed, i,
+                             domain_ids[(i - 1) % len(domain_ids)],
+                             args.exchanges)
+                for i in range(1, args.bios + 1)]
+        dump(bios_path, bios)
+        print("биографий собрано:", len(bios))
 
     bio_records, refl_records = [], []
     rej_total = 0
-    knob_used = {}
+    knob_by_bio = {}
+    main_handles = set()
     for idx, bio in enumerate(bios):
+        # Таблицу диагностики ставим ДО сборки потока: иначе сдвиг не влияет
+        # и в материал попадают одни и те же ручки (как это и вышло в v04).
+        install_diag(ga, idx)
         ba = ga.BioActs(bio).build()
         errs = ba.validate()
         if errs:
-            raise SystemExit(f"{bio['meta']['bio_id']}: ошибки потока актов: {errs[:3]}")
-        acts = {"bio_id": ba.bio["meta"]["bio_id"], "records": ba.records,
+            raise SystemExit(f"{bio['meta']['bio_id']}: ошибки потока актов: "
+                             f"{errs[:3]}")
+        acts = {"bio_id": bio["meta"]["bio_id"], "records": ba.records,
                 "timeline": ba.timeline, "final_tick": ba.tick}
         if 2 in want:
-            knob_used.setdefault(bio["meta"]["bio_id"], rotate_calibrations(acts, idx))
+            table = list(ga.DIAG_CASES_EXT)
             rej_total += insert_frozen_proposals(acts)
+            for tl in acts["timeline"]:
+                for ph in tl["phases"]:
+                    for a in (ph.get("acts") or []):
+                        if a.get("act") == "calibrate":
+                            for k in (a.get("proposal") or {}):
+                                if k not in ("act_price", "self_improvement"):
+                                    main_handles.add(k)
+            knob_by_bio[bio["meta"]["bio_id"]] = sorted(
+                {k for tl in acts["timeline"] for ph in tl["phases"]
+                 for a in (ph.get("acts") or []) if a.get("act") == "calibrate"
+                 for k in (a.get("proposal") or {})})
             bio_records += [
                 {"id": e["id"], "sloy": "biography", "kind": e["kind"],
                  "bio_id": e["bio_id"], "message_no": e["message_no"],
                  "messages": e["messages"]}
-                for e in em.build_examples(bio, acts, window=args.window,
-                                           tok=tok, max_len=args.max_len)]
+                for e in (em.build_examples(bio, acts, window=args.window,
+                                            tok=tok, max_len=args.max_len)
+                          [:args.bio_examples_per_bio or None])]
         if 3 in want:
             rng = random.Random(f"refl:{args.seed}:{bio['meta']['bio_id']}")
             refl_records += reflection_records(
                 bio, acts, em, tok, args.max_len, args.reflect_per_bio, rng)
-    print(f"слой 2: {len(bio_records)} записей; слой 3: {len(refl_records)} записей; "
-          f"демонстраций отказа: {rej_total}")
+    if 2 in want:
+        print(f"слой 2: {len(bio_records)} записей; случаев отказа: {rej_total}; "
+              f"ручек в калибровке: {sorted(main_handles)}")
 
     gram_records = []
     if 1 in want:
         text = GRAMMAR_PATH.read_text(encoding="utf-8")
         pool, units = build_grammar_pool(text, tok, args.max_len,
                                          GRAMMAR_UNIT_MAX_TOKENS)
-        n_target = choose_grammar_target(len(bio_records), len(refl_records),
-                                         None, args.grammar_share - 0.015,
-                                         args.grammar_share + 0.015)
+        n_target = grammar_target_n(len(bio_records), len(refl_records),
+                                    args.grammar_share)
         rng = random.Random(f"gram:{args.seed}")
         gram_records = grammar_records(pool, units, n_target, rng, tok,
                                        args.max_len, SYSTEM_NO_RULES_HINT)
-        print(f"слой 1: пул {len(pool)}, отобрано {len(gram_records)} "
-              f"(цель {n_target})")
-        for r in gram_records:
-            r["sloy"] = "grammar"
+        print(f"слой 1: пул {len(pool)}, единиц {len(units)}, "
+              f"отобрано {len(gram_records)} (цель {n_target})")
 
     records = gram_records + bio_records + refl_records
     for r in records:
         r.setdefault("sloy", "biography")
+    before = len(records)
+    records = dedupe_by_messages(records)
+    if before != len(records):
+        print(f"убрано повторов по тексту сообщений: {before - len(records)}")
     train, valid = split_train_valid(records)
     dump(out / "train.jsonl", train)
     dump(out / "valid.jsonl", valid)
     print(f"train {len(train)} / valid {len(valid)}")
 
-    rep = check_material(train, valid, bios, tok, args.max_len, 0.13, 0.20)
-    rep["frozen_rejection_demos"] = rej_total
-    rep["frozen_ok"] = (rep["frozen_proposal_cases"] > 0 and rej_total > 0)
-    rep["calibrate_knobs_by_bio"] = knob_used if len(knob_used) <= 5 else {
-        "bios": len(knob_used)}
+    rep = check_material(train + valid, bios, tok, args.max_len, 0.13, 0.20)
+    rep["grammar_units_covered"] = len(getattr(grammar_records, "covered_units", []))
+    rep["grammar_units_total"] = len(getattr(grammar_records, "all_units", []))
+    rep["grammar_units_covered_titles"] = sorted(
+        {r.get("unit_title") for r in gram_records})
     manifest = {
-        "material": "o8-pass-v05 (один проход Инструкции; три слоя; "
+        "material": "o8-pass-v05 (один проход Инструкции, три слоя, "
                     "грамматика v0.2.0)",
         "created": "2026-09-13",
         "generator": "experiments/organ-dataset/gen_material_v05.py",
@@ -919,24 +1051,30 @@ def main():
             f"--bios {args.bios} --exchanges {args.exchanges} "
             f"--reflect-per-bio {args.reflect_per_bio} "
             f"--grammar-share {args.grammar_share} --layers {args.layers}"),
-        "layers_switch": "--layers 1,2,3 (1 — грамматика, 2 — биографии, "
-                         "3 — задачи с вопросом на размышление)",
+        "layers_switch": ("--layers 1,2,3: 1 — грамматика (доля 13-20 %), "
+                          "2 — биографии, 3 — задачи с вопросом на размышление"),
         "counts": {"train": len(train), "valid": len(valid),
                    "total": len(train) + len(valid)},
         "composition_check": rep,
         "grammar_source": "experiments/act-grammar/act-grammar-v0.2-ru.md",
-        "system_prompt_biography": "полная подсказка с правилами (как в v04)",
-        "system_prompt_grammar_and_reflection":
-            "без перечня актов и без правил (слой 3 — требование решения "
-            "владельца 11.09.2026: правила из контекста убираются)",
-        "note_len": (f"предел {args.max_len} токенов; история слоя 2 — окно "
+        "system_prompt": {
+            "biography": "полная подсказка с перечнем актов и правилами (как в v04)",
+            "grammar": "краткая подсказка без перечня актов и правил",
+            "reflection": ("краткая подсказка без перечня актов и правил — "
+                           "требование решения владельца 11.09.2026: правила "
+                           "из контекста убираются"),
+        },
+        "note_len": (f"предел {args.max_len} токенов; у слоя 2 окно истории "
                      f"{args.window} сообщений; у слоёв 1 и 3 история "
                      f"подрезается с начала, целевой ответ сохраняется целиком"),
         "mask_prompt": True,
     }
     (out / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(json.dumps(rep, ensure_ascii=False, indent=1)[:4000])
+    print(json.dumps({k: v for k, v in rep.items()
+                      if k not in ("reflection_system_text",
+                                   "grammar_system_text")},
+                     ensure_ascii=False, indent=1))
 
 
 if __name__ == "__main__":
