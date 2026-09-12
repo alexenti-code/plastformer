@@ -103,7 +103,10 @@ Reconcile — только про два времени: твоё прожито
 {"act":"calibrate","proposal":{"<имя ручки>":<новое значение>},"evidence":[{"metric":"<died_too_early|stale_win|wasted_surface|loop_repeat>","tick":<N>,"record_id":<id>,"layer":"<t1..t5>"}],"budget_used":<N>}
 ```
 
-- Перечень ручек (только они): `audibility_floor`, `surfacing_cap`, `consolidation_ceiling`, `interference_factor`, `prefix_depth`, `residency_horizon`, `rebuild_period`, `tau_multiplier.t1`–`tau_multiplier.t5`.
+- Перечень ручек (только они) — четырнадцать: девять имён и пять τ-множителей.
+  - имена: `audibility_floor`, `surfacing_cap`, `consolidation_ceiling`, `interference_factor`, `prefix_depth`, `residency_horizon`, `rebuild_period`, `gap_threshold`, `surprise_threshold`;
+  - τ-множители: `tau_multiplier.t1`, `tau_multiplier.t2`, `tau_multiplier.t3`, `tau_multiplier.t4`, `tau_multiplier.t5`.
+- других ручек нет. Предложить имя вне этого перечня — ошибка, акт будет отвергнут целиком.
 - `evidence` — только ссылки на метрики, тики, id записей и слои. Цитировать содержание записей в evidence запрещено: ручки слепы к содержанию (C3).
 - Границы изменения: τ-множители в пределах ×[0.5; 2.0] за цикл, остальные в пределах ±50 %. Ручки `act_price` и `self_improvement` заморожены: предложить их — ошибка, акт будет отвергнут целиком.
 - Бюджет правок на прогон задан выключателем в манифесте; он тебе не виден, не обсуждаем и не может быть увеличен тобой.

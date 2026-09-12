@@ -5,54 +5,54 @@
  "rebuild_command": "python3 experiments/organ-dataset/gen_material_v05.py --out experiments/o8-pass/material-v05 --seed 42 --bios 38 --exchanges 200 --reflect-per-bio 30 --grammar-share 0.165 --layers 1,2,3 --reflect-system hint",
  "layers_switch": "--layers 1,2,3: 1 — грамматика (доля 13-20 %), 2 — биографии, 3 — задачи с вопросом на размышление",
  "counts": {
-  "train": 4944,
-  "valid": 572,
-  "total": 5516
+  "train": 5089,
+  "valid": 609,
+  "total": 5698
  },
  "composition_check": {
-  "records_total": 5516,
-  "unique_ids": 5516,
-  "unique_message_sets": 5516,
+  "records_total": 5698,
+  "unique_ids": 5698,
+  "unique_message_sets": 5698,
   "uniqueness_rate": 1.0,
   "uniqueness_ok": true,
   "by_layer": {
-   "grammar": 949,
-   "biography": 3566,
-   "reflection": 1001
+   "grammar": 849,
+   "biography": 3337,
+   "reflection": 903
   },
   "biography_exchange_kinds": {
-   "chatter": 635,
-   "contradiction": 96,
-   "crossref_use": 345,
-   "fact": 1185,
-   "position_change": 191,
-   "probe_abstain": 81,
-   "probe_contradiction": 55,
-   "probe_crossref": 96,
-   "probe_position": 132,
-   "probe_recall": 385,
-   "repeat": 212,
-   "unanswerable": 153
+   "chatter": 650,
+   "contradiction": 92,
+   "crossref_use": 363,
+   "fact": 1243,
+   "position_change": 184,
+   "probe_abstain": 105,
+   "probe_contradiction": 76,
+   "probe_crossref": 76,
+   "probe_position": 152,
+   "probe_recall": 419,
+   "repeat": 239,
+   "unanswerable": 149
   },
-  "grammar_share": 0.172,
+  "grammar_share": 0.1665,
   "grammar_share_ok": true,
   "act_calls_in_targets": {
-   "name": 2532,
-   "repeat": 212,
-   "connect": 728,
-   "reconcile": 90,
-   "read": 470,
-   "scan": 185,
-   "calibrate": 205
+   "name": 2577,
+   "repeat": 239,
+   "connect": 715,
+   "reconcile": 76,
+   "read": 482,
+   "scan": 152,
+   "calibrate": 190
   },
   "act_calls_in_context": {
-   "name": 5311,
-   "repeat": 572,
-   "connect": 1509,
-   "reconcile": 229,
-   "read": 1154,
-   "scan": 467,
-   "calibrate": 540
+   "name": 5529,
+   "repeat": 581,
+   "connect": 1562,
+   "reconcile": 223,
+   "read": 1184,
+   "scan": 468,
+   "calibrate": 517
   },
   "acts_covered_in_targets": [
    "calibrate",
@@ -65,37 +65,38 @@
   ],
   "acts_missing_in_targets": [],
   "layer_values": {
-   "t1": 781,
-   "t2": 2392,
-   "t3": 1248,
-   "t4": 6482,
+   "t1": 831,
+   "t2": 2515,
+   "t3": 1292,
+   "t4": 6584,
    "t5": 280
   },
   "old_layer_names_found": {},
   "bad_layer_values": [],
   "layers_ok": true,
-  "calibrate_cases": 186,
-  "calibrate_cases_in_targets": 107,
+  "calibrate_cases": 190,
+  "calibrate_cases_in_targets": 124,
   "calibrate_cases_ok": true,
   "calibrate_knobs": {
-   "audibility_floor": 122,
-   "consolidation_ceiling": 76,
-   "interference_factor": 22,
-   "prefix_depth": 34,
-   "rebuild_period": 30,
-   "residency_horizon": 23,
-   "surfacing_cap": 57,
-   "tau_multiplier.t2": 32,
-   "tau_multiplier.t3": 35,
-   "tau_multiplier.t4": 23,
-   "tau_multiplier.t5": 29
+   "audibility_floor": 129,
+   "consolidation_ceiling": 88,
+   "interference_factor": 23,
+   "prefix_depth": 36,
+   "rebuild_period": 31,
+   "residency_horizon": 24,
+   "surfacing_cap": 65,
+   "tau_multiplier.t2": 30,
+   "tau_multiplier.t3": 39,
+   "tau_multiplier.t4": 26,
+   "tau_multiplier.t5": 30
   },
   "calibrate_knobs_distinct": 11,
   "calibrate_knobs_distinct_in_targets": 11,
   "calibrate_handles_ok": true,
   "unknown_knobs": {},
-  "frozen_proposal_cases": 262,
-  "frozen_proposal_cases_in_target": 76,
+  "frozen_proposal_cases": 186,
+  "frozen_proposal_cases_in_target": 38,
+  "frozen_rejection_cases": 111,
   "frozen_rejection_demos": 111,
   "frozen_rejection_records": 106,
   "frozen_ok": true,
@@ -104,7 +105,7 @@
   "length_ok": true,
   "target_loss": [],
   "target_ok": true,
-  "records_without_history": 2,
+  "records_without_history": 0,
   "act_parse_errors": [
    "gr-unit-0883",
    "gr-unit-0883",
@@ -115,9 +116,9 @@
    "gr-unit-0883",
    "gr-unit-0883"
   ],
-  "name_acts_with_pair_form": 2532,
-  "name_pairs_exact_ledger": 1508,
-  "name_pairs_derived_from_ledger": 441,
+  "name_acts_with_pair_form": 2577,
+  "name_pairs_exact_ledger": 1555,
+  "name_pairs_derived_from_ledger": 439,
   "name_pairs_not_in_ledger": 0,
   "meaningless_pairs_sample": [],
   "meaningless_pairs_ok": true,
@@ -180,11 +181,12 @@
    "нет бессмысленных пар «имя — значение»": true,
    "нет записей длиннее предела": true,
    "целевой ответ не выпадает": true,
-   "нет записей вида system+ответ без истории": false,
+   "нет записей вида system+ответ без истории": true,
    "у слоя 3 подсказка без правил": true,
    "у слоя 1 подсказка без правил": true
   },
-  "checks_passed": 12,
+  "checks_not_applicable": [],
+  "checks_passed": 13,
   "checks_total": 13,
   "grammar_units_covered": 11,
   "grammar_units_total": 11,
@@ -229,7 +231,17 @@
    "форма reconcile",
    "форма repeat",
    "форма scan"
-  ]
+  ],
+  "acts_in_targets": {
+   "reconcile": 244,
+   "repeat": 554,
+   "read": 1089,
+   "name": 4974,
+   "connect": 1413,
+   "calibrate": 504,
+   "scan": 460
+  },
+  "all_seven_acts": true
  },
  "grammar_source": "experiments/act-grammar/act-grammar-v0.2-ru.md",
  "system_prompt": {
@@ -238,5 +250,21 @@
   "reflection": "краткая подсказка без перечня актов и правил (вариант hint) — требование решения владельца 11.09.2026: правила из контекста убираются"
  },
  "note_len": "предел 1280 токенов; у слоя 2 окно истории 4 сообщений; у слоёв 1 и 3 история подрезается с начала, целевой ответ сохраняется целиком",
- "mask_prompt": true
+ "mask_prompt": true,
+ "layers_present": [
+  "ФАКТ: все три слоя на месте",
+  "слой 1 грамматика: 849 записей, подсказка 154 знака (без правил)",
+  "слой 2 биографии: 3337 записей, подсказка 2154 знака (полная, как в v04)",
+  "слой 3 размышление: 903 записей, подсказка 221 знак (форма блока без перечня актов и правил)"
+ ],
+ "intermediate_files": "биографии кэшируются в experiments/o8-pass/.v05-build/biographies.jsonl; внутрь material-v05 они не попадают",
+ "did_not_touch": [
+  "experiments/o8-pass/material-v04/"
+ ],
+ "rebuilt": "2026-09-12: пересобран после правок канона — из подсказки убрано слово «среда» и обучение счёту тика; record_tick убран из формы акта и из целей",
+ "canon_compliance_12_09_2026": {
+  "C5_tick_by_code": "из целей и из формы актов убран record_tick; подсказка говорит: его ведёт код, ты видишь его в подтверждениях",
+  "word_environment": "слово «среда» убрано из подсказки (было в 3337 записях слоя 2)",
+  "O8_skill_in_weights": "слой 3 учит без правил в контексте — метрика «навык наготове»"
+ }
 }

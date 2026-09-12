@@ -195,7 +195,7 @@ RULE_PAIRS = [
     (["какие ручки есть в перечне",
       "полный перечень ручек физики",
       "какие имена ручек допустимы"],
-     "Перечень ручек (только они):",
+     "Перечень ручек (только они) — четырнадцать",
      "`tau_multiplier.t5`."),
     (["что такое layer и какие у него горизонты",
       "что означает слой t4",
@@ -1166,6 +1166,9 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     rep["unknown_knobs"] = unknown_knobs
     rep["frozen_proposal_cases"] = frozen_cases
     rep["frozen_proposal_cases_in_target"] = frozen_in_target
+    # Случай отказа: биография предлагает замороженную ручку, приходит
+    # подтверждение об отказе, модель продолжает обычными актами.
+    rep["frozen_rejection_cases"] = rejected_demos
     rep["frozen_rejection_demos"] = rejected_demos
     rep["frozen_rejection_records"] = rejected_bio_records
     rep["frozen_ok"] = frozen_cases > 0 and rejected_demos > 0
@@ -1263,6 +1266,11 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     rep["grammar_system_text"] = sys1
     rep["biography_system_has_rules"] = any(has_rules(s) for s in sys2)
 
+    only = {r["sloy"] for r in records}
+    checks_applicable = {
+        "есть отвергнутые предложения (замороженные ручки)": "biography" in only or "reflection" in only,
+        "нет записей вида system+ответ без истории": True,
+    }
     checks = {
         "уникальность >= 90 %": rep["uniqueness_ok"],
         "доля грамматики 13-20 %": rep["grammar_share_ok"],
@@ -1280,9 +1288,15 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
         "у слоя 3 подсказка без правил": rep["reflection_system_no_rules"],
         "у слоя 1 подсказка без правил": rep["grammar_system_no_rules"],
     }
+    for k, applies in checks_applicable.items():
+        if not applies:
+            checks[k + " [слой отсутствует, проверка неприменима]"] = checks.pop(k)
     rep["checks"] = checks
-    rep["checks_passed"] = sum(1 for v in checks.values() if v)
-    rep["checks_total"] = len(checks)
+    rep["checks_not_applicable"] = [k for k in checks
+                                    if "неприменима" in k]
+    rep["checks_passed"] = sum(1 for k, v in checks.items()
+                               if v and "неприменима" not in k)
+    rep["checks_total"] = len(checks) - len(rep["checks_not_applicable"])
     return rep
 
 
@@ -1298,6 +1312,11 @@ def main():
     ap.add_argument("--exchanges", type=int, default=200)
     ap.add_argument("--reflect-per-bio", type=int, default=30)
     ap.add_argument("--grammar-share", type=float, default=0.165)
+    ap.add_argument("--grammar-count", type=int, default=0,
+                    help="явное число записей слоя 1 (0 = считать по доле). "
+                         "Нужно при сборке одного слоя: --layers 1 без этого "
+                         "даёт минимум записей, потому что доля считается "
+                         "от объёма остальных слоёв")
     ap.add_argument("--layers", default="1,2,3",
                     help="какие слои собирать: 1 грамматика, 2 биографии, "
                          "3 задачи с вопросом на размышление")
@@ -1404,8 +1423,9 @@ def main():
         text = GRAMMAR_PATH.read_text(encoding="utf-8")
         pool, units = build_grammar_pool(text, tok, args.max_len,
                                          GRAMMAR_UNIT_MAX_TOKENS)
-        n_target = grammar_target_n(len(bio_records), len(refl_records),
-                                    args.grammar_share)
+        n_target = (args.grammar_count or
+                    grammar_target_n(len(bio_records), len(refl_records),
+                                     args.grammar_share))
         rng = random.Random(f"gram:{args.seed}")
         gram_records = grammar_records(pool, units, n_target, rng, tok,
                                        args.max_len, SYSTEM_NO_RULES_PLAIN)
@@ -1463,6 +1483,18 @@ def main():
                      f"{args.window} сообщений; у слоёв 1 и 3 история "
                      f"подрезается с начала, целевой ответ сохраняется целиком"),
         "mask_prompt": True,
+        "layers_present": {
+            "grammar": "дословные разделы Инструкции и пары «вопрос-ответ»; "
+                       "системная подсказка без правил",
+            "biography": "биографии пробуждения; системная подсказка полная",
+            "reflection": "контекст обрывается в случайном месте, короткий "
+                          "вопрос на размышление, целевой ответ с опорой на "
+                          "Инструкцию; ПРАВИЛА ИЗ КОНТЕКСТА УБРАНЫ",
+        },
+        "intermediate_files": ("биографии кэшируются в "
+                               "experiments/o8-pass/.v05-build/biographies.jsonl; "
+                               "внутрь material-v05 они не попадают"),
+        "did_not_touch": ["experiments/o8-pass/material-v04/"],
     }
     (out / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")

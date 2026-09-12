@@ -176,3 +176,18 @@ Conventions:
    same event grammar (facts/positions/contradictions/repeats); more
    diverse shapes (multi-party, deadline drift, absence returns) are
    future work.
+
+---
+
+## Сборка материала v05 (три слоя) — актуальный генератор
+
+`gen_material_v05.py` в этом каталоге собирает **материал v05** для одного прохода Инструкции: слой грамматики, слой биографий и слой задач с вопросом на размышление.
+
+Одна команда:
+
+```bash
+cd /Users/alex/plastformer
+python3 experiments/organ-dataset/gen_material_v05.py
+```
+
+Переключатель слоёв — `--layers 1,2,3`. Полное описание аргументов — `MATERIAL-V05.md` в этом каталоге. Отчёт о собранном материале — `experiments/o8-pass/material-v05/REPORT.md`.

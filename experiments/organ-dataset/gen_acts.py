@@ -5,7 +5,7 @@ For each biography (gen_biography.py output) produces the target act stream
 the model should emit: JSON act calls per the record format of the act grammar.
 
 Act vocabulary: name | repeat | connect | reconcile | read.
-Act call fields: {act, content, source, layer, valid_time, record_tick, refs};
+Act call fields: {act, content, source, layer, valid_time, refs} — WITHOUT record_tick (the counter is kept by code, C5 as amended 2026-09-12; the model sees it in confirmations);
 read carries {act, mode, count|ids} (it deposits no record, hence no layer).
 
 Constitution compliance (CONSTITUTION.md P1-P10):
@@ -14,7 +14,7 @@ Constitution compliance (CONSTITUTION.md P1-P10):
   * layers are chosen per-act from the tau semantics of the fact's horizon --
     never a default (P3);
   * timestamps are bi-temporal: valid_time (world) + record_time (learned),
-    record_tick = stand counter advanced once per executed write act (P5/P6);
+    record_tick = counter of the record, advanced once per executed write act, kept by code (P5/P6; CONSTITUTION C5). It is a field of the RECORD, not of the act call.
   * source class asserted by the model in the act call (P7);
   * no content beyond the ledger/record store: every act carries internal
     _fact_ids/_record_ids/_allowed_nums used by the self-validation.
@@ -181,10 +181,16 @@ class BioActs:
     # ---------------- act-call view (what the model emits) ----------------
     @staticmethod
     def call_view(rec):
+        """Форма акта — то, что модель ШЛЁТ. Без record_tick.
+
+        Счётчик ведёт код (CONSTITUTION C5, редакция 12.09.2026): модель его
+        ВИДИТ в подтверждении <<ENV>>, но не вычисляет. Поля самой ЗАПИСИ
+        (record_tick, record_time, id) остаются в self.records и уходят модели
+        в подтверждениях read/scan — это правильно и сюда не переносится.
+        """
         return {"act": rec["act"], "content": rec["content"],
                 "source": rec["source"], "layer": rec["layer"],
-                "valid_time": rec["valid_time"],
-                "record_tick": rec["record_tick"], "refs": rec["refs"]}
+                "valid_time": rec["valid_time"], "refs": rec["refs"]}
 
     def write_ack(self, rids):
         return {"ok": True,
