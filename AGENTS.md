@@ -10,7 +10,7 @@ ONE MLX 4-bit weight file: **A = (K, Φ)**.
 
 - **K** — the frozen core: 4-bit weights with the Instruction (the act grammar) embedded once. After the embedding pass K never changes.
 - **Φ** — the plastic part of the same body, living as a section inside the same file. Φ1 and Φ2 are two origins of records within one Φ — not separate stores, not separate files, not separate entities.
-- Deleting the Φ section removes the biography; K survives. Copying the Φ section creates a copy of the memory line. Moving the file moves the instance. Outside the file there is nothing: the model is one and lives in one file.
+- The instance state lives inside the file. The file moves between machines and the instance travels with it.
 
 ## 2. Source of norms
 
@@ -65,7 +65,7 @@ What follows from this rule:
 
 Assembly material lives under `experiments/o8-pass/` and `experiments/act-grammar/`; it is not part of the artifact.
 
-**What is NOT in this project:** copying, rolling back or deleting a biography; the journal; a blind judge or any external scorer; renting machines. Records are append-only, decay is physics, and if data must be removed the file is removed.
+**Out of scope:** the journal; a blind judge or any external scorer; renting machines. Records are append-only, decay is physics, and when data must be removed the file is removed.
 ## 6. Commit discipline
 
 - Version control is the agent's responsibility: commit and push the project's own work without asking. The owner does not track commit hashes, versions or CHANGELOG details.

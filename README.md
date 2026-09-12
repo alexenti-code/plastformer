@@ -18,7 +18,7 @@ PlastFormer is ONE MLX 4-bit weight file: **A = (K, Φ)**.
 - **K** — the frozen core: general competence (language, reasoning, culture) plus the Instruction — the act grammar (`name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate`) embedded once, after which K never changes.
 - **Φ** — the plastic part of the same instance, a section of the same file. Φ1 and Φ2 are two origins of records within one Φ: Φ1 is written involuntarily by perception, Φ2 only by the model's explicit acts. Neither is a separate store, file or entity.
 
-Outside the file there is no instance state. Moving the file moves the instance. Records are append-only and decay by physics; there is no separate operation for copying, rolling back or deleting a biography (owner decision 2026-09-11) — if data must be removed, the file is removed.
+The instance state lives inside the file. Records are append-only and decay by physics. When data must be removed, the file is removed (owner decision 2026-09-11).
 
 ## The one configuration
 
