@@ -39,9 +39,10 @@ from datetime import datetime, timezone
 import numpy as np
 
 from phi import (phi_open, phi_write, phi_read, phi_scan, phi_calibrate,
-                 phi_apply_calibration, phi_knobs, VEC_NUMS)
+                 phi_apply_calibration, phi_knobs, VEC_NUMS,
+                 decayed, loudness, audible)
 
-TAU_TICKS = {"t1": 10, "t2": 50, "t3": 200, "t4": 1000, "t5": 5000}
+from phi import TAU_TICKS  # единый источник: затухание считает phi.py
 WRITE_ACTS = ("name", "repeat", "connect", "reconcile")
 LAYERS = ("t1", "t2", "t3", "t4", "t5")
 CONTENT_STORE = "phi-content.jsonl"
@@ -112,9 +113,21 @@ def stamp(t=None):
 
 # ------------------------------------------------------------------ громкость
 def weight_of(rec, tick, repeats):
-    tau = TAU_TICKS.get(rec.get("layer", "t2"), 50)
+    """Громкость следа сейчас: амплитуды, ослабшие за прожитые тики.
+
+    Закон (Теория §4, О-10): каждая из пяти компонент слабеет своей τ.
+    Здесь амплитуды берутся те, что лежат в Φ (уже с затуханием, если его
+    применили), и дополнительно домножаются на затухание от тика записи —
+    на случай, когда физику не успели применить при записи.
+    """
     dn = max(0, tick - int(rec.get("record_tick", tick)))
-    return round((1 + repeats) * float(np.exp(-dn / tau)), 3)
+    a0 = rec.get("amplitudes") or rec.get("amp0")
+    if a0 is None:
+        tau = TAU_TICKS.get(rec.get("layer", "t2"), 50)
+        base = float(np.exp(-dn / tau))
+        return round((1 + repeats) * base, 3)
+    a = decayed(a0, rec.get("layer", "t2"), dn)
+    return round((1 + repeats) * loudness(a), 3)
 
 
 def _repeats_of(records, rid):
@@ -125,8 +138,10 @@ def _repeats_of(records, rid):
 def run_acts(model_path, acts, vector_of=None, now=None, scan_limit=8):
     """Исполнить акты модели. Возвращает payload для блока <<ENV>>.
 
-    vector_of(text, layer) -> вектор содержания (1920 чисел). Если не задан,
-    берётся детерминированная заглушка — она помечена в подтверждении.
+    vector_of(text, layer) -> (вектор 1920 чисел, пять амплитуд). В рабочем
+    режиме это снятие с ядра (plastformer/vector.py: capture_centered +
+    amplitudes). Если не задан, берётся детерминированная заглушка — она
+    помечена в подтверждении и в отчёте.
     """
     head_tick = int(phi_open(model_path)["tick"])
     tick = head_tick
@@ -157,8 +172,10 @@ def run_acts(model_path, acts, vector_of=None, now=None, scan_limit=8):
             epoch, iso = stamp(now)
             content = a.get("content", "")
             layer = a.get("layer") if a.get("layer") in LAYERS else "t4"
-            vec = vector_of(content, layer) if vector_of else _placeholder(content)
-            amp = np.ones(5, dtype=np.float32)
+            if vector_of:
+                vec, amp = vector_of(content, layer)
+            else:
+                vec, amp = _placeholder(content), np.ones(5, dtype=np.float32)
             num = phi_write(model_path, "phi2", vec, amp, valid_time=epoch, tick=tick,
                             source=a.get("source", "user"), layer_taken=_layer_index(layer))
             rid = int(num) + 1
@@ -261,9 +278,13 @@ def phi_state(model_path, limit=None):
     """Записи Φ, которые подаются в восприятие: самые громкие (постоянный префикс).
 
     Возвращает список: номер, слой, громкость, текст, вектор.
-    Подача самих векторов в модель требует проекции на основу рабочей полосы
-    (решение владельца 11.09.2026, пункт 10): сырой вектор рабочим вариантом
-    не считается. Основа ещё не построена, поэтому здесь только сборка.
+    Вектор — отклонение от общей основы (см. vector.capture_centered): именно
+    отклонение несёт различие между записями, сырое состояние почти одинаково
+    для любых текстов и подавать его — значит подавать постоянное смещение.
+
+    Исправлено 12.09.2026: здесь стояло требование «проекция на основу рабочей
+    полосы». Отменено — проекция нужна чужим векторам, наш снят с того же ядра
+    и слоя. Форма вектора — как снято.
     """
     h = phi_open(model_path)
     tick = int(h["tick"])
