@@ -1174,6 +1174,10 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
     rep["length_ok"] = not long_recs
     rep["target_loss"] = target_loss[:10]
     rep["target_ok"] = not target_loss
+    # Записи вида system+ответ: история подрезана целиком. Это наследие v04
+    # (там таких 72), а не потеря: целевой ответ на месте.
+    rep["records_without_history"] = sum(1 for r in records
+                                         if len(r["messages"]) == 2)
     rep["act_parse_errors"] = parse_errors[:10]
 
     # --- осмысленность пар «имя — значение» ---
@@ -1271,6 +1275,8 @@ def check_material(records, bios, tok, max_len, share_lo, share_hi):
         "нет бессмысленных пар «имя — значение»": rep["meaningless_pairs_ok"],
         "нет записей длиннее предела": rep["length_ok"],
         "целевой ответ не выпадает": rep["target_ok"],
+        "нет записей вида system+ответ без истории":
+            rep["records_without_history"] == 0,
         "у слоя 3 подсказка без правил": rep["reflection_system_no_rules"],
         "у слоя 1 подсказка без правил": rep["grammar_system_no_rules"],
     }
@@ -1376,8 +1382,12 @@ def main():
                  "bio_id": e["bio_id"], "message_no": e["message_no"],
                  "messages": e["messages"]}
                 for e in sample_examples(
-                    em.build_examples(bio, acts, window=args.window,
-                                      tok=tok, max_len=args.max_len),
+                    [x for x in em.build_examples(bio, acts, window=args.window,
+                                                  tok=tok, max_len=args.max_len)
+                     # Запись из системного сообщения и ответа без истории:
+                     # окно подрезано целиком (наследие v04 — там таких 72).
+                     # В v05 такие не берём: учить нечему, контекста нет.
+                     if len(x["messages"]) > 2],
                     args.bio_examples_per_bio)]
         if 3 in want:
             rng = random.Random(f"refl:{args.seed}:{bio['meta']['bio_id']}")

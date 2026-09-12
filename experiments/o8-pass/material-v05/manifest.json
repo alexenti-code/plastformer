@@ -104,6 +104,7 @@
   "length_ok": true,
   "target_loss": [],
   "target_ok": true,
+  "records_without_history": 2,
   "act_parse_errors": [
    "gr-unit-0883",
    "gr-unit-0883",
@@ -179,11 +180,12 @@
    "нет бессмысленных пар «имя — значение»": true,
    "нет записей длиннее предела": true,
    "целевой ответ не выпадает": true,
+   "нет записей вида system+ответ без истории": false,
    "у слоя 3 подсказка без правил": true,
    "у слоя 1 подсказка без правил": true
   },
   "checks_passed": 12,
-  "checks_total": 12,
+  "checks_total": 13,
   "grammar_units_covered": 11,
   "grammar_units_total": 11,
   "grammar_units_written": 11,
