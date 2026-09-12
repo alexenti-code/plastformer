@@ -45,21 +45,23 @@ What follows from this rule:
 
 ## 5. Current work
 
-Work is split into **two parts**, and they are different things:
+**Both parts are done; the artifact is assembled and works.** Plan: `docs/ASSEMBLY-PLAN.ru.md` (twenty sections; the current state is in sections 15-20).
 
-**Part one — setup (the instrument).** Build the Jacobian lens for our own core and measure the workspace band: does it exist, at which layer does it start, does a vector fed at the input reach it, and should we feed the raw vector or its projection onto the workspace basis. This settles where memory is injected and in what form. The instrument is used **once**, during setup. It is not part of the finished artifact. Plan: `docs/ASSEMBLY-PLAN.ru.md` section 9.
+**Part one — setup (the instrument), done.** The Jacobian lens was built and the workspace band measured on our own core: the band exists, it starts around layer 11, and naive logit-lens reading of the middle layers gives noise. The lens is noisy because its corpus is small; that is named, not hidden. The instrument is used once and is not part of the artifact. Analysis: `docs/JSPACE-ANALYSIS.ru.md`.
 
-**Part two — assembly (the instance itself):**
+**Part two — assembly (the instance), done:**
 
-1. add `gap_threshold` and `surprise_threshold` to the Instruction knob list (owner decision 11.09.2026, option A);
-2. repair the material generator (`experiments/organ-dataset/`: layer names `t1–t5`, add `scan` and `calibrate`, fix small runs) and build material **v04** with three layers: grammar, awakening biographies, and reflection tasks;
-3. the one instruction pass embeds the Instruction into the K region — LoRA, rank 8, 8 of 48 layers, 300 iterations, `--mask-prompt`; freeze K afterwards;
-4. fuse the adapter (the installed `mlx_lm fuse` already dequantizes per layer) and merge the weight parts into ONE file;
-5. create the Φ region: 1.50 GB (Φ1 1.30 + Φ2 0.20), record 1 003 bytes, knobs and budgets written into the Φ header;
-6. write the Φ code (eight functions: open, write, read, resident, calibrate, scan, knobs, project);
-7. assemble the file A = (K, Φ) 8.20 GB;
-8. run-in: the file loads, the model answers, records are written and read back, memory survives a restart, the run fits in memory. **This checks workability only** — it is not a quality measurement;
-9. hand the instance to the owner. The artifact does not score itself, and we do not measure "better or worse".
+1. dial lists reconciled — `gap_threshold` and `surprise_threshold` added, and the Instruction now names all **fourteen** editable dials (nine names plus five τ multipliers), matching the Φ header exactly;
+2. the material generator repaired at the root and material built: **v04** (the artifact was trained on it) and **v05**, which is canon-clean — three layers, 5089 train + 609 valid, layer 3 with a rules-free prompt so the skill can learn to fire without scaffolding;
+3. the one instruction pass done — LoRA, rank 8, 8 of 48 layers, **200 iterations** (300 makes the model degenerate into repetition), `--mask-prompt`; K frozen afterwards;
+4. the adapter fused with the stock `mlx_lm fuse` (it dequantizes per layer) and the weight parts merged into ONE file;
+5. the Φ region created: 1.50 GB (Φ1 1.30 + Φ2 0.20), record 1003 bytes, knobs and budgets in the Φ header;
+6. the Φ code written — `plastformer/phi.py`, eight functions (open, write, read, resident, calibrate, scan, knobs, project) — plus `plastformer/loop.py`, the return loop that executes the model's acts and feeds back the `<<ENV>>` confirmation;
+7. the file A = (K, Φ) assembled, 8.20 GB at `models/plastformer-e1/`;
+8. run-in done: the file loads, the model answers, records are written and read back, memory survives a restart, the run fits in memory, and with an empty history the model asks for `read` by itself and restores records. **This checks workability only** — it is not a quality measurement;
+9. handed over to the owner. The artifact does not score itself, and we do not measure "better or worse".
+
+**What is honestly not closed:** the Φ-state is fed as text from the pointer, not as the projection of a record vector onto the working-band basis (the basis is not built); the model loops on `read`; record text is not stored in Φ (only a 1920-number vector, with the text beside it in `phi-content.jsonl`); Φ1 is created by physics but nothing writes it yet; the act skill still needs the training system prompt supplied from outside, while by O-8 it should live in the weights.
 
 Assembly material lives under `experiments/o8-pass/` and `experiments/act-grammar/`; it is not part of the artifact.
 

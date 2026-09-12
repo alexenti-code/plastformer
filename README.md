@@ -35,7 +35,7 @@ Anchored in LongMemEval (S/M) and LoCoMo (external benchmarks; the owner decides
 
 ## Current work
 
-**Both parts are done.** (1) **Setup** — the Jacobian lens was built and the band measured on our own core; the instrument is not part of the artifact. (2) **Assembly** — material v04, the one instruction pass, fusion into one file, the Φ region and the Φ code are complete; the artifact is handed over.
+**Both parts are done.** (1) **Setup** — the Jacobian lens was built and the band measured on our own core; the instrument is not part of the artifact. (2) **Assembly** — the one instruction pass (trained on material v04), fusion into one file, the Φ region and the Φ code are complete; the artifact is handed over. Material **v05** is also built and canon-clean: three layers, 5089 train + 609 valid, its reflection layer carrying a rules-free prompt so the skill can learn to fire without scaffolding.
 
 **What works (verified 2026-09-12):** the file loads (3.5 s, 6701 MB) and answers; Φ writes and reads; the 14 knobs live in the Φ header and survive a restart; the act skill fires; the return loop (`plastformer/loop.py`) executes the model's acts and returns the `<<ENV>>` confirmation, so the model reads its own memory — with an empty history it requests `read` by itself and restores records.
 
