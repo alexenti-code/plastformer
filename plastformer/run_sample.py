@@ -30,14 +30,29 @@ import loop
 from phi import phi_open
 
 MODEL = "/Users/alex/plastformer/models/plastformer-e1"
-MATERIAL = "/Users/alex/plastformer/experiments/o8-pass/material-v04/train.jsonl"
+MATERIAL = "/Users/alex/plastformer/experiments/o8-pass/material-v05/train.jsonl"
 SAFETY = "/Users/alex/plastformer/models/plastformer-e1/model.safetensors"
 
 
-def system_prompt(path=MATERIAL):
-    """Системная подсказка из материала обучения — та же, что в проходе."""
+def system_prompt(path=MATERIAL, min_len=1000):
+    """Системная подсказка из материала обучения — та же, что в проходе.
+
+    Берётся самая ДЛИННАЯ подсказка в материале: у слоя биографий она полная,
+    у слоёв грамматики и размышления — короткая (там правила убраны нарочно,
+    чтобы навык учился работать без подсказки, метрика «навык наготове»).
+    Для рабочего запуска нужна полная — как в проходе на биографиях.
+    """
+    best = ""
     with open(path, encoding="utf-8") as f:
-        return json.loads(f.readline())["messages"][0]["content"]
+        for line in f:
+            c = json.loads(line)["messages"][0]["content"]
+            if len(c) > len(best):
+                best = c
+            if len(best) >= min_len * 2:
+                break
+    if not best:
+        raise ValueError(f"в {path} не нашлось подсказки")
+    return best
 
 
 def state_lines(model_path=SAFETY, limit=None):
