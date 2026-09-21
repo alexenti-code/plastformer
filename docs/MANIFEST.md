@@ -61,7 +61,7 @@ One pretrained core K guarantees shared competence across all its instances. Φ 
 
 PlastFormer is the first engineering step of a broader program: continuity of artificial instances. Verification and external artifacts of record remain necessary and apply equally to Φ. The compositional properties claimed for the composition — event time (P1) and the immutable past (P2) — are stated with their limits in the preprint and are tested by the pre-registered evaluation, not asserted here.
 
-## Honest boundary
+## Scope of the claims
 
 This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The act grammar v0.2.0 (owner-approved 2026-09-09, seven acts) fixes the form of the model's own acts. No results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
 
