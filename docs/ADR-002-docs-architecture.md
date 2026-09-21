@@ -28,5 +28,5 @@ Rule: when in doubt, keep local. Enforcement: `.gitignore` excludes `inputs/` an
 
 ## 3. What this ADR does NOT do
 
-- No publication step: this project publishes nothing; the private directory stays local.
+- No publication step of its own. Publication is the owner's act alone and happens only by a release he signs; the private directory stays local.
 - No terminology changes beyond those recorded in this project.
