@@ -1,4 +1,5 @@
 inputs/
 drafts/rebuild-private/
+.claude/
 __pycache__/
 .DS_Store
