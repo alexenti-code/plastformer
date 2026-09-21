@@ -1,7 +1,7 @@
 # PlastFormer: An Architectural Proposal for Transformers
 
 **Version:** 4.2
-**Status:** ACTIVE — declaration only, not published; norms live in CONSTITUTION.md
+**Status:** ACTIVE — declaration only; publication is the owner's act alone and happens only by a release he signs ([ADR-002](ADR-002-docs-architecture.md) §3). Norms live in CONSTITUTION.md
 **Author:** Alexenti / AURA
 **Repository:** alexenti-code/plastformer
 **Lineage:** primary disclosure AURA-Retrieval, commit 539fc32 (2026-06-26); source release DOI 10.5281/zenodo.22141019; concept DOI 10.5281/zenodo.22124204
@@ -63,7 +63,7 @@ PlastFormer is the first engineering step of a broader program: continuity of ar
 
 ## Scope of the claims
 
-This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The act grammar v0.2.0 (owner-approved 2026-09-09, seven acts) fixes the form of the model's own acts. No results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
+This document proposes an architecture and names an object of research. How Φ is updated, represented, read within the forward pass is the next engineering task and is not disclosed here. The act grammar (owner-approved 2026-09-09, seven acts) fixes the form of the model's own acts. No results are reported — E1 is pre-registered. Adjacent industrial movement — hybrid architectures whose recurrent state spans the whole working stream — confirms the direction. PlastFormer states what that step becomes: lived time, bi-temporal facts, and a memory that survives the ticks — governed, past a stated boundary, by the model's own acts.
 
 ## Research questions
 

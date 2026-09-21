@@ -1,10 +1,10 @@
 # PlastFormer — Glossary
 
 **Version:** 4.2
-**Status:** ACTIVE — dictionary only, complements THEORY.md v4.1 and CONSTITUTION.md v3.0
-**Related documents:** [THEORY.md](THEORY.md) · [CONSTITUTION.md](CONSTITUTION.md) · [MANIFEST.md](MANIFEST.md) · [preprint v0.5](../preprint.md)
+**Status:** ACTIVE — dictionary only, complements THEORY.md v4.1 and CONSTITUTION.md
+**Related documents:** [THEORY.md](THEORY.md) · [CONSTITUTION.md](CONSTITUTION.md) · [MANIFEST.md](MANIFEST.md) · [preprint](../preprint.md)
 
-> This file is a dictionary: term → definition. It states no rules and no tests. Enforceable statements live in [CONSTITUTION.md](CONSTITUTION.md). Where this file and the preprint overlap, preprint v0.5 terminology governs the formalization.
+> This file is a dictionary: term → definition. It states no rules and no tests. Enforceable statements live in [CONSTITUTION.md](CONSTITUTION.md). Where this file and the preprint overlap, the preprint's terminology governs the formalization.
 
 ---
 
@@ -23,7 +23,7 @@ The part of the model weights carrying general competence. Unchanged during the 
 The part of the same weight file that changes under memorization without changing the frozen part K. It is a section of one body, not a second store. Belongs to one instance.
 
 ### Memory act [акт памяти] — name / repeat / connect / reconcile / read / calibrate / scan
-An act of the model that writes into its memory as part of its activity — analogous to a person writing a note. The acts: `name` (fix source, time, boundaries), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule as a new trace, sources untouched), `reconcile` (record the relation of felt time to audited time). `read` is surfacing (`read last N / ids / range` from the model's own Φ section). `calibrate` — the model inspects the physics of its own memory and proposes dial changes; boundaries are validated and changes apply from the next episode (budget capped; master switch owned by the owner). `scan` — the model inspects the Φ1 register layout. TICK is counted by the physics, not issued by the model. (Ratified set of SEVEN acts: `name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate` — act-grammar v0.2.0, owner approval 2026-09-09. The earlier "eight" was a numbering error in the CAL-1 protocol.)
+An act of the model that writes into its memory as part of its activity — analogous to a person writing a note. The acts: `name` (fix source, time, boundaries), `repeat` (re-amplify, paying the write cost), `connect` (deposit a summary or rule as a new trace, sources untouched), `reconcile` (record the relation of felt time to audited time). `read` is surfacing (`read last N / ids / range` from the model's own Φ section). `calibrate` — the model inspects the physics of its own memory and proposes dial changes; boundaries are validated and changes apply from the next episode (budget capped; master switch owned by the owner). `scan` — the model inspects the Φ1 register layout. TICK is counted by the physics, not issued by the model. (Ratified set of SEVEN acts: `name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate` — owner approval 2026-09-09.)
 
 ### Instance A = (K, Φ) [экземпляр]
 The acting whole A(t) = (K, Φ(t)). The core is shared by all instances of one core; the plastic module belongs to one instance.

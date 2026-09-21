@@ -11,12 +11,12 @@
 |---|---|---|---|
 | `docs/THEORY.md` + `THEORY.ru.md` v4.1 | mechanisms description only | multi-tau decay, two clocks, reconcile, background tick as core-without-input, cascade anchors, descriptive act/time accounts | must/forbidden norms, "Violated if" tests, axioms, permissions, punishments |
 | `docs/GLOSSARY.md` v4.2 | pure dictionary | term → definition (EN with RU term in brackets) | axioms, permissions, punishments, norms, "Violated if" |
-| `docs/MANIFEST.md` v4.2 | outward declaration only | claim, positioning, lineage, working-name note, honest boundary, research questions | enforceable norms, notes about replaced wording |
+| `docs/MANIFEST.md` v4.2 | outward declaration only | claim, positioning, lineage, working-name note, boundary of the claims, research questions | enforceable norms, notes about replaced wording |
 | `docs/CONSTITUTION.md` | binding norms | postulates O-1…O-10 and checks C1–C8, each = statement + "Violated if" test; precedence header | mechanisms exposition, dictionary entries, lineage narrative |
 | `AGENTS.md` (repo root, PUBLIC) | agent read order, file map, forbidden patterns, commit discipline | public, harmless instructions | secrets, internal paths, unpublished results |
 | `drafts/rebuild-private/` (gitignored) | what NEVER goes public | private working layer: ТЗ, cards, journal, snapshots | — (never published) |
 
-Precedence: **CONSTITUTION > ADR > preprint / E1 / SPEC / code**.
+Precedence: **CONSTITUTION > ADR > preprint / protocol / specifications / code** (CONSTITUTION C8).
 
 ## 2. Public/internal boundary
 

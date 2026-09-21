@@ -42,7 +42,7 @@ A layer names a decay time constant τ, never a container, mailbox, or permissio
 
 # Part II — Compliance tests
 
-*Not axioms: violation criteria that keep Part I honest. A statement of Part I fails its test exactly when the condition below holds.*
+*Not axioms: violation criteria. A statement of Part I fails its test exactly when the condition below holds.*
 
 ### C1. One semantic subject.
 Only the core K performs semantic acts. Φ stores state and does nothing semantic. Violated if: any non-K component's output determines what a record means, whether it is kept or surfaced, or how it is paraphrased — including "deterministic" classifiers, extractors, or pre-filters.
@@ -65,5 +65,5 @@ The model asserts the source class per record; the deployer's frozen cap table b
 ### C7. Governance is post-boundary and held-out.
 The instruction pass (O-8) builds capacity; the content of a live biography is built by the model in life. Scoring belongs to deployment and happens after a run. Violated if: a score reaches a run's context; a run is rewarded mid-run; agreement with an outside score is cited as evidence of self-governance.
 
-### C8. Precedence and honesty labels.
+### C8. Precedence and report labels.
 On conflict: this Constitution > ADRs > preprint/protocol/specs/code. **A direct owner decision taken after this edition has force over it and over any ADR; it is incorporated here by a separate edit.** Until it is incorporated, the owner's decision governs, the earlier text counts as lagging, and the divergence is stated aloud. Every report states its configuration point, which dials were frozen, which ablations were on, and what is not claimed until built. Violated if: a result is reported without coordinates; an ablation flag leaks into a main-run claim; lagging text is presented as governing.

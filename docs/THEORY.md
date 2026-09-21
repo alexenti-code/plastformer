@@ -1,14 +1,12 @@
 # PlastFormer — Theory
 
-**Status:** ACTIVE — mechanisms only (v4.1; background tick deferred per Fork 8; §9 state updated). (mechanisms)
-
-**Version:** 4.0 (restructured per ADR-002; norms moved to CONSTITUTION.md v3.0)
-**Status:** Draft — mechanisms description, complements CONSTITUTION.md v3.0
-**Related documents:** [ADR-002](ADR-002-docs-architecture.md) · [CONSTITUTION.md](CONSTITUTION.md) · [preprint v0.5](../preprint.md) · [GLOSSARY.md](GLOSSARY.md) · [MANIFEST.md](MANIFEST.md) · Russian version: [THEORY.ru.md](THEORY.ru.md)
+**Status:** ACTIVE — mechanisms only.
+**Version:** 4.1
+**Related documents:** [ADR-002](ADR-002-docs-architecture.md) · [CONSTITUTION.md](CONSTITUTION.md) · [preprint](../preprint.md) · [GLOSSARY.md](GLOSSARY.md) · [MANIFEST.md](MANIFEST.md) · Russian version: [THEORY.ru.md](THEORY.ru.md)
 
 > Naming note (lineage): this theory circulated earlier under the working name "Matryoshka" (see MANIFEST.md lineage). The architecture is now **PlastFormer**.
 
-> What this document is: a description of mechanisms — multi-tau decay, two clocks, reconcile, background tick as core-without-input, cascade anchors, acts, and open questions. Normative statements and tests live in [CONSTITUTION.md](CONSTITUTION.md). Where this file and the preprint overlap, preprint v0.5 wording describes the formalization; where this file and CONSTITUTION overlap, CONSTITUTION governs.
+> What this document is: a description of mechanisms — multi-tau decay, two clocks, reconcile, background tick as core-without-input (deferred, §4), cascade anchors, acts, and open questions. Normative statements and tests live in [CONSTITUTION.md](CONSTITUTION.md). Where this file and the preprint overlap, the preprint's wording describes the formalization; where this file and CONSTITUTION overlap, CONSTITUTION governs.
 
 ---
 
@@ -44,7 +42,7 @@ Resulting series: **tact → episode → day → project → life**.
 
 **Why five entries.** The draft started from conversation and lost the innermost level — the present. The fifth level (tact) is the point where experience is not yet a form but live work. A sixth level ("life band", "chapter") is treated as a section of biography, not a separate store, unless it shows a separate timescale and a separate role.
 
-**Status of the levels in v4.0.** The five levels are an *interpretation of the amplitude profile*, not containers. A fresh trace is strong in fast components — it is read as "in the tact"; hours later the fast part has faded and the middle part holds — the trace reads as "in the day"; weeks later only the slow part remains — the trace reads as "in the life". Nesting is how the physics reads, not where records are moved.
+**Status of the levels.** The five levels are an *interpretation of the amplitude profile*, not containers. A fresh trace is strong in fast components — it is read as "in the tact"; hours later the fast part has faded and the middle part holds — the trace reads as "in the day"; weeks later only the slow part remains — the trace reads as "in the life". Nesting is how the physics reads, not where records are moved.
 
 ## 2.1. Organization of layers: speed, not place
 
@@ -102,7 +100,7 @@ Ownership description: the frozen core K is shared weights; the plastic Φ belon
 
 ## 4. Time: lived ticks, audited stamps, reconcile
 
-Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
+Decay is described in **lived ticks** Δn (preprint §4):
 
 - **Tick.** One tick = one inference step (one generation batch). The tick rate is a property of the physics and is finite. Counter mapping: 1 executed storing act = +1 tick (sparse sampling of abstract ticks); see CONSTITUTION C5 for the enforceable counter rule.
 - **Decay law.** a_i(n) = a_i(0)·e^(−Δn/τ_i), Δn in lived ticks; all τ_i therefore in ticks.
@@ -113,16 +111,16 @@ Decay is described in **lived ticks** Δn (preprint §3.2, §3.5, §4):
 
 The acting whole at time t: **A(t) = (K, Φ(t))**. K is the frozen core; Φ(t) is the experience of this instance at tick t.
 
-**Background tick (mechanism — DEFERRED, Fork 8).** The background tick (the core running with no user input; the work belongs to the core itself) — described for completeness: the core running with no user input at a memory-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (DESIGN §13, Fork 8; owner decision 2026-09). A memory process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7).
+**Background tick (mechanism — DEFERRED).** The background tick (the core running with no user input; the work belongs to the core itself) — described for completeness: the core running with no user input at a memory-set low rate, replaying traces and issuing `connect` acts, each recorded as a new trace. It is a deferred milestone, not a current mechanism: dormancy is zero lived time by construction, and no process outside the core executes work (owner decision 2026-09). A memory process linking traces by itself (no core act) is a different mechanism and belongs to ablations (CONSTITUTION C4/C7).
 
-## 5. Acts: name / repeat / connect / reconcile (+ write / read)
+## 5. Acts
 
 - **TICK is counted by the physics**, not issued by the model.
 - **`name`** — fix source, time, boundaries; turns a drifting trace into an episode.
 - **`repeat`** — re-amplify a trace, paying the write cost.
 - **`connect`** — deposit a summary or rule into slow components as a *new* trace; sources untouched.
 - **`reconcile`** — record the relation between felt time and audited time as a new trace (see §4 above).
-- **Physical `write (unconscious)`** — described as: the physics writes a low-amplitude fast trace when the core's own prediction error (next-token perplexity, read from the same forward pass in the parametric co-located configuration) exceeds a frozen, content-blind threshold; nothing writes below it. The embedding-distance surrogate is an external classifier and stays forbidden in every configuration (C2). Surprise traces are enabled in the main run of the parametric assembly with provenance `source=surprise` (owner decision 2026-09-07; e1-protocol v1.6).
+- **Physical `write (unconscious)`** — described as: the physics writes a low-amplitude fast trace when the core's own prediction error (next-token perplexity, read from the same forward pass in the parametric co-located configuration) exceeds a frozen, content-blind threshold; nothing writes below it. The embedding-distance surrogate is an external classifier and stays forbidden in every configuration (C2). Surprise traces are enabled in the main run of the parametric assembly with provenance `source=surprise` (owner decision 2026-09-07).
 - **Physical `read`** — surfacing from the model's own Φ section (`read last N / ids / range`): the N loudest traces by amplitude — no relevance, no embeddings. (Enforceable trigger/rank rules: CONSTITUTION C2.)
 
 ## 6. Bi-temporality and instance continuity (description)
@@ -140,13 +138,13 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 ## 8. Scope of the claims
 
-- No **results** are in this document. E1 is pre-registered (preprint §7): statements about substrate physics describe the contract, not results of execution.
+- No **results** are in this document. E1 is pre-registered: statements about substrate physics describe the contract, not results of execution.
 - Memory registers Φ1/Φ2 (ADR-005, owner-approved 2026-09-09): two provenance registers of one memory — Φ1 (involuntary layout of perception, written by physics only: surprise, gap-after-dormancy; visible in `scan`, never in the prefix) and Φ2 (personality; explicit acts only; only Φ2 enters the prefix). Φ1/Φ2 volume is unlimited; decay is the only limiter.
 - P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
 
 ## Composition
 
-P1–P3 are compositional properties: every ingredient is individually known; the composition is the claim (preprint §1).
+P1–P3 are compositional properties: every ingredient is individually known; the composition is the claim.
 
 ## Lineage
 
