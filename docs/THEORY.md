@@ -140,11 +140,13 @@ Continuity of an instance is described as following from preservation of Φ: the
 
 ## 8. Honest boundary: what is built and what is not (state of 2026-09-12)
 
+The weight file, the engine and the E1 protocol named in this section are built outside this repository and are not part of it.
+
 - Built as development instrumentation (not part of the artifact): a working model of the Φ physics, the write and read paths, the act grammar **v0.2.0** (owner-approved 2026-09-09; seven acts — `name`, `repeat`, `connect`, `reconcile`, `read`, `scan`, `calibrate`; layer names t1–t5).
-- **BUILT (2026-09-12): the single weight file A = (K, Φ)** — `models/plastformer-e1/`, 8.20 GB, with the Instruction embedded into K by the one pass. The Φ section is read and written at run time: `plastformer/phi.py` holds the eight functions and `plastformer/loop.py` is the return loop that executes the model's acts and feeds back the `<<ENV>>` confirmation.
+- **BUILT (2026-09-12): the single weight file A = (K, Φ)** — 8.20 GB, with the Instruction embedded into K by the one pass. The Φ section is read and written at run time by the engine: it holds the eight functions of the Φ physics, and its return loop executes the model's acts and feeds back the `<<ENV>>` confirmation.
 - **Not built:** feeding the Φ-state as the projection of a record vector onto the working-band basis (today records are fed as text from the pointer, and the lens is too noisy to build the basis); writing Φ1, which by ADR-005 is created by the physics of perception — the loop does not write it; the autonomous act trigger without prompt scaffolding (by O-8 the skill should live in the weights, while today the act skill still needs the training system prompt supplied from outside).
 - Memory registers Φ1/Φ2 (ADR-005, owner-approved 2026-09-09): two provenance registers of one memory — Φ1 (involuntary layout of perception, written by physics only: surprise, gap-after-dormancy; visible in `scan`, never in the prefix) and Φ2 (personality; explicit acts only; only Φ2 enters the prefix). Φ1/Φ2 volume is unlimited; decay is the only limiter.
-- There are **no results** in this document — E1 is pre-registered (see `experiments/e1-protocol.md`, version in the file header, and preprint §7).
+- There are **no results** in this document — E1 is pre-registered (see the E1 protocol v1.4 and preprint §7).
 - The September 4, 2026 bench run is a pilot of loudness-readout mechanics with calendar aging — not evidence for event time (P1).
 - P2 restates the immutable past: records are append-only; a position change is a new trace; curation by omission (letting a trace decay by not repeating it) remains possible: nothing in the architecture prevents the model from letting its own traces fade.
 
